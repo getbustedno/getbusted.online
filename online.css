@@ -1,0 +1,5 @@
+.langs{display:inline-flex;gap:6px;margin:0 6px}
+.langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75}
+.langs a[aria-current]{border-color:#B7D147;color:#B7D147;opacity:1}
+footer .langs{margin-left:12px}
+@media (max-width:640px){.nav nav .langs a{display:inline-block;margin-left:0}.nav nav .langs{margin:0 4px}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap}}
