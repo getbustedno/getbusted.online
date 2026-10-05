@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help - Get Busted</title>
+<meta name="description" content="Answers about Get Busted: how to play, restoring purchases, redeeming codes, alcohol-free mode and more.">
+<meta property="og:title" content="Help - Get Busted">
+<meta property="og:description" content="Answers about Get Busted: how to play, restoring purchases, redeeming codes, alcohol-free mode and more.">
+<meta property="og:image" content="https://getbusted.online/img/og.jpg">
+<meta property="og:url" content="https://getbusted.online/help/">
+<link rel="canonical" href="https://getbusted.online/help/">
+<link rel="alternate" hreflang="en" href="https://getbusted.online/help/">
+<link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/hjalp/">
+<link rel="alternate" hreflang="da" href="https://getbusted.online/da/hjaelp/">
+<link rel="alternate" hreflang="x-default" href="https://getbusted.online/help/">
+<meta name="theme-color" content="#2B2B2B">
+<link rel="icon" href="/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/online.css">
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/logo.png" alt="">Get Busted</a>
+    <nav>
+      <a href='/#how'>How it works</a><a href='/#packs'>Packs</a><a href='/#faq'>FAQ</a>
+      <span class='langs'><a href='/help/' data-lang='en' aria-current="page">EN</a><a href='/sv/hjalp/' data-lang='sv'>SV</a><a href='/da/hjaelp/' data-lang='da'>DA</a><a href='https://getbusted.no/' data-lang='no'>NO</a></span>
+      <a class="cta" href="/#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<article class="article">
+  <p class="kicker">Help</p>
+  <h1>Questions and answers</h1>
+  <h2>How do you play?</h2>
+  <p>Enter the names (2 to 30 players), pick packs, level and how thirsty you are. One person is the reader: they hold the phone and read every card out loud. Swipe or tap for the next card, and tap the left edge of the card to go back. You can change the reader, and add or remove players, at any time by tapping the name at the top.</p>
+  <h2>How do I restore my purchases?</h2>
+  <p>Open Packs in the app and tap Restore purchases under "Bought before?". Use the same Apple ID or Google account you bought with. You do not need an account with us.</p>
+  <h2>How do I redeem a code?</h2>
+  <p>Open Packs and tap Redeem code. On iPhone, Apple opens a window where you enter the code. On Android, Google Play opens so you can redeem it there.</p>
+  <h2>How does alcohol-free mode work?</h2>
+  <p>Choose Alcohol-free when you set up the game. It is the same game, but sips become points, and whoever has the most points loses. Everyone can play together, with or without a drink.</p>
+  <h2>Is the text hard to read?</h2>
+  <p>Choose Large text when you set up the game, or tap Aa during the game to switch.</p>
+  <h2>Why 18+?</h2>
+  <p>Get Busted is a party game for adults. The app asks you to confirm that you are 18 or older the first time you open it. If you are under 18, you cannot use the app.</p>
+  <h2>Can I skip a card?</h2>
+  <p>Yes, always. Just go to the next card. Nobody has to do anything they do not want to.</p>
+  <h2>Something else?</h2>
+  <p>Email <a href="mailto:kontakt@getbusted.no">kontakt@getbusted.no</a>. For purchases, include the purchase date or the receipt from Apple or Google.</p>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><a href="/help/">Help</a><a href="/privacy/">Privacy</a><a href="mailto:kontakt@getbusted.no">Contact</a><span class='langs'><a href='/help/' data-lang='en' aria-current="page">EN</a><a href='/sv/hjalp/' data-lang='sv'>SV</a><a href='/da/hjaelp/' data-lang='da'>DA</a><a href='https://getbusted.no/' data-lang='no'>NO</a></span></div>
+    <div>© 2026 Get Busted · Snikkerbua Holding AS, org.nr. 927 118 300 · Adults 18+ · Drink responsibly</div>
+  </div>
+</footer>
+<script>
+// Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
+document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
+var now = Date.now();
+document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
+</script>
+</body>
+</html>

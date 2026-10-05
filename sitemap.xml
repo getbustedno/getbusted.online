@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://getbusted.online/</loc></url>
-<url><loc>https://getbusted.online/sv/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+  <loc>https://getbusted.online/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/sv/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/da/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/help/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/help/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/hjalp/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/hjaelp/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/help/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/sv/hjalp/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/help/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/hjalp/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/hjaelp/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/help/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/da/hjaelp/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/help/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/hjalp/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/hjaelp/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/help/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/privacy/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/integritet/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/privatliv/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/personvern/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/privacy/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/sv/integritet/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/integritet/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/privatliv/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/personvern/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/privacy/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/da/privatliv/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/privacy/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/integritet/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/da/privatliv/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/personvern/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/privacy/"/>
+</url>
 </urlset>

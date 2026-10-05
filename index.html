@@ -12,6 +12,7 @@
 <link rel="canonical" href="https://getbusted.online/">
 <link rel="alternate" hreflang="en" href="https://getbusted.online/">
 <link rel="alternate" hreflang="sv" href="https://getbusted.online/sv/">
+<link rel="alternate" hreflang="da" href="https://getbusted.online/da/">
 <link rel="alternate" hreflang="no" href="https://getbusted.no/">
 <link rel="alternate" hreflang="x-default" href="https://getbusted.online/">
 <meta name="theme-color" content="#2B2B2B">
@@ -22,9 +23,10 @@
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/online.css">
 <script>
-// Første besøk fra en svensk telefon: send til /sv/. Valgt språk huskes.
-try { var c = localStorage.getItem('gb-lang');
-  if (!c && /^sv\b/i.test(navigator.language || '')) location.replace('/sv/'); } catch (e) {}
+// Første besøk fra en svensk eller dansk telefon: send til /sv/ eller /da/. Valgt språk huskes.
+try { var c = localStorage.getItem('gb-lang'), l = navigator.language || '';
+  if (!c && /^sv\b/i.test(l)) location.replace('/sv/');
+  else if (!c && /^da\b/i.test(l)) location.replace('/da/'); } catch (e) {}
 </script>
 </head>
 <body>
@@ -33,7 +35,7 @@ try { var c = localStorage.getItem('gb-lang');
     <a class="brand" href="/"><img src="/img/logo.png" alt="">Get Busted</a>
     <nav>
       <a href='#how'>How it works</a><a href='#packs'>Packs</a><a href='#faq'>FAQ</a>
-      <span class='langs'><a href='/' data-lang='en' aria-current="page">EN</a><a href='/sv/' data-lang='sv'>SV</a><a href='https://getbusted.no/' data-lang='no'>NO</a></span>
+      <span class='langs'><a href='/' data-lang='en' aria-current="page">EN</a><a href='/sv/' data-lang='sv'>SV</a><a href='/da/' data-lang='da'>DA</a><a href='https://getbusted.no/' data-lang='no'>NO</a></span>
       <a class="cta" href="#download">Download</a>
     </nav>
   </div>
@@ -68,7 +70,7 @@ try { var c = localStorage.getItem('gb-lang');
   <div class="wrap">
     <p class="kicker">More than a deck of cards</p>
     <h2>Things a normal deck can&#x27;t do</h2>
-    <div class="features"><div class='feature'><h3>Written for now</h3><p>AI everything, viral moments, dating apps, budget airlines and the shows you binged. New topical cards every month, no update needed.</p></div><div class='feature'><h3>Twists</h3><p>Some cards flip after they&#x27;re read out. What you thought was safe, isn&#x27;t.</p></div><div class='feature'><h3>Rapid</h3><p>Five fingers up. Statements back to back. First one out loses.</p></div><div class='feature'><h3>Secret missions</h3><p>The phone goes to one player, who gets a mission only they know about.</p></div><div class='feature'><h3>Song cards</h3><p>Put on the song and follow the rule. One tap opens it in Spotify.</p></div><div class='feature'><h3>The night in numbers</h3><p>After the game: the most busted player, cards played and Rapid rounds. Ready to share.</p></div></div>
+    <div class="features"><div class='feature'><h3>Written for now</h3><p>AI everything, viral moments, dating apps, budget airlines and the shows you binged. New topical cards every month, no update needed.</p></div><div class='feature'><h3>Twists</h3><p>Some cards flip after they&#x27;re read out. What you thought was safe, isn&#x27;t.</p></div><div class='feature'><h3>Rapid</h3><p>Five fingers up. Statements back to back. First one out loses.</p></div><div class='feature'><h3>Secret missions</h3><p>The phone goes to one player, who gets a mission only they know about.</p></div><div class='feature'><h3>Song cards</h3><p>Put on the song and follow the rule. One tap opens it in Spotify.</p></div><div class='feature'><h3>Team play</h3><p>Play in fixed duos or Red vs Blue. Team duels along the way, and the app keeps the score.</p></div><div class='feature'><h3>Odds</h3><p>&quot;What are the odds you ...?&quot; You both count down and say a number at the same time.</p></div><div class='feature'><h3>Big text</h3><p>Larger letters that are easy to read out loud, even in a dark room. Switch with Aa mid-game.</p></div><div class='feature'><h3>The night in numbers</h3><p>After the game: the most busted player, cards played and Rapid rounds. Ready to share.</p></div></div>
   </div>
 </section>
 
@@ -95,7 +97,7 @@ try { var c = localStorage.getItem('gb-lang');
       <div class='pack' data-pack='friendsgiving' data-release='2026-11-12'><img src='/img/cover_friendsgiving.jpg' alt='' loading='lazy'><b>Friendsgiving</b><span>Potluck and turkey disasters</span><i class='soon'>Coming Nov 12</i></div>
       <div class='pack' data-pack='paddys' data-release='2027-03-03'><img src='/img/cover_paddys.jpg' alt='' loading='lazy'><b>St. Paddy&#x27;s</b><span>Green, the craic and the Irish exit</span><i class='soon'>Coming Mar 3</i></div>
     </div>
-    <div class="pricing"><div class='price'><div class='amt'>Free</div><p>50 cards from Original every night. No sign-up.</p></div><div class='price'><div class='amt'>One pack</div><p>Per theme pack, or the Get Fu**ed level across every pack. One-time purchase.</p></div><div class='price'><div class='amt'>Busted+</div><p>The whole app: every pack, including future ones, the Get Fu**ed level and unlimited Original. Pay once, no subscription.</p></div></div>
+    <div class="pricing"><div class='price'><div class='amt'>Free</div><p>50 cards from Original every night. No sign-up.</p></div><div class='price'><div class='amt'>One pack</div><p>Per theme pack, or the Get Fu**ed level across every pack. One-time purchase.</p></div><div class='price'><div class='amt'>Night Pack</div><p>One pack of your choice + the Get Fu**ed level, for less than buying them separately.</p></div><div class='price'><div class='amt'>Busted+</div><p>The whole app: every pack, including future ones, the Get Fu**ed level and unlimited Original. Pay once, no subscription. Launch price until the end of December.</p></div></div>
   </div>
 </section>
 
@@ -111,14 +113,14 @@ try { var c = localStorage.getItem('gb-lang');
   <div class="wrap" style="max-width:820px">
     <p class="kicker">Questions</p>
     <h2>FAQ</h2>
-    <details><summary>Is it free?</summary><p>Yes. You get 50 cards from the Original deck for free every night. Theme packs are one-time purchases, and Busted+ unlocks the whole app with one payment. No subscription.</p></details><details><summary>Do we have to drink?</summary><p>No. Turn on alcohol-free mode and every sip becomes a point. And skipping is always allowed.</p></details><details><summary>How many can play?</summary><p>From 2 to 30. Big groups get more cards that apply to everyone at once.</p></details><details><summary>Which languages?</summary><p>English, Swedish and Norwegian, each with its own cards and menus. Pick the language on the start screen.</p></details><details><summary>When is it out?</summary><p>Soon on iPhone and Android. Follow @getbusted.uk on Instagram and TikTok to hear first.</p></details>
+    <details><summary>Is it free?</summary><p>Yes. You get 50 cards from the Original deck for free every night. Theme packs are one-time purchases, the Night Pack gets you one pack plus the Get Fu**ed level, and Busted+ unlocks the whole app with one payment. No subscription.</p></details><details><summary>Do we have to drink?</summary><p>No. Turn on alcohol-free mode and every sip becomes a point. And skipping is always allowed.</p></details><details><summary>How many can play?</summary><p>From 2 to 30. Big groups get more cards that apply to everyone at once.</p></details><details><summary>Can we play in teams?</summary><p>Yes. Pick duos or two teams, Red vs Blue, when you set up the game. The app keeps the score.</p></details><details><summary>Which languages?</summary><p>English, Swedish, Danish and Norwegian, each with its own cards and menus. Pick the language on the start screen.</p></details><details><summary>When is it out?</summary><p>Soon on iPhone and Android. Follow @getbusted.uk on Instagram and TikTok to hear first.</p></details>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div><a href="https://getbusted.no/personvern/#en">Privacy</a><a href="mailto:kontakt@getbusted.no">Contact</a><span class='langs'><a href='/' data-lang='en' aria-current="page">EN</a><a href='/sv/' data-lang='sv'>SV</a><a href='https://getbusted.no/' data-lang='no'>NO</a></span></div>
+    <div><a href="/help/">Help</a><a href="/privacy/">Privacy</a><a href="mailto:kontakt@getbusted.no">Contact</a><span class='langs'><a href='/' data-lang='en' aria-current="page">EN</a><a href='/sv/' data-lang='sv'>SV</a><a href='/da/' data-lang='da'>DA</a><a href='https://getbusted.no/' data-lang='no'>NO</a></span></div>
     <div>© 2026 Get Busted · Snikkerbua Holding AS, org.nr. 927 118 300 · Adults 18+ · Drink responsibly</div>
   </div>
 </footer>
