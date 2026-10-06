@@ -42,6 +42,7 @@
   <div class="wrap">
     <div>
       <img class="logo" src="/img/logo.png" alt="Get Busted" width="150" height="150">
+      <a class="season-pill" href="#packs" hidden></a>
       <h1>Festspelet som <em>tar över</em> kvällen</h1>
       <p class="lead">En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 2 600+ kort skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.</p>
       <div class="badges" id="download">
@@ -77,7 +78,7 @@
   </div>
 </section>
 
-<section class="xmas" data-until="2026-12-31">
+<section class="xmas" data-until="2026-12-31" hidden>
   <div class="wrap">
     <div>
       <p class="kicker">1-24 december · gratis</p>
@@ -134,7 +135,7 @@
   <div class="wrap" style="max-width:820px">
     <p class="kicker">Frågor</p>
     <h2>Vanliga frågor</h2>
-    <details><summary>Är det gratis?</summary><p>Ja. Du får 50 kort från Original gratis varje kväll. Temapaketen är engångsköp, Kvällspaketet ger dig ett paket plus Get Fu**ed-nivån, och Busted+ låser upp hela appen med en betalning. Ingen prenumeration.</p></details><details><summary>Kan alla vara med?</summary><p>Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.</p></details><details><summary>Hur många kan spela?</summary><p>Från 2 till 30. Stora gäng får fler kort som gäller alla samtidigt.</p></details><details><summary>Kan vi spela i lag?</summary><p>Ja. Välj duos eller två lag, Röd mot Blå, när ni ställer in spelet. Appen håller koll på ställningen.</p></details><details><summary>Vilka språk?</summary><p>Svenska, engelska, danska och norska, med egna kort och menyer. Välj språk på startsidan.</p></details><details><summary>När kommer den?</summary><p>30 oktober till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.</p></details><details><summary>Vad är julkalendern?</summary><p>En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.</p></details>
+    <details><summary>Är det gratis?</summary><p>Ja. Du får 50 kort från Original gratis varje kväll. Temapaketen är engångsköp, Kvällspaketet ger dig ett paket plus Get Fu**ed-nivån, och Busted+ låser upp hela appen med en betalning. Ingen prenumeration.</p></details><details><summary>Kan alla vara med?</summary><p>Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.</p></details><details><summary>Hur många kan spela?</summary><p>Från 2 till 30. Stora gäng får fler kort som gäller alla samtidigt.</p></details><details><summary>Kan vi spela i lag?</summary><p>Ja. Välj duos eller två lag, Röd mot Blå, när ni ställer in spelet. Appen håller koll på ställningen.</p></details><details><summary>Vilka språk?</summary><p>Svenska, engelska, danska och norska, med egna kort och menyer. Välj språk på startsidan.</p></details><details><summary>När kommer den?</summary><p>30 oktober till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.</p></details>
   </div>
 </section>
 </main>
@@ -145,6 +146,7 @@
     <div>© 2026 Get Busted · Snikkerbua Holding AS, org.nr. 927 118 300 · För vuxna 18+</div>
   </div>
 </footer>
+<script src="/season.js" defer></script>
 <script>
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });

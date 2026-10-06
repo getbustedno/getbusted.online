@@ -278,6 +278,8 @@ COUNTS = {
  'sv': {'original': 380, 'halloween': 168, 'jul': 194, 'reise': 225, 'fotball': 217, 'sport': 217, 'student': 210, 'utdrikning': 212, 'hytta': 175, 'nach': 166, 'mello': 174, 'midsommar': 173, 'kraftskiva': 175},
  'da': {'original': 308, 'halloween': 163, 'jul': 194, 'nach': 177, 'hytta': 173, 'reise': 178, 'student': 180, 'utdrikning': 178, 'fotball': 182, 'sport': 182},
 }
+# Julekalenderen kommer i en appoppdatering etter 10. november. Sett CAL = True når den er ute.
+CAL = False
 ICONS = ['✨', '🔄', '⚡', '🤫', '🎵', '⚔️', '🎯', '🔠', '📊']
 SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst', '8_halloween']
 UPDATE = {
@@ -354,7 +356,7 @@ for _l, _u in UPDATE.items():
     for _k in ('desc', 'og', 'lead', 'soonTo', 'note', 'download', 'steps', 'resp', 'respH', 'foot', 'packsLead'):
         if _k in _u: _t[_k] = _u[_k]
     # Ingen drikkespørsmål i FAQ: erstatt «må vi drikke?», og oppdater lanseringsdato, legg til julekalender
-    _t['faq'] = [_u['faq0'] if i == 1 else (_u['faqWhen'] if i == len(_t['faq']) - 1 else qa) for i, qa in enumerate(_t['faq'])] + [_u['faqCal']]
+    _t['faq'] = [_u['faq0'] if i == 1 else (_u['faqWhen'] if i == len(_t['faq']) - 1 else qa) for i, qa in enumerate(_t['faq'])] + ([_u['faqCal']] if CAL else [])
     _t['u'] = _u
 
 def label(d, t):
@@ -451,6 +453,7 @@ def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
     <div>© 2026 Get Busted · Snikkerbua Holding AS, org.nr. 927 118 300 · {E(t['foot'])}</div>
   </div>
 </footer>
+<script src="/season.js" defer></script>
 <script>
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) {{ a.addEventListener('click', function () {{ try {{ localStorage.setItem('gb-lang', a.dataset.lang); }} catch (e) {{}} }}); }});
@@ -488,6 +491,7 @@ def home(t):
   <div class="wrap">
     <div>
       <img class="logo" src="/img/logo.png" alt="Get Busted" width="150" height="150">
+      <a class="season-pill" href="#packs" hidden></a>
       <h1>{E(h1a)}<em>{E(h1b)}</em>{E(h1c)}</h1>
       <p class="lead">{E(t['lead'])}</p>
       <div class="badges" id="download">
@@ -523,7 +527,7 @@ def home(t):
   </div>
 </section>
 
-<section class="xmas" data-until="2026-12-31">
+<section class="xmas" data-until="2026-12-31"{'' if CAL else ' hidden'}>
   <div class="wrap">
     <div>
       <p class="kicker">{E(u['calK'])}</p>
