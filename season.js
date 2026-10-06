@@ -7,11 +7,17 @@
  * - Pakken som passer sesongen (eller en helt ny pakke) flyttes fram og får merket «Aktuell nå» / «Ny».
  * - «Kommer <dato»>-merkene forsvinner av seg selv når pakken er sluppet (data-release på flisen).
  * - Linjen over overskriften sier «... er med fra start» før LAUNCH og «... er ute» etterpå.
+ * - Fra LAUNCH blir butikkmerkene (data-store) lenker til STORE, og data-launch-feltene får lanseringstekst.
+ *   Mangler App Store-lenken, står det «Snart på App Store». Test: ?launch=1 i adressen.
  * Test et tema: legg ?season=julebord (eller halloween, vinter ...) til i adressen.
  * Samme fil brukes på getbusted.online: språket leses fra <html lang> (no, en, sv, da).
  */
 (function () {
   var LAUNCH = '2026-10-30'; // Flyttes lanseringen: endre datoen her.
+  var STORE = {
+    play: 'https://play.google.com/store/apps/details?id=no.getbusted.app',
+    ios: '' // Lim inn App Store-lenken (https://apps.apple.com/...) når Apple har godkjent appen.
+  };
   var NEW_DAYS = 10;
   var S = {
     host:      { c: '#E08A3C', p: 'leaves',   col: ['#E08A3C', '#C8612E', '#D9A441', '#9C4A2A'], packs: ['hytta', 'nach'], k: 'Høstkvelder' },
@@ -28,13 +34,17 @@
   var STRONG = ['halloween', 'julebord', 'jul', 'paske'];
   var LANG = (document.documentElement.lang || 'no').slice(0, 2);
   var TX = {
-    no: { k: {}, isNew: 'Ny', hot: 'Aktuell nå', newPack: 'Ny pakke', out: ' er ute', ready: '-pakken er klar', start: '-pakken er med fra start' },
+    no: { k: {}, isNew: 'Ny', hot: 'Aktuell nå', newPack: 'Ny pakke', out: ' er ute', ready: '-pakken er klar', start: '-pakken er med fra start',
+          L: { dl: 'Last ned fra', soon: 'Snart på', cta: 'Last ned', group: 'Ute nå', q: 'Hvor laster jeg ned appen?', a: 'Søk etter «Get Busted» i App Store eller Google Play, eller trykk på knappene øverst på siden.', a1: 'Get Busted er ute på Google Play. iPhone-versjonen kommer veldig snart. Trykk på knappen øverst på siden.' } },
     en: { k: { host: 'Autumn nights', halloween: 'Ready for Halloween', julebord: 'Office party season?', jul: 'Merry Christmas', nyttar: 'New Year', vinter: 'Winter', paske: 'Happy Easter', vaar: 'Spring', mai17: 'Spring', sommer: 'Summer' },
-          isNew: 'New', hot: 'In season', newPack: 'New pack', out: ' is out', ready: ' pack is ready', start: ' pack is in from day one' },
+          isNew: 'New', hot: 'In season', newPack: 'New pack', out: ' is out', ready: ' pack is ready', start: ' pack is in from day one',
+          L: { dl: 'Download on', soon: 'Coming soon to', cta: 'Download', group: 'Out now', q: 'Where do I get it?', a: 'Search for “Get Busted” in the App Store or on Google Play, or tap the buttons at the top of the page.', a1: 'Get Busted is out on Google Play. The iPhone version is coming very soon. Tap the button at the top of the page.' } },
     sv: { k: { host: 'Höstkvällar', halloween: 'Redo för halloween', julebord: 'Dags för julbord?', jul: 'God jul', nyttar: 'Gott nytt år', vinter: 'Vinter', paske: 'Glad påsk', vaar: 'Vår', mai17: 'Vår', sommer: 'Sommar' },
-          isNew: 'Ny', hot: 'Aktuell nu', newPack: 'Nytt paket', out: ' är ute', ready: '-paketet är klart', start: '-paketet är med från start' },
+          isNew: 'Ny', hot: 'Aktuell nu', newPack: 'Nytt paket', out: ' är ute', ready: '-paketet är klart', start: '-paketet är med från start',
+          L: { dl: 'Hämta i', soon: 'Snart i', cta: 'Ladda ner', group: 'Ute nu', q: 'Var laddar jag ner den?', a: 'Sök på «Get Busted» i App Store eller Google Play, eller tryck på knapparna högst upp på sidan.', a1: 'Get Busted finns på Google Play. iPhone-versionen kommer väldigt snart. Tryck på knappen högst upp på sidan.' } },
     da: { k: { host: 'Efterårsaftener', halloween: 'Klar til halloween', julebord: 'Skal I til julefrokost?', jul: 'Glædelig jul', nyttar: 'Godt nytår', vinter: 'Vinter', paske: 'God påske', vaar: 'Forår', mai17: 'Forår', sommer: 'Sommer' },
-          isNew: 'Ny', hot: 'Aktuel nu', newPack: 'Ny pakke', out: ' er ude', ready: '-pakken er klar', start: '-pakken er med fra start' }
+          isNew: 'Ny', hot: 'Aktuel nu', newPack: 'Ny pakke', out: ' er ude', ready: '-pakken er klar', start: '-pakken er med fra start',
+          L: { dl: 'Hent i', soon: 'Snart i', cta: 'Hent appen', group: 'Ude nu', q: 'Hvor henter jeg appen?', a: 'Søg efter «Get Busted» i App Store eller Google Play, eller tryk på knapperne øverst på siden.', a1: 'Get Busted er ude på Google Play. iPhone-versionen kommer meget snart. Tryk på knappen øverst på siden.' } }
   }[LANG] || null;
   if (!TX) return;
 
@@ -67,7 +77,7 @@
   var T = S[season];
   if (LANG !== 'no' && season === 'mai17') T = S.vaar; // 17. mai bare på norsk
   var kicker = TX.k[season] || T.k;
-  var launched = now.getTime() >= at(LAUNCH);
+  var launched = now.getTime() >= at(LAUNCH) || /[?&]launch=1/.test(location.search);
   var root = document.documentElement;
   root.setAttribute('data-season', season);
   root.style.setProperty('--season', T.c);
@@ -76,6 +86,31 @@
   document.querySelectorAll('[data-until]').forEach(function (el) {
     if (now.getTime() >= at(el.getAttribute('data-until')) + 864e5) el.remove();
   });
+
+  // Lansering: butikkmerkene blir lenker, og data-launch-feltene får ny tekst
+  if (launched) {
+    document.querySelectorAll('.badge[data-store]').forEach(function (el) {
+      var url = STORE[el.getAttribute('data-store')], small = el.querySelector('small');
+      if (!url) { if (small) small.textContent = TX.L.soon; return; }
+      if (small) small.textContent = TX.L.dl;
+      var a = document.createElement('a');
+      a.className = el.className + ' live'; a.href = url; a.rel = 'noopener'; a.innerHTML = el.innerHTML;
+      el.parentNode.replaceChild(a, el);
+    });
+    document.querySelectorAll('[data-launch]').forEach(function (el) {
+      var k = el.getAttribute('data-launch');
+      if (k === 'faq') {
+        var sm = el.querySelector('summary'), p = el.querySelector('p');
+        if (sm) sm.textContent = TX.L.q;
+        if (p) p.textContent = STORE.ios ? TX.L.a : TX.L.a1;
+      } else if (k === 'cta') {
+        el.textContent = TX.L.cta;
+        var ua = navigator.userAgent; // rett til butikken på mobil, ellers til merkene på siden
+        if (STORE.ios && /iPhone|iPad/i.test(ua)) el.href = STORE.ios;
+        else if (/Android/i.test(ua)) el.href = STORE.play;
+      } else if (TX.L[k]) el.textContent = TX.L[k];
+    });
+  }
 
   // Logo med hatt
   if (T.hat) document.querySelectorAll('img.logo, .brand img').forEach(function (img) {

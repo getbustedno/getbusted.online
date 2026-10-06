@@ -37,6 +37,8 @@ section.alt { background: var(--bg2); }
 .badge svg { width: 26px; height: 26px; flex: 0 0 auto; fill: var(--fg); }
 .badge small { display: block; font-size: 12px; color: var(--muted); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 .badge b { display: block; font-size: 21px; font-weight: 800; line-height: 1.1; }
+.badge.live { border-color: var(--lime); background: rgba(183,209,71,.10); transition: transform .15s, background .15s; }
+.badge.live:hover { transform: translateY(-2px); background: rgba(183,209,71,.18); }
 
 /* hero */
 .hero { padding: 64px 0 72px; overflow: hidden; background:

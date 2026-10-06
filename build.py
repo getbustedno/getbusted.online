@@ -280,6 +280,9 @@ COUNTS = {
 }
 # Julekalenderen kommer i en appoppdatering etter 10. november. Sett CAL = True når den er ute.
 CAL = False
+# Lanseringsbryteren i season.js bytter tekst på disse (se STORE og LAUNCH der).
+FAQ_ATTR = ' data-launch="faq"'
+GROUP_ATTR = ' data-launch="group"'
 ICONS = ['✨', '🔄', '⚡', '🤫', '🎵', '⚔️', '🎯', '🔠', '📊']
 SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst', '8_halloween']
 UPDATE = {
@@ -438,7 +441,7 @@ def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
     <nav>
       {nav}
       {langbar(t, alt)}
-      <a class="cta" href="{dl}">{E(t['download'])}</a>
+      <a class="cta" href="{dl}" data-launch="cta">{E(t['download'])}</a>
     </nav>
   </div>
 </header>
@@ -472,7 +475,7 @@ def home(t):
     shots = ''.join(f"<figure><div class='phone'><picture><source srcset='/img/app_{L}_{f}.webp' type='image/webp'><img src='/img/app_{L}_{f}.jpg' alt='{E(c)}' width='600' height='1304' loading='lazy'></picture></div><figcaption>{E(c)}</figcaption></figure>" for f, c in zip(SHOTS, u['shots']))
     stats = ''.join(f"<div><b>{E(a)}</b><span>{E(b)}</span></div>" for a, b in u['stats'])
     resp = ''.join(f"<div><b>{E(h)}</b><p>{E(p)}</p></div>" for h, p in t['resp'])
-    faq = ''.join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t['faq'])
+    faq = ''.join(f"<details{FAQ_ATTR if (q, a) == u['faqWhen'] else ''}><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t['faq'])
     doors = ''.join(f"<i class='{'o' if d < 7 else ('t' if d == 7 else '')}'>{d}</i>" for d in range(1, 25))
     cal = ''.join(f"<li>{E(x)}</li>" for x in u['calList'])
     prices = ''.join(f"<div class='price'><h3>{E(h)}</h3><p>{E(p)}</p></div>" for h, p in t['prices'][:3])
@@ -482,7 +485,7 @@ def home(t):
     start = [x for x in t['packs'] if not x[4]]
     later = [x for x in t['packs'] if x[4]]
     groups = [(u['groups'][0], start), (u['groups'][1], later)] + ([(u['groups'][2], t['specials'])] if t['specials'] else [])
-    packs_html = ''.join(f"<div class='group'><h3>{E(g)}</h3><div class='packs'>\n      {packs(lst, t)}\n    </div></div>" for g, lst in groups)
+    packs_html = ''.join(f"<div class='group'><h3{GROUP_ATTR if i == 0 else ''}>{E(g)}</h3><div class='packs'>\n      {packs(lst, t)}\n    </div></div>" for i, (g, lst) in enumerate(groups))
     jul = 'cover_jul_en.jpg' if L == 'en' else 'cover_jul.jpg'
     h1a, h1b, h1c = u['h1']
     apple = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-4.2zM13.9 5c.7-.8 1.1-1.9 1-3-1 0-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.8-1.3z"/></svg>'
@@ -495,8 +498,8 @@ def home(t):
       <h1>{E(h1a)}<em>{E(h1b)}</em>{E(h1c)}</h1>
       <p class="lead">{E(t['lead'])}</p>
       <div class="badges" id="download">
-        <span class="badge">{apple}<span><small>{E(t['soonTo'])}</small><b>App Store</b></span></span>
-        <span class="badge">{play}<span><small>{E(t['soonTo'])}</small><b>Google Play</b></span></span>
+        <span class="badge" data-store="ios">{apple}<span><small>{E(t['soonTo'])}</small><b>App Store</b></span></span>
+        <span class="badge" data-store="play">{play}<span><small>{E(t['soonTo'])}</small><b>Google Play</b></span></span>
       </div>
       <p class="note">{E(t['note'])}</p>
     </div>
