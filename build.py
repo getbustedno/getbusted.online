@@ -1,4 +1,4 @@
-# Bygger getbusted.online: engelsk på /, svensk på /sv/ og dansk på /dk/ (/da/ sender videre). Norsk ligger på getbusted.no.
+# Bygger getbusted.online: engelsk på /, svensk på /se/ og dansk på /dk/ (/sv/ og /da/ sender videre). Norsk ligger på getbusted.no.
 # Hver språkblokk gir forside, hjelpeside og personvernside.
 # Kjør: python3 build.py
 import html, pathlib, re
@@ -8,9 +8,9 @@ SITE = 'https://getbusted.online'
 MAIL = 'kontakt@getbusted.no'
 
 # Adresser per språk. 'no' ligger på getbusted.no.
-HOME = {'en': '/', 'sv': '/sv/', 'da': '/dk/', 'no': 'https://getbusted.no/'}
-HELP = {'en': '/help/', 'sv': '/sv/hjalp/', 'da': '/dk/hjaelp/', 'no': 'https://getbusted.no/hjelp/'}
-PRIV = {'en': '/privacy/', 'sv': '/sv/integritet/', 'da': '/dk/privatliv/', 'no': 'https://getbusted.no/personvern/'}
+HOME = {'en': '/', 'sv': '/se/', 'da': '/dk/', 'no': 'https://getbusted.no/'}
+HELP = {'en': '/help/', 'sv': '/se/hjalp/', 'da': '/dk/hjaelp/', 'no': 'https://getbusted.no/hjelp/'}
+PRIV = {'en': '/privacy/', 'sv': '/se/integritet/', 'da': '/dk/privatliv/', 'no': 'https://getbusted.no/personvern/'}
 LANGS = ['en', 'sv', 'da']
 
 T = {
@@ -99,7 +99,7 @@ T = {
    ]),
  ),
  'sv': dict(
-  path='/sv/', lang='sv', hero='sv', title='Get Busted - festspelet som styr kvällen',
+  path='/se/', lang='sv', hero='sv', title='Get Busted - festspelet som styr kvällen',
   desc='Get Busted är kortspelet för förfesten, efterfesten och stugan. 2 500+ kort skrivna för Sverige, inte översatta. För vuxna 18+.',
   og='En läsare, 2 500+ kort och noll tråkiga pauser. För iPhone och Android.',
   nav=[('#how', 'Så funkar det'), ('#packs', 'Paket'), ('#faq', 'Frågor')], download='Ladda ner',
@@ -388,7 +388,7 @@ def packs(lst, t):
 CUR = ' aria-current="page"'
 
 def langbar(t, alt):
-    items = [('EN', 'en'), ('SV', 'sv'), ('DK', 'da'), ('NO', 'no')]
+    items = [('EN', 'en'), ('SE', 'sv'), ('DK', 'da'), ('NO', 'no')]
     return "<span class='langs'>" + ''.join(
         f"<a href='{alt[l]}' data-lang='{l}'{CUR if l == t['lang'] else ''}>{n}</a>" for n, l in items) + "</span>"
 
@@ -396,9 +396,9 @@ def full(p):
     return p if p.startswith('http') else SITE + p
 
 REDIRECT = """<script>
-// Første besøk fra en svensk eller dansk telefon: send til /sv/ eller /dk/. Valgt språk huskes.
+// Første besøk fra en svensk eller dansk telefon: send til /se/ eller /dk/. Valgt språk huskes.
 try { var c = localStorage.getItem('gb-lang'), l = navigator.language || '';
-  if (!c && /^sv\\b/i.test(l)) location.replace('/sv/');
+  if (!c && /^sv\\b/i.test(l)) location.replace('/se/');
   else if (!c && /^da\\b/i.test(l)) location.replace('/dk/'); } catch (e) {}
 </script>"""
 
@@ -626,8 +626,9 @@ footer .langs{margin-left:0}
 @media (max-width:760px){.nav nav .langs{display:inline-flex;margin:0 4px}.nav nav .langs a{display:inline-block}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap;font-size:19px}.nav .brand img{width:34px;height:34px}.langs a{padding:4px 6px}}
 """, encoding='utf-8')
 (ROOT / 'CNAME').write_text('getbusted.online\n')
-# Gamle danske adresser (/da/) sender videre til /dk/
-for _old, _new in (('/da/', '/dk/'), ('/da/hjaelp/', '/dk/hjaelp/'), ('/da/privatliv/', '/dk/privatliv/')):
+# Gamle adresser sender videre: /da/ til /dk/ og /sv/ til /se/
+for _old, _new in (('/da/', '/dk/'), ('/da/hjaelp/', '/dk/hjaelp/'), ('/da/privatliv/', '/dk/privatliv/'),
+                   ('/sv/', '/se/'), ('/sv/hjalp/', '/se/hjalp/'), ('/sv/integritet/', '/se/integritet/')):
     write(_old, f"<!doctype html><meta charset='utf-8'><title>Get Busted</title><link rel='canonical' href='{SITE}{_new}'><meta http-equiv='refresh' content='0;url={_new}'><a href='{_new}'>Get Busted</a>\n")
 (ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://getbusted.online/sitemap.xml\n')
 
