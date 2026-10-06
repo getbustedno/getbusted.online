@@ -14,6 +14,9 @@
  */
 (function () {
   var LAUNCH = '2026-10-30'; // Flyttes lanseringen: endre datoen her.
+  // iPhone klar til LAUNCH? false = App Store-merket sier «Snart på» før lansering, og FAQ sier Android først.
+  // Etter lansering styres App Store-merket av STORE.ios (tom = «Snart på»).
+  var IOS_READY = true && !/[?&]ios=0/.test(location.search); // test: ?ios=0
   var STORE = {
     play: 'https://play.google.com/store/apps/details?id=no.getbusted.app',
     ios: '' // Lim inn App Store-lenken (https://apps.apple.com/...) når Apple har godkjent appen.
@@ -35,16 +38,16 @@
   var LANG = (document.documentElement.lang || 'no').slice(0, 2);
   var TX = {
     no: { k: {}, isNew: 'Ny', hot: 'Aktuell nå', newPack: 'Ny pakke', out: ' er ute', ready: '-pakken er klar', start: '-pakken er med fra start',
-          L: { dl: 'Last ned fra', soon: 'Snart på', cta: 'Last ned', group: 'Ute nå', q: 'Hvor laster jeg ned appen?', a: 'Søk etter «Get Busted» i App Store eller Google Play, eller trykk på knappene øverst på siden.', a1: 'Get Busted er ute på Google Play. iPhone-versjonen kommer veldig snart. Trykk på knappen øverst på siden.' } },
+          L: { dl: 'Last ned fra', soon: 'Snart på', cta: 'Last ned', group: 'Ute nå', q: 'Hvor laster jeg ned appen?', a: 'Søk etter «Get Busted» i App Store eller Google Play, eller trykk på knappene øverst på siden.', pre: 'Ute 30. oktober på Android. iPhone-versjonen kommer like etter.', a1: 'Get Busted er ute på Google Play. iPhone-versjonen kommer veldig snart. Trykk på knappen øverst på siden.' } },
     en: { k: { host: 'Autumn nights', halloween: 'Ready for Halloween', julebord: 'Office party season?', jul: 'Merry Christmas', nyttar: 'New Year', vinter: 'Winter', paske: 'Happy Easter', vaar: 'Spring', mai17: 'Spring', sommer: 'Summer' },
           isNew: 'New', hot: 'In season', newPack: 'New pack', out: ' is out', ready: ' pack is ready', start: ' pack is in from day one',
-          L: { dl: 'Download on', soon: 'Coming soon to', cta: 'Download', group: 'Out now', q: 'Where do I get it?', a: 'Search for “Get Busted” in the App Store or on Google Play, or tap the buttons at the top of the page.', a1: 'Get Busted is out on Google Play. The iPhone version is coming very soon. Tap the button at the top of the page.' } },
+          L: { dl: 'Download on', soon: 'Coming soon to', cta: 'Download', group: 'Out now', q: 'Where do I get it?', a: 'Search for “Get Busted” in the App Store or on Google Play, or tap the buttons at the top of the page.', pre: 'Out on Android on 30 October. The iPhone version follows shortly after.', a1: 'Get Busted is out on Google Play. The iPhone version is coming very soon. Tap the button at the top of the page.' } },
     sv: { k: { host: 'Höstkvällar', halloween: 'Redo för halloween', julebord: 'Dags för julbord?', jul: 'God jul', nyttar: 'Gott nytt år', vinter: 'Vinter', paske: 'Glad påsk', vaar: 'Vår', mai17: 'Vår', sommer: 'Sommar' },
           isNew: 'Ny', hot: 'Aktuell nu', newPack: 'Nytt paket', out: ' är ute', ready: '-paketet är klart', start: '-paketet är med från start',
-          L: { dl: 'Hämta i', soon: 'Snart i', cta: 'Ladda ner', group: 'Ute nu', q: 'Var laddar jag ner den?', a: 'Sök på «Get Busted» i App Store eller Google Play, eller tryck på knapparna högst upp på sidan.', a1: 'Get Busted finns på Google Play. iPhone-versionen kommer väldigt snart. Tryck på knappen högst upp på sidan.' } },
+          L: { dl: 'Hämta i', soon: 'Snart i', cta: 'Ladda ner', group: 'Ute nu', q: 'Var laddar jag ner den?', a: 'Sök på «Get Busted» i App Store eller Google Play, eller tryck på knapparna högst upp på sidan.', pre: 'Ute på Android 30 oktober. iPhone-versionen kommer strax efter.', a1: 'Get Busted finns på Google Play. iPhone-versionen kommer väldigt snart. Tryck på knappen högst upp på sidan.' } },
     da: { k: { host: 'Efterårsaftener', halloween: 'Klar til halloween', julebord: 'Skal I til julefrokost?', jul: 'Glædelig jul', nyttar: 'Godt nytår', vinter: 'Vinter', paske: 'God påske', vaar: 'Forår', mai17: 'Forår', sommer: 'Sommer' },
           isNew: 'Ny', hot: 'Aktuel nu', newPack: 'Ny pakke', out: ' er ude', ready: '-pakken er klar', start: '-pakken er med fra start',
-          L: { dl: 'Hent i', soon: 'Snart i', cta: 'Hent appen', group: 'Ude nu', q: 'Hvor henter jeg appen?', a: 'Søg efter «Get Busted» i App Store eller Google Play, eller tryk på knapperne øverst på siden.', a1: 'Get Busted er ude på Google Play. iPhone-versionen kommer meget snart. Tryk på knappen øverst på siden.' } }
+          L: { dl: 'Hent i', soon: 'Snart i', cta: 'Hent appen', group: 'Ude nu', q: 'Hvor henter jeg appen?', a: 'Søg efter «Get Busted» i App Store eller Google Play, eller tryk på knapperne øverst på siden.', pre: 'Ude på Android 30. oktober. iPhone-versionen kommer kort efter.', a1: 'Get Busted er ude på Google Play. iPhone-versionen kommer meget snart. Tryk på knappen øverst på siden.' } }
   }[LANG] || null;
   if (!TX) return;
 
@@ -86,6 +89,12 @@
   document.querySelectorAll('[data-until]').forEach(function (el) {
     if (now.getTime() >= at(el.getAttribute('data-until')) + 864e5) el.remove();
   });
+
+  // iPhone ikke klar før lansering: App Store-merket og FAQ sier Android først
+  if (!launched && !IOS_READY) {
+    document.querySelectorAll('.badge[data-store="ios"] small').forEach(function (el) { el.textContent = TX.L.soon; });
+    document.querySelectorAll('[data-launch="faq"] p').forEach(function (el) { el.textContent = TX.L.pre; });
+  }
 
   // Lansering: butikkmerkene blir lenker, og data-launch-feltene får ny tekst
   if (launched) {
