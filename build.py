@@ -1,16 +1,16 @@
-# Bygger getbusted.online: engelsk på /, svensk på /sv/ og dansk på /da/. Norsk ligger på getbusted.no.
+# Bygger getbusted.online: engelsk på /, svensk på /sv/ og dansk på /dk/ (/da/ sender videre). Norsk ligger på getbusted.no.
 # Hver språkblokk gir forside, hjelpeside og personvernside.
 # Kjør: python3 build.py
-import html, pathlib
+import html, pathlib, re
 E = html.escape
 ROOT = pathlib.Path(__file__).parent
 SITE = 'https://getbusted.online'
 MAIL = 'kontakt@getbusted.no'
 
 # Adresser per språk. 'no' ligger på getbusted.no.
-HOME = {'en': '/', 'sv': '/sv/', 'da': '/da/', 'no': 'https://getbusted.no/'}
-HELP = {'en': '/help/', 'sv': '/sv/hjalp/', 'da': '/da/hjaelp/', 'no': 'https://getbusted.no/'}
-PRIV = {'en': '/privacy/', 'sv': '/sv/integritet/', 'da': '/da/privatliv/', 'no': 'https://getbusted.no/personvern/'}
+HOME = {'en': '/', 'sv': '/sv/', 'da': '/dk/', 'no': 'https://getbusted.no/'}
+HELP = {'en': '/help/', 'sv': '/sv/hjalp/', 'da': '/dk/hjaelp/', 'no': 'https://getbusted.no/hjelp/'}
+PRIV = {'en': '/privacy/', 'sv': '/sv/integritet/', 'da': '/dk/privatliv/', 'no': 'https://getbusted.no/personvern/'}
 LANGS = ['en', 'sv', 'da']
 
 T = {
@@ -184,7 +184,7 @@ T = {
    ]),
  ),
  'da': dict(
-  path='/da/', lang='da', hero='sv', title='Get Busted - festspillet der styrer aftenen',
+  path='/dk/', lang='da', hero='sv', title='Get Busted - festspillet der styrer aftenen',
   desc='Get Busted er festspillet til forfesten, efterfesten og sommerhuset. 1.000+ kort, med eller uden alkohol. For voksne 18+.',
   og='Én oplæser, 1.000+ kort og ingen kedelige pauser. Til iPhone og Android.',
   nav=[('#how', 'Sådan virker det'), ('#packs', 'Pakker'), ('#faq', 'Spørgsmål')], download='Hent',
@@ -267,6 +267,96 @@ T = {
  ),
 }
 
+
+# ---------- Grafisk løft (okt 2026): samme stil som getbusted.no, ingen alkohol i markedsføringen ----------
+COLORS = {'original': '#B7D147', 'halloween': '#FF8A1F', 'jul': '#E0473E', 'nach': '#8E7CFF', 'hytta': '#C7864A', 'reise': '#3FB8C4',
+          'student': '#5B8DEF', 'utdrikning': '#E94B8A', 'fotball': '#3DAE5E', 'sport': '#F26B3A', 'friendsgiving': '#E0892E',
+          'paddys': '#2FA84F', 'mello': '#E24AC9', 'midsommar': '#F2C94C', 'kraftskiva': '#E2543B'}
+# Antall kort per pakke og språk (fra appens cards.json, okt 2026)
+COUNTS = {
+ 'en': {'original': 345, 'halloween': 152, 'jul': 182, 'reise': 190, 'fotball': 179, 'sport': 179, 'student': 182, 'utdrikning': 185, 'hytta': 177, 'nach': 177, 'friendsgiving': 175, 'paddys': 170},
+ 'sv': {'original': 380, 'halloween': 168, 'jul': 194, 'reise': 225, 'fotball': 217, 'sport': 217, 'student': 210, 'utdrikning': 212, 'hytta': 175, 'nach': 166, 'mello': 174, 'midsommar': 173, 'kraftskiva': 175},
+ 'da': {'original': 308, 'halloween': 163, 'jul': 194, 'nach': 177, 'hytta': 173, 'reise': 178, 'student': 180, 'utdrikning': 178, 'fotball': 182, 'sport': 182},
+}
+ICONS = ['✨', '🔄', '⚡', '🤫', '🎵', '⚔️', '🎯', '🔠', '📊']
+SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst', '8_halloween']
+UPDATE = {
+ 'en': dict(
+  desc='Get Busted is the party card game for game nights, house parties and cabin weekends. 2,200+ cards written in English, team play, Rapid rounds and secret missions. Adults 18+.',
+  og='One reader, 2,200+ cards and zero boring breaks. For iPhone and Android.',
+  h1=('The party game that ', 'runs the night', ''),
+  lead='One reader holds the phone. Everyone else looks at each other, not at a screen. 2,200+ cards about the internet, the news and your group chat, plus team play, Rapid rounds and secret missions.',
+  soonTo='30 October on', note='For adults 18+. Alcohol-free mode is always included.', download='30 October',
+  steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
+         ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. Play solo, in fixed duos or Red vs Blue.'),
+         ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
+  stats=[('2,200+', 'cards in English'), ('12', 'packs'), ('2-30', 'players'), ('Free', 'to get started')],
+  shots=['Team play', 'Twists', 'Rapid', 'Odds', 'Big text', 'Halloween'],
+  calK='1-24 December · free', calH=('Advent calendar ', 'in the app'), calLead='A new door every day until Christmas. What you open gets mixed into every game until the end of December.',
+  calList=['17 new cards: office parties, Christmas stress, home for Christmas and family', 'December rules that last all night', 'New dice sides and a Christmas quiz'],
+  groups=['Out on 30 October', 'Autumn and winter', 'Only in English'], cards='cards', freeCards='50 free cards every night',
+  priceK='Prices', priceH=('Pay once. ', 'No subscription.'), plusTag='Launch price until the end of December',
+  resp=[('Alcohol-free', 'The same game with points. Everyone can join.'), ('Breaks', 'Water breaks and breathers turn up along the way.'),
+        ('Skip', 'You can always skip a card. Always.'), ('18+', 'Made for adults. Your crew picks the level.')],
+  respH='Made for a good night',
+  faq0=('Can everyone join?', 'Yes. In alcohol-free mode everything becomes points, and you can always skip a card.'),
+  faqWhen=('When is it out?', '30 October on iPhone and Android. Follow @getbusted.uk on Instagram and TikTok to hear first.'),
+  faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
+  foot='Adults 18+'),
+ 'sv': dict(
+  desc='Get Busted är festspelet för spelkvällen, festen och stugan. 2 600+ kort skrivna för Sverige, lagspel, Rapid och hemliga uppdrag. För vuxna 18+.',
+  og='En läsare, 2 600+ kort och noll tråkiga pauser. För iPhone och Android.',
+  h1=('Festspelet som ', 'tar över', ' kvällen'),
+  lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 2 600+ kort skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.',
+  soonTo='30 oktober i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='30 oktober',
+  steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
+         ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Spela var för sig, i fasta duos eller Röd mot Blå.'),
+         ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
+  stats=[('2 600+', 'kort på svenska'), ('13', 'paket'), ('2-30', 'spelare'), ('0 kr', 'för att komma igång')],
+  shots=['Lagspel', 'Twist', 'Rapid', 'Odds', 'Stor text', 'Halloween'],
+  calK='1-24 december · gratis', calH=('Julkalender ', 'i appen'), calLead='Ny lucka varje dag fram till jul. Det ni öppnar blandas in i alla spel december ut.',
+  calList=['17 nya kort: julbord, julstress, hem till jul och familjen', 'Decemberregler som gäller hela kvällen', 'Nya sidor på tärningen och ett julquiz'],
+  groups=['Ute 30 oktober', 'Hösten och vintern', 'Bara i Sverige'], cards='kort', freeCards='50 gratis kort varje kväll',
+  priceK='Priser', priceH=('Betala en gång. ', 'Ingen prenumeration.'), plusTag='Lanseringspris december ut',
+  resp=[('Alkoholfritt', 'Samma spel med poäng. Alla kan vara med.'), ('Pauser', 'Vattenpauser och andningspauser dyker upp längs vägen.'),
+        ('Stå över', 'Du får alltid stå över ett kort. Alltid.'), ('18+', 'Gjort för vuxna. Gänget väljer nivån.')],
+  respH='Gjort för en bra kväll',
+  faq0=('Kan alla vara med?', 'Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.'),
+  faqWhen=('När kommer den?', '30 oktober till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
+  faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
+  foot='För vuxna 18+'),
+ 'da': dict(
+  desc='Get Busted er festspillet til spilleaftenen, festen og sommerhuset. 1.900+ danske kort, holdspil, Rapid og hemmelige missioner. For voksne 18+.',
+  og='Én oplæser, 1.900+ kort og ingen kedelige pauser. Til iPhone og Android.',
+  h1=('Festspillet der ', 'tager over', ' aftenen'),
+  lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. 1.900+ kort skrevet på dansk, holdspil, Rapid-runder og hemmelige missioner.',
+  soonTo='30. oktober i', note='For voksne 18+. Alkoholfri tilstand er altid med.', download='30. oktober',
+  steps=[('Skriv flokken ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
+         ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Spil hver for sig, i faste par eller Rød mod Blå.'),
+         ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
+  stats=[('1.900+', 'kort på dansk'), ('10', 'pakker'), ('2-30', 'spillere'), ('0 kr', 'for at komme i gang')],
+  shots=['Holdspil', 'Twist', 'Rapid', 'Odds', 'Stor tekst', 'Halloween'],
+  calK='1.-24. december · gratis', calH=('Julekalender ', 'i appen'), calLead='Ny låge hver dag til jul. Det, I åbner, blandes ind i alle spil december ud.',
+  calList=['17 nye kort: julefrokost, julestress, hjem til jul og familien', 'Decemberregler, der gælder hele aftenen', 'Nye sider på terningen og en julequiz'],
+  groups=['Ude 30. oktober', 'Efteråret og vinteren', ''], cards='kort', freeCards='50 gratis kort hver aften',
+  packsLead='Fem pakker er klar fra start, og flere kommer hen over efteråret. Prøv 5 kort fra en hvilken som helst pakke gratis, før du køber.',
+  priceK='Priser', priceH=('Betal én gang. ', 'Intet abonnement.'), plusTag='Lanceringspris december ud',
+  resp=[('Alkoholfri', 'Samme spil med point. Alle kan være med.'), ('Pauser', 'Vandpauser og pustepauser dukker op undervejs.'),
+        ('Spring over', 'Du må altid springe et kort over. Altid.'), ('18+', 'Lavet til voksne. Flokken vælger niveauet.')],
+  respH='Lavet til en god aften',
+  faq0=('Kan alle være med?', 'Ja. I alkoholfri tilstand bliver alt til point, og du må altid springe et kort over.'),
+  faqWhen=('Hvornår kommer den?', '30. oktober til iPhone og Android.'),
+  faqCal=('Hvad er julekalenderen?', 'En ny låge hver dag 1.-24. december, gratis for alle. Kortene, reglerne og terningsiderne I åbner, blandes ind i alle spil december ud.'),
+  foot='For voksne 18+'),
+}
+for _l, _u in UPDATE.items():
+    _t = T[_l]
+    for _k in ('desc', 'og', 'lead', 'soonTo', 'note', 'download', 'steps', 'resp', 'respH', 'foot', 'packsLead'):
+        if _k in _u: _t[_k] = _u[_k]
+    # Ingen drikkespørsmål i FAQ: erstatt «må vi drikke?», og oppdater lanseringsdato, legg til julekalender
+    _t['faq'] = [_u['faq0'] if i == 1 else (_u['faqWhen'] if i == len(_t['faq']) - 1 else qa) for i, qa in enumerate(_t['faq'])] + [_u['faqCal']]
+    _t['u'] = _u
+
 def label(d, t):
     y, m, dd = d.split('-')
     mon = t['months'][int(m)-1]
@@ -281,13 +371,19 @@ def packs(lst, t):
     for slug, img, name, sub, rel in lst:
         soon = f"<i class='soon'>{E(label(rel, t))}</i>" if rel else ''
         dr = f" data-release='{rel}'" if rel else ''
-        out.append(f"<div class='pack' data-pack='{slug}'{dr}><img src='/img/{img}' alt='' loading='lazy'><b>{E(name)}</b><span>{E(sub)}</span>{soon}</div>")
+        n = COUNTS[t['lang']].get(slug, 0)
+        cnt = t['u']['freeCards'] if slug == 'original' else f"{n} {t['u']['cards']}"
+        sub = '' if slug == 'original' and sub == t['u']['freeCards'] else sub
+        web = img.rsplit('.', 1)[0] + '.webp'
+        out.append(f"<div class='pack' data-pack='{slug}'{dr} style='--c:{COLORS.get(slug, '#B7D147')}'><picture><source srcset='/img/{web}' type='image/webp'>"
+                   f"<img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E(name)}</b>"
+                   + (f"<span>{E(sub)}</span>" if sub else '') + f"<small>{E(cnt)}</small>{soon}</div>")
     return "\n      ".join(out)
 
 CUR = ' aria-current="page"'
 
 def langbar(t, alt):
-    items = [('EN', 'en'), ('SV', 'sv'), ('DA', 'da'), ('NO', 'no')]
+    items = [('EN', 'en'), ('SV', 'sv'), ('DK', 'da'), ('NO', 'no')]
     return "<span class='langs'>" + ''.join(
         f"<a href='{alt[l]}' data-lang='{l}'{CUR if l == t['lang'] else ''}>{n}</a>" for n, l in items) + "</span>"
 
@@ -295,10 +391,10 @@ def full(p):
     return p if p.startswith('http') else SITE + p
 
 REDIRECT = """<script>
-// Første besøk fra en svensk eller dansk telefon: send til /sv/ eller /da/. Valgt språk huskes.
+// Første besøk fra en svensk eller dansk telefon: send til /sv/ eller /dk/. Valgt språk huskes.
 try { var c = localStorage.getItem('gb-lang'), l = navigator.language || '';
   if (!c && /^sv\\b/i.test(l)) location.replace('/sv/');
-  else if (!c && /^da\\b/i.test(l)) location.replace('/da/'); } catch (e) {}
+  else if (!c && /^da\\b/i.test(l)) location.replace('/dk/'); } catch (e) {}
 </script>"""
 
 def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
@@ -318,13 +414,14 @@ def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
 <meta name="description" content="{E(desc)}">
 <meta property="og:title" content="{E(title)}">
 <meta property="og:description" content="{E(t['og'] if redirect else desc)}">
-<meta property="og:image" content="{SITE}/img/og.jpg">
+<meta property="og:image" content="{SITE}/img/og_{t['lang']}.jpg">
 <meta property="og:url" content="{url}">
 <link rel="canonical" href="{url}">
 {hl}
 <link rel="alternate" hreflang="x-default" href="{full(alt['en'])}">
-<meta name="theme-color" content="#2B2B2B">
+<meta name="theme-color" content="#191919">
 <link rel="icon" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
@@ -359,39 +456,57 @@ def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
 document.querySelectorAll('.langs a').forEach(function (a) {{ a.addEventListener('click', function () {{ try {{ localStorage.setItem('gb-lang', a.dataset.lang); }} catch (e) {{}} }}); }});
 var now = Date.now();
 document.querySelectorAll('[data-release]').forEach(function (p) {{ if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) {{ var s = p.querySelector('.soon'); if (s) s.remove(); }} }});
+document.querySelectorAll('[data-until]').forEach(function (el) {{ if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); }});
 </script>
 </body>
 </html>
 """
 
 def home(t):
+    u = t['u']; L = t['lang']
     steps = ''.join(f"<div class='step'><div class='n'>{i}</div><h3>{E(h)}</h3><p>{E(p)}</p></div>" for i, (h, p) in enumerate(t['steps'], 1))
-    feats = ''.join(f"<div class='feature'><h3>{E(h)}</h3><p>{E(p)}</p></div>" for h, p in t['feats'])
-    prices = ''.join(f"<div class='price'><div class='amt'>{E(h)}</div><p>{E(p)}</p></div>" for h, p in t['prices'])
+    feats = ''.join(f"<div class='feature'><div class='ic' aria-hidden='true'>{ic}</div><h3>{E(h)}</h3><p>{E(p)}</p></div>" for ic, (h, p) in zip(ICONS, t['feats']))
+    shots = ''.join(f"<figure><div class='phone'><picture><source srcset='/img/app_{L}_{f}.webp' type='image/webp'><img src='/img/app_{L}_{f}.jpg' alt='{E(c)}' width='600' height='1304' loading='lazy'></picture></div><figcaption>{E(c)}</figcaption></figure>" for f, c in zip(SHOTS, u['shots']))
+    stats = ''.join(f"<div><b>{E(a)}</b><span>{E(b)}</span></div>" for a, b in u['stats'])
     resp = ''.join(f"<div><b>{E(h)}</b><p>{E(p)}</p></div>" for h, p in t['resp'])
     faq = ''.join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t['faq'])
-    specials = '' if not t['specials'] else f"""<p class="kicker" style="margin-top:48px">{E(t['specialsK'])}</p>
-    <h2>{E(t['specialsH'])}</h2>
-    <div class="packs">
-      {packs(t['specials'], t)}
-    </div>"""
+    doors = ''.join(f"<i class='{'o' if d < 7 else ('t' if d == 7 else '')}'>{d}</i>" for d in range(1, 25))
+    cal = ''.join(f"<li>{E(x)}</li>" for x in u['calList'])
+    prices = ''.join(f"<div class='price'><h3>{E(h)}</h3><p>{E(p)}</p></div>" for h, p in t['prices'][:3])
+    ph, pp = t['prices'][3]
+    pp = re.sub(r'\s*[^.]*(aunch price|anseringspris|anceringspris)[^.]*\.', '', pp)
+    plus = f"<div class='price plus'><div><h3>{E(ph)}</h3></div><div><p>{E(pp)}</p><span class='tag'>{E(u['plusTag'])}</span></div></div>"
+    start = [x for x in t['packs'] if not x[4]]
+    later = [x for x in t['packs'] if x[4]]
+    groups = [(u['groups'][0], start), (u['groups'][1], later)] + ([(u['groups'][2], t['specials'])] if t['specials'] else [])
+    packs_html = ''.join(f"<div class='group'><h3>{E(g)}</h3><div class='packs'>\n      {packs(lst, t)}\n    </div></div>" for g, lst in groups)
+    jul = 'cover_jul_en.jpg' if L == 'en' else 'cover_jul.jpg'
+    h1a, h1b, h1c = u['h1']
+    apple = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-4.2zM13.9 5c.7-.8 1.1-1.9 1-3-1 0-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.8-1.3z"/></svg>'
+    play = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.4.7-.4 1.3v17.8c0 .6.1 1 .4 1.3l.1.1 10-10v-.2l-10-10.4zM17 15.6l-3.3-3.3v-.2L17 8.7l.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2-.1.1zm-.1.1L13.6 12 3.6 22c.4.4 1 .4 1.7.1l11.6-6.4M16.9 8.3 5.3 1.7c-.7-.4-1.3-.3-1.7.1l10 10 3.3-3.5z"/></svg>'
     body = f"""<section class="hero">
   <div class="wrap">
     <div>
-      <img class="logo" src="/img/logo.png" alt="Get Busted">
-      <h1>{E(t['h1'])}</h1>
+      <img class="logo" src="/img/logo.png" alt="Get Busted" width="150" height="150">
+      <h1>{E(h1a)}<em>{E(h1b)}</em>{E(h1c)}</h1>
       <p class="lead">{E(t['lead'])}</p>
       <div class="badges" id="download">
-        <span class="badge"><small>{E(t['soonTo'])}</small><b>App Store</b></span>
-        <span class="badge"><small>{E(t['soonTo'])}</small><b>Google Play</b></span>
+        <span class="badge">{apple}<span><small>{E(t['soonTo'])}</small><b>App Store</b></span></span>
+        <span class="badge">{play}<span><small>{E(t['soonTo'])}</small><b>Google Play</b></span></span>
       </div>
       <p class="note">{E(t['note'])}</p>
     </div>
-    <div class="phone"><picture><source srcset="/img/hero_{t['hero']}.webp" type="image/webp"><img src="/img/hero_{t['hero']}.png" alt="{E(t['heroAlt'])}" width="470" height="960"></picture></div>
+    <div class="stage" aria-hidden="true">
+      <img class="cover l" src="/img/cover_halloween.jpg" alt="" style="--c:#FF8A1F" width="360" height="503">
+      <img class="cover r" src="/img/{jul}" alt="" style="--c:#E0473E" width="360" height="503">
+      <picture class="card"><source srcset="/img/card_hero_{L}.webp" type="image/webp"><img src="/img/card_hero_{L}.png" alt="" width="600" height="841"></picture>
+    </div>
   </div>
 </section>
 
-<section id="how" class="alt">
+<div class="wrap"><div class="stats">{stats}</div></div>
+
+<section id="how">
   <div class="wrap">
     <p class="kicker">{E(t['howK'])}</p>
     <h2>{E(t['howH'])}</h2>
@@ -399,24 +514,41 @@ def home(t):
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
     <p class="kicker">{E(t['featK'])}</p>
     <h2>{E(t['featH'])}</h2>
     <div class="features">{feats}</div>
+    <div class="shots">{shots}</div>
   </div>
 </section>
 
-<section id="packs" class="alt">
+<section class="xmas" data-until="2026-12-31">
+  <div class="wrap">
+    <div>
+      <p class="kicker">{E(u['calK'])}</p>
+      <h2>{E(u['calH'][0])}<em>{E(u['calH'][1])}</em></h2>
+      <p class="lead">{E(u['calLead'])}</p>
+      <ul>{cal}</ul>
+    </div>
+    <div class="doors" aria-hidden="true">{doors}</div>
+  </div>
+</section>
+
+<section id="packs">
   <div class="wrap">
     <p class="kicker">{E(t['packsK'])}</p>
     <h2>{E(t['packsH'])}</h2>
     <p class="lead">{E(t['packsLead'])}</p>
-    <div class="packs">
-      {packs(t['packs'], t)}
-    </div>
-    {specials}
-    <div class="pricing">{prices}</div>
+    {packs_html}
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">{E(u['priceK'])}</p>
+    <h2>{E(u['priceH'][0])}<em>{E(u['priceH'][1])}</em></h2>
+    <div class="pricing three">{prices}{plus}</div>
   </div>
 </section>
 
@@ -476,19 +608,20 @@ for lang in LANGS:
     write(HELP[lang], help_page(t))
     write(PRIV[lang], privacy_page(t))
 
-(ROOT / 'online.css').write_text(""".langs{display:inline-flex;gap:6px;margin:0 6px}
-.langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75}
+(ROOT / 'online.css').write_text(""".langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
+.langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}
 .langs a[aria-current]{border-color:#B7D147;color:#B7D147;opacity:1}
-footer .langs{margin-left:12px}
-footer .langs a{margin-right:0}
-.pricing{grid-template-columns:repeat(4,1fr)}
-.price .amt{font-size:clamp(30px,3.4vw,44px);overflow-wrap:break-word}
+footer .langs{margin-left:0}
+.pricing.three{grid-template-columns:repeat(3,1fr)}
+.price.plus h3{font-size:clamp(40px,5vw,64px);text-shadow:0 0 30px rgba(183,209,71,.4)}
 .article h1{overflow-wrap:break-word}
-@media (max-width:980px){.pricing{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.pricing{grid-template-columns:1fr}}
-@media (max-width:640px){.nav nav .langs a{display:inline-block;margin-left:0}.nav nav .langs{margin:0 4px}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap}.nav .brand{font-size:19px}.nav .brand img{width:34px;height:34px}.langs a{padding:4px 6px}}
+@media (max-width:900px){.pricing.three{grid-template-columns:1fr}}
+@media (max-width:760px){.nav nav .langs{display:inline-flex;margin:0 4px}.nav nav .langs a{display:inline-block}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap;font-size:19px}.nav .brand img{width:34px;height:34px}.langs a{padding:4px 6px}}
 """, encoding='utf-8')
 (ROOT / 'CNAME').write_text('getbusted.online\n')
+# Gamle danske adresser (/da/) sender videre til /dk/
+for _old, _new in (('/da/', '/dk/'), ('/da/hjaelp/', '/dk/hjaelp/'), ('/da/privatliv/', '/dk/privatliv/')):
+    write(_old, f"<!doctype html><meta charset='utf-8'><title>Get Busted</title><link rel='canonical' href='{SITE}{_new}'><meta http-equiv='refresh' content='0;url={_new}'><a href='{_new}'>Get Busted</a>\n")
 (ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://getbusted.online/sitemap.xml\n')
 
 # Sitemap med hreflang mellom språkene. Norsk hjelpeside finnes ikke, så hjelpesidene lenker bare en/sv/da.

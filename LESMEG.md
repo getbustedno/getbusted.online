@@ -1,12 +1,12 @@
 # getbusted.online
 
-Internasjonal nettside for Get Busted: engelsk på /, svensk på /sv/ og dansk på /da/. Norsk ligger på getbusted.no.
-Språkvalg øverst (EN / SV / DA / NO). Første besøk fra en svensk eller dansk telefon sendes til /sv/ eller /da/, og valgt språk huskes.
+Internasjonal nettside for Get Busted: engelsk på /, svensk på /sv/ og dansk på /dk/ (/da/ sender videre). Norsk ligger på getbusted.no.
+Språkvalg øverst (EN / SV / DK / NO). Første besøk fra en svensk eller dansk telefon sendes til /sv/ eller /dk/, og valgt språk huskes.
 
 Hjelp og personvern per språk (lenket i footeren, brukes som support- og personvern-URL i butikkene):
 - engelsk: /help/ og /privacy/
 - svensk: /sv/hjalp/ og /sv/integritet/
-- dansk: /da/hjaelp/ og /da/privatliv/
+- dansk: /dk/hjaelp/ og /dk/privatliv/
 
 Personvernsidene er oversatt fra store/personvern.html. Datoen står som plassholder («[date at launch]» osv.) i build.py og må fylles inn ved lansering, samme dag som på getbusted.no.
 
