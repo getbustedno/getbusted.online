@@ -6,7 +6,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--fg); font: 18px/1.55 "Barlow Semi Condensed", system-ui, -apple-system, sans-serif; font-weight: 500; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--lime); }
 .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
 h1, h2, h3, .display { font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 1; letter-spacing: .2px; overflow-wrap: break-word; }
