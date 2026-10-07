@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookies and local storage - Get Busted</title>
+<meta name="description" content="What getbusted.online stores in your browser: no cookies, no statistics, only your language choice.">
+<meta property="og:title" content="Cookies and local storage - Get Busted">
+<meta property="og:description" content="What getbusted.online stores in your browser: no cookies, no statistics, only your language choice.">
+<meta property="og:image" content="https://getbusted.online/img/og_en.jpg">
+<meta property="og:url" content="https://getbusted.online/cookies/">
+<link rel="canonical" href="https://getbusted.online/cookies/">
+<link rel="alternate" hreflang="en" href="https://getbusted.online/cookies/">
+<link rel="alternate" hreflang="sv" href="https://getbusted.online/se/cookies/">
+<link rel="alternate" hreflang="da" href="https://getbusted.online/dk/cookies/">
+<link rel="alternate" hreflang="no" href="https://getbusted.no/informasjonskapsler/">
+<link rel="alternate" hreflang="x-default" href="https://getbusted.online/cookies/">
+<meta name="theme-color" content="#191919">
+<link rel="icon" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preload" href="/fonts/bsc-900Black_Italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/online.css">
+
+</head>
+<body>
+<a class="skip" href="#innhold">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/logo.png" alt="">Get Busted</a>
+    <nav>
+      <a href='/#how'>How it works</a><a href='/#packs'>Packs</a><a href='/#faq'>FAQ</a>
+      <span class='langs'><a href='/cookies/' data-lang='en' aria-current="page">EN</a><a href='/se/cookies/' data-lang='sv'>SE</a><a href='/dk/cookies/' data-lang='da'>DK</a><a href='https://getbusted.no/informasjonskapsler/' data-lang='no'>NO</a></span>
+      <a class="cta" href="/#download" data-launch="cta">30 October</a>
+    </nav>
+  </div>
+</header>
+
+<main id="innhold">
+<article class="article">
+  <p class="kicker">Cookies</p>
+  <h1>Cookies and local storage</h1>
+  <p class="meta">Last updated: 7 October 2026</p>
+  <h2>In short</h2>
+<p>getbusted.online uses no cookies and no statistics. Your browser only stores the language you chose. That is why there is no consent box on this site.</p>
+
+<h2>What is stored in your browser</h2>
+<table class="tbl"><caption class="sr">Storage in the browser on getbusted.online</caption><thead><tr><th scope="col">Name</th><th scope="col">What and why</th><th scope="col">How long</th><th scope="col">Consent</th></tr></thead><tbody><tr><td data-l="Name"><code>gb-lang</code></td><td data-l="What and why">Remembers the language you picked in the language menu (EN, SE, DK or NO), so the site shows the right language next time. Stored in the browser's local storage (localStorage), not sent to anyone.</td><td data-l="How long">Until you clear browser data or pick another language</td><td data-l="Consent">No, strictly necessary</td></tr></tbody></table>
+<p>Storage that is strictly necessary to give you something you have asked for, here the language you chose, does not require consent.</p>
+
+<h2>No statistics</h2>
+<p>getbusted.online has no visitor statistics, no analytics tools and no ads. Nothing is loaded that tracks what you do on the site.</p>
+
+<h2>Deleting what is stored</h2>
+<p>You can delete the stored language choice by clearing site data for getbusted.online in your browser settings. Next time you open the front page, the site picks the language from your browser's language settings again.</p>
+
+<h2>No other third parties</h2>
+<p>The fonts are on our own server, and there are no embedded videos, maps, ads or social media buttons that load content from others. The site is hosted on GitHub Pages, which logs IP addresses for security, see the <a href="/privacy/">privacy policy</a>.</p>
+
+<h2>getbusted.no</h2>
+<p>The Norwegian site getbusted.no also uses no cookies. It counts visits with Metricool (Metricool Software S.L., Spain), but only if you tap "Accept" in the box about statistics there. You can change your choice at any time on <a href="https://getbusted.no/informasjonskapsler/">getbusted.no</a>.</p>
+
+<h2>More about privacy</h2>
+<p>Read the <a href="/privacy/">privacy policy</a> to see how we handle personal data in the app and on the websites. Questions: <a href="mailto:kontakt@getbusted.no">kontakt@getbusted.no</a>.</p>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links"><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/cookies/">Cookies</a><a href="/purchases/">Purchases &amp; refunds</a><a href="/help/">Help</a><a href="mailto:kontakt@getbusted.no">Contact</a><span class='langs'><a href='/cookies/' data-lang='en' aria-current="page">EN</a><a href='/se/cookies/' data-lang='sv'>SE</a><a href='/dk/cookies/' data-lang='da'>DK</a><a href='https://getbusted.no/informasjonskapsler/' data-lang='no'>NO</a></span></div>
+    <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org. no. 927 118 300 · Floraveien 22B, 2007 Kjeller, Norway · Adults 18+</div>
+  </div>
+</footer>
+<script src="/season.js" defer></script>
+<script>
+// Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
+document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
+var now = Date.now();
+document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
+document.querySelectorAll('[data-until]').forEach(function (el) { if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); });
+</script>
+</body>
+</html>

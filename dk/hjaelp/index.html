@@ -17,14 +17,13 @@
 <meta name="theme-color" content="#191919">
 <link rel="icon" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/bsc-900Black_Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/online.css">
 
 </head>
 <body>
+<a class="skip" href="#innhold">Spring til indholdet</a>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="/dk/"><img src="/img/logo.png" alt="">Get Busted</a>
@@ -36,7 +35,7 @@
   </div>
 </header>
 
-<main>
+<main id="innhold">
 <article class="article">
   <p class="kicker">Hjælp</p>
   <h1>Spørgsmål og svar</h1>
@@ -47,7 +46,7 @@
   <h2>Hvordan indløser jeg en kode?</h2>
   <p>Åbn Pakker, og tryk på Indløs kode. På iPhone åbner Apple et vindue, hvor du skriver koden. På Android åbner Google Play, så du kan indløse den der.</p>
   <h2>Hvordan virker alkoholfri tilstand?</h2>
-  <p>Vælg Alkoholfri, når I sætter spillet op. Det er samme spil, men tårer bliver til point, og den med flest point taber. Alle kan spille sammen, med eller uden noget i glasset.</p>
+  <p>Vælg Alkoholfri, når I sætter spillet op. Det er samme spil, men slurke bliver til point, og den med flest point taber. Alle kan spille sammen, med eller uden noget i glasset.</p>
   <h2>Er teksten svær at læse?</h2>
   <p>Vælg Stor tekst, når I sætter spillet op, eller tryk på Aa under spillet for at skifte.</p>
   <h2>Hvorfor 18+?</h2>
@@ -61,8 +60,8 @@
 
 <footer>
   <div class="wrap">
-    <div><a href="/dk/hjaelp/">Hjælp</a><a href="/dk/privatliv/">Privatliv</a><a href="mailto:kontakt@getbusted.no">Kontakt</a><span class='langs'><a href='/help/' data-lang='en'>EN</a><a href='/se/hjalp/' data-lang='sv'>SE</a><a href='/dk/hjaelp/' data-lang='da' aria-current="page">DK</a><a href='https://getbusted.no/hjelp/' data-lang='no'>NO</a></span></div>
-    <div>© 2026 Get Busted · Snikkerbua Holding AS, org.nr. 927 118 300 · For voksne 18+</div>
+    <div class="footer-links"><a href="/dk/vilkaar/">Vilkår</a><a href="/dk/privatliv/">Privatliv</a><a href="/dk/cookies/">Cookies</a><a href="/dk/koeb/">Køb og refusion</a><a href="/dk/hjaelp/">Hjælp</a><a href="mailto:kontakt@getbusted.no">Kontakt</a><span class='langs'><a href='/help/' data-lang='en'>EN</a><a href='/se/hjalp/' data-lang='sv'>SE</a><a href='/dk/hjaelp/' data-lang='da' aria-current="page">DK</a><a href='https://getbusted.no/hjelp/' data-lang='no'>NO</a></span></div>
+    <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org.nr. 927 118 300 · Floraveien 22B, 2007 Kjeller, Norge · For voksne 18+</div>
   </div>
 </footer>
 <script src="/season.js" defer></script>

@@ -3,12 +3,12 @@
 Internasjonal nettside for Get Busted: engelsk på /, svensk på /sv/ og dansk på /dk/ (/da/ sender videre). Norsk ligger på getbusted.no.
 Språkvalg øverst (EN / SE / DK / NO). Første besøk fra en svensk eller dansk telefon sendes til /se/ eller /dk/ (/sv/ sender videre til /se/), og valgt språk huskes.
 
-Hjelp og personvern per språk (lenket i footeren, brukes som support- og personvern-URL i butikkene):
-- engelsk: /help/ og /privacy/
-- svensk: /se/hjalp/ og /se/integritet/
-- dansk: /dk/hjaelp/ og /dk/privatliv/
+Hjelp og juridiske sider per språk (lenket i footeren, hjelp og personvern brukes som support- og personvern-URL i butikkene):
+- engelsk: /help/, /terms/, /privacy/, /cookies/, /purchases/
+- svensk: /se/hjalp/, /se/villkor/, /se/integritet/, /se/cookies/, /se/kop/
+- dansk: /dk/hjaelp/, /dk/vilkaar/, /dk/privatliv/, /dk/cookies/, /dk/koeb/
 
-Personvernsidene er oversatt fra store/personvern.html. Datoen står som plassholder («[date at launch]» osv.) i build.py og må fylles inn ved lansering, samme dag som på getbusted.no.
+De juridiske sidene (LEGAL i build.py) er oversatt fra getbusted.no/_kilde/juridisk.py, som er kilden. Endres den norske teksten, må LEGAL og datoen («updated») oppdateres samme dag.
 
 Bygg: `python3 build.py` (all tekst står i build.py, én blokk per språk). Bildene ligger i img/.
 

@@ -69,4 +69,76 @@
   <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/personvern/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/privacy/"/>
 </url>
+<url>
+  <loc>https://getbusted.online/terms/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/terms/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/villkor/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/vilkaar/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/vilkar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/terms/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/villkor/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/terms/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/villkor/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/vilkaar/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/vilkar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/terms/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/vilkaar/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/terms/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/villkor/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/vilkaar/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/vilkar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/terms/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/cookies/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/informasjonskapsler/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/cookies/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/cookies/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/informasjonskapsler/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/cookies/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/cookies/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/cookies/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/informasjonskapsler/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/cookies/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/purchases/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/purchases/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/kop/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/koeb/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/kjop/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/purchases/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/kop/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/purchases/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/kop/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/koeb/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/kjop/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/purchases/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/koeb/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/purchases/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/kop/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/koeb/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/kjop/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/purchases/"/>
+</url>
 </urlset>
