@@ -14,7 +14,7 @@ PRIV = {'en': '/privacy/', 'sv': '/se/integritet/', 'da': '/dk/privatliv/', 'no'
 TERMS = {'en': '/terms/', 'sv': '/se/villkor/', 'da': '/dk/vilkaar/', 'no': 'https://getbusted.no/vilkar/'}
 COOK = {'en': '/cookies/', 'sv': '/se/cookies/', 'da': '/dk/cookies/', 'no': 'https://getbusted.no/informasjonskapsler/'}
 BUY = {'en': '/purchases/', 'sv': '/se/kop/', 'da': '/dk/koeb/', 'no': 'https://getbusted.no/kjop/'}
-FIRMA, ORGNR, ADDR = 'Snikkerbua Holding AS', '927 118 300', 'Floraveien 22B, 2007 Kjeller'
+FIRMA, ORGNR, ADDR = 'Snikkerbua Holding AS', '927 118 300', 'Voldgata 27, 2000 Lillestrøm'
 LANGS = ['en', 'sv', 'da']
 
 T = {
