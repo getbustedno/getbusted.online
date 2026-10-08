@@ -15,6 +15,27 @@ TERMS = {'en': '/terms/', 'sv': '/se/villkor/', 'da': '/dk/vilkaar/', 'no': 'htt
 COOK = {'en': '/cookies/', 'sv': '/se/cookies/', 'da': '/dk/cookies/', 'no': 'https://getbusted.no/informasjonskapsler/'}
 BUY = {'en': '/purchases/', 'sv': '/se/kop/', 'da': '/dk/koeb/', 'no': 'https://getbusted.no/kjop/'}
 FIRMA, ORGNR, ADDR = 'Snikkerbua Holding AS', '927 118 300', 'Voldgata 27, 2000 Lillestrøm'
+
+# ---------------------------------------------------------------------------
+# PÅMINNELSE OM PRISENDRING (se også PAMINNELSER.md og getbusted.no/_kilde/juridisk.py)
+# Lanseringsprisen på Busted+ gjelder til og med 31. desember 2026, høyere pris fra 1. januar 2027.
+# TODO 2027-01-01: sett LAUNCH_PRICE_ACTIVE = False (sidene sier da bare at prisen i butikken gjelder), bekreft prisene i App Store og Google Play,
+# og gjør det samme i getbusted.no/_kilde/juridisk.py.
+# Bygget stopper med feilmelding hvis det kjøres etter denne datoen mens lanseringsprisen fortsatt står.
+import datetime, sys
+PRICE_CHANGE_DATE = datetime.date(2027, 1, 1)
+LAUNCH_PRICE_ACTIVE = True
+if LAUNCH_PRICE_ACTIVE and datetime.date.today() >= PRICE_CHANGE_DATE:
+    sys.exit('STOPP: Lanseringsprisen på Busted+ gjaldt til og med 31. desember 2026. Sett LAUNCH_PRICE_ACTIVE = False i build.py, '
+             'bekreft prisene i App Store og Google Play, og se PAMINNELSER.md.')
+PRICE_TXT = {
+  'en': ('Busted+ has a launch price until 31 December 2026, and a higher price from 1 January 2027. The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.'
+         if LAUNCH_PRICE_ACTIVE else 'The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.'),
+  'sv': ('Busted+ har ett lanseringspris till och med 31 december 2026 och ett högre pris från 1 januari 2027. Det pris du ser i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.'
+         if LAUNCH_PRICE_ACTIVE else 'Det pris du ser i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.'),
+  'da': ('Busted+ har en lanceringspris til og med 31. december 2026 og en højere pris fra 1. januar 2027. Den pris, du ser i butikken, når du køber, er den, der gælder. Prisændringer påvirker ikke det, du allerede har købt.'
+         if LAUNCH_PRICE_ACTIVE else 'Den pris, du ser i butikken, når du køber, er den, der gælder. Prisændringer påvirker ikke det, du allerede har købt.'),
+}
 LANGS = ['en', 'sv', 'da']
 
 T = {
@@ -74,7 +95,7 @@ T = {
        ('Which languages?', 'English, Swedish, Danish and Norwegian, each with its own cards and menus. Pick the language on the start screen.'),
        ('When is it out?', 'Soon on iPhone and Android. Follow @getbusted.uk on Instagram and TikTok to hear first.')],
   help='Help', privacy='Privacy', contact='Contact', foot='Adults 18+',
-  terms='Terms', cookies='Cookies', buy='Purchases & refunds', skip='Skip to content', orgno='Org. no.', country='Norway',
+  terms='Terms of use', cookies='Cookies', buy='Purchases & refunds', skip='Skip to content', orgno='Org. no.', country='Norway',
   helpTitle='Help - Get Busted', helpDesc='Answers about Get Busted: how to play, restoring purchases, redeeming codes, alcohol-free mode and more.',
   helpK='Help', helpH='Questions and answers',
   helpQA=[('How do you play?', 'Enter the names (2 to 30 players), pick packs, level and how thirsty you are. One person is the reader: they hold the phone and read every card out loud. Swipe or tap for the next card, and tap the left edge of the card to go back. You can change the reader, and add or remove players, at any time by tapping the name at the top.'),
@@ -143,7 +164,7 @@ T = {
        ('Vilka språk?', 'Svenska, engelska, danska och norska, med egna kort och menyer. Välj språk på startsidan.'),
        ('När kommer den?', 'Snart till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.')],
   help='Hjälp', privacy='Integritet', contact='Kontakt', foot='För vuxna 18+',
-  terms='Villkor', cookies='Cookies', buy='Köp och återbetalning', skip='Hoppa till innehållet', orgno='Org.nr', country='Norge',
+  terms='Användarvillkor', cookies='Cookies', buy='Köp och återbetalning', skip='Hoppa till innehållet', orgno='Org.nr', country='Norge',
   helpTitle='Hjälp - Get Busted', helpDesc='Svar om Get Busted: hur man spelar, återställa köp, lösa in kod, alkoholfritt läge och mer.',
   helpK='Hjälp', helpH='Frågor och svar',
   helpQA=[('Hur spelar man?', 'Skriv in namnen (2 till 30 spelare), välj paket, nivå och hur törstiga ni är. En person är läsare: hen håller i telefonen och läser upp alla kort. Svep eller tryck för nästa kort, och tryck på vänstra kanten av kortet för att gå tillbaka. Läsaren kan bytas, och spelare kan läggas till eller tas bort, när som helst genom att trycka på namnet högst upp.'),
@@ -209,7 +230,7 @@ T = {
        ('Hvilke sprog?', 'Dansk, svensk, engelsk og norsk, med egne kort og menuer. Vælg sprog på startskærmen.'),
        ('Hvornår kommer den?', 'Snart til iPhone og Android.')],
   help='Hjælp', privacy='Privatliv', contact='Kontakt', foot='For voksne 18+',
-  terms='Vilkår', cookies='Cookies', buy='Køb og refusion', skip='Spring til indholdet', orgno='Org.nr.', country='Norge',
+  terms='Brugsvilkår', cookies='Cookies', buy='Køb og refusion', skip='Spring til indholdet', orgno='Org.nr.', country='Norge',
   helpTitle='Hjælp - Get Busted', helpDesc='Svar om Get Busted: sådan spiller I, gendan køb, indløs kode, alkoholfri tilstand og mere.',
   helpK='Hjælp', helpH='Spørgsmål og svar',
   helpQA=[('Hvordan spiller man?', 'Skriv navnene ind (2 til 30 spillere), og vælg pakker, niveau og hvor tørstige I er. Én person er oplæser: vedkommende holder telefonen og læser alle kortene højt. Swipe eller tryk for næste kort, og tryk i venstre kant af kortet for at gå tilbage. I kan skifte oplæser og tilføje eller fjerne spillere når som helst ved at trykke på navnet øverst.'),
@@ -339,7 +360,7 @@ def tbl(caption, heads, rows):
 LEGAL = {}
 
 # ===== English (UK-oriented, also EU readers) =====
-LEGAL['en'] = dict(updated='Last updated: 7 October 2026')
+LEGAL['en'] = dict(updated='Last updated: 7 October 2026', updated_terms='Last updated: 8 October 2026', updated_purchases='Last updated: 8 October 2026')
 
 LEGAL['en']['privacy'] = ('Privacy policy', 'How Get Busted handles personal data in the app and on the websites: no accounts, no ads, no analytics.', 'Privacy', f"""
 <h2>In short</h2>
@@ -400,8 +421,10 @@ LEGAL['en']['privacy'] = ('Privacy policy', 'How Get Busted handles personal dat
 <p>If we change how the app or the websites process personal data, we will update this page and the date at the top. If there are significant changes to something you have consented to, we will ask you again.</p>
 """)
 
-LEGAL['en']['terms'] = ('Terms of use', 'Terms for the Get Busted app and the websites getbusted.online and getbusted.no.', 'Terms', f"""
-<p>These terms apply to the Get Busted app and the websites getbusted.online and getbusted.no. By downloading or using the app, you accept the terms. The terms do not limit the rights you have as a consumer under the law.</p>
+# Terms of use (separate from the purchase terms on /purchases/). Mirrors getbusted.no/vilkar/ (Bruksvilkår).
+# SPRÅK USIKKERT: natural UK legal-plain English, not checked by a native lawyer. JURIDISK USIKKERT: governing law and complaint bodies for UK/EU readers (Roma I), see getbusted.no/_kilde/juridisk.py.
+LEGAL['en']['terms'] = ('Terms of use', 'Terms of use for the Get Busted app and the websites getbusted.online and getbusted.no.', 'Terms of use', f"""
+<p>These terms apply when you use the Get Busted app and the websites getbusted.online and getbusted.no. By downloading or using the app, you accept the terms. Purchases, the right to cancel, refunds and faulty purchases are covered on <a href="{BUY['en']}">Purchases, cancellation and refunds</a>. The terms do not limit the rights you have as a consumer under the law.</p>
 
 <h2>1. Who we are</h2>
 <p>Get Busted is provided by {FIRMA}, org. no. {ORGNR}, {ADDR}, Norway. Email: {M}.</p>
@@ -419,67 +442,75 @@ LEGAL['en']['terms'] = ('Terms of use', 'Terms for the Get Busted app and the we
 </ul>
 <p>You are responsible for how you and your group use the game. The cards are meant as humour and may feel cheeky, especially on the Get Fu**ed level. Choose a level and packs that suit your group.</p>
 
-<h2>4. Free content and purchases</h2>
-<p>The app is free to download and gives you 50 cards from Original for free every night. Theme packs, the Get Fu**ed level, the Night Pack and Busted+ are one-time purchases. There are no subscriptions. The price is shown in the store before you buy, and includes VAT.</p>
-<ul>
-  <li>Purchases are made in the App Store or Google Play and are also subject to Apple's or Google's terms.</li>
-  <li>A purchase gives you a personal right to use the content in the app on the devices linked to the same Apple ID or Google account. The content cannot be resold.</li>
-  <li>Busted+ gives access to all packs in the app, including packs that come later, for as long as we offer the app.</li>
-  <li>Packs with a later release date are shown as "Coming" and can be bought from the release date. Busted+ unlocks them automatically on the day.</li>
-  <li>Purchases can be restored on a new phone with "Restore purchases" in the app.</li>
-</ul>
-<p>For the right to cancel, refunds and faulty purchases, see <a href="{BUY['en']}">Purchases, cancellation and refunds</a>.</p>
+<h2>4. Licence to use the app</h2>
+<p>The app is free to download. You get a personal right to use the app and the content you have access to on the devices linked to the same Apple ID or Google account. The right cannot be sold or passed on to others. Your use is also subject to Apple's or Google's terms for the app.</p>
 
-<h2>5. Changes to the app</h2>
-<p>We keep developing the app and may add, change or remove cards, features and design. We do not remove content you have paid for unless it is necessary, for example because a card turns out to be offensive or unlawful. In that case we replace it with similar content. Updates may be needed for the app to work.</p>
-
-<h2>6. Rights</h2>
+<h2>5. Content and rights</h2>
 <p>The Get Busted name, the logo, the cards, the texts, the covers and the rest of the content belong to {FIRMA}. You may share single cards and summaries from the app using the share feature. You may not copy the decks, resell the content, make your own versions of the game or use the content commercially without our written consent.</p>
 
+<h2>6. Changes to the app</h2>
+<p>We keep developing the app and may add, change or remove cards, features and design. We do not remove content you have paid for unless it is necessary, for example because a card turns out to be offensive or unlawful. In that case we replace it with similar content. Updates may be needed for the app to work.</p>
+
 <h2>7. Availability and liability</h2>
-<p>We do our best to make the app work, but we cannot promise that it will always be free of errors or available. If something you have bought is faulty, you have the rights described on <a href="{BUY['en']}">Purchases, cancellation and refunds</a>.</p>
+<p>We do our best to make the app work, but we cannot promise that it will always be free of errors or available. The app may be unavailable during maintenance or because of problems at Apple, Google or other providers, and some features need an internet connection.</p>
 <p>We are not liable for damage or loss caused by how the game is used, for example someone drinking too much or a challenge going wrong. This does not apply if the damage is caused by our gross negligence or intent, or where the law does not allow liability to be excluded.</p>
 
 <h2>8. Links to other services</h2>
 <p>The app and the websites may link to Spotify, Instagram, TikTok, Facebook, the App Store and Google Play. These services have their own terms, and we are not responsible for them.</p>
 
-<h2>9. Changes to these terms</h2>
-<p>We may change these terms, for example when the app gets new features or the law changes. The current version is always here, with the date at the top. We will tell you about significant changes that are to your disadvantage in the app or on the website before they apply.</p>
+<h2>9. Governing law and disputes</h2>
+<p>Norwegian law applies. If you live in the UK or in another country in the EU/EEA, you keep the mandatory consumer protection you have under the law of the country where you live. If you are unhappy, please contact us first. If we cannot find a solution, you can contact the consumer authorities or the consumer advice service in your country, or take the matter to the courts. This also applies to complaints about purchases.</p>
 
-<h2>10. Governing law and disputes</h2>
-<p>Norwegian law applies. If you live in the UK or in another country in the EU/EEA, you keep the mandatory consumer protection you have under the law of the country where you live. If you are unhappy, please contact us first. If we cannot find a solution, you can contact the consumer authorities or the consumer advice service in your country, or take the matter to the courts.</p>
+<h2>10. Changes to these terms</h2>
+<p>We may change these terms, for example when the app gets new features or the law changes. The current version is always here, with the date at the top. We will tell you about significant changes that are to your disadvantage in the app or on the website before they apply.</p>
 """)
 
+# Purchase terms. Mirrors getbusted.no/kjop/. No "14 days" refund promise and no "48 hours" (the cancellation right is explained as the legal rule only).
+# JURIDISK USIKKERT: Do Apple's and Google's purchase dialogs meet the UK/EU rules on express consent and acknowledgement (Consumer Contracts Regulations 2013 reg 37)? Who is the seller?
+# JURIDISK USIKKERT: "for as long as we offer the app" for Busted+; launch price notice; time limits for faulty digital content.
 LEGAL['en']['purchases'] = ('Purchases, cancellation and refunds', 'How purchases in Get Busted work: the right to cancel, refunds and faulty purchases.', 'Purchases', f"""
+<p>This page covers purchases in the Get Busted app. The seller is {FIRMA}, org. no. {ORGNR}, {ADDR}, Norway, {M}. You must be over 18. The rules for using the app are in <a href="{TERMS['en']}">Terms of use</a>.</p>
+
 <h2>In short</h2>
 <ul>
-  <li>All purchases are one-time purchases through the App Store or Google Play. No subscriptions.</li>
-  <li>You ask Apple or Google for a refund. On iPhone, Apple gives you 14 days to cancel.</li>
+  <li>All purchases are one-time purchases through the App Store or Google Play. No subscriptions and no automatic charges.</li>
+  <li>Apple and Google take the payment and handle refunds under their own rules.</li>
   <li>If something you have bought does not work, we fix it. If we cannot, you are entitled to a price reduction or your money back.</li>
 </ul>
 
 <h2>What you buy</h2>
-<p>Theme packs, the Get Fu**ed level, the Night Pack (one pack and the Get Fu**ed level) and Busted+ (all packs, including those still to come). The price is shown in the store before you confirm the purchase. The content unlocks as soon as the purchase is confirmed.</p>
+<p>The app is free to download and gives you 50 cards from Original for free every night. You can buy theme packs, the Get Fu**ed level, the Night Pack (one pack and the Get Fu**ed level) and Busted+ (all packs). The price is shown in the store before you confirm the purchase, and includes VAT. Prices can vary between countries. The purchase is binding once you have confirmed it in the store. The content unlocks as soon as the purchase is confirmed, and the app remembers the purchase so you can play offline. What you may use the content for is set out under Licence in <a href="{TERMS['en']}">Terms of use</a>.</p>
 
-<h2>Cancellation and refunds</h2>
-<p>Purchases are made in the App Store or Google Play. Apple and Google take the payment and handle refunds, under their own rules:</p>
+<h2>Busted+ and packs still to come</h2>
+<p>Busted+ gives you access to all packs in the app, including new card packs and levels that {FIRMA} itself releases in the Get Busted app, for as long as we offer the app. You do not pay extra for new packs that are part of the app's normal range of packs. This does not include:</p>
 <ul>
-  <li><b>iPhone:</b> Apple gives you 14 days to cancel from when you receive the receipt, without giving a reason. Go to <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>, sign in with your Apple ID, choose the purchase and request a refund.</li>
-  <li><b>Android:</b> For the first 48 hours after the purchase, you can request a refund directly in Google Play under <a href="https://play.google.com/store/account/orderhistory">Order history</a>. After that, write to us and we can refund the purchase through Google Play.</li>
+  <li>a separate app or another game</li>
+  <li>physical products, for example a deck of cards</li>
+  <li>content made with or sold by a third party, if it is clearly marked as not included in Busted+</li>
+  <li>limited-time content that we have expressly said is an extra</li>
 </ul>
-<p>For digital content that is delivered straight away, the statutory right to cancel does not apply once the download has started with your express consent and you have acknowledged that you lose the right to cancel (in the UK: regulation 37 of the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013; in the EU: the consumer rules in your country). If you bought something by mistake, we will still refund it if you write to us within 14 days. Send the receipt or order number to {M}.</p>
+<p>We decide how many packs are released and when. Busted+ is a one-time purchase. We never charge you automatically.</p>
+<p>Packs with a later release date are shown as "Coming" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives. If you have bought Busted+ and an announced pack is not released, you can contact us for a fair price reduction.</p>
+
+<h2>Price and launch price</h2>
+<p>{PRICE_TXT['en']}</p>
+
+<h2>Right to cancel</h2>
+<p>Under consumer law you normally have 14 days to cancel a purchase made at a distance. For digital content that is delivered straight away, the right to cancel is lost once delivery has started with your express consent and you have acknowledged that you lose it (in the UK: regulation 37 of the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013; in the EU/EEA: the consumer rules in your country). Purchases are made in the store's own payment dialog, and the content is delivered immediately once the purchase is confirmed.</p>
+
+<h2>Refunds from Apple and Google</h2>
+<p>Apple and Google take the payment and handle refunds under their own rules. The rules can change, so always check the current rules with the store:</p>
+<ul>
+  <li><b>iPhone:</b> <a href="https://support.apple.com/118223">Apple's page on refunds</a>. You request a refund at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> with the Apple ID you bought with.</li>
+  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897">Google's page on refunds in Google Play</a>.</li>
+</ul>
+<p>If you bought something by mistake, you can write to {M} and send the receipt or order number from Apple or Google. We will help as far as we can, but the refund is paid out by Apple or Google.</p>
 
 <h2>Faulty purchases</h2>
-<p>Content you have bought should work as described. If it is faulty, for example a pack does not unlock or cannot be restored, you have rights under the Consumer Rights Act 2015 if you live in the UK, or under the consumer rules in your country if you live in the EU/EEA. First try "Restore purchases" in the app. If that does not help, write to {M}. We will fix the problem as quickly as we can. If we cannot do so within a reasonable time, you are entitled to a price reduction or your money back.</p>
-
-<h2>Packs not released yet</h2>
-<p>Packs with a later release date are shown as "Coming" and cannot be bought individually until they are released. Busted+ gives you access to them automatically on the release date. If a pack is delayed, it unlocks when it arrives. If you have bought Busted+ and an announced pack is not released, you can contact us for a fair price reduction.</p>
-
-<h2>Prices and launch price</h2>
-<p>Busted+ has a launch price until 31 December 2026, and a higher price from 1 January 2027. The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.</p>
+<p>Content you have bought should work as described. If it is faulty, for example a pack does not unlock or cannot be restored, you have rights under the Consumer Rights Act 2015 if you live in the UK, or under the consumer rules in your country if you live in the EU/EEA. First try "Restore purchases" in the app, with the same Apple ID or Google account you bought with. If that does not help, write to {M} without undue delay and describe the problem, ideally with the receipt, your phone and the app version. We will fix the problem as quickly as we can, for example with an update, which you may need to install. If we cannot do so within a reasonable time, you are entitled to a price reduction or your money back. This does not limit your rights as a consumer under the law.</p>
 
 <h2>Questions and complaints</h2>
-<p>Write to {M}. If we cannot agree, you can contact the consumer authorities or the consumer advice service in the country where you live. {FIRMA}, org. no. {ORGNR}, {ADDR}, Norway.</p>
+<p>Write to {M}. Who you can complain to if we cannot agree is set out under Governing law and disputes in <a href="{TERMS['en']}">Terms of use</a>. How we handle personal data is explained in the <a href="{PRIV['en']}">privacy policy</a>.</p>
 """)
 
 _tbl = tbl('Storage in the browser on getbusted.online', ['Name', 'What and why', 'How long', 'Consent'], [
@@ -510,7 +541,7 @@ LEGAL['en']['cookies'] = ('Cookies and local storage', 'What getbusted.online st
 """)
 
 # ===== Svenska =====
-LEGAL['sv'] = dict(updated='Senast uppdaterad: 7 oktober 2026')
+LEGAL['sv'] = dict(updated='Senast uppdaterad: 7 oktober 2026', updated_terms='Senast uppdaterad: 8 oktober 2026', updated_purchases='Senast uppdaterad: 8 oktober 2026')
 
 LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personuppgifter i appen och på webbplatserna: inga konton, ingen reklam, ingen analys.', 'Integritet', f"""
 <h2>Kort sagt</h2>
@@ -571,8 +602,10 @@ LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personup
 <p>Om vi ändrar hur appen eller webbplatserna behandlar personuppgifter uppdaterar vi den här sidan och datumet högst upp. Vid väsentliga ändringar av något du har samtyckt till frågar vi dig igen.</p>
 """)
 
-LEGAL['sv']['terms'] = ('Användarvillkor', 'Villkor för appen Get Busted och webbplatserna getbusted.online och getbusted.no.', 'Villkor', f"""
-<p>Dessa villkor gäller för appen Get Busted och webbplatserna getbusted.online och getbusted.no. Genom att ladda ner eller använda appen godkänner du villkoren. Villkoren begränsar inte de rättigheter du har som konsument enligt lag.</p>
+# Användarvillkor (skilda från köpvillkoren på /se/kop/). Motsvarar getbusted.no/vilkar/ (Bruksvilkår).
+# SPRÅK USIKKERT: naturligt juridiskt-enkelt svenskt språk, ej granskat av svensk jurist. JURIDISK USIKKERT: tillämplig lag och tvistlösning för svenska konsumenter (Rom I, ARN).
+LEGAL['sv']['terms'] = ('Användarvillkor', 'Användarvillkor för appen Get Busted och webbplatserna getbusted.online och getbusted.no.', 'Användarvillkor', f"""
+<p>Dessa villkor gäller när du använder appen Get Busted och webbplatserna getbusted.online och getbusted.no. Genom att ladda ner eller använda appen godkänner du villkoren. Köp, ångerrätt, återbetalning och fel vid köp beskrivs under <a href="{BUY['sv']}">Köp, ångerrätt och återbetalning</a>. Villkoren begränsar inte de rättigheter du har som konsument enligt lag.</p>
 
 <h2>1. Vilka vi är</h2>
 <p>Get Busted tillhandahålls av {FIRMA}, org.nr {ORGNR}, {ADDR}, Norge. E-post: {M}.</p>
@@ -590,67 +623,75 @@ LEGAL['sv']['terms'] = ('Användarvillkor', 'Villkor för appen Get Busted och w
 </ul>
 <p>Du ansvarar själv för hur du och gänget använder spelet. Korten är menade som humor och kan upplevas som fräcka, särskilt på nivån Get Fu**ed. Välj nivå och paket som passar gänget.</p>
 
-<h2>4. Gratis innehåll och köp</h2>
-<p>Appen är gratis att ladda ner och ger 50 kort från Original gratis varje kväll. Temapaket, Get Fu**ed-nivån, Kvällspaketet och Busted+ är engångsköp. Det finns ingen prenumeration. Priset står i butiken innan du köper och inkluderar moms.</p>
-<ul>
-  <li>Köp görs i App Store eller Google Play och följer också Apples eller Googles villkor.</li>
-  <li>Ett köp ger dig en personlig rätt att använda innehållet i appen på de enheter som är kopplade till samma Apple-ID eller Google-konto. Innehållet får inte säljas vidare.</li>
-  <li>Busted+ ger tillgång till alla paket i appen, även paket som kommer senare, så länge vi erbjuder appen.</li>
-  <li>Paket med senare släppdatum visas som «Kommer» och kan köpas från släppdatumet. Busted+ låser upp dem automatiskt på dagen.</li>
-  <li>Köp kan återställas på en ny telefon med «Återställ köp» i appen.</li>
-</ul>
-<p>Om ångerrätt, återbetalning och fel vid köp: se <a href="{BUY['sv']}">Köp, ångerrätt och återbetalning</a>.</p>
+<h2>4. Licens att använda appen</h2>
+<p>Appen är gratis att ladda ner. Du får en personlig rätt att använda appen och det innehåll du har tillgång till på de enheter som är kopplade till samma Apple-ID eller Google-konto. Rätten kan inte säljas eller överlåtas till andra. Användningen följer också Apples eller Googles villkor för appen.</p>
 
-<h2>5. Ändringar i appen</h2>
-<p>Vi utvecklar appen vidare och kan lägga till, ändra eller ta bort kort, funktioner och design. Vi tar inte bort innehåll du har betalat för, om det inte är nödvändigt, till exempel för att ett kort visar sig vara kränkande eller olagligt. Då ersätter vi det med motsvarande innehåll. Uppdateringar kan behövas för att appen ska fungera.</p>
-
-<h2>6. Rättigheter</h2>
+<h2>5. Innehåll och rättigheter</h2>
 <p>Namnet Get Busted, logotypen, korten, texterna, omslagen och resten av innehållet tillhör {FIRMA}. Du får dela enstaka kort och sammanfattningar från appen med delningsfunktionen. Du får inte kopiera kortlekarna, sälja innehållet vidare, göra egna versioner av spelet eller använda innehållet kommersiellt utan vårt skriftliga samtycke.</p>
 
+<h2>6. Ändringar i appen</h2>
+<p>Vi utvecklar appen vidare och kan lägga till, ändra eller ta bort kort, funktioner och design. Vi tar inte bort innehåll du har betalat för, om det inte är nödvändigt, till exempel för att ett kort visar sig vara kränkande eller olagligt. Då ersätter vi det med motsvarande innehåll. Uppdateringar kan behövas för att appen ska fungera.</p>
+
 <h2>7. Tillgänglighet och ansvar</h2>
-<p>Vi gör vårt bästa för att appen ska fungera, men kan inte lova att den alltid är felfri eller tillgänglig. Om något du har köpt är felaktigt har du de rättigheter som står på <a href="{BUY['sv']}">Köp, ångerrätt och återbetalning</a>.</p>
+<p>Vi gör vårt bästa för att appen ska fungera, men kan inte lova att den alltid är felfri eller tillgänglig. Appen kan vara otillgänglig vid underhåll eller fel hos Apple, Google eller andra leverantörer, och vissa funktioner kräver internet.</p>
 <p>Vi ansvarar inte för skada eller förlust som beror på hur spelet används, till exempel att någon dricker för mycket eller att en utmaning går fel. Detta gäller inte om skadan beror på grov oaktsamhet eller uppsåt från vår sida, eller om ansvarsfriskrivning inte är tillåten enligt lag.</p>
 
 <h2>8. Länkar till andra tjänster</h2>
 <p>Appen och webbplatserna kan länka till Spotify, Instagram, TikTok, Facebook, App Store och Google Play. Dessa tjänster har egna villkor, och vi ansvarar inte för dem.</p>
 
-<h2>9. Ändringar i villkoren</h2>
-<p>Vi kan ändra villkoren, till exempel när appen får nya funktioner eller lagen ändras. Den gällande versionen finns alltid här, med datum högst upp. Väsentliga ändringar till din nackdel meddelar vi i appen eller på webbplatsen innan de börjar gälla.</p>
+<h2>9. Tillämplig lag och tvister</h2>
+<p>Norsk lag gäller. Bor du i Sverige eller ett annat land i EU/EES, behåller du det tvingande konsumentskydd du har enligt lagen där du bor. Kontakta oss först om du är missnöjd. Hittar vi ingen lösning kan du som konsument i Sverige vända dig till <a href="https://www.konsumentverket.se/">Konsumentverket</a> och <a href="https://www.arn.se/">Allmänna reklamationsnämnden (ARN)</a>, eller ta saken till domstol. Det gäller också klagomål på köp.</p>
 
-<h2>10. Tillämplig lag och tvister</h2>
-<p>Norsk lag gäller. Bor du i Sverige eller ett annat land i EU/EES, behåller du det tvingande konsumentskydd du har enligt lagen där du bor. Kontakta oss först om du är missnöjd. Hittar vi ingen lösning kan du som konsument i Sverige vända dig till <a href="https://www.konsumentverket.se/">Konsumentverket</a> och <a href="https://www.arn.se/">Allmänna reklamationsnämnden (ARN)</a>, eller ta saken till domstol.</p>
+<h2>10. Ändringar i villkoren</h2>
+<p>Vi kan ändra villkoren, till exempel när appen får nya funktioner eller lagen ändras. Den gällande versionen finns alltid här, med datum högst upp. Väsentliga ändringar till din nackdel meddelar vi i appen eller på webbplatsen innan de börjar gälla.</p>
 """)
 
+# Köpvillkor. Motsvarar getbusted.no/kjop/. Inget löfte om 14 dagar och inget om 48 timmar (ångerrätten förklaras bara som lagens huvudregel).
+# JURIDISK USIKKERT: Uppfyller Apples och Googles köpdialog kraven på uttryckligt samtycke och bekräftelse enligt svensk lag? Vem är säljare?
+# JURIDISK USIKKERT: «så länge vi erbjuder appen» för Busted+, lanseringspris, reklamationstider för digitalt innehåll. Lagreferensen (2022:260) i den gamla texten är borttagen eftersom den inte är verifierad.
 LEGAL['sv']['purchases'] = ('Köp, ångerrätt och återbetalning', 'Så fungerar köp i Get Busted: ångerrätt, återbetalning och fel vid köp.', 'Köp', f"""
+<p>Den här sidan gäller köp i appen Get Busted. Säljare är {FIRMA}, org.nr {ORGNR}, {ADDR}, Norge, {M}. Du måste vara över 18 år. Regler för användning av appen finns i <a href="{TERMS['sv']}">Användarvillkor</a>.</p>
+
 <h2>Kort sagt</h2>
 <ul>
-  <li>Alla köp är engångsköp via App Store eller Google Play. Ingen prenumeration.</li>
-  <li>Återbetalning begär du hos Apple eller Google. På iPhone har du 14 dagars ångerrätt hos Apple.</li>
+  <li>Alla köp är engångsköp via App Store eller Google Play. Ingen prenumeration och inga automatiska dragningar.</li>
+  <li>Apple och Google tar emot betalningen och hanterar återbetalning enligt sina egna regler.</li>
   <li>Fungerar inte något du har köpt rättar vi felet. Lyckas vi inte har du rätt till prisavdrag eller pengarna tillbaka.</li>
 </ul>
 
 <h2>Vad du köper</h2>
-<p>Temapaket, Get Fu**ed-nivån, Kvällspaketet (ett paket och Get Fu**ed-nivån) och Busted+ (alla paket, även de som kommer). Priset står i butiken innan du bekräftar köpet. Innehållet låses upp direkt när köpet är bekräftat.</p>
+<p>Appen är gratis att ladda ner och ger 50 kort från Original gratis varje kväll. Du kan köpa temapaket, Get Fu**ed-nivån, Kvällspaketet (ett paket och Get Fu**ed-nivån) och Busted+ (alla paket). Priset står i butiken innan du bekräftar köpet och inkluderar moms. Priset kan variera mellan länder. Köpet är bindande när du har bekräftat det i butiken. Innehållet låses upp direkt när köpet är bekräftat, och appen minns köpet så att du kan spela utan nät. Vad du får använda innehållet till framgår under Licens i <a href="{TERMS['sv']}">Användarvillkor</a>.</p>
 
-<h2>Ångerrätt och återbetalning</h2>
-<p>Köpen görs i App Store eller Google Play. Apple och Google tar emot betalningen och sköter återbetalningen, enligt sina egna regler:</p>
+<h2>Busted+ och paket som kommer</h2>
+<p>Busted+ ger tillgång till alla paket i appen, även nya kortpaket och nya nivåer som {FIRMA} själv släpper i Get Busted-appen, så länge vi erbjuder appen. Du betalar inget extra för nya paket som ingår i appens vanliga paketutbud. Det gäller inte:</p>
 <ul>
-  <li><b>iPhone:</b> Apple ger 14 dagars ångerrätt från att du fick kvittot, utan att du behöver ange skäl. Gå till <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>, logga in med ditt Apple-ID, välj köpet och begär återbetalning.</li>
-  <li><b>Android:</b> De första 48 timmarna efter köpet kan du begära återbetalning direkt i Google Play under <a href="https://play.google.com/store/account/orderhistory">Beställningshistorik</a>. Efter det kan du skriva till oss, så kan vi återbetala köpet via Google Play.</li>
+  <li>en egen, separat app eller ett annat spel</li>
+  <li>fysiska produkter, till exempel en kortlek</li>
+  <li>innehåll som tagits fram tillsammans med eller säljs av en tredje part, om det tydligt anges att det inte ingår i Busted+</li>
+  <li>tidsbegränsat innehåll som vi uttryckligen har sagt är extra</li>
 </ul>
-<p>För digitalt innehåll som levereras direkt gäller inte den lagstadgade ångerrätten när leveransen har påbörjats med ditt uttryckliga samtycke och du har bekräftat att ångerrätten då går förlorad (lagen om distansavtal och avtal utanför affärslokaler). Har du köpt något av misstag återbetalar vi det ändå om du skriver till oss inom 14 dagar. Skicka kvittot eller ordernumret till {M}.</p>
+<p>Vi bestämmer själva hur många paket som släpps och när. Busted+ är ett engångsköp. Vi drar aldrig pengar automatiskt.</p>
+<p>Paket med senare släppdatum visas som «Kommer» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer. Har du köpt Busted+ och ett utlovat paket inte släpps kan du kontakta oss för ett skäligt prisavdrag.</p>
+
+<h2>Pris och lanseringspris</h2>
+<p>{PRICE_TXT['sv']}</p>
+
+<h2>Ångerrätt</h2>
+<p>Enligt konsumentlagstiftningen har du som konsument normalt 14 dagars ångerrätt vid distansköp. För digitalt innehåll som levereras direkt upphör ångerrätten när leveransen har påbörjats efter att du uttryckligen har samtyckt till det och bekräftat att du då förlorar ångerrätten (lagen om distansavtal och avtal utanför affärslokaler). Köpet görs i butikens egen betalningsdialog, och innehållet levereras direkt när köpet är bekräftat.</p>
+
+<h2>Återbetalning hos Apple och Google</h2>
+<p>Apple och Google tar emot betalningen och hanterar återbetalning enligt sina egna regler. Reglerna kan ändras, så kontrollera alltid gällande regler hos butiken:</p>
+<ul>
+  <li><b>iPhone:</b> <a href="https://support.apple.com/sv-se/118223">Apples sida om återbetalning</a>. Du begär återbetalning på <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> med det Apple-ID du köpte med.</li>
+  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897?hl=sv">Googles sida om återbetalning på Google Play</a>.</li>
+</ul>
+<p>Har du köpt något av misstag kan du skriva till {M} och skicka kvittot eller ordernumret från Apple eller Google. Vi hjälper dig så långt vi kan, men utbetalningen sker hos Apple eller Google.</p>
 
 <h2>Fel vid köp</h2>
-<p>Innehåll du har köpt ska fungera som det är beskrivet. Är det fel, till exempel att ett paket inte låses upp eller inte kan återställas, har du rättigheter enligt lagen (2022:260) om tillhandahållande av digitalt innehåll och digitala tjänster. Prova först «Återställ köp» i appen. Fungerar det inte, skriv till {M}. Vi rättar felet så snabbt vi kan. Klarar vi det inte inom rimlig tid har du rätt till prisavdrag eller att få pengarna tillbaka.</p>
-
-<h2>Paket som inte är släppta än</h2>
-<p>Paket med senare släppdatum visas som «Kommer» och kan inte köpas separat förrän de är släppta. Busted+ ger tillgång till dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer. Har du köpt Busted+ och ett utlovat paket inte släpps kan du kontakta oss för ett skäligt prisavdrag.</p>
-
-<h2>Priser och lanseringspris</h2>
-<p>Busted+ har ett lanseringspris till och med 31 december 2026 och ett högre pris från 1 januari 2027. Det pris du ser i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.</p>
+<p>Innehåll du har köpt ska fungera som det är beskrivet. Är det fel, till exempel att ett paket inte låses upp eller inte kan återställas, har du rättigheter enligt svensk konsumentlagstiftning om digitalt innehåll och digitala tjänster. Prova först «Återställ köp» i appen, med samma Apple-ID eller Google-konto som du köpte med. Fungerar det inte, skriv till {M} utan onödigt dröjsmål och beskriv felet, gärna med kvitto, telefon och appversion. Vi rättar felet så snabbt vi kan, till exempel med en uppdatering som du kan behöva installera. Klarar vi det inte inom rimlig tid har du rätt till prisavdrag eller att få pengarna tillbaka. Detta begränsar inte de rättigheter du har som konsument enligt lag.</p>
 
 <h2>Frågor och klagomål</h2>
-<p>Skriv till {M}. Kommer vi inte överens kan du vända dig till <a href="https://www.konsumentverket.se/">Konsumentverket</a> och <a href="https://www.arn.se/">Allmänna reklamationsnämnden (ARN)</a>. {FIRMA}, org.nr {ORGNR}, {ADDR}, Norge.</p>
+<p>Skriv till {M}. Vem du kan vända dig till om vi inte blir överens står under Tillämplig lag och tvister i <a href="{TERMS['sv']}">Användarvillkor</a>. Hur vi behandlar personuppgifter står i <a href="{PRIV['sv']}">integritetspolicyn</a>.</p>
 """)
 
 _tbl = tbl('Lagring i webbläsaren på getbusted.online', ['Namn', 'Vad och varför', 'Hur länge', 'Samtycke'], [
@@ -681,7 +722,7 @@ LEGAL['sv']['cookies'] = ('Cookies och lokal lagring', 'Vad getbusted.online spa
 """)
 
 # ===== Dansk =====
-LEGAL['da'] = dict(updated='Sidst opdateret: 7. oktober 2026')
+LEGAL['da'] = dict(updated='Sidst opdateret: 7. oktober 2026', updated_terms='Sidst opdateret: 8. oktober 2026', updated_purchases='Sidst opdateret: 8. oktober 2026')
 
 LEGAL['da']['privacy'] = ('Privatlivspolitik', 'Sådan behandler Get Busted personoplysninger i appen og på hjemmesiderne: ingen konti, ingen reklamer, ingen analyse.', 'Privatliv', f"""
 <h2>Kort fortalt</h2>
@@ -742,8 +783,10 @@ LEGAL['da']['privacy'] = ('Privatlivspolitik', 'Sådan behandler Get Busted pers
 <p>Hvis vi ændrer, hvordan appen eller hjemmesiderne behandler personoplysninger, opdaterer vi denne side og datoen øverst. Ved væsentlige ændringer i noget, du har givet samtykke til, spørger vi dig igen.</p>
 """)
 
-LEGAL['da']['terms'] = ('Vilkår for brug', 'Vilkår for appen Get Busted og hjemmesiderne getbusted.online og getbusted.no.', 'Vilkår', f"""
-<p>Disse vilkår gælder for appen Get Busted og hjemmesiderne getbusted.online og getbusted.no. Når du henter eller bruger appen, accepterer du vilkårene. Vilkårene begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
+# Brugsvilkår (adskilt fra købsvilkårene på /dk/koeb/). Svarer til getbusted.no/vilkar/ (Bruksvilkår).
+# SPRÅK USIKKERT: naturligt, enkelt juridisk dansk, ikke gennemgået af dansk jurist. JURIDISK USIKKERT: lovvalg og klageinstans for danske forbrugere (Rom I, Nævnenes Hus).
+LEGAL['da']['terms'] = ('Brugsvilkår', 'Brugsvilkår for appen Get Busted og hjemmesiderne getbusted.online og getbusted.no.', 'Brugsvilkår', f"""
+<p>Disse vilkår gælder, når du bruger appen Get Busted og hjemmesiderne getbusted.online og getbusted.no. Når du henter eller bruger appen, accepterer du vilkårene. Køb, fortrydelsesret, refusion og fejl ved køb står under <a href="{BUY['da']}">Køb, fortrydelsesret og refusion</a>. Vilkårene begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
 
 <h2>1. Hvem vi er</h2>
 <p>Get Busted leveres af {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge. E-mail: {M}.</p>
@@ -761,67 +804,75 @@ LEGAL['da']['terms'] = ('Vilkår for brug', 'Vilkår for appen Get Busted og hje
 </ul>
 <p>Du er selv ansvarlig for, hvordan du og flokken bruger spillet. Kortene er ment som humor og kan opleves som frække, især på niveauet Get Fu**ed. Vælg niveau og pakker, der passer til flokken.</p>
 
-<h2>4. Gratis indhold og køb</h2>
-<p>Appen er gratis at hente og giver 50 kort fra Original gratis hver aften. Temapakker, Get Fu**ed-niveauet, Aftenpakken og Busted+ er engangskøb. Der er intet abonnement. Prisen står i butikken, før du køber, og er inklusive moms.</p>
-<ul>
-  <li>Køb foregår i App Store eller Google Play og følger også Apples eller Googles vilkår.</li>
-  <li>Et køb giver dig en personlig ret til at bruge indholdet i appen på de enheder, der er knyttet til samme Apple-id eller Google-konto. Indholdet må ikke sælges videre.</li>
-  <li>Busted+ giver adgang til alle pakker i appen, også pakker der kommer senere, så længe vi tilbyder appen.</li>
-  <li>Pakker med senere udgivelsesdato vises som «Kommer» og kan købes fra udgivelsesdatoen. Busted+ låser dem op automatisk på dagen.</li>
-  <li>Køb kan gendannes på en ny telefon med «Gendan køb» i appen.</li>
-</ul>
-<p>Om fortrydelsesret, refusion og fejl ved køb: se <a href="{BUY['da']}">Køb, fortrydelsesret og refusion</a>.</p>
+<h2>4. Licens til at bruge appen</h2>
+<p>Appen er gratis at hente. Du får en personlig ret til at bruge appen og det indhold, du har adgang til, på de enheder, der er knyttet til samme Apple-id eller Google-konto. Retten kan ikke sælges eller overdrages til andre. Brugen følger også Apples eller Googles vilkår for appen.</p>
 
-<h2>5. Ændringer i appen</h2>
-<p>Vi udvikler appen videre og kan tilføje, ændre eller fjerne kort, funktioner og design. Vi fjerner ikke indhold, du har betalt for, medmindre det er nødvendigt, for eksempel fordi et kort viser sig at være krænkende eller ulovligt. Så erstatter vi det med tilsvarende indhold. Opdateringer kan være nødvendige, for at appen virker.</p>
-
-<h2>6. Rettigheder</h2>
+<h2>5. Indhold og rettigheder</h2>
 <p>Navnet Get Busted, logoet, kortene, teksterne, forsiderne og resten af indholdet tilhører {FIRMA}. Du må dele enkelte kort og opsummeringer fra appen med delingsfunktionen. Du må ikke kopiere kortspillene, sælge indholdet videre, lave egne udgaver af spillet eller bruge indholdet kommercielt uden vores skriftlige samtykke.</p>
 
+<h2>6. Ændringer i appen</h2>
+<p>Vi udvikler appen videre og kan tilføje, ændre eller fjerne kort, funktioner og design. Vi fjerner ikke indhold, du har betalt for, medmindre det er nødvendigt, for eksempel fordi et kort viser sig at være krænkende eller ulovligt. Så erstatter vi det med tilsvarende indhold. Opdateringer kan være nødvendige, for at appen virker.</p>
+
 <h2>7. Tilgængelighed og ansvar</h2>
-<p>Vi gør vores bedste for, at appen virker, men kan ikke love, at den altid er fejlfri eller tilgængelig. Er der fejl ved noget, du har købt, har du de rettigheder, der står på <a href="{BUY['da']}">Køb, fortrydelsesret og refusion</a>.</p>
+<p>Vi gør vores bedste for, at appen virker, men kan ikke love, at den altid er fejlfri eller tilgængelig. Appen kan være utilgængelig ved vedligeholdelse eller fejl hos Apple, Google eller andre leverandører, og nogle funktioner kræver internet.</p>
 <p>Vi er ikke ansvarlige for skade eller tab, der skyldes, hvordan spillet bliver brugt, for eksempel at nogen drikker for meget eller laver udfordringer, der går galt. Det gælder ikke, hvis skaden skyldes grov uagtsomhed eller forsæt fra vores side, eller hvis ansvarsfraskrivelse ikke er tilladt efter loven.</p>
 
 <h2>8. Links til andre tjenester</h2>
 <p>Appen og hjemmesiderne kan linke til Spotify, Instagram, TikTok, Facebook, App Store og Google Play. Disse tjenester har egne vilkår, og vi er ikke ansvarlige for dem.</p>
 
-<h2>9. Ændringer i vilkårene</h2>
-<p>Vi kan ændre vilkårene, for eksempel når appen får nye funktioner, eller loven ændres. Den gældende version står altid her, med dato øverst. Væsentlige ændringer til ulempe for dig giver vi besked om i appen eller på hjemmesiden, før de gælder.</p>
+<h2>9. Lovvalg og tvister</h2>
+<p>Norsk lov gælder. Bor du i Danmark eller et andet land i EU/EØS, beholder du den ufravigelige forbrugerbeskyttelse, du har efter loven, hvor du bor. Kontakt os først, hvis du er utilfreds. Finder vi ikke en løsning, kan du som forbruger i Danmark klage til <a href="https://naevneneshus.dk/">Nævnenes Hus</a> (Forbrugerklagenævnet), eller indbringe sagen for domstolene. Det gælder også klager over køb.</p>
 
-<h2>10. Lovvalg og tvister</h2>
-<p>Norsk lov gælder. Bor du i Danmark eller et andet land i EU/EØS, beholder du den ufravigelige forbrugerbeskyttelse, du har efter loven, hvor du bor. Kontakt os først, hvis du er utilfreds. Finder vi ikke en løsning, kan du som forbruger i Danmark klage til <a href="https://naevneneshus.dk/">Nævnenes Hus</a> (Forbrugerklagenævnet), eller indbringe sagen for domstolene.</p>
+<h2>10. Ændringer i vilkårene</h2>
+<p>Vi kan ændre vilkårene, for eksempel når appen får nye funktioner, eller loven ændres. Den gældende version står altid her, med dato øverst. Væsentlige ændringer til ulempe for dig giver vi besked om i appen eller på hjemmesiden, før de gælder.</p>
 """)
 
+# Købsvilkår. Svarer til getbusted.no/kjop/. Intet løfte om 14 dage og intet om 48 timer (fortrydelsesretten forklares kun som lovens hovedregel).
+# JURIDISK USIKKERT: Opfylder Apples og Googles købsdialog kravene om udtrykkeligt samtykke og bekræftelse efter dansk ret (forbrugeraftaleloven)? Hvem er sælger?
+# JURIDISK USIKKERT: «så længe vi tilbyder appen» for Busted+, lanceringspris, reklamationsfrister for digitalt indhold.
 LEGAL['da']['purchases'] = ('Køb, fortrydelsesret og refusion', 'Sådan fungerer køb i Get Busted: fortrydelsesret, refusion og fejl ved køb.', 'Køb', f"""
+<p>Denne side gælder køb i appen Get Busted. Sælger er {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge, {M}. Du skal være over 18 år. Regler for brug af appen står i <a href="{TERMS['da']}">Brugsvilkår</a>.</p>
+
 <h2>Kort fortalt</h2>
 <ul>
-  <li>Alle køb er engangskøb gennem App Store eller Google Play. Intet abonnement.</li>
-  <li>Refusion søger du om hos Apple eller Google. På iPhone har du 14 dages fortrydelsesret hos Apple.</li>
+  <li>Alle køb er engangskøb gennem App Store eller Google Play. Intet abonnement og ingen automatiske træk.</li>
+  <li>Apple og Google modtager betalingen og behandler refusion efter deres egne regler.</li>
   <li>Virker noget, du har købt, ikke, retter vi fejlen. Kan vi ikke det, har du krav på afslag i prisen eller pengene tilbage.</li>
 </ul>
 
 <h2>Hvad du køber</h2>
-<p>Temapakker, Get Fu**ed-niveauet, Aftenpakken (én pakke og Get Fu**ed-niveauet) og Busted+ (alle pakker, også dem der kommer). Prisen står i butikken, før du bekræfter købet. Indholdet låses op, så snart købet er bekræftet.</p>
+<p>Appen er gratis at hente og giver 50 kort fra Original gratis hver aften. Du kan købe temapakker, Get Fu**ed-niveauet, Aftenpakken (én pakke og Get Fu**ed-niveauet) og Busted+ (alle pakker). Prisen står i butikken, før du bekræfter købet, og er inklusive moms. Prisen kan variere mellem lande. Købet er bindende, når du har bekræftet det i butikken. Indholdet låses op, så snart købet er bekræftet, og appen husker købet, så du kan spille uden net. Hvad du må bruge indholdet til, står under Licens i <a href="{TERMS['da']}">Brugsvilkår</a>.</p>
 
-<h2>Fortrydelsesret og refusion</h2>
-<p>Købene foregår i App Store eller Google Play. Apple og Google modtager betalingen og står for tilbagebetaling efter deres egne regler:</p>
+<h2>Busted+ og pakker, der kommer</h2>
+<p>Busted+ giver adgang til alle pakker i appen, også nye kortpakker og nye niveauer, som {FIRMA} selv udgiver i Get Busted-appen, så længe vi tilbyder appen. Du betaler ikke ekstra for nye pakker, der er en del af appens almindelige pakkeudvalg. Det gælder ikke:</p>
 <ul>
-  <li><b>iPhone:</b> Apple giver 14 dages fortrydelsesret fra du fik kvitteringen, uden at du skal give en grund. Gå til <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>, log ind med dit Apple-id, vælg købet og bed om refusion.</li>
-  <li><b>Android:</b> De første 48 timer efter købet kan du bede om refusion direkte i Google Play under <a href="https://play.google.com/store/account/orderhistory">Ordrehistorik</a>. Derefter kan du skrive til os, så kan vi refundere købet gennem Google Play.</li>
+  <li>en separat app eller et andet spil</li>
+  <li>fysiske produkter, for eksempel et kortspil</li>
+  <li>indhold lavet sammen med eller solgt af en tredjepart, hvis det tydeligt er markeret, at det ikke er med i Busted+</li>
+  <li>tidsbegrænset indhold, som vi udtrykkeligt har sagt er ekstra</li>
 </ul>
-<p>For digitalt indhold, der leveres med det samme, gælder den lovbestemte fortrydelsesret ikke, når leveringen er begyndt med dit udtrykkelige samtykke, og du har bekræftet, at fortrydelsesretten dermed bortfalder (forbrugeraftaleloven). Har du købt noget ved en fejl, refunderer vi det alligevel, hvis du skriver til os inden for 14 dage. Send kvitteringen eller ordrenummeret til {M}.</p>
+<p>Vi bestemmer selv, hvor mange pakker der udgives, og hvornår. Busted+ er et engangskøb. Vi trækker aldrig penge automatisk.</p>
+<p>Pakker med senere udgivelsesdato vises som «Kommer» og kan ikke købes enkeltvis, før de er udgivet. Busted+ låser dem op automatisk på udgivelsesdatoen. Bliver en pakke forsinket, låses den op, når den kommer. Har du købt Busted+, og en annonceret pakke ikke bliver udgivet, kan du kontakte os for et passende afslag i prisen.</p>
+
+<h2>Pris og lanceringspris</h2>
+<p>{PRICE_TXT['da']}</p>
+
+<h2>Fortrydelsesret</h2>
+<p>Efter forbrugerlovgivningen har du som forbruger normalt 14 dages fortrydelsesret ved fjernkøb. For digitalt indhold, der leveres med det samme, bortfalder fortrydelsesretten, når leveringen er begyndt, efter at du udtrykkeligt har givet samtykke til det og bekræftet, at du dermed mister fortrydelsesretten (forbrugeraftaleloven). Købet foregår i butikkens egen betalingsdialog, og indholdet leveres med det samme, når købet er bekræftet.</p>
+
+<h2>Refusion hos Apple og Google</h2>
+<p>Apple og Google modtager betalingen og behandler refusion efter deres egne regler. Reglerne kan ændres, så tjek altid de gældende regler hos butikken:</p>
+<ul>
+  <li><b>iPhone:</b> <a href="https://support.apple.com/da-dk/118223">Apples side om refusion</a>. Du beder om refusion på <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> med det Apple-id, du købte med.</li>
+  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897?hl=da">Googles side om refusion i Google Play</a>.</li>
+</ul>
+<p>Har du købt noget ved en fejl, kan du skrive til {M} og sende kvitteringen eller ordrenummeret fra Apple eller Google. Vi hjælper dig så langt, vi kan, men udbetalingen sker hos Apple eller Google.</p>
 
 <h2>Fejl ved køb</h2>
-<p>Indhold, du har købt, skal virke, som det er beskrevet. Er der fejl, for eksempel at en pakke ikke låses op eller ikke kan gendannes, har du rettigheder efter de danske forbrugerregler. Prøv først «Gendan køb» i appen. Virker det ikke, så skriv til {M}. Vi retter fejlen så hurtigt, vi kan. Kan vi ikke det inden for rimelig tid, har du krav på afslag i prisen eller at få pengene tilbage.</p>
-
-<h2>Pakker, der ikke er udgivet endnu</h2>
-<p>Pakker med senere udgivelsesdato vises som «Kommer» og kan ikke købes enkeltvis, før de er udgivet. Busted+ giver adgang til dem automatisk på udgivelsesdatoen. Bliver en pakke forsinket, låses den op, når den kommer. Har du købt Busted+, og en annonceret pakke ikke bliver udgivet, kan du kontakte os for et passende afslag i prisen.</p>
-
-<h2>Priser og lanceringspris</h2>
-<p>Busted+ har en lanceringspris til og med 31. december 2026 og en højere pris fra 1. januar 2027. Den pris, du ser i butikken, når du køber, er den, der gælder. Prisændringer påvirker ikke det, du allerede har købt.</p>
+<p>Indhold, du har købt, skal virke, som det er beskrevet. Er der fejl, for eksempel at en pakke ikke låses op eller ikke kan gendannes, har du rettigheder efter de danske forbrugerregler. Prøv først «Gendan køb» i appen, med samme Apple-id eller Google-konto, som du købte med. Virker det ikke, så skriv til {M} uden unødigt ophold og beskriv fejlen, gerne med kvittering, telefon og appversion. Vi retter fejlen så hurtigt, vi kan, for eksempel med en opdatering, som du kan skulle installere. Kan vi ikke det inden for rimelig tid, har du krav på afslag i prisen eller at få pengene tilbage. Det begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
 
 <h2>Spørgsmål og klager</h2>
-<p>Skriv til {M}. Bliver vi ikke enige, kan du klage til <a href="https://naevneneshus.dk/">Nævnenes Hus</a> (Forbrugerklagenævnet). {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge.</p>
+<p>Skriv til {M}. Hvem du kan klage til, hvis vi ikke bliver enige, står under Lovvalg og tvister i <a href="{TERMS['da']}">Brugsvilkår</a>. Hvordan vi behandler personoplysninger, står i <a href="{PRIV['da']}">privatlivspolitikken</a>.</p>
 """)
 
 _tbl = tbl('Lagring i browseren på getbusted.online', ['Navn', 'Hvad og hvorfor', 'Hvor længe', 'Samtykke'], [
@@ -1083,7 +1134,7 @@ def legal_page(t, key, alt):
     body = f"""<article class="article">
   <p class="kicker">{E(kicker)}</p>
   <h1>{E(title)}</h1>
-  <p class="meta">{E(LEGAL[t['lang']]['updated'])}</p>
+  <p class="meta">{E(LEGAL[t['lang']].get('updated_' + key, LEGAL[t['lang']]['updated']))}</p>
   {html_body.strip()}
 </article>"""
     return shell(t, alt, f'{title} - Get Busted', desc, body)
