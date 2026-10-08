@@ -240,7 +240,7 @@ CAL = False
 SHOTS_LABEL = {'en': 'Screenshots from the app', 'sv': 'Skärmbilder från appen', 'da': 'Skærmbilleder fra appen'}
 HERO_ALT = {
     'en': 'A card from the app: On three, point at the one who would get banished first on The Traitors. Whoever gets the most fingers gets 2 points.',
-    'sv': 'Ett kort från appen: På tre - peka på den som skulle åka ut först i Paradise Hotel. Flest pekningar får 2 poäng.',
+    'sv': 'Ett kort från appen: På tre - peka på den som skulle åka ut först i Paradise Hotel. Den med flest pekningar får 2 poäng.',
     'da': 'Et kort fra appen: På tre - peg på den, der ville blive stemt ud først på Paradise Hotel. Den, flest peger på, får 2 point.',
 }
 # Lanseringsbryteren i season.js bytter tekst på disse (se STORE og LAUNCH der).
