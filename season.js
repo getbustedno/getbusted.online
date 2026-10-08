@@ -5,7 +5,7 @@
  *
  * - Logoen får hatt (heksehatt / nisselue), og toppen får glød og pynt i sesongfargen.
  * - Pakken som passer sesongen (eller en helt ny pakke) flyttes fram og får merket «Aktuell nå» / «Ny».
- * - «Kommer <dato»>-merkene forsvinner av seg selv når pakken er sluppet (data-release på flisen).
+ * - «Kommer snart»-merkene står til pakken fjernes fra build.py (ingen datoer på de utenlandske sidene).
  * - Linjen over overskriften sier «... er med fra start» før LAUNCH og «... er ute» etterpå.
  * - Fra LAUNCH blir butikkmerkene (data-store) lenker til STORE, og data-launch-feltene får lanseringstekst.
  *   Mangler App Store-lenken, står det «Snart på App Store». Test: ?launch=1 i adressen.
@@ -129,11 +129,10 @@
   // Pakkeflisene: slipp «Kommer»-merket når datoen er passert, og løft fram sesongens pakke
   var tiles = {};
   document.querySelectorAll('.pack[data-pack]').forEach(function (el) {
-    var r = el.getAttribute('data-release');
-    if (r && now.getTime() >= at(r)) { var s = el.querySelector('.soon'); if (s) s.remove(); }
     tiles[el.getAttribute('data-pack')] = el;
   });
-  var released = function (el) { var r = el.getAttribute('data-release'); return !r || now.getTime() >= at(r); };
+  // Utenlandske sider har ingen slippdatoer: en flis med «Kommer snart»-merke regnes som ikke sluppet.
+  var released = function (el) { return !el.querySelector('.soon'); };
   var ready = function (slug) { return !!tiles[slug] && slug !== 'original' && released(tiles[slug]); };
   var feat = null, own = T.packs.filter(ready)[0];
   if (own && STRONG.indexOf(season) >= 0) feat = { slug: own, why: 'sesong' };

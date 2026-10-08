@@ -101,11 +101,11 @@
       <div class='pack' data-pack='nach' style='--c:#8E7CFF'><picture><source srcset='/img/cover_nach_da.webp' type='image/webp'><img src='/img/cover_nach_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Efterfest</b><span>Når klokken er tre</span><small>177 kort</small></div>
       <div class='pack' data-pack='hytta' style='--c:#C7864A'><picture><source srcset='/img/cover_hytta_da.webp' type='image/webp'><img src='/img/cover_hytta_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Sommerhuset</b><span>Vildmarksbad og ingen dækning</span><small>173 kort</small></div>
     </div></div><div class='group'><h3>Efteråret og vinteren</h3><div class='packs'>
-      <div class='pack' data-pack='reise' data-release='2026-11-05' style='--c:#3FB8C4'><picture><source srcset='/img/cover_reise_da.webp' type='image/webp'><img src='/img/cover_reise_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Rejse</b><span>Charter og billigfly</span><small>178 kort</small><i class='soon'>Kommer 5. nov.</i></div>
-      <div class='pack' data-pack='student' data-release='2026-11-12' style='--c:#5B8DEF'><picture><source srcset='/img/cover_student.webp' type='image/webp'><img src='/img/cover_student.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Student</b><span>Rusture og fredagsbar</span><small>180 kort</small><i class='soon'>Kommer 12. nov.</i></div>
-      <div class='pack' data-pack='utdrikning' data-release='2026-11-19' style='--c:#E94B8A'><picture><source srcset='/img/cover_utdrikning_da.webp' type='image/webp'><img src='/img/cover_utdrikning_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Polterabend</b><span>For den, der skal giftes</span><small>178 kort</small><i class='soon'>Kommer 19. nov.</i></div>
-      <div class='pack' data-pack='fotball' data-release='2026-11-21' style='--c:#3DAE5E'><picture><source srcset='/img/cover_fotball_da.webp' type='image/webp'><img src='/img/cover_fotball_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Fodbold</b><span>Kampdag og derby</span><small>182 kort</small><i class='soon'>Kommer 21. nov.</i></div>
-      <div class='pack' data-pack='sport' data-release='2026-12-03' style='--c:#F26B3A'><picture><source srcset='/img/cover_sport.webp' type='image/webp'><img src='/img/cover_sport.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Sport</b><span>Padel og løbeklubber</span><small>182 kort</small><i class='soon'>Kommer 3. dec.</i></div>
+      <div class='pack' data-pack='reise' style='--c:#3FB8C4'><picture><source srcset='/img/cover_reise_da.webp' type='image/webp'><img src='/img/cover_reise_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Rejse</b><span>Charter og billigfly</span><small>178 kort</small><i class='soon'>Kommer snart</i></div>
+      <div class='pack' data-pack='student' style='--c:#5B8DEF'><picture><source srcset='/img/cover_student.webp' type='image/webp'><img src='/img/cover_student.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Student</b><span>Rusture og fredagsbar</span><small>180 kort</small><i class='soon'>Kommer snart</i></div>
+      <div class='pack' data-pack='utdrikning' style='--c:#E94B8A'><picture><source srcset='/img/cover_utdrikning_da.webp' type='image/webp'><img src='/img/cover_utdrikning_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Polterabend</b><span>For den, der skal giftes</span><small>178 kort</small><i class='soon'>Kommer snart</i></div>
+      <div class='pack' data-pack='fotball' style='--c:#3DAE5E'><picture><source srcset='/img/cover_fotball_da.webp' type='image/webp'><img src='/img/cover_fotball_da.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Fodbold</b><span>Kampdag og derby</span><small>182 kort</small><i class='soon'>Kommer snart</i></div>
+      <div class='pack' data-pack='sport' style='--c:#F26B3A'><picture><source srcset='/img/cover_sport.webp' type='image/webp'><img src='/img/cover_sport.jpg' alt='' width='360' height='503' loading='lazy'></picture><b>Sport</b><span>Padel og løbeklubber</span><small>182 kort</small><i class='soon'>Kommer snart</i></div>
     </div></div>
   </div>
 </section>
@@ -146,7 +146,6 @@
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
 var now = Date.now();
-document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
 document.querySelectorAll('[data-until]').forEach(function (el) { if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); });
 </script>
 </body>

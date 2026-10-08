@@ -62,7 +62,7 @@
   <li>limited-time content that we have expressly announced is an extra</li>
 </ul>
 <p>It is up to us to decide how many packs are released, and when. Busted+ is a one-time purchase with no subscription. There are no automatic renewals.</p>
-<p>Packs with a later release date are shown as "Coming" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives.</p>
+<p>Packs with a later release date are shown as "Coming soon" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives.</p>
 
 <h2>Price</h2>
 <p>The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.</p>
@@ -97,7 +97,6 @@
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
 var now = Date.now();
-document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
 document.querySelectorAll('[data-until]').forEach(function (el) { if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); });
 </script>
 </body>

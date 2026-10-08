@@ -24,14 +24,14 @@
 
 </head>
 <body>
-<a class="skip" href="#innhold">Spring til indholdet</a>
+<a class="skip" href="#innhold">Gå til indholdet</a>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="/dk/"><img src="/img/logo.png" alt="">Get Busted</a>
     <nav>
       <a href='/dk/#how'>Sådan virker det</a><a href='/dk/#packs'>Pakker</a><a href='/dk/#faq'>Spørgsmål</a>
       <span class='langs'><a href='/privacy/' data-lang='en'>EN</a><a href='/se/integritet/' data-lang='sv'>SE</a><a href='/dk/privatliv/' data-lang='da' aria-current="page">DK</a><a href='https://getbusted.no/personvern/' data-lang='no'>NO</a></span>
-      <a class="cta" href="/dk/#download" data-launch="cta">30. oktober</a>
+      <a class="cta" href="/dk/#download" data-launch="cta">Kommer snart</a>
     </nav>
   </div>
 </header>
@@ -102,7 +102,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-links"><a href="/dk/vilkaar/">Vilkår</a><a href="/dk/privatliv/">Privatliv</a><a href="/dk/cookies/">Cookies</a><a href="/dk/koeb/">Køb og refusion</a><a href="/dk/hjaelp/">Hjælp</a><a href="mailto:kontakt@getbusted.no">Kontakt</a><span class='langs'><a href='/privacy/' data-lang='en'>EN</a><a href='/se/integritet/' data-lang='sv'>SE</a><a href='/dk/privatliv/' data-lang='da' aria-current="page">DK</a><a href='https://getbusted.no/personvern/' data-lang='no'>NO</a></span></div>
+    <div class="footer-links"><a href="/dk/vilkaar/">Brugsvilkår</a><a href="/dk/privatliv/">Privatliv</a><a href="/dk/cookies/">Cookies</a><a href="/dk/koeb/">Køb og refusion</a><a href="/dk/hjaelp/">Hjælp</a><a href="mailto:kontakt@getbusted.no">Kontakt</a><span class='langs'><a href='/privacy/' data-lang='en'>EN</a><a href='/se/integritet/' data-lang='sv'>SE</a><a href='/dk/privatliv/' data-lang='da' aria-current="page">DK</a><a href='https://getbusted.no/personvern/' data-lang='no'>NO</a></span></div>
     <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org.nr. 927 118 300 · Voldgata 27, 2000 Lillestrøm, Norge · For voksne 18+</div>
   </div>
 </footer>
@@ -111,7 +111,6 @@
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
 var now = Date.now();
-document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
 document.querySelectorAll('[data-until]').forEach(function (el) { if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); });
 </script>
 </body>

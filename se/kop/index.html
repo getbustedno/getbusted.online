@@ -61,7 +61,7 @@
   <li>tidsbegränsat innehåll som vi uttryckligen har meddelat är extra</li>
 </ul>
 <p>Det är vi som bestämmer hur många paket som släpps och när. Busted+ är ett engångsköp utan prenumeration. Det sker inga automatiska förnyelser.</p>
-<p>Paket med senare släppdatum visas som «Kommer» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer.</p>
+<p>Paket med senare släppdatum visas som «Kommer snart» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer.</p>
 
 <h2>Pris</h2>
 <p>Priset som visas i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.</p>
@@ -96,7 +96,6 @@
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
 var now = Date.now();
-document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
 document.querySelectorAll('[data-until]').forEach(function (el) { if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); });
 </script>
 </body>

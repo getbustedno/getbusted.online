@@ -55,15 +55,15 @@ T = {
          ('jul', 'cover_jul_en.jpg', 'Christmas', 'Office parties and NYE', None),
          ('nach', 'cover_nach_en.jpg', 'Afterparty', "When it's 3 a.m.", None),
          ('hytta', 'cover_hytta_en.jpg', 'The Cabin', 'Hot tubs and zero signal', None),
-         ('reise', 'cover_reise_en.jpg', 'Travel', 'Budget airlines and flings', '2026-11-05'),
-         ('student', 'cover_student.jpg', 'Student', "Freshers' and house parties", '2026-11-12'),
-         ('utdrikning', 'cover_utdrikning_en.jpg', 'Stag & Hen', 'For the one getting married', '2026-11-19'),
-         ('fotball', 'cover_fotball_en.jpg', 'Football', 'Match day and fantasy drama', '2026-11-21'),
-         ('sport', 'cover_sport.jpg', 'Sport', 'Run clubs and padel losers', '2026-12-03')],
+         ('reise', 'cover_reise_en.jpg', 'Travel', 'Budget airlines and flings', True),
+         ('student', 'cover_student.jpg', 'Student', "Freshers' and house parties", True),
+         ('utdrikning', 'cover_utdrikning_en.jpg', 'Stag & Hen', 'For the one getting married', True),
+         ('fotball', 'cover_fotball_en.jpg', 'Football', 'Match day and fantasy drama', True),
+         ('sport', 'cover_sport.jpg', 'Sport', 'Run clubs and padel losers', True)],
   specialsK='Seasonal specials', specialsH='Only in English',
-  specials=[('friendsgiving', 'cover_friendsgiving.jpg', 'Friendsgiving', 'Potluck and turkey disasters', '2026-11-12'),
-            ('paddys', 'cover_paddys.jpg', "St. Paddy's", 'Green, the craic and the Irish exit', '2027-03-03')],
-  soon='Coming', months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  specials=[('friendsgiving', 'cover_friendsgiving.jpg', 'Friendsgiving', 'Potluck and turkey disasters', True),
+            ('paddys', 'cover_paddys.jpg', "St. Paddy's", 'Green, the craic and the Irish exit', True)],
+  soon='Coming soon', months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   prices=[('Free', '50 cards from Original every night. No sign-up.'),
           ('One pack', 'Per theme pack, or the Get Fu**ed level across every pack. One-time purchase.'),
           ('Night Pack', 'One pack of your choice + the Get Fu**ed level, for less than buying them separately.'),
@@ -123,16 +123,16 @@ T = {
          ('jul', 'cover_jul.jpg', 'Jul', 'Julbord och Kalle Anka', None),
          ('nach', 'cover_nach_sv.jpg', 'Efterfest', 'När klockan är tre', None),
          ('hytta', 'cover_hytta_sv.jpg', 'Stugan', 'Bastu och noll täckning', None),
-         ('reise', 'cover_reise_sv.jpg', 'Resa', 'Charter och Finlandsbåten', '2026-11-05'),
-         ('student', 'cover_student.jpg', 'Student', 'Nollning och sittningar', '2026-11-12'),
-         ('utdrikning', 'cover_utdrikning_sv.jpg', 'Svensexa & möhippa', 'För den som ska gifta sig', '2026-11-19'),
-         ('fotball', 'cover_fotball_sv.jpg', 'Fotboll', 'Allsvenskan och derby', '2026-11-21'),
-         ('sport', 'cover_sport.jpg', 'Sport', 'Padel och Vasaloppet', '2026-12-03')],
+         ('reise', 'cover_reise_sv.jpg', 'Resa', 'Charter och Finlandsbåten', True),
+         ('student', 'cover_student.jpg', 'Student', 'Nollning och sittningar', True),
+         ('utdrikning', 'cover_utdrikning_sv.jpg', 'Svensexa & möhippa', 'För den som ska gifta sig', True),
+         ('fotball', 'cover_fotball_sv.jpg', 'Fotboll', 'Allsvenskan och derby', True),
+         ('sport', 'cover_sport.jpg', 'Sport', 'Padel och Vasaloppet', True)],
   specialsK='Bara i Sverige', specialsH='Paket för svenska högtider',
-  specials=[('mello', 'cover_mello.jpg', 'Mello', 'Sex lördagar och en final', '2027-01-29'),
-            ('midsommar', 'cover_midsommar.jpg', 'Midsommar', 'Sill, jordgubbar och regn', '2027-06-04'),
-            ('kraftskiva', 'cover_kraftskiva.jpg', 'Kräftskiva', 'Pappershattar och allsång', '2027-07-30')],
-  soon='Kommer', months=['jan', 'feb', 'mars', 'april', 'maj', 'juni', 'juli', 'aug', 'sep', 'okt', 'nov', 'dec'],
+  specials=[('mello', 'cover_mello.jpg', 'Mello', 'Sex lördagar och en final', True),
+            ('midsommar', 'cover_midsommar.jpg', 'Midsommar', 'Sill, jordgubbar och regn', True),
+            ('kraftskiva', 'cover_kraftskiva.jpg', 'Kräftskiva', 'Pappershattar och allsång', True)],
+  soon='Kommer snart', months=['jan', 'feb', 'mars', 'april', 'maj', 'juni', 'juli', 'aug', 'sep', 'okt', 'nov', 'dec'],
   prices=[('Gratis', '50 kort från Original varje kväll. Ingen registrering.'),
           ('Ett paket', 'Per temapaket, eller Get Fu**ed-nivån i alla paket. Engångsköp.'),
           ('Kvällspaket', 'Ett paket du väljer + Get Fu**ed-nivån, till lägre pris än var för sig.'),
@@ -192,13 +192,13 @@ T = {
          ('jul', 'cover_jul.jpg', 'Jul', 'Julefrokost og nytår', None),
          ('nach', 'cover_nach_da.jpg', 'Efterfest', 'Når klokken er tre', None),
          ('hytta', 'cover_hytta_da.jpg', 'Sommerhuset', 'Vildmarksbad og ingen dækning', None),
-         ('reise', 'cover_reise_da.jpg', 'Rejse', 'Charter og billigfly', '2026-11-05'),
-         ('student', 'cover_student.jpg', 'Student', 'Rusture og fredagsbar', '2026-11-12'),
-         ('utdrikning', 'cover_utdrikning_da.jpg', 'Polterabend', 'For den, der skal giftes', '2026-11-19'),
-         ('fotball', 'cover_fotball_da.jpg', 'Fodbold', 'Kampdag og derby', '2026-11-21'),
-         ('sport', 'cover_sport.jpg', 'Sport', 'Padel og løbeklubber', '2026-12-03')],
+         ('reise', 'cover_reise_da.jpg', 'Rejse', 'Charter og billigfly', True),
+         ('student', 'cover_student.jpg', 'Student', 'Rusture og fredagsbar', True),
+         ('utdrikning', 'cover_utdrikning_da.jpg', 'Polterabend', 'For den, der skal giftes', True),
+         ('fotball', 'cover_fotball_da.jpg', 'Fodbold', 'Kampdag og derby', True),
+         ('sport', 'cover_sport.jpg', 'Sport', 'Padel og løbeklubber', True)],
   specialsK='', specialsH='', specials=[],
-  soon='Kommer', months=['jan.', 'feb.', 'marts', 'april', 'maj', 'juni', 'juli', 'aug.', 'sep.', 'okt.', 'nov.', 'dec.'],
+  soon='Kommer snart', months=['jan.', 'feb.', 'marts', 'april', 'maj', 'juni', 'juli', 'aug.', 'sep.', 'okt.', 'nov.', 'dec.'],
   prices=[('Gratis', '50 kort fra Original hver aften. Ingen tilmelding.'),
           ('Én pakke', 'Per temapakke, eller Get Fu**ed-niveauet i alle pakker. Engangskøb.'),
           ('Aftenpakke', 'Én pakke du vælger + Get Fu**ed-niveauet, til en lavere pris end hver for sig.'),
@@ -476,7 +476,7 @@ LEGAL['en']['purchases'] = ('Purchases, cancellation and refunds', 'How purchase
   <li>limited-time content that we have expressly announced is an extra</li>
 </ul>
 <p>It is up to us to decide how many packs are released, and when. Busted+ is a one-time purchase with no subscription. There are no automatic renewals.</p>
-<p>Packs with a later release date are shown as "Coming" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives.</p>
+<p>Packs with a later release date are shown as "Coming soon" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives.</p>
 
 <h2>Price</h2>
 <p>{PRICE_TXT['en']}</p>
@@ -656,7 +656,7 @@ LEGAL['sv']['purchases'] = ('Köpvillkor och ångerrätt', 'Så fungerar köp i 
   <li>tidsbegränsat innehåll som vi uttryckligen har meddelat är extra</li>
 </ul>
 <p>Det är vi som bestämmer hur många paket som släpps och när. Busted+ är ett engångsköp utan prenumeration. Det sker inga automatiska förnyelser.</p>
-<p>Paket med senare släppdatum visas som «Kommer» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer.</p>
+<p>Paket med senare släppdatum visas som «Kommer snart» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer.</p>
 
 <h2>Pris</h2>
 <p>{PRICE_TXT['sv']}</p>
@@ -837,7 +837,7 @@ LEGAL['da']['purchases'] = ('Køb, fortrydelsesret og refusion', 'Sådan fungere
   <li>tidsbegrænset indhold, som vi udtrykkeligt har meddelt er ekstra</li>
 </ul>
 <p>Det er os, der beslutter, hvor mange pakker der udgives, og hvornår. Busted+ er et engangskøb uden abonnement. Der sker ingen automatiske betalinger.</p>
-<p>Pakker med senere udgivelsesdato vises som «Kommer» og kan ikke købes enkeltvis, før de er udgivet. Busted+ låser dem op automatisk på udgivelsesdatoen. Bliver en pakke forsinket, låses den op, når den kommer.</p>
+<p>Pakker med senere udgivelsesdato vises som «Kommer snart» og kan ikke købes enkeltvis, før de er udgivet. Busted+ låser dem op automatisk på udgivelsesdatoen. Bliver en pakke forsinket, låses den op, når den kommer.</p>
 
 <h2>Pris</h2>
 <p>{PRICE_TXT['da']}</p>
@@ -889,20 +889,15 @@ LEGAL['da']['cookies'] = ('Cookies og lokal lagring', 'Hvad getbusted.online gem
 
 LEGAL_KEYS = (('terms', TERMS), ('privacy', PRIV), ('cookies', COOK), ('purchases', BUY))
 
-def label(d, t):
-    y, m, dd = d.split('-')
-    mon = t['months'][int(m)-1]
-    if t['lang'] == 'sv':
-        return f"{t['soon']} {int(dd)} {mon}"
-    if t['lang'] == 'da':
-        return f"{t['soon']} {int(dd)}. {mon}"
-    return f"{t['soon']} {mon} {int(dd)}"
+def label(rel, t):
+    # Utenlandske sider viser ingen datoer: bare «Kommer snart» / «Coming soon»
+    return t['soon']
 
 def packs(lst, t):
     out = []
     for slug, img, name, sub, rel in lst:
         soon = f"<i class='soon'>{E(label(rel, t))}</i>" if rel else ''
-        dr = f" data-release='{rel}'" if rel else ''
+        dr = ''
         n = COUNTS[t['lang']].get(slug, 0)
         cnt = t['u']['freeCards'] if slug == 'original' else f"{n} {t['u']['cards']}"
         sub = '' if slug == 'original' and sub == t['u']['freeCards'] else sub
@@ -988,7 +983,6 @@ def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) {{ a.addEventListener('click', function () {{ try {{ localStorage.setItem('gb-lang', a.dataset.lang); }} catch (e) {{}} }}); }});
 var now = Date.now();
-document.querySelectorAll('[data-release]').forEach(function (p) {{ if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) {{ var s = p.querySelector('.soon'); if (s) s.remove(); }} }});
 document.querySelectorAll('[data-until]').forEach(function (el) {{ if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); }});
 </script>
 </body>

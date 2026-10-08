@@ -31,7 +31,7 @@
     <nav>
       <a href='/se/#how'>Så funkar det</a><a href='/se/#packs'>Paket</a><a href='/se/#faq'>Frågor</a>
       <span class='langs'><a href='/privacy/' data-lang='en'>EN</a><a href='/se/integritet/' data-lang='sv' aria-current="page">SE</a><a href='/dk/privatliv/' data-lang='da'>DK</a><a href='https://getbusted.no/personvern/' data-lang='no'>NO</a></span>
-      <a class="cta" href="/se/#download" data-launch="cta">30 oktober</a>
+      <a class="cta" href="/se/#download" data-launch="cta">Kommer snart</a>
     </nav>
   </div>
 </header>
@@ -102,7 +102,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-links"><a href="/se/villkor/">Villkor</a><a href="/se/integritet/">Integritet</a><a href="/se/cookies/">Cookies</a><a href="/se/kop/">Köp och återbetalning</a><a href="/se/hjalp/">Hjälp</a><a href="mailto:kontakt@getbusted.no">Kontakt</a><span class='langs'><a href='/privacy/' data-lang='en'>EN</a><a href='/se/integritet/' data-lang='sv' aria-current="page">SE</a><a href='/dk/privatliv/' data-lang='da'>DK</a><a href='https://getbusted.no/personvern/' data-lang='no'>NO</a></span></div>
+    <div class="footer-links"><a href="/se/villkor/">Användarvillkor</a><a href="/se/integritet/">Integritet</a><a href="/se/cookies/">Cookies</a><a href="/se/kop/">Köpvillkor och ångerrätt</a><a href="/se/hjalp/">Hjälp</a><a href="mailto:kontakt@getbusted.no">Kontakt</a><span class='langs'><a href='/privacy/' data-lang='en'>EN</a><a href='/se/integritet/' data-lang='sv' aria-current="page">SE</a><a href='/dk/privatliv/' data-lang='da'>DK</a><a href='https://getbusted.no/personvern/' data-lang='no'>NO</a></span></div>
     <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org.nr 927 118 300 · Voldgata 27, 2000 Lillestrøm, Norge · För vuxna 18+</div>
   </div>
 </footer>
@@ -111,7 +111,6 @@
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('gb-lang', a.dataset.lang); } catch (e) {} }); });
 var now = Date.now();
-document.querySelectorAll('[data-release]').forEach(function (p) { if (now >= new Date(p.dataset.release + 'T00:00:00+01:00').getTime()) { var s = p.querySelector('.soon'); if (s) s.remove(); } });
 document.querySelectorAll('[data-until]').forEach(function (el) { if (now >= new Date(el.dataset.until + 'T00:00:00+01:00').getTime() + 864e5) el.remove(); });
 </script>
 </body>
