@@ -16,25 +16,11 @@ COOK = {'en': '/cookies/', 'sv': '/se/cookies/', 'da': '/dk/cookies/', 'no': 'ht
 BUY = {'en': '/purchases/', 'sv': '/se/kop/', 'da': '/dk/koeb/', 'no': 'https://getbusted.no/kjop/'}
 FIRMA, ORGNR, ADDR = 'Snikkerbua Holding AS', '927 118 300', 'Voldgata 27, 2000 Lillestrøm'
 
-# ---------------------------------------------------------------------------
-# PÅMINNELSE OM PRISENDRING (se også PAMINNELSER.md og getbusted.no/_kilde/juridisk.py)
-# Lanseringsprisen på Busted+ gjelder til og med 31. desember 2026, høyere pris fra 1. januar 2027.
-# TODO 2027-01-01: sett LAUNCH_PRICE_ACTIVE = False (sidene sier da bare at prisen i butikken gjelder), bekreft prisene i App Store og Google Play,
-# og gjør det samme i getbusted.no/_kilde/juridisk.py.
-# Bygget stopper med feilmelding hvis det kjøres etter denne datoen mens lanseringsprisen fortsatt står.
-import datetime, sys
-PRICE_CHANGE_DATE = datetime.date(2027, 1, 1)
-LAUNCH_PRICE_ACTIVE = True
-if LAUNCH_PRICE_ACTIVE and datetime.date.today() >= PRICE_CHANGE_DATE:
-    sys.exit('STOPP: Lanseringsprisen på Busted+ gjaldt til og med 31. desember 2026. Sett LAUNCH_PRICE_ACTIVE = False i build.py, '
-             'bekreft prisene i App Store og Google Play, og se PAMINNELSER.md.')
+# Ingen priser og ingen lanseringspris på en/sv/da (utenlandske priser er ikke vedtatt). Norske priser står bare på getbusted.no.
 PRICE_TXT = {
-  'en': ('Busted+ has a launch price until 31 December 2026, and a higher price from 1 January 2027. The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.'
-         if LAUNCH_PRICE_ACTIVE else 'The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.'),
-  'sv': ('Busted+ har ett lanseringspris till och med 31 december 2026 och ett högre pris från 1 januari 2027. Det pris du ser i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.'
-         if LAUNCH_PRICE_ACTIVE else 'Det pris du ser i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.'),
-  'da': ('Busted+ har en lanceringspris til og med 31. december 2026 og en højere pris fra 1. januar 2027. Den pris, du ser i butikken, når du køber, er den, der gælder. Prisændringer påvirker ikke det, du allerede har købt.'
-         if LAUNCH_PRICE_ACTIVE else 'Den pris, du ser i butikken, når du køber, er den, der gælder. Prisændringer påvirker ikke det, du allerede har købt.'),
+  'en': 'The price you see in the store when you buy is the one that applies. Price changes do not affect what you have already bought.',
+  'sv': 'Priset som visas i butiken när du köper är det som gäller. Prisändringar påverkar inte det du redan har köpt.',
+  'da': 'Den pris, du ser i butikken, når du køber, er den, der gælder. Prisændringer påvirker ikke det, du allerede har købt.',
 }
 LANGS = ['en', 'sv', 'da']
 
@@ -52,7 +38,7 @@ T = {
   steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
          ('Pick your level', 'Mild, Cheeky or Get Fu**ed. And how thirsty you are, from sipping to very thirsty.'),
          ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
-  featK='More than a deck of cards', featH="Things a normal deck can't do",
+  featK='More than just cards', featH='Things only a phone can do',
   feats=[('Written for now', 'AI everything, viral moments, dating apps, budget airlines and the shows you binged. New topical cards every month, no update needed.'),
          ('Twists', "Some cards flip after they're read out. What you thought was safe, isn't."),
          ('Rapid', 'Five fingers up. Statements back to back. First one out loses.'),
@@ -81,14 +67,14 @@ T = {
   prices=[('Free', '50 cards from Original every night. No sign-up.'),
           ('One pack', 'Per theme pack, or the Get Fu**ed level across every pack. One-time purchase.'),
           ('Night Pack', 'One pack of your choice + the Get Fu**ed level, for less than buying them separately.'),
-          ('Busted+', 'The whole app: every pack, including future ones, the Get Fu**ed level and unlimited Original. Pay once, no subscription. Launch price until the end of December.')],
+          ('Busted+', 'The whole app: every pack, including future ones, the Get Fu**ed level and unlimited Original. Pay once, no subscription.')],
   respK='Play smart', respH='Made for a good night, not a bad morning',
   resp=[('Max 6', 'Whatever the level, a card never asks for more than 6 sips.'),
         ('Water breaks', 'They come more often the thirstier you say you are.'),
         ('Alcohol-free', 'The same game with points instead of sips. Everyone can join.'),
         ('Skip', 'You can always skip a card. Always.')],
   faqK='Questions', faqH='FAQ',
-  faq=[('Is it free?', 'Yes. You get 50 cards from the Original deck for free every night. Theme packs are one-time purchases, the Night Pack gets you one pack plus the Get Fu**ed level, and Busted+ unlocks the whole app with one payment. No subscription.'),
+  faq=[('Is it free?', 'Yes. You get 50 cards from Original for free every night. Theme packs are one-time purchases, the Night Pack gets you one pack plus the Get Fu**ed level, and Busted+ unlocks the whole app with one payment. No subscription.'),
        ('Do we have to drink?', 'No. Turn on alcohol-free mode and every sip becomes a point. And skipping is always allowed.'),
        ('How many can play?', 'From 2 to 30. Big groups get more cards that apply to everyone at once.'),
        ('Can we play in teams?', 'Yes. Pick duos or two teams, Red vs Blue, when you set up the game. The app keeps the score.'),
@@ -120,7 +106,7 @@ T = {
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
          ('Välj nivå', 'Mild, Fräck eller Get Fu**ed. Och hur törstiga ni är, från lagom till riktigt törstig.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
-  featK='Mer än en kortlek', featH='Sånt en vanlig kortlek inte kan',
+  featK='Mer än bara kort', featH='Sånt bara en app kan',
   feats=[('Skrivet för Sverige', 'Swish, BankID, mello, Bajen och Gnaget, kräftor och Små grodorna. Nya aktuella kort varje månad, utan uppdatering.'),
          ('Twistar', 'Vissa kort vänder sig efter att de lästs upp. Det du trodde var säkert, är det inte.'),
          ('Rapid', 'Fem fingrar upp. Påståenden i rad. Först ute förlorar.'),
@@ -150,7 +136,7 @@ T = {
   prices=[('Gratis', '50 kort från Original varje kväll. Ingen registrering.'),
           ('Ett paket', 'Per temapaket, eller Get Fu**ed-nivån i alla paket. Engångsköp.'),
           ('Kvällspaket', 'Ett paket du väljer + Get Fu**ed-nivån, till lägre pris än var för sig.'),
-          ('Busted+', 'Hela appen: alla paket, även de som kommer, Get Fu**ed-nivån och obegränsat Original. Betala en gång, ingen prenumeration. Lanseringspris året ut, till och med december.')],
+          ('Busted+', 'Hela appen: alla paket, även de som kommer, Get Fu**ed-nivån och obegränsat Original. Betala en gång, ingen prenumeration.')],
   respK='Spela smart', respH='Gjort för en bra kväll, inte en dålig morgon',
   resp=[('Max 6', 'Oavsett nivå ber ett kort aldrig om mer än 6 klunkar.'),
         ('Vattenpauser', 'De kommer oftare ju törstigare ni säger att ni är.'),
@@ -164,7 +150,7 @@ T = {
        ('Vilka språk?', 'Svenska, engelska, danska och norska, med egna kort och menyer. Välj språk på startsidan.'),
        ('När kommer den?', 'Snart till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.')],
   help='Hjälp', privacy='Integritet', contact='Kontakt', foot='För vuxna 18+',
-  terms='Användarvillkor', cookies='Cookies', buy='Köp och återbetalning', skip='Hoppa till innehållet', orgno='Org.nr', country='Norge',
+  terms='Användarvillkor', cookies='Cookies', buy='Köpvillkor och ångerrätt', skip='Hoppa till innehållet', orgno='Org.nr', country='Norge',
   helpTitle='Hjälp - Get Busted', helpDesc='Svar om Get Busted: hur man spelar, återställa köp, lösa in kod, alkoholfritt läge och mer.',
   helpK='Hjälp', helpH='Frågor och svar',
   helpQA=[('Hur spelar man?', 'Skriv in namnen (2 till 30 spelare), välj paket, nivå och hur törstiga ni är. En person är läsare: hen håller i telefonen och läser upp alla kort. Svep eller tryck för nästa kort, och tryck på vänstra kanten av kortet för att gå tillbaka. Läsaren kan bytas, och spelare kan läggas till eller tas bort, när som helst genom att trycka på namnet högst upp.'),
@@ -186,10 +172,10 @@ T = {
   soonTo='Snart i', note='For voksne 18+. Kan altid spilles uden alkohol.',
   heroAlt='Get Busted i brug: et kort på en mobilskærm',
   howK='Sådan virker det', howH='Klar på 20 sekunder',
-  steps=[('Skriv flokken ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
+  steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
          ('Vælg niveau', 'Mild, Fræk eller Get Fu**ed. Og hvor tørstige I er, fra smagsprøve til rigtig tørstig.'),
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
-  featK='Mere end et spil kort', featH='Det kan et almindeligt spil kort ikke',
+  featK='Mere end bare kort', featH='Det kan kun en app',
   feats=[('Nye kort hver måned', 'Fodbold, julefrokost, flykaos og alt det, folk snakker om. De dukker op i appen af sig selv, uden opdatering.'),
          ('Twist', 'Nogle kort vender sig, efter de er læst op. Det, du troede var sikkert, er det ikke.'),
          ('Rapid', 'Fem fingre op. Påstande i træk. Første der er ude, taber.'),
@@ -216,7 +202,7 @@ T = {
   prices=[('Gratis', '50 kort fra Original hver aften. Ingen tilmelding.'),
           ('Én pakke', 'Per temapakke, eller Get Fu**ed-niveauet i alle pakker. Engangskøb.'),
           ('Aftenpakke', 'Én pakke du vælger + Get Fu**ed-niveauet, til en lavere pris end hver for sig.'),
-          ('Busted+', 'Hele appen: alle pakker, også dem der kommer, Get Fu**ed-niveauet og ubegrænset Original. Betal én gang, intet abonnement. Lanceringspris året ud, til og med december.')],
+          ('Busted+', 'Hele appen: alle pakker, også dem der kommer, Get Fu**ed-niveauet og ubegrænset Original. Betal én gang, intet abonnement.')],
   respK='Spil smart', respH='Lavet til en god aften, ikke en dårlig morgen',
   resp=[('Max 6', 'Uanset niveau beder et kort aldrig om mere end 6 slurke.'),
         ('Vandpauser', 'De kommer oftere, jo tørstigere I siger, I er.'),
@@ -230,11 +216,11 @@ T = {
        ('Hvilke sprog?', 'Dansk, svensk, engelsk og norsk, med egne kort og menuer. Vælg sprog på startskærmen.'),
        ('Hvornår kommer den?', 'Snart til iPhone og Android.')],
   help='Hjælp', privacy='Privatliv', contact='Kontakt', foot='For voksne 18+',
-  terms='Brugsvilkår', cookies='Cookies', buy='Køb og refusion', skip='Spring til indholdet', orgno='Org.nr.', country='Norge',
+  terms='Brugsvilkår', cookies='Cookies', buy='Køb og refusion', skip='Gå til indholdet', orgno='Org.nr.', country='Norge',
   helpTitle='Hjælp - Get Busted', helpDesc='Svar om Get Busted: sådan spiller I, gendan køb, indløs kode, alkoholfri tilstand og mere.',
   helpK='Hjælp', helpH='Spørgsmål og svar',
   helpQA=[('Hvordan spiller man?', 'Skriv navnene ind (2 til 30 spillere), og vælg pakker, niveau og hvor tørstige I er. Én person er oplæser: vedkommende holder telefonen og læser alle kortene højt. Swipe eller tryk for næste kort, og tryk i venstre kant af kortet for at gå tilbage. I kan skifte oplæser og tilføje eller fjerne spillere når som helst ved at trykke på navnet øverst.'),
-          ('Hvordan gendanner jeg mine køb?', 'Åbn Pakker i appen, og tryk på Gendan køb under «Har du købt før?». Brug det samme Apple-id eller Google-konto, som du købte med. Du behøver ikke en konto hos os.'),
+          ('Hvordan gendanner jeg mine køb?', 'Åbn Pakker i appen, og tryk på Gendan køb under «Har du købt før?». Brug den samme Apple-konto eller Google-konto, som du købte med. Du behøver ikke en konto hos os.'),
           ('Hvordan indløser jeg en kode?', 'Åbn Pakker, og tryk på Indløs kode. På iPhone åbner Apple et vindue, hvor du skriver koden. På Android åbner Google Play, så du kan indløse den der.'),
           ('Hvordan virker alkoholfri tilstand?', 'Vælg Alkoholfri, når I sætter spillet op. Det er samme spil, men slurke bliver til point, og den med flest point taber. Alle kan spille sammen, med eller uden noget i glasset.'),
           ('Er teksten svær at læse?', 'Vælg Stor tekst, når I sætter spillet op, eller tryk på Aa under spillet for at skifte.'),
@@ -275,7 +261,7 @@ UPDATE = {
   og='One reader, 1,000+ cards at launch and zero boring breaks. For iPhone and Android.',
   h1=('The party game that ', 'runs the night', ''),
   lead='One reader holds the phone. Everyone else looks at each other, not at a screen. 1,000+ cards at launch about the internet, the news and your group chat, plus team play, Rapid rounds and secret missions.',
-  soonTo='30 October on', note='For adults 18+. Alcohol-free mode is always included.', download='30 October',
+  soonTo='Coming soon to', note='For adults 18+. Alcohol-free mode is always included.', download='Coming soon',
   steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
          ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. Play solo, in fixed duos or Red vs Blue.'),
          ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
@@ -283,13 +269,13 @@ UPDATE = {
   shots=['Team play', 'Twists', 'Rapid', 'Odds', 'Big text', 'Halloween'],
   calK='1-24 December · free', calH=('Advent calendar ', 'in the app'), calLead='A new door every day until Christmas. What you open gets mixed into every game until the end of December.',
   calList=['17 new cards: office parties, Christmas stress, home for Christmas and family', 'December rules that last all night', 'New dice sides and a Christmas quiz'],
-  groups=['Out on 30 October', 'Autumn and winter', 'Only in English'], cards='cards', freeCards='50 free cards every night',
-  priceK='Prices', priceH=('Pay once. ', 'No subscription.'), plusTag='Launch price until the end of December',
+  groups=['At launch', 'Autumn and winter', 'Only in English'], cards='cards', freeCards='50 free cards every night',
+  priceK='Buying', priceH=('Pay once. ', 'No subscription.'), plusTag='',
   resp=[('Alcohol-free', 'The same game with points. Everyone can join.'), ('Breaks', 'Water breaks and breathers turn up along the way.'),
         ('Skip', 'You can always skip a card. Always.'), ('18+', 'Made for adults. Your crew picks the level.')],
   respH='Made for a good night',
   faq0=('Can everyone join?', 'Yes. In alcohol-free mode everything becomes points, and you can always skip a card.'),
-  faqWhen=('When is it out?', '30 October on iPhone and Android. Follow @getbusted.uk on Instagram and TikTok to hear first.'),
+  faqWhen=('When is it out?', 'Coming soon to iPhone and Android, with Norway first. Follow @getbusted.uk on Instagram and TikTok to hear first.'),
   faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
   foot='Adults 18+'),
  'sv': dict(
@@ -297,21 +283,21 @@ UPDATE = {
   og='En läsare, 1 000+ kort från start och noll tråkiga pauser. För iPhone och Android.',
   h1=('Festspelet som ', 'tar över', ' kvällen'),
   lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 1 000+ kort från start, skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.',
-  soonTo='30 oktober i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='30 oktober',
+  soonTo='Snart i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='Kommer snart',
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
          ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Spela var för sig, i fasta duos eller Röd mot Blå.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
-  stats=[('1 000+', 'kort på svenska från start'), ('5', 'paket från start, fler i höst'), ('2-30', 'spelare'), ('0 kr', 'för att komma igång')],
+  stats=[('1 000+', 'kort på svenska från start'), ('5', 'paket från start, fler i höst'), ('2-30', 'spelare'), ('Gratis', 'att komma igång')],
   shots=['Lagspel', 'Twist', 'Rapid', 'Odds', 'Stor text', 'Halloween'],
   calK='1-24 december · gratis', calH=('Julkalender ', 'i appen'), calLead='Ny lucka varje dag fram till jul. Det ni öppnar blandas in i alla spel december ut.',
   calList=['17 nya kort: julbord, julstress, hem till jul och familjen', 'Decemberregler som gäller hela kvällen', 'Nya sidor på tärningen och ett julquiz'],
-  groups=['Ute 30 oktober', 'Hösten och vintern', 'Bara i Sverige'], cards='kort', freeCards='50 gratis kort varje kväll',
-  priceK='Priser', priceH=('Betala en gång. ', 'Ingen prenumeration.'), plusTag='Lanseringspris december ut',
+  groups=['Från start', 'Hösten och vintern', 'Bara i Sverige'], cards='kort', freeCards='50 gratis kort varje kväll',
+  priceK='Köp', priceH=('Betala en gång. ', 'Ingen prenumeration.'), plusTag='',
   resp=[('Alkoholfritt', 'Samma spel med poäng. Alla kan vara med.'), ('Pauser', 'Vattenpauser och andningspauser dyker upp längs vägen.'),
         ('Stå över', 'Du får alltid stå över ett kort. Alltid.'), ('18+', 'Gjort för vuxna. Gänget väljer nivån.')],
   respH='Gjort för en bra kväll',
   faq0=('Kan alla vara med?', 'Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.'),
-  faqWhen=('När kommer den?', '30 oktober till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
+  faqWhen=('När kommer den?', 'Snart till iPhone och Android, med Norge först. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
   faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
   foot='För vuxna 18+'),
  'da': dict(
@@ -319,22 +305,22 @@ UPDATE = {
   og='Én oplæser, 1.000+ kort fra start og ingen kedelige pauser. Til iPhone og Android.',
   h1=('Festspillet der ', 'tager over', ' aftenen'),
   lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. 1.000+ kort skrevet på dansk fra start, holdspil, Rapid-runder og hemmelige missioner.',
-  soonTo='30. oktober i', note='For voksne 18+. Alkoholfri tilstand er altid med.', download='30. oktober',
-  steps=[('Skriv flokken ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
+  soonTo='Snart i', note='For voksne 18+. Alkoholfri tilstand er altid med.', download='Kommer snart',
+  steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
          ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Spil hver for sig, i faste par eller Rød mod Blå.'),
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
-  stats=[('1.000+', 'kort på dansk fra start'), ('5', 'pakker fra start, flere i efteråret'), ('2-30', 'spillere'), ('0 kr', 'for at komme i gang')],
+  stats=[('1.000+', 'kort på dansk fra start'), ('5', 'pakker fra start, flere i efteråret'), ('2-30', 'spillere'), ('Gratis', 'at komme i gang')],
   shots=['Holdspil', 'Twist', 'Rapid', 'Odds', 'Stor tekst', 'Halloween'],
   calK='1.-24. december · gratis', calH=('Julekalender ', 'i appen'), calLead='Ny låge hver dag til jul. Det, I åbner, blandes ind i alle spil december ud.',
   calList=['17 nye kort: julefrokost, julestress, hjem til jul og familien', 'Decemberregler, der gælder hele aftenen', 'Nye sider på terningen og en julequiz'],
-  groups=['Ude 30. oktober', 'Efteråret og vinteren', ''], cards='kort', freeCards='50 gratis kort hver aften',
+  groups=['Fra start', 'Efteråret og vinteren', ''], cards='kort', freeCards='50 gratis kort hver aften',
   packsLead='Fem pakker er klar fra start, og flere kommer hen over efteråret. Prøv 5 kort fra en hvilken som helst pakke gratis, før du køber.',
-  priceK='Priser', priceH=('Betal én gang. ', 'Intet abonnement.'), plusTag='Lanceringspris december ud',
+  priceK='Køb', priceH=('Betal én gang. ', 'Intet abonnement.'), plusTag='',
   resp=[('Alkoholfri', 'Samme spil med point. Alle kan være med.'), ('Pauser', 'Vandpauser og pustepauser dukker op undervejs.'),
-        ('Spring over', 'Du må altid springe et kort over. Altid.'), ('18+', 'Lavet til voksne. Flokken vælger niveauet.')],
+        ('Spring over', 'Du må altid springe et kort over. Altid.'), ('18+', 'Lavet til voksne. I vælger selv niveauet.')],
   respH='Lavet til en god aften',
   faq0=('Kan alle være med?', 'Ja. I alkoholfri tilstand bliver alt til point, og du må altid springe et kort over.'),
-  faqWhen=('Hvornår kommer den?', '30. oktober til iPhone og Android.'),
+  faqWhen=('Hvornår kommer den?', 'Snart til iPhone og Android, med Norge først.'),
   faqCal=('Hvad er julekalenderen?', 'En ny låge hver dag 1.-24. december, gratis for alle. Kortene, reglerne og terningsiderne I åbner, blandes ind i alle spil december ud.'),
   foot='For voksne 18+'),
 }
@@ -424,42 +410,42 @@ LEGAL['en']['privacy'] = ('Privacy policy', 'How Get Busted handles personal dat
 # Terms of use (separate from the purchase terms on /purchases/). Mirrors getbusted.no/vilkar/ (Bruksvilkår).
 # SPRÅK USIKKERT: natural UK legal-plain English, not checked by a native lawyer. JURIDISK USIKKERT: governing law and complaint bodies for UK/EU readers (Roma I), see getbusted.no/_kilde/juridisk.py.
 LEGAL['en']['terms'] = ('Terms of use', 'Terms of use for the Get Busted app and the websites getbusted.online and getbusted.no.', 'Terms of use', f"""
-<p>These terms apply when you use the Get Busted app and the websites getbusted.online and getbusted.no. By downloading or using the app, you accept the terms. Purchases, the right to cancel, refunds and faulty purchases are covered on <a href="{BUY['en']}">Purchases, cancellation and refunds</a>. The terms do not limit the rights you have as a consumer under the law.</p>
+<p>These terms apply when you use the Get Busted app and the websites getbusted.online and getbusted.no. By downloading or using the app, you accept the terms. The purchase terms, including the right to cancel, refunds and faulty purchases, are on their own page: <a href="{BUY['en']}">Purchases, cancellation and refunds</a>. The terms do not limit the rights you have as a consumer under the law.</p>
 
 <h2>1. Who we are</h2>
 <p>Get Busted is provided by {FIRMA}, org. no. {ORGNR}, {ADDR}, Norway. Email: {M}.</p>
 
 <h2>2. Adults 18+ only</h2>
-<p>Get Busted is a party game for adults. You must be over 18 to use the app. The game can be played with or without alcohol, and alcohol-free mode (points instead of sips) is always available.</p>
+<p>Get Busted is a party game for adults. You must be at least 18 years old to use the app. The game can be played with or without alcohol, and alcohol-free mode (points instead of sips) is always available.</p>
 
 <h2>3. Play responsibly</h2>
 <ul>
   <li>Everyone decides for themselves. You can always skip a card, without explaining why.</li>
   <li>Nobody should be pressured into drinking, doing challenges or answering questions they do not want to.</li>
   <li>Play alcohol-free if anyone is pregnant, taking medication that does not mix with alcohol, driving or for any other reason should not drink.</li>
-  <li>Follow the law and the rules of the place you are in. Do not do challenges that could harm yourself, others or things around you.</li>
-  <li>Only share photos, recordings or summaries of other people if they have said yes.</li>
+  <li>Follow the law and the rules of the place you are in. Do not take part in challenges that could harm yourself, others or things around you.</li>
+  <li>Only share photos, recordings or summaries of other people if they have given their consent.</li>
 </ul>
-<p>You are responsible for how you and your group use the game. The cards are meant as humour and may feel cheeky, especially on the Get Fu**ed level. Choose a level and packs that suit your group.</p>
+<p>You are responsible for how you and your group use the game. The cards are meant as humour and can feel crude or provocative, especially on the Get Fu**ed level. Choose a level and packs that suit your group.</p>
 
 <h2>4. Licence to use the app</h2>
-<p>The app is free to download. You get a personal right to use the app and the content you have access to on the devices linked to the same Apple ID or Google account. The right cannot be sold or passed on to others. Your use is also subject to Apple's or Google's terms for the app.</p>
+<p>The app is free to download. You get a personal, non-transferable right to use the app and the content you have access to on the devices linked to the same Apple ID or Google account. You may not sell the right or pass it on to anyone else. Your use is also subject to Apple's or Google's terms for the app.</p>
 
 <h2>5. Content and rights</h2>
-<p>The Get Busted name, the logo, the cards, the texts, the covers and the rest of the content belong to {FIRMA}. You may share single cards and summaries from the app using the share feature. You may not copy the decks, resell the content, make your own versions of the game or use the content commercially without our written consent.</p>
+<p>The Get Busted name, the logo, the cards, the texts, the covers and the rest of the content belong to {FIRMA}. You may share single cards and summaries from the app using the share feature. You may not copy the cards, resell the content, make your own versions of the game or use the content commercially without our written consent.</p>
 
 <h2>6. Changes to the app</h2>
-<p>We keep developing the app and may add, change or remove cards, features and design. We do not remove content you have paid for unless it is necessary, for example because a card turns out to be offensive or unlawful. In that case we replace it with similar content. Updates may be needed for the app to work.</p>
+<p>We keep developing the app and may add, change or remove cards, features and design. We do not remove content you have paid for unless it is necessary. That could be, for example, a card that turns out to be offensive or unlawful. In that case we replace it with equivalent content. Updates may be needed for the app to keep working.</p>
 
 <h2>7. Availability and liability</h2>
-<p>We do our best to make the app work, but we cannot promise that it will always be free of errors or available. The app may be unavailable during maintenance or because of problems at Apple, Google or other providers, and some features need an internet connection.</p>
-<p>We are not liable for damage or loss caused by how the game is used, for example someone drinking too much or a challenge going wrong. This does not apply if the damage is caused by our gross negligence or intent, or where the law does not allow liability to be excluded.</p>
+<p>We do our best to make the app work, but we cannot promise that it will always be free of errors or available. The app may be unavailable during maintenance or if problems occur at Apple, Google or other providers. Some features, for example sharing and links to other services, need an internet connection.</p>
+<p>We are not liable for damage or loss caused by how the game is used, for example someone drinking too much or a challenge going wrong. This does not apply if the damage is caused by our gross negligence or intent, or if the law does not allow such a limitation of liability.</p>
 
 <h2>8. Links to other services</h2>
 <p>The app and the websites may link to Spotify, Instagram, TikTok, Facebook, the App Store and Google Play. These services have their own terms, and we are not responsible for them.</p>
 
 <h2>9. Governing law and disputes</h2>
-<p>Norwegian law applies. If you live in the UK or in another country in the EU/EEA, you keep the mandatory consumer protection you have under the law of the country where you live. If you are unhappy, please contact us first. If we cannot find a solution, you can contact the consumer authorities or the consumer advice service in your country, or take the matter to the courts. This also applies to complaints about purchases.</p>
+<p>Norwegian law applies to these terms. If you live in the UK or in another country in the EU/EEA, you still keep the mandatory consumer protection that applies under the law of the country where you live. If you are unhappy, please contact us first. If we cannot find a solution, you can contact the consumer advice service or the consumer authorities in your country, or take the matter to court. The same applies to complaints about purchases.</p>
 
 <h2>10. Changes to these terms</h2>
 <p>We may change these terms, for example when the app gets new features or the law changes. The current version is always here, with the date at the top. We will tell you about significant changes that are to your disadvantage in the app or on the website before they apply.</p>
@@ -469,45 +455,45 @@ LEGAL['en']['terms'] = ('Terms of use', 'Terms of use for the Get Busted app and
 # JURIDISK USIKKERT: Do Apple's and Google's purchase dialogs meet the UK/EU rules on express consent and acknowledgement (Consumer Contracts Regulations 2013 reg 37)? Who is the seller?
 # JURIDISK USIKKERT: "for as long as we offer the app" for Busted+; launch price notice; time limits for faulty digital content.
 LEGAL['en']['purchases'] = ('Purchases, cancellation and refunds', 'How purchases in Get Busted work: the right to cancel, refunds and faulty purchases.', 'Purchases', f"""
-<p>This page covers purchases in the Get Busted app. The seller is {FIRMA}, org. no. {ORGNR}, {ADDR}, Norway, {M}. You must be over 18. The rules for using the app are in <a href="{TERMS['en']}">Terms of use</a>.</p>
+<p>This page covers purchases in the Get Busted app. The seller is {FIRMA}, org. no. {ORGNR}, {ADDR}, Norway, {M}. You must be at least 18 years old to buy in the app. The rules for using the app are in <a href="{TERMS['en']}">Terms of use</a>.</p>
 
 <h2>In short</h2>
 <ul>
-  <li>All purchases are one-time purchases through the App Store or Google Play. No subscriptions and no automatic charges.</li>
-  <li>Apple and Google take the payment and handle refunds under their own rules.</li>
-  <li>If something you have bought does not work, we fix it. If we cannot, you are entitled to a price reduction or your money back.</li>
+  <li>All purchases are one-time purchases through the App Store or Google Play. There are no subscriptions and no automatic payments.</li>
+  <li>The payment goes through Apple or Google, who also handle refund requests under their own rules.</li>
+  <li>If something you have bought does not work as it should, we fix it. If we cannot, you are entitled to a price reduction or to your money back.</li>
+  <li>Because the content is delivered straight away, you lose the right to cancel once you have given your consent in the store's payment dialog. Read more under Right to cancel.</li>
 </ul>
 
 <h2>What you buy</h2>
-<p>The app is free to download and gives you 50 cards from Original for free every night. You can buy theme packs, the Get Fu**ed level, the Night Pack (one pack and the Get Fu**ed level) and Busted+ (all packs). The price is shown in the store before you confirm the purchase, and includes VAT. Prices can vary between countries. The purchase is binding once you have confirmed it in the store. The content unlocks as soon as the purchase is confirmed, and the app remembers the purchase so you can play offline. What you may use the content for is set out under Licence in <a href="{TERMS['en']}">Terms of use</a>.</p>
+<p>The app is free to download and gives you 50 free cards from Original every night. You can buy theme packs, the Get Fu**ed level, the Night Pack (a pack of your choice plus the Get Fu**ed level) and Busted+ (all packs). The price is shown in the store before you confirm the purchase, and includes VAT. Prices can vary between countries. You enter into the purchase when you confirm it in the store. The content unlocks as soon as the purchase is confirmed, and the app saves your purchase so you can play without an internet connection. What you may use the content for is set out under Content and rights in <a href="{TERMS['en']}">Terms of use</a>.</p>
 
 <h2>Busted+ and packs still to come</h2>
 <p>Busted+ gives you access to all packs in the app, including new card packs and levels that {FIRMA} itself releases in the Get Busted app, for as long as we offer the app. You do not pay extra for new packs that are part of the app's normal range of packs. This does not include:</p>
 <ul>
   <li>a separate app or another game</li>
-  <li>physical products, for example a deck of cards</li>
   <li>content made with or sold by a third party, if it is clearly marked as not included in Busted+</li>
-  <li>limited-time content that we have expressly said is an extra</li>
+  <li>limited-time content that we have expressly announced is an extra</li>
 </ul>
-<p>We decide how many packs are released and when. Busted+ is a one-time purchase. We never charge you automatically.</p>
-<p>Packs with a later release date are shown as "Coming" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives. If you have bought Busted+ and an announced pack is not released, you can contact us for a fair price reduction.</p>
+<p>It is up to us to decide how many packs are released, and when. Busted+ is a one-time purchase with no subscription. There are no automatic renewals.</p>
+<p>Packs with a later release date are shown as "Coming" and cannot be bought individually until they are released. Busted+ unlocks them automatically on the release date. If a pack is delayed, it unlocks when it arrives.</p>
 
-<h2>Price and launch price</h2>
+<h2>Price</h2>
 <p>{PRICE_TXT['en']}</p>
 
 <h2>Right to cancel</h2>
-<p>Under consumer law you normally have 14 days to cancel a purchase made at a distance. For digital content that is delivered straight away, the right to cancel is lost once delivery has started with your express consent and you have acknowledged that you lose it (in the UK: regulation 37 of the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013; in the EU/EEA: the consumer rules in your country). Purchases are made in the store's own payment dialog, and the content is delivered immediately once the purchase is confirmed.</p>
+<p>Purchases in the app are digital content that is delivered straight away once the purchase is confirmed. When you buy, you expressly consent to delivery starting immediately and acknowledge that you lose your right to cancel. So you have no right to cancel purchases in the app (in the UK: regulation 37 of the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013; in the EU/EEA: the consumer rules in your country). Your right to a refund from Apple or Google is described below, and your rights if something is faulty are not affected.</p>
 
 <h2>Refunds from Apple and Google</h2>
 <p>Apple and Google take the payment and handle refunds under their own rules. The rules can change, so always check the current rules with the store:</p>
 <ul>
-  <li><b>iPhone:</b> <a href="https://support.apple.com/118223">Apple's page on refunds</a>. You request a refund at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> with the Apple ID you bought with.</li>
-  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897">Google's page on refunds in Google Play</a>.</li>
+  <li><b>iPhone:</b> <a href="https://support.apple.com/118223">Apple's information on refunds</a>. You request a refund at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> with the Apple ID you bought with.</li>
+  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897">Google's information on refunds in Google Play</a>.</li>
 </ul>
-<p>If you bought something by mistake, you can write to {M} and send the receipt or order number from Apple or Google. We will help as far as we can, but the refund is paid out by Apple or Google.</p>
+<p>If you bought something by mistake, you can write to {M} and send the receipt or order number from Apple or Google. We will help as far as we can, but the refund is made through Apple or Google.</p>
 
 <h2>Faulty purchases</h2>
-<p>Content you have bought should work as described. If it is faulty, for example a pack does not unlock or cannot be restored, you have rights under the Consumer Rights Act 2015 if you live in the UK, or under the consumer rules in your country if you live in the EU/EEA. First try "Restore purchases" in the app, with the same Apple ID or Google account you bought with. If that does not help, write to {M} without undue delay and describe the problem, ideally with the receipt, your phone and the app version. We will fix the problem as quickly as we can, for example with an update, which you may need to install. If we cannot do so within a reasonable time, you are entitled to a price reduction or your money back. This does not limit your rights as a consumer under the law.</p>
+<p>Content you have bought should work as described. If it is faulty, for example a pack does not unlock or cannot be restored, you have rights under the Consumer Rights Act 2015 if you live in the UK, or under the consumer rules in your country if you live in the EU/EEA. First try "Restore purchases" in the app, with the same Apple ID or Google account you bought with. If that does not help, write to {M} within a reasonable time after you discover the problem and describe it, ideally with the receipt, your phone and the app version. We will fix the problem as quickly as we can, for example with an update, which you may need to install. If we cannot fix it within a reasonable time, you are entitled to a price reduction or to cancel the purchase and get your money back. This does not limit your rights as a consumer under the law.</p>
 
 <h2>Questions and complaints</h2>
 <p>Write to {M}. Who you can complain to if we cannot agree is set out under Governing law and disputes in <a href="{TERMS['en']}">Terms of use</a>. How we handle personal data is explained in the <a href="{PRIV['en']}">privacy policy</a>.</p>
@@ -605,42 +591,42 @@ LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personup
 # Användarvillkor (skilda från köpvillkoren på /se/kop/). Motsvarar getbusted.no/vilkar/ (Bruksvilkår).
 # SPRÅK USIKKERT: naturligt juridiskt-enkelt svenskt språk, ej granskat av svensk jurist. JURIDISK USIKKERT: tillämplig lag och tvistlösning för svenska konsumenter (Rom I, ARN).
 LEGAL['sv']['terms'] = ('Användarvillkor', 'Användarvillkor för appen Get Busted och webbplatserna getbusted.online och getbusted.no.', 'Användarvillkor', f"""
-<p>Dessa villkor gäller när du använder appen Get Busted och webbplatserna getbusted.online och getbusted.no. Genom att ladda ner eller använda appen godkänner du villkoren. Köp, ångerrätt, återbetalning och fel vid köp beskrivs under <a href="{BUY['sv']}">Köp, ångerrätt och återbetalning</a>. Villkoren begränsar inte de rättigheter du har som konsument enligt lag.</p>
+<p>Dessa villkor gäller när du använder appen Get Busted och webbplatserna getbusted.online och getbusted.no. Genom att ladda ner eller använda appen godtar du villkoren. Köpvillkoren, med ångerrätt, återbetalning och fel vid köp, finns på en egen sida: <a href="{BUY['sv']}">Köpvillkor och ångerrätt</a>. Villkoren begränsar inte de rättigheter du har som konsument enligt lag.</p>
 
 <h2>1. Vilka vi är</h2>
 <p>Get Busted tillhandahålls av {FIRMA}, org.nr {ORGNR}, {ADDR}, Norge. E-post: {M}.</p>
 
-<h2>2. För vuxna över 18 år</h2>
-<p>Get Busted är ett festspel för vuxna. Du måste vara över 18 år för att använda appen. Spelet kan spelas med eller utan alkohol, och alkoholfritt läge (poäng i stället för klunkar) finns alltid.</p>
+<h2>2. Endast för vuxna (18+)</h2>
+<p>Get Busted är ett festspel för vuxna. Du måste vara minst 18 år för att använda appen. Spelet kan spelas med eller utan alkohol, och alkoholfritt läge (poäng i stället för klunkar) finns alltid.</p>
 
 <h2>3. Spela ansvarsfullt</h2>
 <ul>
   <li>Alla bestämmer själva. Det är alltid okej att stå över ett kort, utan att förklara varför.</li>
   <li>Ingen ska pressas att dricka, göra utmaningar eller svara på frågor de inte vill.</li>
-  <li>Spela alkoholfritt om någon är gravid, tar mediciner som inte tål alkohol, ska köra eller av andra skäl inte bör dricka.</li>
+  <li>Spela alkoholfritt om någon är gravid, tar mediciner som inte tål alkohol, ska köra bil eller av andra skäl inte bör dricka.</li>
   <li>Följ lagen och reglerna där ni är. Gör inga utmaningar som kan skada dig själv, andra eller saker runt er.</li>
-  <li>Dela bara bilder, inspelningar eller sammanfattningar av andra om de har sagt ja.</li>
+  <li>Dela bara bilder, inspelningar eller sammanfattningar av andra om de har gett sitt samtycke.</li>
 </ul>
-<p>Du ansvarar själv för hur du och gänget använder spelet. Korten är menade som humor och kan upplevas som fräcka, särskilt på nivån Get Fu**ed. Välj nivå och paket som passar gänget.</p>
+<p>Du ansvarar själv för hur du och gänget använder spelet. Korten är tänkta som humor och kan upplevas som grova eller provocerande, särskilt på nivån Get Fu**ed. Välj nivå och paket som passar gänget.</p>
 
 <h2>4. Licens att använda appen</h2>
-<p>Appen är gratis att ladda ner. Du får en personlig rätt att använda appen och det innehåll du har tillgång till på de enheter som är kopplade till samma Apple-ID eller Google-konto. Rätten kan inte säljas eller överlåtas till andra. Användningen följer också Apples eller Googles villkor för appen.</p>
+<p>Appen är gratis att ladda ner. Du får en personlig, icke-överlåtbar rätt att använda appen och det innehåll du har tillgång till på de enheter som är kopplade till samma Apple-ID eller Google-konto. Du får inte sälja eller överlåta rätten till någon annan. Användningen följer också Apples eller Googles villkor för appen.</p>
 
 <h2>5. Innehåll och rättigheter</h2>
-<p>Namnet Get Busted, logotypen, korten, texterna, omslagen och resten av innehållet tillhör {FIRMA}. Du får dela enstaka kort och sammanfattningar från appen med delningsfunktionen. Du får inte kopiera kortlekarna, sälja innehållet vidare, göra egna versioner av spelet eller använda innehållet kommersiellt utan vårt skriftliga samtycke.</p>
+<p>Namnet Get Busted, logotypen, korten, texterna, omslagen och resten av innehållet tillhör {FIRMA}. Du får dela enstaka kort och sammanfattningar från appen med delningsfunktionen. Du får inte kopiera korten, sälja innehållet vidare, göra egna versioner av spelet eller använda innehållet kommersiellt utan vårt skriftliga samtycke.</p>
 
 <h2>6. Ändringar i appen</h2>
-<p>Vi utvecklar appen vidare och kan lägga till, ändra eller ta bort kort, funktioner och design. Vi tar inte bort innehåll du har betalat för, om det inte är nödvändigt, till exempel för att ett kort visar sig vara kränkande eller olagligt. Då ersätter vi det med motsvarande innehåll. Uppdateringar kan behövas för att appen ska fungera.</p>
+<p>Vi utvecklar appen vidare och kan lägga till, ändra eller ta bort kort, funktioner och design. Vi tar inte bort innehåll som du har betalat för, om det inte är nödvändigt. Det kan till exempel gälla ett kort som visar sig vara kränkande eller olagligt. Då ersätter vi det med likvärdigt innehåll. Uppdateringar kan behövas för att appen ska fungera.</p>
 
 <h2>7. Tillgänglighet och ansvar</h2>
-<p>Vi gör vårt bästa för att appen ska fungera, men kan inte lova att den alltid är felfri eller tillgänglig. Appen kan vara otillgänglig vid underhåll eller fel hos Apple, Google eller andra leverantörer, och vissa funktioner kräver internet.</p>
-<p>Vi ansvarar inte för skada eller förlust som beror på hur spelet används, till exempel att någon dricker för mycket eller att en utmaning går fel. Detta gäller inte om skadan beror på grov oaktsamhet eller uppsåt från vår sida, eller om ansvarsfriskrivning inte är tillåten enligt lag.</p>
+<p>Vi gör vårt bästa för att appen ska fungera, men kan inte lova att den alltid är felfri eller tillgänglig. Appen kan vara otillgänglig vid underhåll eller om det uppstår fel hos Apple, Google eller andra leverantörer. Vissa funktioner kräver internetanslutning.</p>
+<p>Vi ansvarar inte för skada eller förlust som beror på hur spelet används, till exempel att någon dricker för mycket eller att en utmaning går fel. Detta gäller inte om skadan beror på grov oaktsamhet eller uppsåt från vår sida, eller om en sådan ansvarsbegränsning inte är tillåten enligt lag.</p>
 
 <h2>8. Länkar till andra tjänster</h2>
 <p>Appen och webbplatserna kan länka till Spotify, Instagram, TikTok, Facebook, App Store och Google Play. Dessa tjänster har egna villkor, och vi ansvarar inte för dem.</p>
 
 <h2>9. Tillämplig lag och tvister</h2>
-<p>Norsk lag gäller. Bor du i Sverige eller ett annat land i EU/EES, behåller du det tvingande konsumentskydd du har enligt lagen där du bor. Kontakta oss först om du är missnöjd. Hittar vi ingen lösning kan du som konsument i Sverige vända dig till <a href="https://www.konsumentverket.se/">Konsumentverket</a> och <a href="https://www.arn.se/">Allmänna reklamationsnämnden (ARN)</a>, eller ta saken till domstol. Det gäller också klagomål på köp.</p>
+<p>Norsk lag gäller för dessa villkor. Bor du i Sverige eller ett annat land i EU/EES behåller du ändå det tvingande konsumentskydd som finns i lagen där du bor. Kontakta oss först om du är missnöjd. Hittar vi ingen lösning kan du som konsument i Sverige få kostnadsfri och oberoende rådgivning av <a href="https://www.konsumentverket.se/">Hallå konsument</a> och be <a href="https://www.arn.se/">Allmänna reklamationsnämnden (ARN)</a> pröva tvisten. Du kan också vända dig till domstol. Detsamma gäller klagomål på köp.</p>
 
 <h2>10. Ändringar i villkoren</h2>
 <p>Vi kan ändra villkoren, till exempel när appen får nya funktioner eller lagen ändras. Den gällande versionen finns alltid här, med datum högst upp. Väsentliga ändringar till din nackdel meddelar vi i appen eller på webbplatsen innan de börjar gälla.</p>
@@ -649,46 +635,45 @@ LEGAL['sv']['terms'] = ('Användarvillkor', 'Användarvillkor för appen Get Bus
 # Köpvillkor. Motsvarar getbusted.no/kjop/. Inget löfte om 14 dagar och inget om 48 timmar (ångerrätten förklaras bara som lagens huvudregel).
 # JURIDISK USIKKERT: Uppfyller Apples och Googles köpdialog kraven på uttryckligt samtycke och bekräftelse enligt svensk lag? Vem är säljare?
 # JURIDISK USIKKERT: «så länge vi erbjuder appen» för Busted+, lanseringspris, reklamationstider för digitalt innehåll. Lagreferensen (2022:260) i den gamla texten är borttagen eftersom den inte är verifierad.
-LEGAL['sv']['purchases'] = ('Köp, ångerrätt och återbetalning', 'Så fungerar köp i Get Busted: ångerrätt, återbetalning och fel vid köp.', 'Köp', f"""
-<p>Den här sidan gäller köp i appen Get Busted. Säljare är {FIRMA}, org.nr {ORGNR}, {ADDR}, Norge, {M}. Du måste vara över 18 år. Regler för användning av appen finns i <a href="{TERMS['sv']}">Användarvillkor</a>.</p>
+LEGAL['sv']['purchases'] = ('Köpvillkor och ångerrätt', 'Så fungerar köp i Get Busted: ångerrätt, återbetalning och fel vid köp.', 'Köp', f"""
+<p>Den här sidan gäller köp i appen Get Busted. Säljare är {FIRMA}, org.nr {ORGNR}, {ADDR}, Norge, {M}. Du måste vara minst 18 år för att köpa i appen. Regler för användning av appen finns i <a href="{TERMS['sv']}">Användarvillkor</a>.</p>
 
 <h2>Kort sagt</h2>
 <ul>
-  <li>Alla köp är engångsköp via App Store eller Google Play. Ingen prenumeration och inga automatiska dragningar.</li>
-  <li>Apple och Google tar emot betalningen och hanterar återbetalning enligt sina egna regler.</li>
-  <li>Fungerar inte något du har köpt rättar vi felet. Lyckas vi inte har du rätt till prisavdrag eller pengarna tillbaka.</li>
+  <li>Alla köp är engångsköp via App Store eller Google Play. Det finns ingen prenumeration och inga automatiska betalningar.</li>
+  <li>Betalningen går via Apple eller Google, som också hanterar återbetalningar enligt sina egna regler.</li>
+  <li>Fungerar inte något du har köpt som det ska åtgärdar vi felet. Lyckas vi inte har du rätt till prisavdrag eller att få pengarna tillbaka. Eftersom innehållet levereras direkt har du ingen ångerrätt när du har samtyckt till det.</li>
 </ul>
 
 <h2>Vad du köper</h2>
-<p>Appen är gratis att ladda ner och ger 50 kort från Original gratis varje kväll. Du kan köpa temapaket, Get Fu**ed-nivån, Kvällspaketet (ett paket och Get Fu**ed-nivån) och Busted+ (alla paket). Priset står i butiken innan du bekräftar köpet och inkluderar moms. Priset kan variera mellan länder. Köpet är bindande när du har bekräftat det i butiken. Innehållet låses upp direkt när köpet är bekräftat, och appen minns köpet så att du kan spela utan nät. Vad du får använda innehållet till framgår under Licens i <a href="{TERMS['sv']}">Användarvillkor</a>.</p>
+<p>Appen är gratis att ladda ner och ger dig 50 kort ur Original varje kväll, utan kostnad. Du kan köpa temapaket, Get Fu**ed-nivån, Kvällspaketet (ett valfritt paket plus Get Fu**ed-nivån) och Busted+ (alla paket). Priset står i butiken innan du bekräftar köpet och inkluderar moms. Priset kan variera mellan länder. Köpet genomförs när du bekräftar det i butiken. Innehållet låses upp direkt när köpet är bekräftat, och appen sparar ditt köp så att du kan spela utan internetanslutning. Vad du får använda innehållet till framgår under Innehåll och rättigheter i <a href="{TERMS['sv']}">Användarvillkor</a>.</p>
 
 <h2>Busted+ och paket som kommer</h2>
 <p>Busted+ ger tillgång till alla paket i appen, även nya kortpaket och nya nivåer som {FIRMA} själv släpper i Get Busted-appen, så länge vi erbjuder appen. Du betalar inget extra för nya paket som ingår i appens vanliga paketutbud. Det gäller inte:</p>
 <ul>
   <li>en egen, separat app eller ett annat spel</li>
-  <li>fysiska produkter, till exempel en kortlek</li>
   <li>innehåll som tagits fram tillsammans med eller säljs av en tredje part, om det tydligt anges att det inte ingår i Busted+</li>
-  <li>tidsbegränsat innehåll som vi uttryckligen har sagt är extra</li>
+  <li>tidsbegränsat innehåll som vi uttryckligen har meddelat är extra</li>
 </ul>
-<p>Vi bestämmer själva hur många paket som släpps och när. Busted+ är ett engångsköp. Vi drar aldrig pengar automatiskt.</p>
-<p>Paket med senare släppdatum visas som «Kommer» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer. Har du köpt Busted+ och ett utlovat paket inte släpps kan du kontakta oss för ett skäligt prisavdrag.</p>
+<p>Det är vi som bestämmer hur många paket som släpps och när. Busted+ är ett engångsköp utan prenumeration. Det sker inga automatiska förnyelser.</p>
+<p>Paket med senare släppdatum visas som «Kommer» och kan inte köpas separat förrän de är släppta. Busted+ låser upp dem automatiskt på släppdatumet. Blir ett paket försenat låses det upp när det kommer.</p>
 
-<h2>Pris och lanseringspris</h2>
+<h2>Pris</h2>
 <p>{PRICE_TXT['sv']}</p>
 
 <h2>Ångerrätt</h2>
-<p>Enligt konsumentlagstiftningen har du som konsument normalt 14 dagars ångerrätt vid distansköp. För digitalt innehåll som levereras direkt upphör ångerrätten när leveransen har påbörjats efter att du uttryckligen har samtyckt till det och bekräftat att du då förlorar ångerrätten (lagen om distansavtal och avtal utanför affärslokaler). Köpet görs i butikens egen betalningsdialog, och innehållet levereras direkt när köpet är bekräftat.</p>
+<p>Köp i appen avser digitalt innehåll som levereras direkt när köpet är bekräftat. När du köper samtycker du uttryckligen till att leveransen påbörjas direkt och bekräftar att du då förlorar din ångerrätt. Därför har du ingen ångerrätt för köp i appen (lagen (2005:59) om distansavtal och avtal utanför affärslokaler). Rätten till återbetalning hos Apple eller Google beskrivs nedan, och dina rättigheter vid fel påverkas inte.</p>
 
 <h2>Återbetalning hos Apple och Google</h2>
 <p>Apple och Google tar emot betalningen och hanterar återbetalning enligt sina egna regler. Reglerna kan ändras, så kontrollera alltid gällande regler hos butiken:</p>
 <ul>
-  <li><b>iPhone:</b> <a href="https://support.apple.com/sv-se/118223">Apples sida om återbetalning</a>. Du begär återbetalning på <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> med det Apple-ID du köpte med.</li>
-  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897?hl=sv">Googles sida om återbetalning på Google Play</a>.</li>
+  <li><b>iPhone:</b> <a href="https://support.apple.com/sv-se/118223">Apples information om återbetalning</a>. Du begär återbetalning på <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> med det Apple-ID du köpte med.</li>
+  <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897?hl=sv">Googles information om återbetalning på Google Play</a>.</li>
 </ul>
-<p>Har du köpt något av misstag kan du skriva till {M} och skicka kvittot eller ordernumret från Apple eller Google. Vi hjälper dig så långt vi kan, men utbetalningen sker hos Apple eller Google.</p>
+<p>Har du köpt något av misstag kan du skriva till {M} och skicka kvittot eller ordernumret från Apple eller Google. Vi hjälper dig så långt vi kan, men återbetalningen sker via Apple eller Google.</p>
 
 <h2>Fel vid köp</h2>
-<p>Innehåll du har köpt ska fungera som det är beskrivet. Är det fel, till exempel att ett paket inte låses upp eller inte kan återställas, har du rättigheter enligt svensk konsumentlagstiftning om digitalt innehåll och digitala tjänster. Prova först «Återställ köp» i appen, med samma Apple-ID eller Google-konto som du köpte med. Fungerar det inte, skriv till {M} utan onödigt dröjsmål och beskriv felet, gärna med kvitto, telefon och appversion. Vi rättar felet så snabbt vi kan, till exempel med en uppdatering som du kan behöva installera. Klarar vi det inte inom rimlig tid har du rätt till prisavdrag eller att få pengarna tillbaka. Detta begränsar inte de rättigheter du har som konsument enligt lag.</p>
+<p>Innehåll du har köpt ska fungera som det är beskrivet. Är det fel, till exempel att ett paket inte låses upp eller inte kan återställas, har du rättigheter enligt konsumentköplagen, som även gäller digitalt innehåll och digitala tjänster. Prova först «Återställ köp» i appen, med samma Apple-ID eller Google-konto som du köpte med. Fungerar det inte, skriv till {M} inom skälig tid efter att du upptäckt felet och beskriv felet, gärna med kvitto, telefon och appversion. Vi åtgärdar felet så snabbt vi kan, till exempel med en uppdatering som du kan behöva installera. Klarar vi inte att åtgärda felet inom skälig tid har du rätt till prisavdrag eller att häva köpet och få pengarna tillbaka. Detta begränsar inte de rättigheter du har som konsument enligt lag.</p>
 
 <h2>Frågor och klagomål</h2>
 <p>Skriv till {M}. Vem du kan vända dig till om vi inte blir överens står under Tillämplig lag och tvister i <a href="{TERMS['sv']}">Användarvillkor</a>. Hur vi behandlar personuppgifter står i <a href="{PRIV['sv']}">integritetspolicyn</a>.</p>
@@ -786,42 +771,42 @@ LEGAL['da']['privacy'] = ('Privatlivspolitik', 'Sådan behandler Get Busted pers
 # Brugsvilkår (adskilt fra købsvilkårene på /dk/koeb/). Svarer til getbusted.no/vilkar/ (Bruksvilkår).
 # SPRÅK USIKKERT: naturligt, enkelt juridisk dansk, ikke gennemgået af dansk jurist. JURIDISK USIKKERT: lovvalg og klageinstans for danske forbrugere (Rom I, Nævnenes Hus).
 LEGAL['da']['terms'] = ('Brugsvilkår', 'Brugsvilkår for appen Get Busted og hjemmesiderne getbusted.online og getbusted.no.', 'Brugsvilkår', f"""
-<p>Disse vilkår gælder, når du bruger appen Get Busted og hjemmesiderne getbusted.online og getbusted.no. Når du henter eller bruger appen, accepterer du vilkårene. Køb, fortrydelsesret, refusion og fejl ved køb står under <a href="{BUY['da']}">Køb, fortrydelsesret og refusion</a>. Vilkårene begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
+<p>Disse vilkår gælder, når du bruger appen Get Busted og hjemmesiderne getbusted.online og getbusted.no. Når du henter eller bruger appen, accepterer du vilkårene. Købsvilkårene, med fortrydelsesret, refusion og fejl ved køb, står på en separat side: <a href="{BUY['da']}">Køb, fortrydelsesret og refusion</a>. Vilkårene begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
 
 <h2>1. Hvem vi er</h2>
-<p>Get Busted leveres af {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge. E-mail: {M}.</p>
+<p>Get Busted udbydes af {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge. E-mail: {M}.</p>
 
-<h2>2. For voksne over 18 år</h2>
-<p>Get Busted er et festspil for voksne. Du skal være over 18 år for at bruge appen. Spillet kan spilles med eller uden alkohol, og alkoholfri tilstand (point i stedet for slurke) er altid tilgængelig.</p>
+<h2>2. Kun for voksne (18+)</h2>
+<p>Get Busted er et festspil for voksne. Du skal være mindst 18 år for at bruge appen. Spillet kan spilles med eller uden alkohol, og alkoholfri tilstand (point i stedet for slurke) er altid tilgængelig.</p>
 
 <h2>3. Spil ansvarligt</h2>
 <ul>
   <li>Alle bestemmer selv. Det er altid i orden at springe et kort over, uden at forklare hvorfor.</li>
   <li>Ingen skal presses til at drikke, lave udfordringer eller svare på spørgsmål, de ikke vil.</li>
-  <li>Spil alkoholfrit, hvis nogen er gravide, tager medicin, der ikke tåler alkohol, skal køre eller af andre grunde ikke bør drikke.</li>
-  <li>Følg loven og stedets regler. Lav ingen udfordringer, der kan skade dig selv, andre eller ting omkring jer.</li>
-  <li>Del kun billeder, optagelser eller opsummeringer af andre, hvis de har sagt ja.</li>
+  <li>Spil alkoholfrit, hvis nogen er gravide, tager medicin, der ikke kan kombineres med alkohol, skal køre eller af andre grunde ikke bør drikke.</li>
+  <li>Følg loven og stedets regler. Gennemfør ikke udfordringer, der kan skade dig selv, andre eller ting omkring jer.</li>
+  <li>Del kun billeder, optagelser eller oversigter, hvor andre optræder, hvis de har sagt ja.</li>
 </ul>
-<p>Du er selv ansvarlig for, hvordan du og flokken bruger spillet. Kortene er ment som humor og kan opleves som frække, især på niveauet Get Fu**ed. Vælg niveau og pakker, der passer til flokken.</p>
+<p>Du er selv ansvarlig for, hvordan du og dit selskab bruger spillet. Kortene er ment som humor og kan opleves som frække, især på niveauet Get Fu**ed. Vælg niveau og pakker, der passer til jeres selskab.</p>
 
 <h2>4. Licens til at bruge appen</h2>
-<p>Appen er gratis at hente. Du får en personlig ret til at bruge appen og det indhold, du har adgang til, på de enheder, der er knyttet til samme Apple-id eller Google-konto. Retten kan ikke sælges eller overdrages til andre. Brugen følger også Apples eller Googles vilkår for appen.</p>
+<p>Appen er gratis at hente. Du får en personlig ret til at bruge appen og det indhold, du har adgang til, på de enheder, der er knyttet til samme Apple-konto eller Google-konto. Retten kan ikke sælges eller overdrages til andre. Din brug er også underlagt Apples eller Googles vilkår for appen.</p>
 
 <h2>5. Indhold og rettigheder</h2>
-<p>Navnet Get Busted, logoet, kortene, teksterne, forsiderne og resten af indholdet tilhører {FIRMA}. Du må dele enkelte kort og opsummeringer fra appen med delingsfunktionen. Du må ikke kopiere kortspillene, sælge indholdet videre, lave egne udgaver af spillet eller bruge indholdet kommercielt uden vores skriftlige samtykke.</p>
+<p>Navnet Get Busted, logoet, kortene, teksterne, forsiderne og resten af indholdet tilhører {FIRMA}. Du må dele enkelte kort og opsummeringer fra appen med delingsfunktionen. Du må ikke kopiere kortene, sælge indholdet videre, udarbejde egne udgaver af spillet eller bruge indholdet erhvervsmæssigt uden vores skriftlige samtykke.</p>
 
 <h2>6. Ændringer i appen</h2>
-<p>Vi udvikler appen videre og kan tilføje, ændre eller fjerne kort, funktioner og design. Vi fjerner ikke indhold, du har betalt for, medmindre det er nødvendigt, for eksempel fordi et kort viser sig at være krænkende eller ulovligt. Så erstatter vi det med tilsvarende indhold. Opdateringer kan være nødvendige, for at appen virker.</p>
+<p>Vi udvikler appen videre og kan tilføje, ændre eller fjerne kort, funktioner og design. Vi fjerner ikke indhold, du har betalt for, medmindre det er nødvendigt, for eksempel fordi et kort viser sig at være krænkende eller ulovligt. I så fald erstatter vi det med tilsvarende indhold. Opdateringer kan være nødvendige, for at appen fortsat kan fungere.</p>
 
 <h2>7. Tilgængelighed og ansvar</h2>
-<p>Vi gør vores bedste for, at appen virker, men kan ikke love, at den altid er fejlfri eller tilgængelig. Appen kan være utilgængelig ved vedligeholdelse eller fejl hos Apple, Google eller andre leverandører, og nogle funktioner kræver internet.</p>
-<p>Vi er ikke ansvarlige for skade eller tab, der skyldes, hvordan spillet bliver brugt, for eksempel at nogen drikker for meget eller laver udfordringer, der går galt. Det gælder ikke, hvis skaden skyldes grov uagtsomhed eller forsæt fra vores side, eller hvis ansvarsfraskrivelse ikke er tilladt efter loven.</p>
+<p>Vi gør, hvad vi kan, for at appen fungerer, men kan ikke love, at den altid er fejlfri eller tilgængelig. Appen kan være utilgængelig ved vedligeholdelse eller fejl hos Apple, Google eller andre leverandører, og nogle funktioner, for eksempel deling og links til andre tjenester, kræver internetforbindelse.</p>
+<p>Vi er ikke ansvarlige for skade eller tab, der skyldes, hvordan spillet bliver brugt, for eksempel at nogen drikker for meget eller laver udfordringer, der går galt. Det gælder ikke, hvis skaden skyldes grov uagtsomhed eller forsæt fra vores side, eller hvis loven ikke tillader en ansvarsbegrænsning.</p>
 
 <h2>8. Links til andre tjenester</h2>
 <p>Appen og hjemmesiderne kan linke til Spotify, Instagram, TikTok, Facebook, App Store og Google Play. Disse tjenester har egne vilkår, og vi er ikke ansvarlige for dem.</p>
 
 <h2>9. Lovvalg og tvister</h2>
-<p>Norsk lov gælder. Bor du i Danmark eller et andet land i EU/EØS, beholder du den ufravigelige forbrugerbeskyttelse, du har efter loven, hvor du bor. Kontakt os først, hvis du er utilfreds. Finder vi ikke en løsning, kan du som forbruger i Danmark klage til <a href="https://naevneneshus.dk/">Nævnenes Hus</a> (Forbrugerklagenævnet), eller indbringe sagen for domstolene. Det gælder også klager over køb.</p>
+<p>Norsk lov gælder. Bor du i Danmark eller et andet land i EU/EØS, beholder du den ufravigelige forbrugerbeskyttelse, som loven i dit bopælsland giver dig. Kontakt os først, hvis du er utilfreds. Finder vi ikke en løsning, kan du som forbruger i Danmark klage til Forbrugerklagenævnet via <a href="https://naevneneshus.dk/">Nævnenes Hus</a> eller indbringe sagen for domstolene. Du kan få generel vejledning om dine rettigheder på <a href="https://www.forbrug.dk/">Forbrug.dk</a>. Det gælder også klager over køb.</p>
 
 <h2>10. Ændringer i vilkårene</h2>
 <p>Vi kan ændre vilkårene, for eksempel når appen får nye funktioner, eller loven ændres. Den gældende version står altid her, med dato øverst. Væsentlige ændringer til ulempe for dig giver vi besked om i appen eller på hjemmesiden, før de gælder.</p>
@@ -831,48 +816,48 @@ LEGAL['da']['terms'] = ('Brugsvilkår', 'Brugsvilkår for appen Get Busted og hj
 # JURIDISK USIKKERT: Opfylder Apples og Googles købsdialog kravene om udtrykkeligt samtykke og bekræftelse efter dansk ret (forbrugeraftaleloven)? Hvem er sælger?
 # JURIDISK USIKKERT: «så længe vi tilbyder appen» for Busted+, lanceringspris, reklamationsfrister for digitalt indhold.
 LEGAL['da']['purchases'] = ('Køb, fortrydelsesret og refusion', 'Sådan fungerer køb i Get Busted: fortrydelsesret, refusion og fejl ved køb.', 'Køb', f"""
-<p>Denne side gælder køb i appen Get Busted. Sælger er {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge, {M}. Du skal være over 18 år. Regler for brug af appen står i <a href="{TERMS['da']}">Brugsvilkår</a>.</p>
+<p>Denne side gælder køb i appen Get Busted. Sælger er {FIRMA}, org.nr. {ORGNR}, {ADDR}, Norge, {M}. Du skal være mindst 18 år. Regler for brug af appen står i <a href="{TERMS['da']}">Brugsvilkår</a>.</p>
 
 <h2>Kort fortalt</h2>
 <ul>
-  <li>Alle køb er engangskøb gennem App Store eller Google Play. Intet abonnement og ingen automatiske træk.</li>
-  <li>Apple og Google modtager betalingen og behandler refusion efter deres egne regler.</li>
-  <li>Virker noget, du har købt, ikke, retter vi fejlen. Kan vi ikke det, har du krav på afslag i prisen eller pengene tilbage.</li>
+  <li>Alle køb er engangskøb gennem App Store eller Google Play. Der er intet abonnement og ingen automatiske betalinger.</li>
+  <li>Betalingen går gennem Apple eller Google, som også behandler anmodninger om refusion efter deres egne regler.</li>
+  <li>Virker noget, du har købt, ikke, retter vi fejlen. Kan vi ikke det, har du krav på forholdsmæssigt afslag i prisen eller på at hæve købet og få pengene tilbage.</li>
+  <li>Da indholdet leveres med det samme, mister du fortrydelsesretten, når du har givet samtykke i butikkens betalingsdialog. Læs mere under Fortrydelsesret.</li>
 </ul>
 
 <h2>Hvad du køber</h2>
-<p>Appen er gratis at hente og giver 50 kort fra Original gratis hver aften. Du kan købe temapakker, Get Fu**ed-niveauet, Aftenpakken (én pakke og Get Fu**ed-niveauet) og Busted+ (alle pakker). Prisen står i butikken, før du bekræfter købet, og er inklusive moms. Prisen kan variere mellem lande. Købet er bindende, når du har bekræftet det i butikken. Indholdet låses op, så snart købet er bekræftet, og appen husker købet, så du kan spille uden net. Hvad du må bruge indholdet til, står under Licens i <a href="{TERMS['da']}">Brugsvilkår</a>.</p>
+<p>Appen er gratis at hente og giver 50 gratis kort fra Original hver aften. Du kan købe temapakker, Get Fu**ed-niveauet, Aftenpakken (en pakke plus niveauet Get Fu**ed) og Busted+ (alle pakker). Prisen står i butikken, før du bekræfter købet, og er inklusive moms. Prisen kan variere mellem lande. Du indgår købet, når du bekræfter det i butikken. Indholdet låses op, så snart købet er bekræftet, og appen husker købet, så du kan spille uden internetforbindelse. Hvad du må bruge indholdet til, står under Indhold og rettigheder i <a href="{TERMS['da']}">Brugsvilkår</a>.</p>
 
 <h2>Busted+ og pakker, der kommer</h2>
 <p>Busted+ giver adgang til alle pakker i appen, også nye kortpakker og nye niveauer, som {FIRMA} selv udgiver i Get Busted-appen, så længe vi tilbyder appen. Du betaler ikke ekstra for nye pakker, der er en del af appens almindelige pakkeudvalg. Det gælder ikke:</p>
 <ul>
   <li>en separat app eller et andet spil</li>
-  <li>fysiske produkter, for eksempel et kortspil</li>
   <li>indhold lavet sammen med eller solgt af en tredjepart, hvis det tydeligt er markeret, at det ikke er med i Busted+</li>
-  <li>tidsbegrænset indhold, som vi udtrykkeligt har sagt er ekstra</li>
+  <li>tidsbegrænset indhold, som vi udtrykkeligt har meddelt er ekstra</li>
 </ul>
-<p>Vi bestemmer selv, hvor mange pakker der udgives, og hvornår. Busted+ er et engangskøb. Vi trækker aldrig penge automatisk.</p>
-<p>Pakker med senere udgivelsesdato vises som «Kommer» og kan ikke købes enkeltvis, før de er udgivet. Busted+ låser dem op automatisk på udgivelsesdatoen. Bliver en pakke forsinket, låses den op, når den kommer. Har du købt Busted+, og en annonceret pakke ikke bliver udgivet, kan du kontakte os for et passende afslag i prisen.</p>
+<p>Det er os, der beslutter, hvor mange pakker der udgives, og hvornår. Busted+ er et engangskøb uden abonnement. Der sker ingen automatiske betalinger.</p>
+<p>Pakker med senere udgivelsesdato vises som «Kommer» og kan ikke købes enkeltvis, før de er udgivet. Busted+ låser dem op automatisk på udgivelsesdatoen. Bliver en pakke forsinket, låses den op, når den kommer.</p>
 
-<h2>Pris og lanceringspris</h2>
+<h2>Pris</h2>
 <p>{PRICE_TXT['da']}</p>
 
 <h2>Fortrydelsesret</h2>
-<p>Efter forbrugerlovgivningen har du som forbruger normalt 14 dages fortrydelsesret ved fjernkøb. For digitalt indhold, der leveres med det samme, bortfalder fortrydelsesretten, når leveringen er begyndt, efter at du udtrykkeligt har givet samtykke til det og bekræftet, at du dermed mister fortrydelsesretten (forbrugeraftaleloven). Købet foregår i butikkens egen betalingsdialog, og indholdet leveres med det samme, når købet er bekræftet.</p>
+<p>Efter forbrugeraftaleloven har du som forbruger normalt 14 dages fortrydelsesret, når du handler på afstand (fjernsalg). Køber du digitalt indhold, som leveres med det samme, bortfalder fortrydelsesretten, når leveringen er begyndt. Det forudsætter, at du først udtrykkeligt har samtykket til, at leveringen begynder, og har bekræftet, at du dermed mister din fortrydelsesret (forbrugeraftaleloven).</p>
 
 <h2>Refusion hos Apple og Google</h2>
 <p>Apple og Google modtager betalingen og behandler refusion efter deres egne regler. Reglerne kan ændres, så tjek altid de gældende regler hos butikken:</p>
 <ul>
-  <li><b>iPhone:</b> <a href="https://support.apple.com/da-dk/118223">Apples side om refusion</a>. Du beder om refusion på <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> med det Apple-id, du købte med.</li>
+  <li><b>iPhone:</b> <a href="https://support.apple.com/da-dk/118223">Apples side om refusion</a>. Du beder om refusion på <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> med den Apple-konto, du købte med.</li>
   <li><b>Android:</b> <a href="https://support.google.com/googleplay/answer/15574897?hl=da">Googles side om refusion i Google Play</a>.</li>
 </ul>
-<p>Har du købt noget ved en fejl, kan du skrive til {M} og sende kvitteringen eller ordrenummeret fra Apple eller Google. Vi hjælper dig så langt, vi kan, men udbetalingen sker hos Apple eller Google.</p>
+<p>Har du købt noget ved en fejl, kan du skrive til {M} og sende kvitteringen eller ordrenummeret fra Apple eller Google. Vi hjælper dig så langt, vi kan, men tilbagebetalingen sker via Apple eller Google.</p>
 
 <h2>Fejl ved køb</h2>
-<p>Indhold, du har købt, skal virke, som det er beskrevet. Er der fejl, for eksempel at en pakke ikke låses op eller ikke kan gendannes, har du rettigheder efter de danske forbrugerregler. Prøv først «Gendan køb» i appen, med samme Apple-id eller Google-konto, som du købte med. Virker det ikke, så skriv til {M} uden unødigt ophold og beskriv fejlen, gerne med kvittering, telefon og appversion. Vi retter fejlen så hurtigt, vi kan, for eksempel med en opdatering, som du kan skulle installere. Kan vi ikke det inden for rimelig tid, har du krav på afslag i prisen eller at få pengene tilbage. Det begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
+<p>Indhold, du har købt, skal virke, som det er beskrevet. Er der fejl, for eksempel at en pakke ikke låses op eller ikke kan gendannes, har du de rettigheder, som dansk forbrugerlovgivning giver dig. Prøv først «Gendan køb» i appen, med samme Apple-konto eller Google-konto, som du købte med. Virker det ikke, så skriv til {M} uden unødigt ophold og beskriv fejlen, gerne med kvittering, telefon og appversion. Vi retter fejlen så hurtigt, vi kan, for eksempel med en opdatering, som du muligvis skal installere. Kan vi ikke det inden for rimelig tid, har du krav på forholdsmæssigt afslag i prisen eller på at hæve købet og få pengene tilbage. Det begrænser ikke de rettigheder, du har som forbruger efter loven.</p>
 
 <h2>Spørgsmål og klager</h2>
-<p>Skriv til {M}. Hvem du kan klage til, hvis vi ikke bliver enige, står under Lovvalg og tvister i <a href="{TERMS['da']}">Brugsvilkår</a>. Hvordan vi behandler personoplysninger, står i <a href="{PRIV['da']}">privatlivspolitikken</a>.</p>
+<p>Skriv til {M}. Bliver vi ikke enige, kan du som forbruger klage til Forbrugerklagenævnet via <a href="https://naevneneshus.dk/">Nævnenes Hus</a>. Se Lovvalg og tvister i <a href="{TERMS['da']}">Brugsvilkår</a>. Hvordan vi behandler personoplysninger, står i <a href="{PRIV['da']}">privatlivspolitikken</a>.</p>
 """)
 
 _tbl = tbl('Lagring i browseren på getbusted.online', ['Navn', 'Hvad og hvorfor', 'Hvor længe', 'Samtykke'], [
@@ -1022,8 +1007,8 @@ def home(t):
     cal = ''.join(f"<li>{E(x)}</li>" for x in u['calList'])
     prices = ''.join(f"<div class='price'><h3>{E(h)}</h3><p>{E(p)}</p></div>" for h, p in t['prices'][:3])
     ph, pp = t['prices'][3]
-    pp = re.sub(r'\s*[^.]*(aunch price|anseringspris|anceringspris)[^.]*\.', '', pp)
-    plus = f"<div class='price plus'><div><h3>{E(ph)}</h3></div><div><p>{E(pp)}</p><span class='tag'>{E(u['plusTag'])}</span></div></div>"
+    tag = f"<span class='tag'>{E(u['plusTag'])}</span>" if u['plusTag'] else ''
+    plus = f"<div class='price plus'><div><h3>{E(ph)}</h3></div><div><p>{E(pp)}</p>{tag}</div></div>"
     start = [x for x in t['packs'] if not x[4]]
     later = [x for x in t['packs'] if x[4]]
     groups = [(u['groups'][0], start), (u['groups'][1], later)] + ([(u['groups'][2], t['specials'])] if t['specials'] else [])
