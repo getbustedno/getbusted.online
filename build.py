@@ -999,6 +999,17 @@ def home(t):
     faq = ''.join(f"<details{FAQ_ATTR if (q, a) == u['faqWhen'] else ''}><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in t['faq'])
     doors = ''.join(f"<i class='{'o' if d < 7 else ('t' if d == 7 else '')}'>{d}</i>" for d in range(1, 25))
     cal = ''.join(f"<li>{E(x)}</li>" for x in u['calList'])
+    xmas_html = f'''<section class="xmas" data-until="2026-12-31">
+  <div class="wrap">
+    <div>
+      <p class="kicker">{E(u['calK'])}</p>
+      <h2>{E(u['calH'][0])}<em>{E(u['calH'][1])}</em></h2>
+      <p class="lead">{E(u['calLead'])}</p>
+      <ul>{cal}</ul>
+    </div>
+    <div class="doors" aria-hidden="true">{doors}</div>
+  </div>
+</section>''' if CAL else ''
     prices = ''.join(f"<div class='price'><h3>{E(h)}</h3><p>{E(p)}</p></div>" for h, p in t['prices'][:3])
     ph, pp = t['prices'][3]
     tag = f"<span class='tag'>{E(u['plusTag'])}</span>" if u['plusTag'] else ''
@@ -1051,17 +1062,7 @@ def home(t):
   </div>
 </section>
 
-<section class="xmas" data-until="2026-12-31"{'' if CAL else ' hidden'}>
-  <div class="wrap">
-    <div>
-      <p class="kicker">{E(u['calK'])}</p>
-      <h2>{E(u['calH'][0])}<em>{E(u['calH'][1])}</em></h2>
-      <p class="lead">{E(u['calLead'])}</p>
-      <ul>{cal}</ul>
-    </div>
-    <div class="doors" aria-hidden="true">{doors}</div>
-  </div>
-</section>
+{xmas_html}
 
 <section id="packs">
   <div class="wrap">
