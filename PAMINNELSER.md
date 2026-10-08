@@ -63,3 +63,7 @@ Norge, UK og EU (personvern og vilkår):
 - Information Commissioner's Office, ICO (ico.org.uk) - IKKE VERIFISERT
 - Forbrukerorganer og personvernmyndighet i EU-land generelt (ingen navn eller lenker) - IKKE VERIFISERT
 - Consumer Rights Act 2015 og Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013 reg. 37 (UK-henvisninger i /purchases/) - lovhenvisning IKKE VERIFISERT
+
+## Julekalender på en/sv/da
+
+Kalenderseksjonen og FAQ-punktet er fjernet fra en/sv/da (CAL = False i build.py, seksjonen genereres ikke). Når kalenderen skal vises i utlandet, sett CAL = True og bygg på nytt. Husk å gjøre det før 1. desember og bare etter Emils ja.
