@@ -122,7 +122,7 @@ T = {
   packsLead='Varje paket har egna svenska kort, skrivna i Sverige för svenskar. Testa 5 kort från valfritt paket gratis innan du köper.',
   packs=[('original', 'cover_original.jpg', 'Original', '50 gratis kort varje kväll', None),
          ('halloween', 'cover_halloween.jpg', 'Halloween', 'Maskerad och skräckfilm', None),
-         ('jul', 'cover_jul.jpg', 'Jul', 'Julbord och Kalle Anka', None),
+         ('jul', 'cover_jul_sv.jpg', 'Jul', 'Julbord och Kalle Anka', None),
          ('nach', 'cover_nach_sv.jpg', 'Efterfest', 'När klockan är tre', None),
          ('hytta', 'cover_hytta_sv.jpg', 'Stugan', 'Bastu och noll täckning', None),
          ('reise', 'cover_reise_sv.jpg', 'Resa', 'Charter och Finlandsbåten', True),
@@ -191,7 +191,7 @@ T = {
   packsLead='Fem pakker er klar fra start, og flere kommer hen over efteråret. Prøv 5 kort fra en hvilken som helst pakke gratis, før du køber.',
   packs=[('original', 'cover_original.jpg', 'Original', '50 gratis kort hver aften', None),
          ('halloween', 'cover_halloween.jpg', 'Halloween', 'Udklædning og gyserfilm', None),
-         ('jul', 'cover_jul.jpg', 'Jul', 'Julefrokost og nytår', None),
+         ('jul', 'cover_jul_da.jpg', 'Jul', 'Julefrokost og nytår', None),
          ('nach', 'cover_nach_da.jpg', 'Efterfest', 'Når klokken er tre', None),
          ('hytta', 'cover_hytta_da.jpg', 'Sommerhuset', 'Vildmarksbad og ingen dækning', None),
          ('reise', 'cover_reise_da.jpg', 'Rejse', 'Charter og billigfly', True),
@@ -1085,7 +1085,7 @@ def home(t):
     later = [x for x in t['packs'] if x[4]]
     groups = [(u['groups'][0], start), (u['groups'][1], later)] + ([(u['groups'][2], t['specials'])] if t['specials'] else [])
     packs_html = ''.join(f"<div class='group'><h3{GROUP_ATTR if i == 0 else ''}>{E(g)}</h3><div class='packs'>\n      {packs(lst, t)}\n    </div></div>" for i, (g, lst) in enumerate(groups))
-    jul = 'cover_jul_en.jpg' if L == 'en' else 'cover_jul.jpg'
+    jul = {'en': 'cover_jul_en.jpg', 'sv': 'cover_jul_sv.jpg', 'da': 'cover_jul_da.jpg'}.get(L, 'cover_jul.jpg')
     h1a, h1b, h1c = u['h1']
     apple = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.6-1-2.6-4.2zM13.9 5c.7-.8 1.1-1.9 1-3-1 0-2.1.6-2.8 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.8-1.3z"/></svg>'
     play = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.4.7-.4 1.3v17.8c0 .6.1 1 .4 1.3l.1.1 10-10v-.2l-10-10.4zM17 15.6l-3.3-3.3v-.2L17 8.7l.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2-.1.1zm-.1.1L13.6 12 3.6 22c.4.4 1 .4 1.7.1l11.6-6.4M16.9 8.3 5.3 1.7c-.7-.4-1.3-.3-1.7.1l10 10 3.3-3.5z"/></svg>'
@@ -1201,7 +1201,7 @@ LP_ALT = {
  'wed':   {'en': '/stag-and-hen/', 'sv': '/se/svensexa-mohippa/', 'da': '/dk/polterabend/', 'no': 'https://getbusted.no/utdrikningslag/'},
 }
 LP_COLOR = {'xmas': '#E0473E', 'cabin': '#C7864A', 'wed': '#E94B8A'}
-LP_COVER = {'xmas': {'en': 'cover_jul_en.jpg', 'sv': 'cover_jul.jpg', 'da': 'cover_jul.jpg'},
+LP_COVER = {'xmas': {'en': 'cover_jul_en.jpg', 'sv': 'cover_jul_sv.jpg', 'da': 'cover_jul_da.jpg'},
             'cabin': {'en': 'cover_hytta_en.jpg', 'sv': 'cover_hytta_sv.jpg', 'da': 'cover_hytta_da.jpg'},
             'wed': {'en': 'cover_utdrikning_en.jpg', 'sv': 'cover_utdrikning_sv.jpg', 'da': 'cover_utdrikning_da.jpg'}}
 PK = {'en': 'On three, point at the one who', 'sv': 'På tre - peka på den som', 'da': 'På tre - peg på den, der'}
