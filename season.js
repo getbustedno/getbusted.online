@@ -87,10 +87,10 @@
 
   // Overskriften følger sesongen: siste ord («kvelden») byttes. Google ser fortsatt originalen i HTML.
   var ORD = {
-    no: { re: /kvelden\s*$/i, halloween: 'halloweenfesten', julebord: 'julebordet', jul: 'juleselskapet', nyttar: 'nyttårsaften', vinter: 'hytteturen', paske: 'påskefjellet', mai17: '17. mai', sommer: 'sommerfesten' },
-    sv: { re: /kvällen\s*$/i, halloween: 'halloweenfesten', julebord: 'julbordet', jul: 'julfesten', nyttar: 'nyårsafton', vinter: 'stugresan', paske: 'påskhelgen', sommer: 'sommarfesten' },
-    da: { re: /aftenen\s*$/i, halloween: 'halloweenfesten', julebord: 'julefrokosten', jul: 'julefesten', nyttar: 'nytårsaften', vinter: 'skiferien', paske: 'påskefrokosten', sommer: 'sommerfesten' },
-    en: { re: /the night\s*$/i, halloween: 'the Halloween party', julebord: 'the Christmas party', jul: 'the holidays', nyttar: "New Year's Eve", vinter: 'the ski trip', paske: 'Easter weekend', sommer: 'the summer party' }
+    no: { re: /kvelden\s*$/i, halloween: 'halloween', julebord: 'julebordet', jul: 'juleselskapet', nyttar: 'nyttårsaften', vinter: 'hytteturen', paske: 'påskefjellet', mai17: '17. mai', sommer: 'sommerkveldene' },
+    sv: { re: /kvällen\s*$/i, halloween: 'halloween', julebord: 'julbordet', jul: 'julfesten', nyttar: 'nyårsafton', vinter: 'stugresan', paske: 'påskhelgen', sommer: 'sommarkvällarna' },
+    da: { re: /aftenen\s*$/i, halloween: 'halloween', julebord: 'julefrokosten', jul: 'julefesten', nyttar: 'nytårsaften', vinter: 'skiferien', paske: 'påskefrokosten', sommer: 'sommeraftenerne' },
+    en: { re: /the night\s*$/i, halloween: 'Halloween', julebord: 'the Christmas party', jul: 'the holidays', nyttar: "New Year's Eve", vinter: 'the ski trip', paske: 'Easter weekend', sommer: 'the summer nights' }
   }[LANG];
   var h1 = document.querySelector('.hero h1');
   if (ORD && ORD[season] && h1) {
