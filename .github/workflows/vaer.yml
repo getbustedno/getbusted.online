@@ -1,0 +1,31 @@
+# Været i hero: henter værmeldingen fra MET hver time og lagrer landssnittet i vaer.json.
+# Committer bare når tilstanden endres (regn, snø, sol, frost), så siden bygges sjelden.
+name: Vær i hero
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency: vaer
+jobs:
+  vaer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Hent været
+        run: python3 _kilde/vaer.py vaer.json no se dk
+      - name: Lagre hvis endret
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- vaer.json; then echo "Uendret"; exit 0; fi
+          git config user.name "Get Busted"
+          git config user.email "hei@getbusted.no"
+          git commit -m "Vær: $(cat vaer.json)" -- vaer.json
+          git pull --rebase origin main
+          git push origin HEAD:main
+          gh api -X POST repos/${{ github.repository }}/pages/builds || true
