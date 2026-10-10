@@ -38,7 +38,7 @@ T = {
   heroAlt='Get Busted in use: a card on the screen of a phone',
   howK='How it works', howH='Ready in 20 seconds',
   steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
-         ('Pick your level', 'Mild, Cheeky or Get Fu**ed. And how thirsty you are, from sipping to very thirsty.'),
+         ('Pick your level', 'Mild, Cheeky or Get Fu**ed. The levels stack, so Get Fu**ed has the lot. And how thirsty you are, from sipping to very thirsty.'),
          ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
   featK='More than just cards', featH='Things only a phone can do',
   feats=[('Written for now', 'AI everything, viral moments, dating apps, budget airlines and the shows you binged. New topical cards every month, no update needed.'),
@@ -106,7 +106,7 @@ T = {
   heroAlt='Get Busted i användning: ett kort på en mobilskärm',
   howK='Så funkar det', howH='Klart på 20 sekunder',
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
-         ('Välj nivå', 'Mild, Fräck eller Get Fu**ed. Och hur törstiga ni är, från lagom till riktigt törstig.'),
+         ('Välj nivå', 'Mild, Fräck eller Get Fu**ed. Nivåerna bygger på varandra, så Get Fu**ed har allt. Och hur törstiga ni är, från lagom till riktigt törstig.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
   featK='Mer än bara kort', featH='Sånt bara en app kan',
   feats=[('Skrivet för Sverige', 'Swish, BankID, mello, Bajen och Gnaget, kräftor och Små grodorna. Nya aktuella kort varje månad, utan uppdatering.'),
@@ -175,7 +175,7 @@ T = {
   heroAlt='Get Busted i brug: et kort på en mobilskærm',
   howK='Sådan virker det', howH='Klar på 20 sekunder',
   steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
-         ('Vælg niveau', 'Mild, Fræk eller Get Fu**ed. Og hvor tørstige I er, fra smagsprøve til rigtig tørstig.'),
+         ('Vælg niveau', 'Mild, Fræk eller Get Fu**ed. Niveauerne bygger oven på hinanden, så Get Fu**ed har det hele. Og hvor tørstige I er, fra smagsprøve til rigtig tørstig.'),
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
   featK='Mere end bare kort', featH='Det kan kun en app',
   feats=[('Nye kort hver måned', 'Fodbold, julefrokost, flykaos og alt det, folk snakker om. De dukker op i appen af sig selv, uden opdatering.'),
@@ -329,7 +329,7 @@ UPDATE = {
   lead='One reader holds the phone. Everyone else looks at each other, not at a screen. 1,000+ cards at launch about the internet, the news and your group chat, plus team play, Rapid rounds and secret missions.',
   soonTo='Coming soon to', note='For adults 18+. Alcohol-free mode is always included.', download='Coming soon',
   steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
-         ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. Play solo, in fixed duos or Red vs Blue.'),
+         ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. The levels stack, so Get Fu**ed has the lot. Play solo, in fixed duos or Red vs Blue.'),
          ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
   stats=[('1,000+', 'cards in English at launch'), ('5', 'packs at launch, more this autumn'), ('2-30', 'players'), ('Free', 'to get started')],
   shots=['Team play', 'Twists', 'Rapid', 'Odds', 'Big text', 'Halloween'],
@@ -351,7 +351,7 @@ UPDATE = {
   lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 1 000+ kort från start, skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.',
   soonTo='Snart i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='Kommer snart',
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
-         ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Spela var för sig, i fasta duos eller Röd mot Blå.'),
+         ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Nivåerna bygger på varandra, så Get Fu**ed har allt. Spela var för sig, i fasta duos eller Röd mot Blå.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
   stats=[('1 000+', 'kort på svenska från start'), ('5', 'paket från start, fler i höst'), ('2-30', 'spelare'), ('Gratis', 'att komma igång')],
   shots=['Lagspel', 'Twist', 'Rapid', 'Odds', 'Stor text', 'Halloween'],
@@ -373,7 +373,7 @@ UPDATE = {
   lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. 1.000+ kort skrevet på dansk fra start, holdspil, Rapid-runder og hemmelige missioner.',
   soonTo='Snart i', note='For voksne 18+. Alkoholfri tilstand er altid med.', download='Kommer snart',
   steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
-         ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Spil hver for sig, i faste par eller Rød mod Blå.'),
+         ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Niveauerne bygger oven på hinanden, så Get Fu**ed har det hele. Spil hver for sig, i faste par eller Rød mod Blå.'),
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
   stats=[('1.000+', 'kort på dansk fra start'), ('5', 'pakker fra start, flere i efteråret'), ('2-30', 'spillere'), ('Gratis', 'at komme i gang')],
   shots=['Holdspil', 'Twist', 'Rapid', 'Odds', 'Stor tekst', 'Halloween'],
@@ -1399,7 +1399,7 @@ LLMS = """# Get Busted
 > Get Busted is a party card game app for adults (18+) on iPhone and Android, made in Norway. One person holds the phone and reads the cards out loud; everyone else plays together. 2 to 30 players. Separate card decks written for English, Swedish, Danish and Norwegian speakers (not translations).
 
 Key facts:
-- Levels: Mild, Cheeky and Get Fu**ed (the most adult level).
+- Levels: Mild, Cheeky and Get Fu**ed (the most adult level). The levels stack: Cheeky includes Mild, and Get Fu**ed includes everything.
 - Theme packs: Original, Halloween, Christmas, Afterparty, The Cabin at launch; Travel, Student, Stag & Hen, Football and Sport later. Sweden-only packs: Mello, Midsommar, Kräftskiva. English-only: Friendsgiving, St. Paddy's.
 - Modes and features: team play (duos or Red vs Blue), Rapid rounds, secret missions, twists, odds cards, song cards, big text, "the night in numbers" summary, alcohol-free mode with points.
 - Pricing: free to start (50 Original cards every night). Theme packs and the Get Fu**ed level are one-time purchases. Busted+ unlocks everything with one payment. No subscription, no ads.

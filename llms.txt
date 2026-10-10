@@ -3,7 +3,7 @@
 > Get Busted is a party card game app for adults (18+) on iPhone and Android, made in Norway. One person holds the phone and reads the cards out loud; everyone else plays together. 2 to 30 players. Separate card decks written for English, Swedish, Danish and Norwegian speakers (not translations).
 
 Key facts:
-- Levels: Mild, Cheeky and Get Fu**ed (the most adult level).
+- Levels: Mild, Cheeky and Get Fu**ed (the most adult level). The levels stack: Cheeky includes Mild, and Get Fu**ed includes everything.
 - Theme packs: Original, Halloween, Christmas, Afterparty, The Cabin at launch; Travel, Student, Stag & Hen, Football and Sport later. Sweden-only packs: Mello, Midsommar, Kräftskiva. English-only: Friendsgiving, St. Paddy's.
 - Modes and features: team play (duos or Red vs Blue), Rapid rounds, secret missions, twists, odds cards, song cards, big text, "the night in numbers" summary, alcohol-free mode with points.
 - Pricing: free to start (50 Original cards every night). Theme packs and the Get Fu**ed level are one-time purchases. Busted+ unlocks everything with one payment. No subscription, no ads.
