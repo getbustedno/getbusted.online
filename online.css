@@ -27,7 +27,7 @@ footer .footer-firma{color:var(--muted)}
 .lp-more{margin-top:22px;color:var(--muted)}
 .hero.lp .wrap{grid-template-columns:1.3fr .7fr}
 .lp-stage{height:auto;min-height:0;display:flex;justify-content:center}
-.lp-stage .cover{position:relative;top:0;width:240px;transform:rotate(3deg)}
+.lp-stage .cover{position:relative;top:0;width:240px;height:auto;transform:rotate(3deg)}
 .features.three{grid-template-columns:repeat(3,1fr)}
 .lp-tips{margin-top:28px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px}
 .lp-tips h3{font-size:22px;margin-bottom:6px}.lp-tips li{color:var(--muted)}
