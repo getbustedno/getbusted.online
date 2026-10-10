@@ -184,7 +184,7 @@
         else { p.y += p.v; if (p.y > 1.05) { p.y = -0.05; p.x = Math.random(); } }
         p.rot += p.vr; p.sw += 0.02;
       }
-      var x = p.x * W + Math.sin(p.sw) * (T.p === 'snow' ? 8 : 22), y = p.y * H;
+      var x = p.x * W + Math.sin(p.sw) * (T.p === 'snow' ? 8 : 22), y = T.p === 'bats' ? 20 + p.y * 24 : p.y * H; // flaggermus flyr i stripa øverst i hero, aldri over tekst, knapper eller kort
       ctx.save(); ctx.translate(x, y); ctx.fillStyle = p.c;
       if (T.p === 'snow' || T.p === 'sun') {
         ctx.globalAlpha = T.p === 'sun' ? 0.35 : 0.55; ctx.beginPath(); ctx.arc(0, 0, p.s, 0, 6.28); ctx.fill();
