@@ -4,7 +4,7 @@
  * regn, snø eller sol i bakgrunnen, og rim på heltekortet og overskriften ved minusgrader.
  * Ingen tredjepart: nettleseren henter bare filen fra vår egen side.
  * Land: no (norsk og engelsk side), se (svensk), dk (dansk).
- * Test: ?vaer=regn, ?vaer=sno, ?vaer=sol, ?vaer=frost, ?vaer=sno+frost, ?vaer=regn3 (styrke 1-3), ?vaer=ingen
+ * Test: ?vaer=klart (stjerner), ?vaer=regn, ?vaer=sno, ?vaer=sol, ?vaer=frost, ?vaer=sno+frost, ?vaer=regn3 (styrke 1-3), ?vaer=ingen
  */
 (function () {
   var hero = document.querySelector('.hero');
@@ -144,6 +144,9 @@
     } else if (t === 'sol') {
       for (i = 0; i < 9; i++) parts.push({ ang: (i / 9) * 6.28 + R(-0.15, 0.15), w: R(0.05, 0.11), a: R(0.035, 0.07) });
       for (i = 0; i < 14; i++) parts.push({ mote: 1, x: R(0.35, 1), y: R(0, 0.8), s: R(1, 2.4), v: R(0.00015, 0.0004), sw: R(0, 6.28) });
+    } else if (t === 'klart') {
+      for (i = 0; i < Math.round(90 * smal); i++) parts.push({ x: R(0, 1), y: R(0, 0.85), s: R(0.5, 1.7), a: R(0.25, 0.8), f: R(0.0008, 0.0025), ph: R(0, 6.28) });
+      parts.skudd = { t: R(3000, 9000) };
     }
 
     var vind = -0.18; // regnet faller litt skrått
@@ -181,6 +184,23 @@
           ctx.fillStyle = rg; ctx.beginPath(); ctx.moveTo(cx, cy);
           ctx.arc(cx, cy, r, a - p.w / 2, a + p.w / 2); ctx.closePath(); ctx.fill();
         });
+      } else if (t === 'klart') {
+        parts.forEach(function (p) {
+          var a = still ? p.a : p.a * (0.55 + 0.45 * Math.sin(ms * p.f + p.ph));
+          ctx.fillStyle = 'rgba(235,242,255,' + a.toFixed(3) + ')'; ctx.beginPath(); ctx.arc(p.x * W, p.y * H, p.s, 0, 6.28); ctx.fill();
+        });
+        // et stjerneskudd innimellom
+        var sk = parts.skudd;
+        if (!still && ms > sk.t) {
+          if (!sk.x0) { sk.x0 = R(0.3, 0.95) * W; sk.y0 = R(0.02, 0.3) * H; sk.st = ms; }
+          var k = (ms - sk.st) / 900;
+          if (k > 1) { sk.x0 = 0; sk.t = ms + R(6000, 14000); }
+          else {
+            var x = sk.x0 - k * 260, y = sk.y0 + k * 110, g = ctx.createLinearGradient(x, y, x + 90, y - 38);
+            g.addColorStop(0, 'rgba(255,255,255,' + (0.85 * (1 - k)) + ')'); g.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 90, y - 38); ctx.stroke();
+          }
+        }
       }
       if (!still) requestAnimationFrame(draw);
     }
@@ -189,7 +209,7 @@
 
   var q = (location.search.match(/[?&]vaer=([a-z0-9+]+)/) || [])[1];
   if (q) {
-    var m = q.match(/(regn|sno|sol|ingen)(\d)?/);
+    var m = q.match(/(regn|sno|sol|klart|ingen)(\d)?/);
     start({ t: m ? m[1] : 'ingen', styrke: m && m[2] ? +m[2] : 2, frost: q.indexOf('frost') >= 0 });
     return;
   }
