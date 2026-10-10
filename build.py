@@ -94,7 +94,7 @@ T = {
           ('Something else?', f'Email <a href="mailto:{MAIL}">{MAIL}</a>. For purchases, include the purchase date or the receipt from Apple or Google.')],
  ),
  'sv': dict(
-  path='/se/', lang='sv', hero='sv', title='Get Busted - festspelet som styr kvällen',
+  path='/se/', lang='sv', hero='sv', title='Get Busted - partyspelet som tar över kvällen',
   desc='Get Busted är kortspelet för spelkvällen, efterfesten och stugan. 1 000+ kort från start, skrivna för Sverige, inte översatta. För vuxna 18+.',
   og='En läsare, 1 000+ kort från start och noll tråkiga pauser. För iPhone och Android.',
   nav=[('#how', 'Så funkar det'), ('#packs', 'Paket'), ('#faq', 'Frågor')], download='Ladda ner',
@@ -110,12 +110,12 @@ T = {
   feats=[('Skrivet för Sverige', 'Swish, BankID, mello, Bajen och Gnaget, kräftor och Små grodorna. Nya aktuella kort varje månad, utan uppdatering.'),
          ('Twistar', 'Vissa kort vänder sig efter att de lästs upp. Det du trodde var säkert, är det inte.'),
          ('Rapid', 'Fem fingrar upp. Påståenden i rad. Först ute förlorar.'),
-         ('Hemliga uppdrag', 'Telefonen går till en spelare som får ett uppdrag bara hen vet om.'),
+         ('Hemliga uppdrag', 'Telefonen går till en spelare, som får ett uppdrag som bara hen känner till.'),
          ('Låtkort', 'Sätt på låten och följ regeln. Ett tryck öppnar den i Spotify.'),
          ('Lagspel', 'Spela i fasta duos eller Röd mot Blå. Lagdueller längs vägen, och appen håller koll på ställningen.'),
          ('Odds', '«Vad är oddsen att du ...?» Båda räknar ner och säger ett tal samtidigt.'),
          ('Stor text', 'Större bokstäver som är lätta att läsa högt, även i ett mörkt rum. Byt med Aa mitt i spelet.'),
-         ('Kvällen i siffror', 'Efter spelet: den mest påkomna, antal kort och Rapid-rundor. Redo att dela.')],
+         ('Kvällen i siffror', 'Efter spelet: kvällens mest avslöjade, antal kort och Rapid-rundor. Klart att dela.')],
   packsK='Paket', packsH='Ett för varje tillfälle',
   packsLead='Varje paket har egna svenska kort, skrivna i Sverige för svenskar. Testa 5 kort från valfritt paket gratis innan du köper.',
   packs=[('original', 'cover_original.jpg', 'Original', '50 gratis kort varje kväll', None),
@@ -163,7 +163,7 @@ T = {
           ('Något annat?', f'Mejla <a href="mailto:{MAIL}">{MAIL}</a>. Gäller det ett köp, skicka med köpdatum eller kvittot från Apple eller Google.')],
  ),
  'da': dict(
-  path='/dk/', lang='da', hero='sv', title='Get Busted - festspillet der styrer aftenen',
+  path='/dk/', lang='da', hero='sv', title='Get Busted - festspillet, der tager over aftenen',
   desc='Get Busted er festspillet til spilleaftenen, efterfesten og sommerhuset. 1.000+ kort fra start, med eller uden alkohol. For voksne 18+.',
   og='Én oplæser, 1.000+ kort fra start og ingen kedelige pauser. Til iPhone og Android.',
   nav=[('#how', 'Sådan virker det'), ('#packs', 'Pakker'), ('#faq', 'Spørgsmål')], download='Hent',
@@ -177,9 +177,9 @@ T = {
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
   featK='Mere end bare kort', featH='Det kan kun en app',
   feats=[('Nye kort hver måned', 'Fodbold, julefrokost, flykaos og alt det, folk snakker om. De dukker op i appen af sig selv, uden opdatering.'),
-         ('Twist', 'Nogle kort vender sig, efter de er læst op. Det, du troede var sikkert, er det ikke.'),
+         ('Twist', 'Nogle kort vender, når de er læst op. Det, du troede, var sikkert, er det ikke.'),
          ('Rapid', 'Fem fingre op. Påstande i træk. Første der er ude, taber.'),
-         ('Hemmelige missioner', 'Telefonen går til én spiller, som får en mission, kun vedkommende kender til.'),
+         ('Hemmelige missioner', 'Telefonen går til én spiller, der får en hemmelig mission, som kun vedkommende kender.'),
          ('Sangkort', 'Sæt sangen på og følg reglen. Ét tryk åbner den i Spotify.'),
          ('Holdspil', 'Spil i faste duoer eller Rød mod Blå. Holddueller undervejs, og appen holder styr på stillingen.'),
          ('Odds', '«Hvad er oddsene for, at du ...?» I tæller begge ned og siger et tal på samme tid.'),
@@ -250,6 +250,69 @@ HERO_ALT = {
     'sv': 'Ett kort från appen: På tre - peka på den som skulle åka ut först i Paradise Hotel. Den med flest pekningar får 2 poäng.',
     'da': 'Et kort fra appen: På tre - peg på den, der ville blive stemt ud først på Paradise Hotel. Den, flest peger på, får 2 point.',
 }
+
+# Eksempelkort på forsiden (fra appens cards.json på test-bygg, okt 2026). Bare kort uten alkoholord og uten straff.
+# Navnene er oppdiktet og brukes ikke andre steder.
+SAMPLES = {
+ 'en': dict(k='A taste', h=('Cards from ', 'the app'), lead='A few picks from the packs out at launch. The names get swapped for your crew.',
+  cards=[('original', 'Original', 'On three, point at the one who', 'would get scammed by a deepfake of their own mum'),
+         ('jul', 'Christmas', 'On three, point at the one who', 'will lose Whamageddon first this year'),
+         ('hytta', 'The Cabin', 'On three, point at the one who', 'sends the Splitwise request before the car is even unpacked'),
+         ('halloween', 'Halloween', 'On three, point at the one who', 'would say “I’m not scared, I’m just cold” to get an arm round them'),
+         ('nach', 'Afterparty', 'On three, point at the one who', 'texts “home safe x” first and gets home last'),
+         ('original', 'Original', 'On three, point at the one who', 'nods along to crypto talk without understanding a single word'),
+         ('original', 'Original', 'Truth', 'Rory: what’s the longest situationship you’ve been in, and how did it end?'),
+         ('original', 'Original', 'Secret mission', 'Get someone to ask you “what’s wrong with you?” before the next dice roll.')]),
+ 'sv': dict(k='Smakprov', h=('Kort från ', 'appen'), lead='Ett litet urval ur paketen som finns från start. Namnen byts mot ert gäng.',
+  cards=[('jul', 'Jul', 'På tre - peka på den som', 'somnar först i soffan under Kalle Anka'),
+         ('original', 'Original', 'På tre - peka på den som', 'beställer för två på Max klockan tre och äter upp allt själv'),
+         ('hytta', 'Stugan', 'På tre - peka på den som', 'frågar efter wifi-lösenordet i en stuga utan rinnande vatten'),
+         ('halloween', 'Halloween', 'På tre - peka på den som', 'tycker att halloween är amerikanskt trams men är mest utklädd ändå'),
+         ('nach', 'Efterfest', 'På tre - peka på den som', 'har de mest kaotiska DM:en efter klockan tre'),
+         ('jul', 'Jul', 'På tre - peka på den som', 'säger ”vi borde ses i mellandagarna” och aldrig hör av sig'),
+         ('original', 'Original', 'Sanning', 'Signe: vilken Mellolåt kan du hela texten till?'),
+         ('original', 'Original', 'Hemligt uppdrag', 'Få gänget att börja prata bostadspriser före nästa tärningsslag.')]),
+ 'da': dict(k='Smagsprøver', h=('Kort fra ', 'appen'), lead='Et lille udvalg fra pakkerne, der er klar fra start. Navnene bliver skiftet ud med jeres.',
+  cards=[('original', 'Original', 'På tre - peg på den, der', 'regner fællesspisningen ud på MobilePay ned til 50 øre'),
+         ('jul', 'Jul', 'På tre - peg på den, der', 'græder til Fra alle os til alle jer'),
+         ('hytta', 'Sommerhuset', 'På tre - peg på den, der', 'ikke kan tænde op i brændeovnen, men nægter at få hjælp'),
+         ('halloween', 'Halloween', 'På tre - peg på den, der', 'ville græde i et gyserhus på Bakken'),
+         ('nach', 'Efterfest', 'På tre - peg på den, der', 'ville tænde loftslyset for at smide os alle ud'),
+         ('original', 'Original', 'På tre - peg på den, der', 'råber mest ad folk på cykelstien'),
+         ('original', 'Original', 'Sandhed', 'Asger: hvem i rummet ville du ringe til, hvis du stod på Roskilde uden telt, penge og telefon?'),
+         ('original', 'Original', 'Hemmelig mission', 'Få to andre til at diskutere cykelhjelm, før næste terningslag.')]),
+}
+
+def samples_html(L):
+    sm = SAMPLES[L]
+    cards = ''.join(f"<figure class='sample' style='--c:{COLORS[pk]}'><figcaption>{E(pn)}</figcaption><p class='sample-head'>{E(hd)}</p><blockquote>{E(tx)}</blockquote></figure>" for pk, pn, hd, tx in sm['cards'])
+    return f"""<section id="cards">
+  <div class="wrap">
+    <p class="kicker">{E(sm['k'])}</p>
+    <h2>{E(sm['h'][0])}<em>{E(sm['h'][1])}</em></h2>
+    <p class="lead">{E(sm['lead'])}</p>
+    <div class="samples">{cards}</div>
+  </div>
+</section>"""
+
+# Strukturert data (schema.org) for Google og AI-søk: organisasjon, appen og FAQ-en som står på siden.
+import json as _json
+def jsonld(t):
+    L = t['lang']; url = full(HOME[L])
+    org = {'@type': 'Organization', '@id': 'https://getbusted.no/#org', 'name': 'Get Busted', 'url': 'https://getbusted.no/',
+           'logo': 'https://getbusted.no/img/logo.png', 'email': MAIL,
+           'parentOrganization': {'@type': 'Organization', 'name': 'Snikkerbua Holding AS', 'identifier': '927 118 300'},
+           'sameAs': ['https://www.instagram.com/getbusted.no/', 'https://www.tiktok.com/@getbusted.no', 'https://www.facebook.com/getbusted.no']}
+    app = {'@type': 'MobileApplication', '@id': url + '#app', 'name': 'Get Busted', 'url': url, 'inLanguage': L,
+           'description': t['desc'], 'applicationCategory': 'GameApplication', 'applicationSubCategory': 'Party game',
+           'operatingSystem': 'iOS, Android', 'contentRating': '18+', 'publisher': {'@id': 'https://getbusted.no/#org'},
+           'image': f'{SITE}/img/og_{L}.jpg',
+           'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'NOK', 'description': t['prices'][0][1]}}
+    faq = {'@type': 'FAQPage', '@id': url + '#faq', 'inLanguage': L,
+           'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub('<[^>]+>', '', a)}} for q, a in t['faq']]}
+    data = {'@context': 'https://schema.org', '@graph': [org, app, faq]}
+    return '<script type="application/ld+json">' + _json.dumps(data, ensure_ascii=False).replace('</', '<\\/') + '</script>'
+
 # Lanseringsbryteren i season.js bytter tekst på disse (se STORE og LAUNCH der).
 FAQ_ATTR = ' data-launch="faq"'
 GROUP_ATTR = ' data-launch="group"'
@@ -257,7 +320,7 @@ ICONS = ['✨', '🔄', '⚡', '🤫', '🎵', '⚔️', '🎯', '🔠', '📊']
 SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst', '8_halloween']
 UPDATE = {
  'en': dict(
-  desc='Get Busted is the party card game for game nights, house parties and cabin weekends. 1,000+ cards in English at launch, team play, Rapid rounds and secret missions. Adults 18+.',
+  desc='Get Busted is the party card game for game nights, house parties, stag and hen dos and cabin weekends. 1,000+ cards in English at launch, team play, Rapid rounds and secret missions. Adults 18+.',
   og='One reader, 1,000+ cards at launch and zero boring breaks. For iPhone and Android.',
   h1=('The party game that ', 'runs the night', ''),
   lead='One reader holds the phone. Everyone else looks at each other, not at a screen. 1,000+ cards at launch about the internet, the news and your group chat, plus team play, Rapid rounds and secret missions.',
@@ -279,9 +342,9 @@ UPDATE = {
   faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
   foot='Adults 18+'),
  'sv': dict(
-  desc='Get Busted är festspelet för spelkvällen, festen och stugan. 1 000+ kort från start, skrivna för Sverige, lagspel, Rapid och hemliga uppdrag. För vuxna 18+.',
+  desc='Get Busted är partyspelet för förfesten, efterfesten och stughelgen. 1 000+ kort från start, skrivna för Sverige och inte översatta. Lagspel, Rapid och hemliga uppdrag. För vuxna 18+.',
   og='En läsare, 1 000+ kort från start och noll tråkiga pauser. För iPhone och Android.',
-  h1=('Festspelet som ', 'tar över', ' kvällen'),
+  h1=('Partyspelet som ', 'tar över', ' kvällen'),
   lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 1 000+ kort från start, skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.',
   soonTo='Snart i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='Kommer snart',
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
@@ -301,9 +364,9 @@ UPDATE = {
   faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
   foot='För vuxna 18+'),
  'da': dict(
-  desc='Get Busted er festspillet til spilleaftenen, festen og sommerhuset. 1.000+ danske kort fra start, holdspil, Rapid og hemmelige missioner. For voksne 18+.',
+  desc='Get Busted er festspillet til forfesten, efterfesten og sommerhusturen. 1.000+ kort skrevet på dansk fra start, holdspil, Rapid og hemmelige missioner. For voksne 18+.',
   og='Én oplæser, 1.000+ kort fra start og ingen kedelige pauser. Til iPhone og Android.',
-  h1=('Festspillet der ', 'tager over', ' aftenen'),
+  h1=('Festspillet, der ', 'tager over', ' aftenen'),
   lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. 1.000+ kort skrevet på dansk fra start, holdspil, Rapid-runder og hemmelige missioner.',
   soonTo='Snart i', note='For voksne 18+. Alkoholfri tilstand er altid med.', download='Kommer snart',
   steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
@@ -1062,6 +1125,8 @@ def home(t):
   </div>
 </section>
 
+{samples_html(L)}
+
 {xmas_html}
 
 <section id="packs">
@@ -1096,7 +1161,7 @@ def home(t):
     {faq}
   </div>
 </section>"""
-    return shell(t, HOME, t['title'], t['desc'], body, redirect=True)
+    return shell(t, HOME, t['title'], t['desc'], body, redirect=True).replace('</head>', jsonld(t) + '\n</head>', 1)
 
 def help_page(t):
     # Svarene kan inneholde lenker (e-post), derfor ikke escapet.
@@ -1152,6 +1217,11 @@ footer .langs{margin-left:0}
 @media (max-width:640px){.tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}.tbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.tbl tr{border-bottom:1px solid var(--line);padding:8px 0}.tbl td{border:0;padding:4px 0}.tbl td::before{content:attr(data-l);display:block;color:var(--fg);font-weight:700}}
 footer .footer-links a{margin-bottom:8px}
 footer .footer-firma{color:var(--muted)}
+.samples{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:28px}
+.sample{margin:0;background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-top:4px solid var(--c);border-radius:var(--radius);padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;box-shadow:0 18px 40px -22px color-mix(in srgb,var(--c) 60%,transparent)}
+.sample figcaption{font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--c)}
+.sample .sample-head{font-weight:800;font-style:italic;color:var(--muted);font-size:16px}
+.sample blockquote{margin:0;font-weight:800;font-size:21px;line-height:1.3;color:var(--fg)}
 @media (max-width:900px){.pricing.three{grid-template-columns:1fr}}
 @media (max-width:760px){.nav nav .langs{display:inline-flex;margin:0 4px}.nav nav .langs a{display:inline-block}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap;font-size:19px}.nav .brand img{width:34px;height:34px}.langs a{padding:4px 6px}}
 """, encoding='utf-8')
@@ -1160,7 +1230,33 @@ footer .footer-firma{color:var(--muted)}
 for _old, _new in (('/da/', '/dk/'), ('/da/hjaelp/', '/dk/hjaelp/'), ('/da/privatliv/', '/dk/privatliv/'),
                    ('/sv/', '/se/'), ('/sv/hjalp/', '/se/hjalp/'), ('/sv/integritet/', '/se/integritet/')):
     write(_old, f"<!doctype html><meta charset='utf-8'><title>Get Busted</title><link rel='canonical' href='{SITE}{_new}'><meta http-equiv='refresh' content='0;url={_new}'><a href='{_new}'>Get Busted</a>\n")
-(ROOT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://getbusted.online/sitemap.xml\n')
+AI_BOTS = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'meta-externalagent', 'CCBot']
+ROBOTS = 'User-agent: *\nAllow: /\n\n' + ''.join(f'User-agent: {b}\nAllow: /\n\n' for b in AI_BOTS) + 'Sitemap: https://getbusted.online/sitemap.xml\n'
+LLMS = """# Get Busted
+
+> Get Busted is a party card game app for adults (18+) on iPhone and Android, made in Norway. One person holds the phone and reads the cards out loud; everyone else plays together. 2 to 30 players. Separate card decks written for English, Swedish, Danish and Norwegian speakers (not translations).
+
+Key facts:
+- Levels: Mild, Cheeky and Get Fu**ed (the most adult level).
+- Theme packs: Original, Halloween, Christmas, Afterparty, The Cabin at launch; Travel, Student, Stag & Hen, Football and Sport later. Sweden-only packs: Mello, Midsommar, Kräftskiva. English-only: Friendsgiving, St. Paddy's.
+- Modes and features: team play (duos or Red vs Blue), Rapid rounds, secret missions, twists, odds cards, song cards, big text, "the night in numbers" summary, alcohol-free mode with points.
+- Pricing: free to start (50 Original cards every night). Theme packs and the Get Fu**ed level are one-time purchases. Busted+ unlocks everything with one payment. No subscription, no ads.
+- Responsible play: a card never asks for more than 6 sips, water breaks, alcohol-free mode, any card can be skipped.
+- Publisher: Snikkerbua Holding AS (Norway, org. no. 927 118 300), Voldgata 27, 2000 Lillestrøm. Contact: kontakt@getbusted.no
+
+## Pages
+- [English](https://getbusted.online/): overview, packs, prices, FAQ
+- [Svenska](https://getbusted.online/se/): partyspel för vuxna, svenska kort
+- [Dansk](https://getbusted.online/dk/): festspil for voksne, danske kort
+- [Norsk](https://getbusted.no/): festspill for voksne, norske kort
+- [Help](https://getbusted.online/help/)
+- [Purchases & refunds](https://getbusted.online/purchases/)
+- [Privacy](https://getbusted.online/privacy/)
+"""
+
+(ROOT / 'robots.txt').write_text(ROBOTS)
+(ROOT / 'llms.txt').write_text(LLMS, encoding='utf-8')
+
 
 # Sitemap med hreflang mellom språkene. Norsk hjelpeside finnes ikke, så hjelpesidene lenker bare en/sv/da.
 def sm_entry(loc, alt, langs):

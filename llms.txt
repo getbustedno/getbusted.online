@@ -1,0 +1,20 @@
+# Get Busted
+
+> Get Busted is a party card game app for adults (18+) on iPhone and Android, made in Norway. One person holds the phone and reads the cards out loud; everyone else plays together. 2 to 30 players. Separate card decks written for English, Swedish, Danish and Norwegian speakers (not translations).
+
+Key facts:
+- Levels: Mild, Cheeky and Get Fu**ed (the most adult level).
+- Theme packs: Original, Halloween, Christmas, Afterparty, The Cabin at launch; Travel, Student, Stag & Hen, Football and Sport later. Sweden-only packs: Mello, Midsommar, Kräftskiva. English-only: Friendsgiving, St. Paddy's.
+- Modes and features: team play (duos or Red vs Blue), Rapid rounds, secret missions, twists, odds cards, song cards, big text, "the night in numbers" summary, alcohol-free mode with points.
+- Pricing: free to start (50 Original cards every night). Theme packs and the Get Fu**ed level are one-time purchases. Busted+ unlocks everything with one payment. No subscription, no ads.
+- Responsible play: a card never asks for more than 6 sips, water breaks, alcohol-free mode, any card can be skipped.
+- Publisher: Snikkerbua Holding AS (Norway, org. no. 927 118 300), Voldgata 27, 2000 Lillestrøm. Contact: kontakt@getbusted.no
+
+## Pages
+- [English](https://getbusted.online/): overview, packs, prices, FAQ
+- [Svenska](https://getbusted.online/se/): partyspel för vuxna, svenska kort
+- [Dansk](https://getbusted.online/dk/): festspil for voksne, danske kort
+- [Norsk](https://getbusted.no/): festspill for voksne, norske kort
+- [Help](https://getbusted.online/help/)
+- [Purchases & refunds](https://getbusted.online/purchases/)
+- [Privacy](https://getbusted.online/privacy/)
