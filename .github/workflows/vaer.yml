@@ -17,7 +17,7 @@ jobs:
         with:
           ref: main
       - name: Hent været
-        run: python3 _kilde/vaer.py vaer.json no se dk
+        run: python3 _kilde/vaer.py vaer.json no se dk gb
       - name: Lagre hvis endret
         env:
           GH_TOKEN: ${{ github.token }}

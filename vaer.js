@@ -3,14 +3,14 @@
  * Leser /vaer.json (skrevet hver time av GitHub Actions, se _kilde/vaer.py) og legger
  * regn, snø eller sol i bakgrunnen, og rim på heltekortet og overskriften ved minusgrader.
  * Ingen tredjepart: nettleseren henter bare filen fra vår egen side.
- * Land: no (norsk og engelsk side), se (svensk), dk (dansk).
+ * Land: no (norsk side), se (svensk), dk (dansk), gb (engelsk side, Storbritannia).
  * Test: ?vaer=klart (stjerner), ?vaer=regn, ?vaer=sno, ?vaer=sol, ?vaer=frost, ?vaer=sno+frost, ?vaer=regn3 (styrke 1-3), ?vaer=ingen
  */
 (function () {
   var hero = document.querySelector('.hero');
   if (!hero || !window.fetch) return;
   var LANG = (document.documentElement.lang || 'no').slice(0, 2);
-  var LAND = { sv: 'se', da: 'dk' }[LANG] || 'no';
+  var LAND = { sv: 'se', da: 'dk', en: 'gb' }[LANG] || 'no';
   var root = document.documentElement;
 
   var CSS =

@@ -4,7 +4,7 @@ ti byer per land og skriver et landssnitt til vaer.json. Kjøres av GitHub Actio
 hver time (.github/workflows/vaer.yml). Nettleseren til den besøkende henter bare
 vaer.json fra vår egen side, så ingen data om besøkende går til tredjepart.
 
-Bruk: python3 _kilde/vaer.py vaer.json no [se dk]
+Bruk: python3 _kilde/vaer.py vaer.json no [se dk gb]
 
 Filen skrives bare når tilstanden faktisk endres, så siden bygges ikke på nytt hver time.
 
@@ -29,6 +29,10 @@ BYER = {
            ('Uppsala', 59.86, 17.64), ('Västerås', 59.61, 16.55), ('Örebro', 59.27, 15.21),
            ('Linköping', 58.41, 15.62), ('Umeå', 63.83, 20.26), ('Luleå', 65.58, 22.15),
            ('Sundsvall', 62.39, 17.31)],
+    'gb': [('London', 51.51, -0.13), ('Manchester', 53.48, -2.24), ('Birmingham', 52.49, -1.89),
+           ('Glasgow', 55.86, -4.25), ('Edinburgh', 55.95, -3.19), ('Leeds', 53.8, -1.55),
+           ('Bristol', 51.45, -2.59), ('Liverpool', 53.41, -2.98), ('Cardiff', 51.48, -3.18),
+           ('Belfast', 54.6, -5.93)],
     'dk': [('København', 55.68, 12.57), ('Aarhus', 56.16, 10.2), ('Odense', 55.4, 10.39),
            ('Aalborg', 57.05, 9.92), ('Esbjerg', 55.48, 8.46), ('Randers', 56.46, 10.04),
            ('Kolding', 55.49, 9.47), ('Horsens', 55.86, 9.85), ('Vejle', 55.71, 9.54),
