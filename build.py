@@ -1,7 +1,9 @@
 # Bygger getbusted.online: engelsk på /, svensk på /se/ og dansk på /dk/ (/sv/ og /da/ sender videre). Norsk ligger på getbusted.no.
 # Hver språkblokk gir forside, hjelpeside og juridiske sider (vilkår, personvern, cookies, kjøp). Juridisk tekst står i LEGAL, oversatt fra getbusted.no/_kilde/juridisk.py.
 # Kjør: python3 build.py
-import html, pathlib, re
+import html, pathlib, re, sys
+sys.path.insert(0, str(pathlib.Path(__file__).parent / '_kilde'))
+from heltekort import hero_card_html  # heltekortet i hero (kortliste og tekster: _kilde/heltekort.py)
 E = html.escape
 ROOT = pathlib.Path(__file__).parent
 SITE = 'https://getbusted.online'
@@ -1102,7 +1104,7 @@ def home(t):
     <div class="stage" aria-hidden="true">
       <img class="cover l" src="/img/cover_halloween.jpg" alt="" style="--c:#FF8A1F" width="360" height="503">
       <img class="cover r" src="/img/{jul}" alt="" style="--c:#E0473E" width="360" height="503">
-      <picture class="card"><source srcset="/img/card_hero_{L}.webp" type="image/webp"><img src="/img/card_hero_{L}.png" alt="{E(HERO_ALT[t['lang']])}" width="600" height="841"></picture>
+      {hero_card_html(L)}
     </div>
   </div>
 </section>

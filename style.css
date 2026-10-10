@@ -63,6 +63,15 @@ section.alt { background: var(--bg2); }
 .stage .cover.r { right: 0; transform: rotate(10deg); top: 110px; }
 .stage .card img { position: relative; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 2px rgba(183,209,71,.75), 0 0 60px -6px rgba(183,209,71,.55), 0 40px 80px rgba(0,0,0,.6); }
 .stage .card { position: absolute; left: 50%; top: 30px; width: 300px; transform: translateX(-50%) rotate(-2deg); z-index: 2; }
+/* heltekort: ekte HTML-kort, tekst og størrelser settes av _kilde/heltekort.py (størrelse i cqw = % av kortbredden) */
+.stage .card.hk { aspect-ratio: 600 / 841; background: #333; border-radius: 22px; overflow: hidden; container-type: inline-size; font-family: 'Barlow Semi Condensed', system-ui, sans-serif; font-style: italic; text-align: center; text-transform: uppercase; box-shadow: 0 0 0 2px rgba(183,209,71,.75), 0 0 60px -6px rgba(183,209,71,.55), 0 40px 80px rgba(0,0,0,.6); }
+.hk .hk-h, .hk .hk-f, .hk .hk-t { margin: 0; }
+.hk-in { position: absolute; inset: 1.5% 0 0 0; padding: 0 5.5%; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.hk-h { font-weight: 800; font-size: 5.8cqw; line-height: 1.12; color: var(--lime); text-wrap: balance; }
+.hk-b { --fs: 12.5cqw; font-weight: 900; font-size: var(--fs); line-height: 1.04; color: var(--lime); margin: 4cqw 0 7cqw; text-wrap: balance; }
+.hk-f { font-weight: 800; font-size: 4.9cqw; line-height: 1.15; color: #DADADA; text-wrap: balance; }
+.hk-f[hidden] { display: none; }
+.hk-t { position: absolute; left: 0; right: 0; bottom: 2.2%; font-weight: 800; font-size: 3cqw; color: var(--lime); }
 .phone { border-radius: 44px; padding: 10px; background: linear-gradient(145deg, #3a3a3a, #121212); box-shadow: 0 0 0 1.5px #4a4a4a, 0 40px 80px rgba(0,0,0,.6), 0 0 80px rgba(183,209,71,.18); }
 .phone img { border-radius: 35px; width: 100%; height: auto; }
 @media (max-width: 900px) {
