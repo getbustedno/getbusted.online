@@ -1046,6 +1046,7 @@ def shell(t, alt, title, desc, body, hreflang_no=True, redirect=False):
 </footer>
 <script src="/season.js" defer></script>
 <script src="/vaer.js" defer></script>
+<script src="/pakkeinfo.js" defer></script>
 <script>
 // Språkvalg huskes; «Kommer»-merket forsvinner på slippdagen.
 document.querySelectorAll('.langs a').forEach(function (a) {{ a.addEventListener('click', function () {{ try {{ localStorage.setItem('gb-lang', a.dataset.lang); }} catch (e) {{}} }}); }});

@@ -9,9 +9,10 @@ Bruk: python3 _kilde/vaer.py vaer.json no [se dk]
 Filen skrives bare når tilstanden faktisk endres, så siden bygges ikke på nytt hver time.
 
 Regler per land:
-- nedbør i minst 4 av 10 byer  -> «regn», eller «sno» når de fleste byene med nedbør har snø
+- nedbør i minst 3 av 10 byer  -> «regn», eller «sno» når de fleste byene med nedbør har snø
 - ellers sol eller lettskyet på dagtid i minst halvparten av byene -> «sol»
-- ellers ingenting (opphold, skyet eller klart om natta)
+- ellers klart eller lettskyet om natta i minst halvparten av byene -> «klart» (stjerner)
+- ellers ingenting (opphold og skyet)
 - snittemperatur under 0 -> frost (rim på kortet), i tillegg til tilstanden over
 - styrke 1 til 3 etter hvor mye det kommer
 """
@@ -62,7 +63,8 @@ def by_naa(data):
     nedbor = mm >= 0.1 or any(w in sym for w in ('rain', 'sleet', 'snow', 'showers'))
     sno = 'snow' in sym or ('sleet' in sym and temp is not None and temp < 1) or (nedbor and temp is not None and temp <= 0.5)
     sol = sym.startswith(('clearsky_day', 'fair_day'))
-    return {'temp': temp, 'nedbor': nedbor, 'sno': sno, 'sol': sol, 'mm': mm}
+    natt = sym.startswith(('clearsky_night', 'fair_night', 'clearsky_polartwilight', 'fair_polartwilight'))
+    return {'temp': temp, 'nedbor': nedbor, 'sno': sno, 'sol': sol, 'natt': natt, 'mm': mm}
 
 
 def land(kode):
@@ -76,7 +78,7 @@ def land(kode):
     snitt = sum(temps) / len(temps) if temps else 5
     t = 'ingen'
     styrke = 1
-    if len(ned) / n >= 0.4:
+    if len(ned) / n >= 0.3:
         t = 'sno' if sum(v['sno'] for v in ned) > len(ned) / 2 else 'regn'
         mm = sum(v['mm'] for v in ned) / len(ned)
         styrke = 3 if mm >= 2 else 2 if mm >= 0.6 else 1
@@ -84,6 +86,8 @@ def land(kode):
             styrke = min(3, styrke + 1)
     elif sum(v['sol'] for v in vs) / n >= 0.5:
         t = 'sol'
+    elif sum(v['natt'] for v in vs) / n >= 0.5:
+        t = 'klart'
     return {'t': t, 'styrke': styrke, 'frost': snitt < 0}
 
 
