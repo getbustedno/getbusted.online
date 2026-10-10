@@ -85,6 +85,38 @@
   root.setAttribute('data-season', season);
   root.style.setProperty('--season', T.c);
 
+  // Overskriften følger sesongen: siste ord («kvelden») byttes. Google ser fortsatt originalen i HTML.
+  var ORD = {
+    no: { re: /kvelden\s*$/i, halloween: 'halloweenfesten', julebord: 'julebordet', jul: 'juleselskapet', nyttar: 'nyttårsaften', vinter: 'hytteturen', paske: 'påskefjellet', mai17: '17. mai', sommer: 'sommerfesten' },
+    sv: { re: /kvällen\s*$/i, halloween: 'halloweenfesten', julebord: 'julbordet', jul: 'julfesten', nyttar: 'nyårsafton', vinter: 'stugresan', paske: 'påskhelgen', sommer: 'sommarfesten' },
+    da: { re: /aftenen\s*$/i, halloween: 'halloweenfesten', julebord: 'julefrokosten', jul: 'julefesten', nyttar: 'nytårsaften', vinter: 'skiferien', paske: 'påskefrokosten', sommer: 'sommerfesten' },
+    en: { re: /the night\s*$/i, halloween: 'the Halloween party', julebord: 'the Christmas party', jul: 'the holidays', nyttar: "New Year's Eve", vinter: 'the ski trip', paske: 'Easter weekend', sommer: 'the summer party' }
+  }[LANG];
+  var h1 = document.querySelector('.hero h1');
+  if (ORD && ORD[season] && h1) {
+    var tw = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT), tn, sist = null;
+    while ((tn = tw.nextNode())) if (tn.nodeValue.trim()) sist = tn;
+    if (sist && ORD.re.test(sist.nodeValue)) {
+      sist.nodeValue = sist.nodeValue.replace(ORD.re, ORD[season]);
+      h1.style.overflowWrap = 'normal';
+      // Lange ord: krymp skriften litt til linja får plass
+      var fit = function () {
+        h1.style.fontSize = '';
+        var fs = parseFloat(getComputedStyle(h1).fontSize), n = 0, rg = document.createRange();
+        rg.selectNodeContents(h1);
+        var plass = function () {
+          var l = h1.getBoundingClientRect().left, lim = document.documentElement.clientWidth - l - 16;
+          var st = document.querySelector('.hero .stage');
+          if (st) { var sr = st.getBoundingClientRect(); if (sr.left > l + 50 && sr.top < h1.getBoundingClientRect().bottom) lim = Math.min(lim, sr.left - l - 24); }
+          return lim;
+        };
+        while (rg.getBoundingClientRect().width > plass() && n++ < 40) { fs *= 0.96; h1.style.fontSize = fs + 'px'; }
+      };
+      fit(); window.addEventListener('resize', fit);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    }
+  }
+
   // Seksjoner med sluttdato (data-until): fjernes etter datoen
   document.querySelectorAll('[data-until]').forEach(function (el) {
     if (now.getTime() >= at(el.getAttribute('data-until')) + 864e5) el.remove();
