@@ -6,9 +6,9 @@ Ingen cookies, ingen localStorage, ingen sporing, ingen ekstern kode.
 Brukes av build.py (hero_card_html). Bytt kort ved å endre KORT under og kjøre: python3 build.py
 
 KORT-ID-ER (til regelvakt, ordrett fra getbusted-merge/src/data/cards.json):
-  sv: SV1531 SV0063 SV0412 SV1529 GB057-SV SV1442 SV0322 SV0134
-  da: DA0127 DA0133 DA0592 DA0417 DA0988 DA0023 DA0075 DA0509
-  en: EN0065 EN0069 EN1527 EN0232 EN1447 EN1472 EN0334 EN0176
+  sv: SV1531 SV0063 SV0412 SV1529 GB066-SV SV1522 SV0418 SV0218
+  da: DA0127 DA0133 DA0592 DA0417 DA0988 DA0593 DA0139 DA0595
+  en: EN0064 EN0069 EN1527 EN0232 EN1523 EN1521 EN0420 EN0245
 Valgt etter: pekeleken eller drikk_om, spice 1-2, ikke minPlayers, ingen {spiller}, ingen alkohol-, drikke-,
 skole-, sex- eller kjendisord, ikke på listen over kort uten markedsføring i regelvakt.md, ikke GB013.
 Alkoholfri tone, siden svensk alkoholreklame er strengt regulert: overskrifter og bunntekst følger appen i
@@ -24,10 +24,10 @@ KORT = {
     ('SV0063', 'pek', 'skickar Swish-förfrågan för en kaffe'),
     ('SV0412', 'pek', 'somnar först i soffan under Kalle Anka'),
     ('SV1529', 'pek', 'säger att de ska vara offline hela helgen och lägger upp tre stories första kvällen'),
-    ('GB057-SV', 'drikk', 'gömt dig bakom en hylla på ICA för att slippa prata med någon'),
-    ('SV1442', 'drikk', 'fuskat i Alfapet och sagt att ordet finns på skånska'),
-    ('SV0322', 'drikk', 'förlorat Whamageddon innan december var halvvägs'),
-    ('SV0134', 'drikk', 'fått frågan ”vad är du utklädd till?” utan att vara utklädd'),
+    ('GB066-SV', 'pek', 'kallar sig skidåkare efter en helg i Sälen'),
+    ('SV1522', 'pek', 'somnar först, mitt i ett parti Monopol'),
+    ('SV0418', 'pek', 'bråkar om senapen på julskinkan som om det vore politik'),
+    ('SV0218', 'pek', 'tycker halloween är amerikanskt trams men är mest utklädd ändå'),
   ],
   'da': [
     ('DA0127', 'pek', 'kalder alt vest for Valby for «Jylland»'),
@@ -35,19 +35,19 @@ KORT = {
     ('DA0592', 'pek', 'siger «vi giver ikke gaver i år» og så alligevel køber noget'),
     ('DA0417', 'pek', 'siger «halloween er amerikansk pjat» men har planlagt sit kostume siden august'),
     ('DA0988', 'pek', 'forsvinder, når der skal gøres rent til aflevering'),
-    ('DA0023', 'drikk', 'gemt mandlen i kinden, så hele familien måtte spise risalamande i en halv time mere'),
-    ('DA0075', 'drikk', 'gemt en samtale ved at omdøbe personen til «DSB Kundeservice»'),
-    ('DA0509', 'drikk', 'tabt Whamageddon inden december var halvvejs'),
+    ('DA0593', 'pek', 'falder i søvn, før kongens nytårstale er slut'),
+    ('DA0139', 'pek', 'regner fællesspisningen ud på MobilePay ned til 50 øre'),
+    ('DA0595', 'pek', 'stadig får pakkekalender af sin mor'),
   ],
   'en': [
-    ('EN0065', 'pek', 'has the worst screen time in the room right now'),
+    ('EN0064', 'pek', 'has asked ChatGPT something embarrassing this week'),
     ('EN0069', 'pek', 'would get scammed by a deepfake of their own mum'),
     ('EN1527', 'pek', 'sends the Splitwise request before the car is even unpacked'),
     ('EN0232', 'pek', "would say “let's split up, it'll be quicker”"),
-    ('EN1447', 'drikk', 'faked a bad back to get the double room'),
-    ('EN1472', 'drikk', 'suddenly needed a very long shower the moment the cleaning started'),
-    ('EN0334', 'drikk', 'asked ChatGPT for a Secret Santa idea and bought the first thing it said'),
-    ('EN0176', 'drikk', 'gone as a Minecraft chicken jockey and had to explain it to everyone over 30'),
+    ('EN1523', 'pek', 'turns into a completely different person during Monopoly'),
+    ('EN1521', 'pek', 'has never once done the dishes at a cabin'),
+    ('EN0420', 'pek', 'will buy every single present on Christmas Eve'),
+    ('EN0245', 'pek', 'would buy half of Spirit Halloween and use none of it'),
   ],
 }
 
