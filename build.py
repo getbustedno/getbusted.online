@@ -292,6 +292,7 @@ def samples_html(L):
     <h2>{E(sm['h'][0])}<em>{E(sm['h'][1])}</em></h2>
     <p class="lead">{E(sm['lead'])}</p>
     <div class="samples">{cards}</div>
+    {lp_links(L)}
   </div>
 </section>"""
 
@@ -1189,10 +1190,159 @@ def write(path, text):
     f.parent.mkdir(parents=True, exist_ok=True)
     f.write_text(text, encoding='utf-8')
 
+# ---------- Landingssider per anledning (okt 2026) ----------
+# Samme oppskrift som getbusted.no/julebord/ osv.: eksempelkort fra appen (ingen alkoholord), grunner, tips og FAQ med schema.
+LP_ALT = {
+ 'xmas':  {'en': '/christmas-party/', 'sv': '/se/julbord/', 'da': '/dk/julefrokost/', 'no': 'https://getbusted.no/julebord/'},
+ 'cabin': {'en': '/cabin-weekend/', 'sv': '/se/stugan/', 'da': '/dk/sommerhus/', 'no': 'https://getbusted.no/hyttetur/'},
+ 'wed':   {'en': '/stag-and-hen/', 'sv': '/se/svensexa-mohippa/', 'da': '/dk/polterabend/', 'no': 'https://getbusted.no/utdrikningslag/'},
+}
+LP_COLOR = {'xmas': '#E0473E', 'cabin': '#C7864A', 'wed': '#E94B8A'}
+LP_COVER = {'xmas': {'en': 'cover_jul_en.jpg', 'sv': 'cover_jul.jpg', 'da': 'cover_jul.jpg'},
+            'cabin': {'en': 'cover_hytta_en.jpg', 'sv': 'cover_hytta_sv.jpg', 'da': 'cover_hytta_da.jpg'},
+            'wed': {'en': 'cover_utdrikning_en.jpg', 'sv': 'cover_utdrikning_sv.jpg', 'da': 'cover_utdrikning_da.jpg'}}
+PK = {'en': 'On three, point at the one who', 'sv': 'På tre - peka på den som', 'da': 'På tre - peg på den, der'}
+TR = {'en': 'Truth', 'sv': 'Sanning', 'da': 'Sandhed'}
+LPT = {
+ 'en': dict(cardsK='A taste', cardsH='Cards from the pack', cardsLead='A few picks. The names get swapped for your crew.', whyK='Why Get Busted', whyH='Made for the night', tipsH='Get the most out of it', faqK='Questions', faqH='FAQ', more='More occasions:', note='For adults 18+. Alcohol-free mode is always included.', home='More about Get Busted', out='Out now', soon='Coming soon'),
+ 'sv': dict(cardsK='Smakprov', cardsH='Kort från paketet', cardsLead='Ett litet urval. Namnen byts mot ert gäng.', whyK='Varför Get Busted', whyH='Gjort för kvällen', tipsH='Så får ni ut mest av det', faqK='Frågor', faqH='Vanliga frågor', more='Fler tillfällen:', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', home='Mer om Get Busted', out='Ute nu', soon='Kommer snart'),
+ 'da': dict(cardsK='Smagsprøver', cardsH='Kort fra pakken', cardsLead='Et lille udvalg. Navnene bliver skiftet ud med jeres.', whyK='Hvorfor Get Busted', whyH='Lavet til aftenen', tipsH='Sådan får I mest ud af det', faqK='Spørgsmål', faqH='Ofte stillede spørgsmål', more='Flere anledninger:', note='For voksne 18+. Alkoholfri tilstand er altid med.', home='Mere om Get Busted', out='Ude nu', soon='Kommer snart'),
+}
+LANDINGS = {
+ 'en': {
+  'xmas': dict(pack='Christmas', live=True, menu='Christmas party', title='Party game for the office Christmas party - Get Busted',
+    desc='A party game for the Christmas party and the festive season: cards about Secret Santa, the family and the HR email. Get Busted, for adults 18+, one phone, 2-30 players.',
+    h1=('Party game for the ', 'Christmas party'), lead='Office party, friends’ Christmas or a night in with the family you chose. The Christmas pack turns it into the night everyone talks about in January.',
+    why=[('Cards you recognise', 'Secret Santa disasters, the HR email and the Hinge date you brought home. Written in English for English-speaking crews, not translated.'), ('Works for big tables', '2 to 30 players. Big groups get cards for everyone at once, and team play turns departments into Red vs Blue.'), ('Everyone can join', 'Alcohol-free mode turns everything into points, and any card can be skipped.')],
+    cards=[(PK['en'], 'will buy every single present on Christmas Eve'), (PK['en'], 'will still be in pyjamas eating leftovers for dinner on the 29th'), (PK['en'], 'would cancel their New Year’s plans at 9pm'), (PK['en'], 'will set their Hinge location to their hometown the second they get off the train'), (PK['en'], 'will end up as the reason for HR’s email after this year’s Christmas party'), (PK['en'], 'would bring a Hinge date home for Christmas to stop the questions'), (TR['en'], 'Niamh: what’s the worst Secret Santa present you’ve ever given?'), (TR['en'], 'Hamish: what does your family think you do for a living, and how wrong are they?')],
+    tips=['Pick Christmas and Original, on Mild or Cheeky if the boss is at the table.', 'Turn on teams and let the departments play Red vs Blue.', 'Swap the reader every few rounds so nobody reads all night.'],
+    faq=[('Does it work for an office party?', 'Yes. Pick Mild or Cheeky and the cards stay on the right side of HR. Get Fu**ed is for your mates.'), ('How many can play?', 'From 2 to 30. Big tables get more cards that apply to everyone at once.'), ('What does the Christmas pack cost?', 'It is a one-time purchase. Try 5 cards for free first, and Original has 50 free cards every night.')]),
+  'cabin': dict(pack='The Cabin', live=True, menu='Cabin weekend', title='Party game for a cabin weekend - Get Busted',
+    desc='A party game for the cabin weekend or the group Airbnb: cards about the double room, the board games and the Splitwise request. Get Busted, adults 18+, works offline.',
+    h1=('Party game for the ', 'cabin weekend'), lead='Zero signal, a hot tub and a whole night ahead. Get Busted turns the group trip into the one you talk about all year.',
+    why=[('Written for group trips', 'The Cabin pack is about the double room, the board game cheat, the BBQ hero and the friend who never pays their share.'), ('No signal? No problem', 'The cards live in the app, so it works offline once the app and packs are downloaded.'), ('One phone is enough', 'One reader holds the phone. Everyone else looks at each other, not at a screen.')],
+    cards=[(PK['en'], 'brings ten board games nobody asked for'), (PK['en'], 'says they’re going offline and posts five stories'), (PK['en'], 'claims the double room without asking anyone'), (PK['en'], 'would cheat at Catan and deny it to the grave'), (PK['en'], 'takes over the BBQ and then burns everything'), (PK['en'], 'would get the whole group banned from Airbnb'), (TR['en'], 'Freya: who in this room still owes you money from a trip, and how much?'), (TR['en'], 'Callum: what’s the pettiest thing you’ve ever argued about on a group trip?')],
+    tips=['Download the app and packs before you leave, so everything works offline.', 'Pick The Cabin and Original. Save Get Fu**ed for after midnight.', 'Play in duos and keep the teams all weekend.'],
+    faq=[('Does it work offline?', 'Yes, the cards live in the app. Download the app and the packs you want before you go.'), ('How many can play?', 'From 2 to 30, and you can add or remove players along the way.'), ('What does The Cabin pack cost?', 'It is a one-time purchase. Try 5 cards for free first.')]),
+  'wed': dict(pack='Stag & Hen', live=False, menu='Stag and hen dos', title='Stag and hen do games - Get Busted',
+    desc='Games for the stag or hen do: cards about the rings, the speech and the save the date. Get Busted, a party game for adults 18+ on one phone. Stag & Hen pack coming soon.',
+    h1=('Games for the ', 'stag and hen do'), lead='One of you is getting married. The rest of you are making sure the weekend is remembered. The Stag & Hen pack is made for exactly that.',
+    why=[('All about the one getting married', 'Cards about the rings, the speech, the guest list and the save the date sent too early.'), ('Just one phone', 'One reader, one card at a time. No props, no prep.'), ('Every level', 'Mild for the in-laws, Cheeky for the group and Get Fu**ed when the star of the show can take it.')],
+    cards=[(PK['en'], 'would lose the rings on the way to the ceremony'), (PK['en'], 'will send a “save the date” before they have an actual date'), (PK['en'], 'will announce their engagement on Instagram before telling their parents'), (PK['en'], 'has the most embarrassing Love Island audition tape ready to go'), (PK['en'], 'will still be paying off this weekend in six months'), (PK['en'], 'will be the one who drops out of the next stag or hen do last minute'), (TR['en'], 'Orla: what’s the worst stag or hen do you’ve ever been on, and what went wrong?'), (TR['en'], 'Theo: how much are you honestly going to spend on the wedding gift?')],
+    tips=['Make the one getting married the reader for the first round.', 'Mix Stag & Hen with Original for variety.', 'Use secret missions: the phone goes to one player, who gets a mission only they know about.'],
+    faq=[('When is the Stag & Hen pack out?', 'Later this autumn. Until then you can play Original, Christmas, Afterparty, The Cabin and Halloween.'), ('Does it work for both stag and hen dos?', 'Yes. The cards are about the wedding and the one getting married.'), ('What does it cost?', 'The pack is a one-time purchase, or get Busted+ for everything.')]),
+ },
+ 'sv': {
+  'xmas': dict(pack='Jul', live=True, menu='Julbord', title='Partyspel till julbordet - Get Busted',
+    desc='Partyspel till julbordet och julfesten: kort om släkten, julklapparna och Kalle Anka. Get Busted, för vuxna 18+, en telefon, 2-30 spelare.',
+    h1=('Partyspel till ', 'julbordet'), lead='Julfest med jobbet, julbord med gänget eller mellandagarna i hemstan. Jul-paketet gör kvällen till den alla pratar om i januari.',
+    why=[('Kort ni känner igen', 'Gävlebocken, Mall of Scandinavia på annandagen och julklappen du låtsas älska. Skrivet i Sverige, inte översatt.'), ('Funkar för stora bord', '2 till 30 spelare. Stora gäng får kort som gäller alla samtidigt, och med lagspel kan avdelningarna köra Röd mot Blå.'), ('Alla kan vara med', 'Alkoholfritt läge gör allt till poäng, och man får alltid stå över ett kort.')],
+    cards=[(PK['sv'], 'har redan en julfestflört utsedd innan förrätten'), (PK['sv'], 'fortfarande tror att Gävlebocken klarar sig i år'), (PK['sv'], 'börjar prata dialekt igen så fort hen kliver av tåget i hemstan'), (PK['sv'], 'står först i kön utanför Mall of Scandinavia på annandagen'), (PK['sv'], 'skickar ”gott nytt år” till ett ex en minut efter tolvslaget'), (PK['sv'], 'säger ”vi borde ses i mellandagarna” och aldrig hör av sig'), (TR['sv'], 'Valdemar: vad är det pinsammaste du gjort på en julfest med jobbet?'), (TR['sv'], 'Edla: vilken julklapp från släkten har du ljugit och sagt att du älskar?')],
+    tips=['Välj Jul och Original, och Mild eller Fräck om chefen sitter vid bordet.', 'Slå på lag och låt avdelningarna köra Röd mot Blå.', 'Byt läsare då och då, så slipper en person läsa hela kvällen.'],
+    faq=[('Funkar det på en julfest med jobbet?', 'Ja. Välj Mild eller Fräck, så håller sig korten på rätt sida. Get Fu**ed är för kompisgänget.'), ('Hur många kan spela?', 'Från 2 till 30. Stora bord får fler kort som gäller alla samtidigt.'), ('Vad kostar Jul-paketet?', 'Ett engångsköp. Testa 5 kort gratis först, och Original har 50 gratis kort varje kväll.')]),
+  'cabin': dict(pack='Stugan', live=True, menu='Stugan', title='Partyspel till stughelgen - Get Busted',
+    desc='Partyspel till stughelgen: kort om bastun, Fjällrävenjackan och wifi-lösenordet. Get Busted, för vuxna 18+, funkar utan täckning.',
+    h1=('Partyspel till ', 'stughelgen'), lead='Ingen täckning, en bastu och en hel kväll framför er. Get Busted gör stughelgen till den ni pratar om hela året.',
+    why=[('Skrivet för svenska stugor', 'Stugan-paketet handlar om bastun, städdagen, landstället och den som frågar efter wifi i en stuga utan rinnande vatten.'), ('Ingen täckning? Inga problem', 'Korten finns i appen, så det funkar offline när appen och paketen är nedladdade.'), ('En telefon räcker', 'En läsare håller i telefonen. Resten tittar på varandra, inte på en skärm.')],
+    cards=[(PK['sv'], 'säger att de ska vara offline hela helgen och lägger upp tre stories första kvällen'), (PK['sv'], 'kallar sin sommarstuga för ”landstället”'), (PK['sv'], 'skulle dö först om vi blev insnöade i Vemdalen'), (PK['sv'], 'har en Fjällrävenjacka för en månadshyra och aldrig går längre än till bilen'), (PK['sv'], 'alltid försvinner på städdagen innan man åker'), (PK['sv'], 'somnar först, mitt i ett parti Monopol'), (TR['sv'], 'Ebbe: vem i rummet skulle du minst vilja dela stuga med?'), (TR['sv'], 'Ingrid: vem ringer du först om täckningen kommer tillbaka klockan tre i natt?')],
+    tips=['Ladda ner appen och paketen innan ni åker, så funkar allt utan täckning.', 'Välj Stugan och Original. Spara Get Fu**ed till efter midnatt.', 'Spela i duos och behåll lagen hela helgen.'],
+    faq=[('Funkar det utan internet?', 'Ja, korten finns i appen. Ladda ner appen och paketen innan ni åker.'), ('Hur många kan spela?', 'Från 2 till 30, och ni kan lägga till eller ta bort spelare under kvällen.'), ('Vad kostar Stugan-paketet?', 'Ett engångsköp. Testa 5 kort gratis först.')]),
+  'wed': dict(pack='Svensexa & möhippa', live=False, menu='Svensexa och möhippa', title='Lekar till svensexa och möhippa - Get Busted',
+    desc='Lekar till svensexan och möhippan: kort om ringen, talet och gruppchatten. Get Busted, partyspel för vuxna 18+ på en telefon. Paketet kommer i höst.',
+    h1=('Lekar till ', 'svensexan och möhippan'), lead='En av er ska gifta sig, resten ska se till att dagen blir ihågkommen. Svensexa & möhippa-paketet är gjort för just det.',
+    why=[('Handlar om den som ska gifta sig', 'Kort om ringen, talet, gruppchatten och hur paret egentligen träffades.'), ('Bara en telefon', 'En läsare, ett kort i taget. Inga rekvisita, inga förberedelser.'), ('Alla nivåer', 'Mild för svärfamiljen, Fräck för gänget och Get Fu**ed när huvudpersonen klarar det.')],
+    cards=[(PK['sv'], 'hade flyttat sitt eget bröllop om det krockade med Melodifestivalen'), (PK['sv'], 'gråter redan när musiken börjar på vigseln'), (PK['sv'], 'klagar mest på budgeten i gruppchatten'), (PK['sv'], 'skulle ge bort ett presentkort på Gekås i bröllopspresent'), (PK['sv'], 'har flest pinsamma bilder på den som ska gifta sig'), (PK['sv'], 'sjunger högst när ABBA kommer på'), (TR['sv'], 'Tyra: vad tyckte du om förlovningsringen, helt ärligt?'), (TR['sv'], 'Gösta: vad är det pinsammaste du vet om hur paret träffades?')],
+    tips=['Låt huvudpersonen vara läsare första rundan.', 'Blanda Svensexa & möhippa med Original.', 'Kör hemliga uppdrag: telefonen går till en spelare som får ett uppdrag bara hen vet om.'],
+    faq=[('När kommer paketet?', 'I höst. Tills dess kan ni spela Original, Jul, Efterfest, Stugan och Halloween.'), ('Funkar det för både svensexa och möhippa?', 'Ja. Korten handlar om bröllopet och den som ska gifta sig.'), ('Vad kostar det?', 'Paketet är ett engångsköp, eller ta Busted+ för allt.')]),
+ },
+ 'da': {
+  'xmas': dict(pack='Jul', live=True, menu='Julefrokost', title='Festspil til julefrokosten - Get Busted',
+    desc='Festspil til julefrokosten: kort om kransekagen, pakkelegen og kollegaen dagen efter. Get Busted, for voksne 18+, én telefon, 2-30 spillere.',
+    h1=('Festspil til ', 'julefrokosten'), lead='Firmajulefrokost, vennejulefrokost eller mellem jul og nytår i hjembyen. Jul-pakken gør aftenen til den, alle snakker om i januar.',
+    why=[('Kort I kender', 'Kransekagen kl. 3, Whamageddon og julefrokostcrushet, der stadig ikke ved det. Skrevet på dansk, ikke oversat.'), ('Virker til store borde', '2 til 30 spillere. Store grupper får kort, der gælder alle på én gang, og med holdspil kan afdelingerne spille Rød mod Blå.'), ('Alle kan være med', 'Alkoholfri tilstand gør alt til point, og man må altid springe et kort over.')],
+    cards=[(PK['da'], 'står alene tilbage med kransekagen kl. 3'), (PK['da'], 'ender med at holde tale til familiejulefrokosten'), (PK['da'], 'har et julefrokostcrush, der stadig ikke ved det'), (PK['da'], 'taber Whamageddon først i år'), (PK['da'], 'lyver bedst om, hvor de var natten efter julefrokosten'), (PK['da'], 'skriver «glædelig jul» til en eks'), (TR['da'], 'Thyge: hvad er den værste gave, du har fået, og hvem gav den?'), (TR['da'], 'Aksel: hvad er det mest akavede, du har sagt til en kollega dagen efter julefrokosten?')],
+    tips=['Vælg Jul og Original, og Mild eller Fræk, hvis chefen sidder med ved bordet.', 'Slå hold til, og lad afdelingerne spille Rød mod Blå.', 'Skift oplæser undervejs, så ingen skal læse hele aftenen.'],
+    faq=[('Virker det til en firmajulefrokost?', 'Ja. Vælg Mild eller Fræk, så holder kortene sig på den rigtige side. Get Fu**ed er til vennerne.'), ('Hvor mange kan spille?', 'Fra 2 til 30. Store borde får flere kort, der gælder alle på én gang.'), ('Hvad koster Jul-pakken?', 'Det er et engangskøb. Prøv 5 kort gratis først, og Original har 50 gratis kort hver aften.')]),
+  'cabin': dict(pack='Sommerhuset', live=True, menu='Sommerhus', title='Festspil til sommerhusturen - Get Busted',
+    desc='Festspil til sommerhusturen: kort om Bezzerwizzer, dansktop kl. 10 og gryden, der skal stå i blød. Get Busted, for voksne 18+, virker uden dækning.',
+    h1=('Festspil til ', 'sommerhusturen'), lead='Ingen dækning, en sauna og en hel aften foran jer. Get Busted gør sommerhusturen til den, I snakker om hele året.',
+    why=[('Skrevet til danske sommerhuse', 'Sommerhuset-pakken handler om brætspil, varmt vand, slik i kufferten og den, der aldrig betaler sin andel.'), ('Ingen dækning? Intet problem', 'Kortene ligger i appen, så det virker offline, når appen og pakkerne er hentet.'), ('Én telefon er nok', 'Én oplæser holder telefonen. Resten kigger på hinanden, ikke på en skærm.')],
+    cards=[(PK['da'], 'snyder i Bezzerwizzer'), (PK['da'], 'sætter dansktop på kl. 10 om morgenen'), (PK['da'], 'siger «den skal lige stå i blød» og aldrig kommer tilbage til gryden'), (PK['da'], 'har pakket mere slik end tøj'), (PK['da'], 'bruger alt det varme vand første morgen'), (PK['da'], 'aldrig betaler sin andel af sommerhuset til tiden'), (TR['da'], 'Frida: hvilken sommerhusferie var den værste, og hvis skyld var det?'), (TR['da'], 'Villum: hvad har du aldrig fortalt nogen her om den sidste sommerhustur?')],
+    tips=['Hent appen og pakkerne, før I kører, så virker alt uden dækning.', 'Vælg Sommerhuset og Original. Gem Get Fu**ed til efter midnat.', 'Spil i par, og behold holdene hele weekenden.'],
+    faq=[('Virker det uden internet?', 'Ja, kortene ligger i appen. Hent appen og pakkerne, før I tager af sted.'), ('Hvor mange kan spille?', 'Fra 2 til 30, og I kan tilføje eller fjerne spillere undervejs.'), ('Hvad koster Sommerhuset-pakken?', 'Det er et engangskøb. Prøv 5 kort gratis først.')]),
+  'wed': dict(pack='Polterabend', live=False, menu='Polterabend', title='Lege til polterabend - Get Busted',
+    desc='Lege til polterabenden: kort om vielsen, talen og polterbussen. Get Busted, festspil for voksne 18+ på én telefon. Polterabend-pakken kommer i efteråret.',
+    h1=('Lege til ', 'polterabenden'), lead='En af jer skal giftes, resten skal sørge for, at dagen bliver husket. Polterabend-pakken er lavet til netop det.',
+    why=[('Handler om den, der skal giftes', 'Kort om vielsen, talen, bryllupssangen og polterabendopgaverne.'), ('Kun én telefon', 'Én oplæser, ét kort ad gangen. Ingen rekvisitter, ingen forberedelse.'), ('Alle niveauer', 'Mild til svigerfamilien, Fræk til vennerne og Get Fu**ed, når hovedpersonen kan tåle det.')],
+    cards=[(PK['da'], 'græder først til vielsen'), (PK['da'], 'bliver den næste, der skal giftes'), (PK['da'], 'ville holde sin polterabend i Lalandia'), (PK['da'], 'falder i søvn i polterbussen før frokost'), (PK['da'], 'har allerede valgt sin bryllupssang uden at have en kæreste'), (PK['da'], 'kræver omkørsel efter at være kørt af banen til go-kart'), (TR['da'], 'Ellen: hvad er det pinligste, du har sagt i en tale?'), (TR['da'], 'Bastian: hvilken polterabendopgave ville du aldrig lave, selv for 1.000 kr.?')],
+    tips=['Lad hovedpersonen være oplæser i første runde.', 'Bland Polterabend med Original.', 'Brug hemmelige missioner: telefonen går til én spiller, der får en mission, kun vedkommende kender.'],
+    faq=[('Hvornår kommer Polterabend-pakken?', 'I efteråret. Indtil da kan I spille Original, Jul, Efterfest, Sommerhuset og Halloween.'), ('Virker det til både polterabend for mænd og kvinder?', 'Ja. Kortene handler om brylluppet og den, der skal giftes.'), ('Hvad koster det?', 'Pakken er et engangskøb, eller tag Busted+ for det hele.')]),
+ },
+}
+
+def landing(t, key):
+    L = t['lang']; d = LANDINGS[L][key]; x = LPT[L]; col = LP_COLOR[key]
+    cards = ''.join(f"<figure class='sample' style='--c:{col}'><figcaption>{E(d['pack'])}</figcaption><p class='sample-head'>{E(h)}</p><blockquote>{E(c)}</blockquote></figure>" for h, c in d['cards'])
+    why = ''.join(f"<div class='feature'><h3>{E(h)}</h3><p>{E(c)}</p></div>" for h, c in d['why'])
+    tips = ''.join(f'<li>{E(c)}</li>' for c in d['tips'])
+    faq = ''.join(f'<details><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in d['faq'])
+    more = ' · '.join(f'<a href="{LP_ALT[k][L]}">{E(LANDINGS[L][k]["menu"])}</a>' for k in LP_ALT if k != key)
+    url = full(LP_ALT[key][L])
+    ld = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'WebPage', '@id': url, 'url': url, 'name': d['title'], 'description': d['desc'], 'inLanguage': L, 'isPartOf': {'@type': 'WebSite', 'url': full(HOME[L]), 'name': 'Get Busted'}},
+        {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'Get Busted', 'item': full(HOME[L])}, {'@type': 'ListItem', 'position': 2, 'name': d['menu'], 'item': url}]},
+        {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in d['faq']]}]}
+    body = f"""<section class="hero lp">
+  <div class="wrap">
+    <div>
+      <p class="kicker">{E(d['pack'])} · {E(x['out'] if d['live'] else x['soon'])}</p>
+      <h1>{E(d['h1'][0])}<em>{E(d['h1'][1])}</em></h1>
+      <p class="lead">{E(d['lead'])}</p>
+      <p class="note">{E(x['note'])} <a href="{HOME[L]}">{E(x['home'])}</a>.</p>
+    </div>
+    <div class="stage lp-stage" aria-hidden="true"><img class="cover" src="/img/{LP_COVER[key][L]}" alt="" style="--c:{col}" width="360" height="503"></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">{E(x['cardsK'])}</p>
+    <h2>{E(x['cardsH'])}</h2>
+    <p class="lead">{E(x['cardsLead'])}</p>
+    <div class="samples">{cards}</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">{E(x['whyK'])}</p>
+    <h2>{E(x['whyH'])}</h2>
+    <div class="features three">{why}</div>
+    <div class="lp-tips"><h3>{E(x['tipsH'])}</h3><ul>{tips}</ul></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap" style="max-width:820px">
+    <p class="kicker">{E(x['faqK'])}</p>
+    <h2>{E(x['faqH'])}</h2>
+    {faq}
+    <p class="lp-more">{E(x['more'])} {more}</p>
+  </div>
+</section>"""
+    page = shell(t, LP_ALT[key], d['title'], d['desc'], body)
+    return page.replace('</head>', '<script type="application/ld+json">' + _json.dumps(ld, ensure_ascii=False).replace('</', '<\\/') + '</script>\n</head>', 1)
+
+def lp_links(L):
+    x = LPT[L]
+    return '<p class="lp-more">' + E(x['more']) + ' ' + ' · '.join(f'<a href="{LP_ALT[k][L]}">{E(LANDINGS[L][k]["menu"])}</a>' for k in LP_ALT) + '</p>'
+
 for lang in LANGS:
     t = T[lang]
     write(HOME[lang], home(t))
     write(HELP[lang], help_page(t))
+    for _k in LP_ALT:
+        write(LP_ALT[_k][lang], landing(t, _k))
     for key, alt in LEGAL_KEYS:
         write(alt[lang], legal_page(t, key, alt))
 
@@ -1222,6 +1372,14 @@ footer .footer-firma{color:var(--muted)}
 .sample figcaption{font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--c)}
 .sample .sample-head{font-weight:800;font-style:italic;color:var(--muted);font-size:16px}
 .sample blockquote{margin:0;font-weight:800;font-size:21px;line-height:1.3;color:var(--fg)}
+.lp-more{margin-top:22px;color:var(--muted)}
+.hero.lp .wrap{grid-template-columns:1.3fr .7fr}
+.lp-stage{height:auto;min-height:0;display:flex;justify-content:center}
+.lp-stage .cover{position:relative;top:0;width:240px;transform:rotate(3deg)}
+.features.three{grid-template-columns:repeat(3,1fr)}
+.lp-tips{margin-top:28px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px}
+.lp-tips h3{font-size:22px;margin-bottom:6px}.lp-tips li{color:var(--muted)}
+@media (max-width:900px){.hero.lp .wrap{grid-template-columns:1fr}.features.three{grid-template-columns:1fr}.lp-stage .cover{width:180px}}
 @media (max-width:900px){.pricing.three{grid-template-columns:1fr}}
 @media (max-width:760px){.nav nav .langs{display:inline-flex;margin:0 4px}.nav nav .langs a{display:inline-block}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap;font-size:19px}.nav .brand img{width:34px;height:34px}.langs a{padding:4px 6px}}
 """, encoding='utf-8')
@@ -1263,7 +1421,7 @@ def sm_entry(loc, alt, langs):
     links = ''.join(f'\n  <xhtml:link rel="alternate" hreflang="{l}" href="{full(alt[l])}"/>' for l in langs)
     return f'<url>\n  <loc>{full(loc)}</loc>{links}\n  <xhtml:link rel="alternate" hreflang="x-default" href="{full(alt["en"])}"/>\n</url>'
 entries = []
-for alt, langs in ((HOME, LANGS + ['no']), (HELP, LANGS), (PRIV, LANGS + ['no']), (TERMS, LANGS + ['no']), (COOK, LANGS + ['no']), (BUY, LANGS + ['no'])):
+for alt, langs in ((HOME, LANGS + ['no']), (HELP, LANGS), (LP_ALT['xmas'], LANGS + ['no']), (LP_ALT['cabin'], LANGS + ['no']), (LP_ALT['wed'], LANGS + ['no']), (PRIV, LANGS + ['no']), (TERMS, LANGS + ['no']), (COOK, LANGS + ['no']), (BUY, LANGS + ['no'])):
     for l in LANGS:
         entries.append(sm_entry(alt[l], alt, langs))
 (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + '\n'.join(entries) + '\n</urlset>\n', encoding='utf-8')

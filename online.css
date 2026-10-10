@@ -24,5 +24,13 @@ footer .footer-firma{color:var(--muted)}
 .sample figcaption{font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--c)}
 .sample .sample-head{font-weight:800;font-style:italic;color:var(--muted);font-size:16px}
 .sample blockquote{margin:0;font-weight:800;font-size:21px;line-height:1.3;color:var(--fg)}
+.lp-more{margin-top:22px;color:var(--muted)}
+.hero.lp .wrap{grid-template-columns:1.3fr .7fr}
+.lp-stage{height:auto;min-height:0;display:flex;justify-content:center}
+.lp-stage .cover{position:relative;top:0;width:240px;transform:rotate(3deg)}
+.features.three{grid-template-columns:repeat(3,1fr)}
+.lp-tips{margin-top:28px;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px}
+.lp-tips h3{font-size:22px;margin-bottom:6px}.lp-tips li{color:var(--muted)}
+@media (max-width:900px){.hero.lp .wrap{grid-template-columns:1fr}.features.three{grid-template-columns:1fr}.lp-stage .cover{width:180px}}
 @media (max-width:900px){.pricing.three{grid-template-columns:1fr}}
 @media (max-width:760px){.nav nav .langs{display:inline-flex;margin:0 4px}.nav nav .langs a{display:inline-block}.nav nav a.cta{display:none}.nav .brand{white-space:nowrap;font-size:19px}.nav .brand img{width:34px;height:34px}.langs a{padding:4px 6px}}

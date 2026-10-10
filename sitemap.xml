@@ -46,6 +46,78 @@
   <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/help/"/>
 </url>
 <url>
+  <loc>https://getbusted.online/christmas-party/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/christmas-party/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/julbord/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/julefrokost/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/julebord/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/christmas-party/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/julbord/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/christmas-party/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/julbord/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/julefrokost/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/julebord/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/christmas-party/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/julefrokost/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/christmas-party/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/julbord/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/julefrokost/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/julebord/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/christmas-party/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/cabin-weekend/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/cabin-weekend/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/stugan/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/sommerhus/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/hyttetur/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/cabin-weekend/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/stugan/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/cabin-weekend/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/stugan/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/sommerhus/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/hyttetur/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/cabin-weekend/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/sommerhus/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/cabin-weekend/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/stugan/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/sommerhus/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/hyttetur/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/cabin-weekend/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/stag-and-hen/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/stag-and-hen/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/svensexa-mohippa/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/polterabend/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/utdrikningslag/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/stag-and-hen/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/svensexa-mohippa/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/stag-and-hen/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/svensexa-mohippa/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/polterabend/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/utdrikningslag/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/stag-and-hen/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/polterabend/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/stag-and-hen/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/svensexa-mohippa/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/polterabend/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/utdrikningslag/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/stag-and-hen/"/>
+</url>
+<url>
   <loc>https://getbusted.online/privacy/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/privacy/"/>
   <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/integritet/"/>
