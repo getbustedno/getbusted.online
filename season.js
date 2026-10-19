@@ -13,13 +13,14 @@
  * Samme fil brukes på getbusted.online: språket leses fra <html lang> (no, en, sv, da).
  */
 (function () {
-  var LAUNCH = null; // Ingen lanseringsdato er vedtatt for en/sv/da. Sett en dato (ÅÅÅÅ-MM-DD) først når den er bestemt. Norge lanseres på getbusted.no.
+  // Lanseringsdato per språk (ÅÅÅÅ-MM-DD). Sverige 29. okt 2026, samme dag som Norge (getbusted.no). en/da: ikke vedtatt.
+  var LAUNCH = ({ sv: '2026-10-29' })[(document.documentElement.lang || '').slice(0, 2)] || null;
   // iPhone klar til LAUNCH? false = App Store-merket sier «Snart på» før lansering, og FAQ sier Android først.
   // Etter lansering styres App Store-merket av STORE.ios (tom = «Snart på»).
   var IOS_READY = true && !/[?&]ios=0/.test(location.search); // test: ?ios=0
   var STORE = {
     play: 'https://play.google.com/store/apps/details?id=no.getbusted.app',
-    ios: '' // Lim inn App Store-lenken (https://apps.apple.com/...) når Apple har godkjent appen.
+    ios: 'https://apps.apple.com/app/id6822369497' // Apple-ID fra eas.json (ascAppId). Lenken virker når appen er frigitt i landet.
   };
   var NEW_DAYS = 10;
   var S = {

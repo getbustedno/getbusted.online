@@ -1,15 +1,15 @@
 # Påminnelser
 
-## Før Sverige-lanseringen: personvernsidene er ikke oppdatert
+## Personvernsidene på en og da er ikke oppdatert
 
-Personvernsidene /privacy/, /se/integritet/ og /dk/privatliv/ er ikke oppdatert til ny personvernerklæring ennå (de er bevisst ikke med på branchen kun-juridisk). Legg dem på listen og oppdater dem (LEGAL[...]['privacy'] i `build.py`, etter getbusted.no/personvern/) før Sverige-lanseringen. Når du gjør det: bytt «over 18» til «minst 18 år» / «mindst 18 år» / «at least 18 years old», og sjekk at ingen dato eller pris dukker opp.
+/se/integritet/ ble oppdatert 19. okt 2026 (Sverige-lanseringen). Personvernsidene /privacy/ og /dk/privatliv/ er ikke oppdatert til ny personvernerklæring ennå (de er bevisst ikke med på branchen kun-juridisk). Legg dem på listen og oppdater dem (LEGAL[...]['privacy'] i `build.py`, etter getbusted.no/personvern/) før Sverige-lanseringen. Når du gjør det: bytt «over 18» til «minst 18 år» / «mindst 18 år» / «at least 18 years old», og sjekk at ingen dato eller pris dukker opp.
 
 Merk: `python3 build.py` endrer fotlenken («Terms of use», «Användarvillkor», «Brugsvilkår») på disse tre sidene. Det er ikke committet på kun-juridisk. Kjør `git checkout -- privacy se/integritet dk/privatliv` etter hvert bygg, til de oppdateres.
 
 ## Ingen priser og ingen datoer på en/sv/da
 
-Vedtatt (okt 2026): sidene på getbusted.online har ingen priser, ingen lanseringspris og ingen lanseringsdato. Bare Norge lanseres 30. oktober (getbusted.no). Utenlandske priser og datoer er ikke vedtatt.
-- `season.js`: `LAUNCH = null`. Lanseringsbryteren (butikkmerker blir lenker, «Ute nu») er av. Sett en dato først når den er vedtatt for landet. `?launch=1` i adressen fungerer fortsatt som test.
+Vedtatt (okt 2026): sidene på getbusted.online har ingen priser og ingen lanseringspris. Sverige lanseres 29. oktober 2026, samme dag som Norge: /se/ viser datoen, og `LAUNCH` i `season.js` er satt per språk (bare sv). en og da har fortsatt ingen dato.
+- `season.js`: `LAUNCH` er `null` for en og da. Lanseringsbryteren (butikkmerker blir lenker, «Ute nu») er av. Sett en dato først når den er vedtatt for landet. `?launch=1` i adressen fungerer fortsatt som test.
 - Før lansering i et land: bestem pris, dato og tekst, og legg dem inn i `build.py` (PRICE_TXT, UPDATE) sammen.
 - Pakkeflisene på forsiden viser fortsatt «Kommer 5. nov» osv. (pakkedatoer). Sjekk at de stemmer for hvert land før Sverige/Danmark/UK åpner.
 

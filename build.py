@@ -341,7 +341,7 @@ UPDATE = {
         ('Skip', 'You can always skip a card. Always.'), ('18+', 'Made for adults. Your crew picks the level.')],
   respH='Made for a good night',
   faq0=('Can everyone join?', 'Yes. In alcohol-free mode everything becomes points, and you can always skip a card.'),
-  faqWhen=('When is it out?', 'Coming soon to iPhone and Android, with Norway first. Follow @getbusted.uk on Instagram and TikTok to hear first.'),
+  faqWhen=('When is it out?', 'Coming soon to iPhone and Android, with Norway and Sweden first. Follow @getbusted.uk on Instagram and TikTok to hear first.'),
   faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
   foot='Adults 18+'),
  'sv': dict(
@@ -349,7 +349,7 @@ UPDATE = {
   og='En läsare, 1 000+ kort från start och noll tråkiga pauser. För iPhone och Android.',
   h1=('Partyspelet som ', 'tar över', ' kvällen'),
   lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 1 000+ kort från start, skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.',
-  soonTo='Snart i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='Kommer snart',
+  soonTo='29 oktober i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='29 oktober',
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
          ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Nivåerna bygger på varandra, så Get Fu**ed har allt. Spela var för sig, i fasta duos eller Röd mot Blå.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
@@ -363,7 +363,7 @@ UPDATE = {
         ('Stå över', 'Du får alltid stå över ett kort. Alltid.'), ('18+', 'Gjort för vuxna. Gänget väljer nivån.')],
   respH='Gjort för en bra kväll',
   faq0=('Kan alla vara med?', 'Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.'),
-  faqWhen=('När kommer den?', 'Snart till iPhone och Android, med Norge först. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
+  faqWhen=('När kommer den?', '29 oktober till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
   faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
   foot='För vuxna 18+'),
  'da': dict(
@@ -386,7 +386,7 @@ UPDATE = {
         ('Spring over', 'Du må altid springe et kort over. Altid.'), ('18+', 'Lavet til voksne. I vælger selv niveauet.')],
   respH='Lavet til en god aften',
   faq0=('Kan alle være med?', 'Ja. I alkoholfri tilstand bliver alt til point, og du må altid springe et kort over.'),
-  faqWhen=('Hvornår kommer den?', 'Snart til iPhone og Android, med Norge først.'),
+  faqWhen=('Hvornår kommer den?', 'Snart til iPhone og Android, med Norge og Sverige først.'),
   faqCal=('Hvad er julekalenderen?', 'En ny låge hver dag 1.-24. december, gratis for alle. Kortene, reglerne og terningsiderne I åbner, blandes ind i alle spil december ud.'),
   foot='For voksne 18+'),
 }
@@ -593,7 +593,7 @@ LEGAL['en']['cookies'] = ('Cookies and local storage', 'What getbusted.online st
 """)
 
 # ===== Svenska =====
-LEGAL['sv'] = dict(updated='Senast uppdaterad: 7 oktober 2026', updated_terms='Senast uppdaterad: 8 oktober 2026', updated_purchases='Senast uppdaterad: 8 oktober 2026')
+LEGAL['sv'] = dict(updated='Senast uppdaterad: 19 oktober 2026', updated_terms='Senast uppdaterad: 8 oktober 2026', updated_purchases='Senast uppdaterad: 8 oktober 2026', updated_cookies='Senast uppdaterad: 7 oktober 2026')
 
 LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personuppgifter i appen och på webbplatserna: inga konton, ingen reklam, ingen analys.', 'Integritet', f"""
 <h2>Kort sagt</h2>
@@ -602,6 +602,7 @@ LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personup
   <li>Namnen ni skriver in och era inställningar sparas bara på telefonen.</li>
   <li>Köp går via Apple eller Google. Vi använder RevenueCat för att hålla koll på vilka paket du äger, med ett slumpmässigt ID utan namn.</li>
   <li>Den här webbplatsen, getbusted.online, har ingen besöksstatistik och inga cookies. Den kommer bara ihåg språket du har valt.</li>
+  <li>Appen är bara för personer som är minst 18 år.</li>
 </ul>
 
 <h2>Vem är ansvarig</h2>
@@ -610,15 +611,17 @@ LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personup
 <h2>Appen</h2>
 <h3>Det som sparas på din telefon</h3>
 <ul>
-  <li>Spelarnamn, valda paket, nivå, språk och andra inställningar, så att ni slipper skriva in dem igen.</li>
-  <li>Ett pågående spel, så att ni kan fortsätta där ni slutade.</li>
-  <li>Att du har bekräftat att du är över 18 år, och om du har slagit på notiser.</li>
+  <li>Inställningar: språk, nivå, hur törstiga ni är och alkoholfritt läge.</li>
+  <li>Att du har bekräftat att du är minst 18 år.</li>
+  <li>Spelarnamn och läget i kvällens spel, så att ni kan fortsätta där ni slutade.</li>
+  <li>Tidigare kvällar (datum, spelarnamn, antal kort, vem som blev mest påkommen och vinnande lag, högst 200 kvällar), som används till sammanfattningen «Wrapped».</li>
+  <li>Vilka köp du äger (en kopia, så att appen fungerar utan internet), läget i julkalendern, om appen har bett om ett betyg och om du har slagit på notiser om nya paket.</li>
 </ul>
-<p>Detta skickas inte till oss eller någon annan, och det raderas när du raderar appen. Använd inte fullständiga namn eller känsliga uppgifter om andra som spelarnamn: förnamn eller smeknamn räcker.</p>
+<p>Detta skickas inte till oss eller någon annan, och det raderas när du raderar appen. Använd inte fullständiga namn eller känsliga uppgifter om andra som spelarnamn: förnamn eller smeknamn räcker. Appen skickar inte spelarnamn, kortinnehåll eller spelhistorik till någon. Den använder inte mikrofon, kamera, kontakter, plats eller hälsodata, och annons-ID (AD_ID på Android, IDFA på iOS) används inte.</p>
 
 <h3>Köp</h3>
 <p>Köp görs i App Store eller Google Play. Apple och Google hanterar betalningen och är själva ansvariga för de uppgifter de har om dig. Vi får aldrig ditt namn, din e-postadress eller dina betalningsuppgifter.</p>
-<p>För att veta vilka paket du äger, och för att du ska kunna återställa köp på en ny telefon, använder vi RevenueCat (RevenueCat, Inc., USA) som personuppgiftsbiträde. RevenueCat tar emot ett slumpmässigt app-användar-ID som appen skapar, kvittot för köpet från Apple eller Google (vilken produkt, när och transaktions-ID) och teknisk information som följer med förfrågan, bland annat IP-adress, plattform och appversion. RevenueCat lagrar data i USA, och överföringen bygger på EU:s standardavtalsklausuler (SCC). Den rättsliga grunden är att det är nödvändigt för att leverera det du har köpt (dataskyddsförordningen artikel 6.1 b). Uppgifterna sparas så länge du kan behöva återställa dina köp, eller tills du ber oss radera dem.</p>
+<p>För att veta vilka paket du äger, och för att du ska kunna återställa köp på en ny telefon, använder vi RevenueCat (RevenueCat, Inc., USA) som personuppgiftsbiträde. RevenueCat tar emot ett slumpmässigt app-användar-ID som appen skapar, kvittot för köpet från Apple eller Google (vilken produkt, när och transaktions-ID) och teknisk information som följer med förfrågan, bland annat IP-adress, plattform, enhetstyp, version av operativsystemet och appversion. RevenueCat lagrar data i USA, och överföringen bygger på EU:s standardavtalsklausuler (SCC). Den rättsliga grunden är att det är nödvändigt för att leverera det du har köpt (dataskyddsförordningen artikel 6.1 b). Uppgifterna sparas så länge du kan behöva återställa dina köp, eller tills du ber oss radera dem.</p>
 
 <h3>Nya kort från nätet</h3>
 <p>Appen hämtar en fil med aktuella kort från getbusted.no. Inga uppgifter om dig skickas, men som vid alla besök på en webbplats ser servern (GitHub, se nedan) telefonens IP-adress.</p>
@@ -635,23 +638,48 @@ LEGAL['sv']['privacy'] = ('Integritetspolicy', 'Så hanterar Get Busted personup
 <h3>Drift</h3>
 <p>Webbplatserna ligger hos GitHub Pages (GitHub, Inc., USA). GitHub registrerar besökarnas IP-adresser av säkerhetsskäl. GitHub är certifierat enligt EU-US Data Privacy Framework. Den rättsliga grunden är vårt berättigade intresse av att leverera webbplatsen på ett säkert sätt (artikel 6.1 f).</p>
 <h3>Ingen statistik på getbusted.online</h3>
-<p>getbusted.online har ingen besöksstatistik, inga analysverktyg och inga cookies. Den kommer bara ihåg språket du har valt, i webbläsarens lokala lagring, och det skickas aldrig till oss. Läs mer på sidan om <a href="{COOK['sv']}">cookies</a>. Den norska webbplatsen getbusted.no räknar besök med Metricool, men bara om du säger ja till statistik där.</p>
+<p>getbusted.online har ingen besöksstatistik, inga analysverktyg och inga cookies. Den kommer bara ihåg språket du har valt, i webbläsarens lokala lagring, och det skickas aldrig till oss. Läs mer på sidan om <a href="{COOK['sv']}">cookies</a>. Den norska webbplatsen getbusted.no räknar besök med Metricool (Metricool Software S.L., Madrid, Spanien), men bara om du säger ja till statistik där. Metricool lagrar data inom EU/EES.</p>
 <h3>Typsnitt och länkar</h3>
 <p>Typsnitten ligger på vår egen server, så ingenting skickas till Google eller andra när sidan laddas. Länkar till andra tjänster, till exempel App Store, Google Play, Instagram eller TikTok, tar dig dit först när du trycker på dem.</p>
 
 <h2>Mejl till oss</h2>
 <p>Om du skriver till oss använder vi din e-postadress och det du skriver för att svara dig och följa upp ärendet. Den rättsliga grunden är vårt berättigade intresse av att svara på frågor (artikel 6.1 f). Mejlet raderas när ärendet är avslutat, om vi inte måste spara det, till exempel vid ett klagomål.</p>
 
-<h2>Åldersgräns</h2>
-<p>Get Busted är gjort för vuxna över 18 år. Vi behandlar inte medvetet uppgifter om personer under 18 år.</p>
+<h2>Hur länge vi sparar</h2>
+<ul>
+  <li>På telefonen: tills du raderar appen. Avinstallerar du appen raderas allt som sparats lokalt.</li>
+  <li>RevenueCat: så länge du kan behöva återställa köp, eller tills du ber oss radera uppgifterna.</li>
+  <li>GitHub (IP-adress i serverloggar): GitHub bestämmer själv hur länge säkerhetsloggar sparas.</li>
+  <li>Mejl till oss: raderas när ärendet är avslutat, om vi inte måste spara det, till exempel vid ett klagomål.</li>
+  <li>Bokföring: Apple och Google betalar ut till oss och är ansvariga för köpdata i sina system. Vi följer lagkraven om att spara räkenskapsinformation.</li>
+</ul>
+
+<h2>Vilka vi delar med</h2>
+<ul>
+  <li>RevenueCat, Inc. (USA): personuppgiftsbiträde för köp och ägande.</li>
+  <li>Apple Inc. och Google LLC / Google Ireland Ltd.: butikerna där du köper. De är själva ansvariga för de uppgifter de har om dig.</li>
+  <li>GitHub, Inc. (GitHub Pages, USA): drift av webbplatserna getbusted.online och getbusted.no.</li>
+  <li>Metricool Software S.L. (Madrid, Spanien): personuppgiftsbiträde för besöksstatistik på getbusted.no, bara om du har sagt ja där.</li>
+  <li>Myndigheter, om lagen kräver det.</li>
+</ul>
+<p>Vi säljer inte personuppgifter.</p>
+
+<h2>Överföring till länder utanför EES</h2>
+<p>RevenueCat lagrar data i USA, och överföringen bygger på EU:s standardavtalsklausuler (SCC). Webbplatserna ligger hos GitHub Pages (USA), som är certifierat enligt EU-US Data Privacy Framework. Apple och Google kan också behandla data i USA. Du kan be om en kopia av skyddsåtgärderna genom att skriva till {M}.</p>
+
+<h2>Åldersgräns och barn</h2>
+<p>Get Busted är bara för personer som är minst 18 år. Appen ber dig bekräfta din ålder första gången du öppnar den. Det är en enkel bekräftelse, inte en kontroll av din ålder. Vi samlar inte medvetet in uppgifter om personer under 18 år. Upptäcker vi det raderar vi uppgifterna. Är du förälder och tror att ditt barn har använt appen, kontakta oss på {M}.</p>
+
+<h2>Säkerhet</h2>
+<p>Vi använder leverantörer som krypterar data under överföring, och vi sparar så lite som möjligt. Ingen lösning är helt säker. Sker en personuppgiftsincident som rör dig, meddelar vi tillsynsmyndigheten och dig enligt reglerna.</p>
 
 <h2>Dina rättigheter</h2>
 <p>Du har rätt att få tillgång till de uppgifter vi har om dig och att få dem rättade eller raderade. Du kan också begära begränsad behandling, invända mot behandling som bygger på berättigat intresse, få ut uppgifter du har gett oss (dataportabilitet) och återkalla samtycke. Skriv till {M}. Vi svarar inom en månad.</p>
-<p>Eftersom vi inte har ditt namn kopplat till köp behöver vi kvittot eller ordernumret från Apple eller Google för att hitta rätt uppgifter hos RevenueCat.</p>
+<p>Eftersom vi inte har ditt namn kopplat till köp behöver vi kvittot eller ordernumret från Apple eller Google för att hitta rätt uppgifter hos RevenueCat. Uppgifter som bara finns på din telefon har vi inte tillgång till. Du raderar dem genom att avinstallera appen.</p>
 <p>Om du anser att vi behandlar personuppgifter i strid med reglerna kan du klaga till den norska dataskyddsmyndigheten, <a href="https://www.datatilsynet.no/en/">Datatilsynet</a>, eller till <a href="https://www.imy.se/">Integritetsskyddsmyndigheten (IMY)</a> i Sverige. Vi uppskattar om du kontaktar oss först.</p>
 
 <h2>Ändringar</h2>
-<p>Om vi ändrar hur appen eller webbplatserna behandlar personuppgifter uppdaterar vi den här sidan och datumet högst upp. Vid väsentliga ändringar av något du har samtyckt till frågar vi dig igen.</p>
+<p>Om vi ändrar hur appen eller webbplatserna behandlar personuppgifter uppdaterar vi den här sidan och datumet högst upp. Samlar vi in mer data, till exempel anonym mätning av kort, uppdaterar vi policyn innan det slås på. Vid väsentliga ändringar av något du har samtyckt till frågar vi dig igen.</p>
 """)
 
 # Användarvillkor (skilda från köpvillkoren på /se/kop/). Motsvarar getbusted.no/vilkar/ (Bruksvilkår).
