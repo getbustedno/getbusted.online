@@ -363,7 +363,7 @@ UPDATE = {
         ('Stå över', 'Du får alltid stå över ett kort. Alltid.'), ('18+', 'Gjort för vuxna. Gänget väljer nivån.')],
   respH='Gjort för en bra kväll',
   faq0=('Kan alla vara med?', 'Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.'),
-  faqWhen=('När kommer den?', '29 oktober till iPhone och Android. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
+  faqWhen=('När kommer den?', '29 oktober på Google Play. iPhone-versionen kommer snart. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
   faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
   foot='För vuxna 18+'),
  'da': dict(
