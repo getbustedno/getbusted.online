@@ -341,7 +341,7 @@ UPDATE = {
         ('Skip', 'You can always skip a card. Always.'), ('18+', 'Made for adults. Your crew picks the level.')],
   respH='Made for a good night',
   faq0=('Can everyone join?', 'Yes. In alcohol-free mode everything becomes points, and you can always skip a card.'),
-  faqWhen=('When is it out?', 'Google Play in the UK this November, with the Friendsgiving pack on 12 November. iPhone is coming soon. Follow @getbusted.uk on Instagram and TikTok to hear first.'),
+  faqWhen=('When is it out?', 'Out now on Google Play in the UK. The Friendsgiving pack lands on 12 November, and the iPhone version is coming soon.'),
   faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
   foot='Adults 18+'),
  'sv': dict(
