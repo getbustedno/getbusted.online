@@ -341,7 +341,7 @@ UPDATE = {
         ('Skip', 'You can always skip a card. Always.'), ('18+', 'Made for adults. Your crew picks the level.')],
   respH='Made for a good night',
   faq0=('Can everyone join?', 'Yes. In alcohol-free mode everything becomes points, and you can always skip a card.'),
-  faqWhen=('When is it out?', 'Out now on Google Play in the UK. The Friendsgiving pack lands on 12 November, and the iPhone version is coming soon.'),
+  faqWhen=('When is it out?', 'Out now in the UK on iPhone (App Store) and Android (Google Play). The Friendsgiving pack is out now too.'),
   faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
   foot='Adults 18+'),
  'sv': dict(
@@ -363,7 +363,7 @@ UPDATE = {
         ('Stå över', 'Du får alltid stå över ett kort. Alltid.'), ('18+', 'Gjort för vuxna. Gänget väljer nivån.')],
   respH='Gjort för en bra kväll',
   faq0=('Kan alla vara med?', 'Ja. I alkoholfritt läge blir allt poäng, och det är alltid okej att stå över ett kort.'),
-  faqWhen=('När kommer den?', '29 oktober på Google Play. iPhone-versionen kommer snart. Följ @getbusted.se på Instagram och TikTok så får du veta först.'),
+  faqWhen=('Var laddar jag ner den?', 'Get Busted finns nu på iPhone (App Store) och Android (Google Play). Sök på «Get Busted» eller tryck på knapparna högst upp på sidan.'),
   faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
   foot='För vuxna 18+'),
  'da': dict(
