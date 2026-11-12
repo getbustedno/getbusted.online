@@ -20,7 +20,7 @@
   var IOS_READY = false && !/[?&]ios=0/.test(location.search); // test: ?ios=0
   var STORE = {
     play: 'https://play.google.com/store/apps/details?id=no.getbusted.app',
-    ios: '' // Plan B (26. okt 2026): Apple avviste 1.0. Lim inn https://apps.apple.com/app/id6822369497 når iPhone-versjonen er godkjent.
+    ios: 'https://apps.apple.com/app/id6822369497' // iPhone-versjonen godkjent 11. nov 2026
   };
   var NEW_DAYS = 10;
   var S = {
