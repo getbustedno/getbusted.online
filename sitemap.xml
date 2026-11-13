@@ -118,6 +118,30 @@
   <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/stag-and-hen/"/>
 </url>
 <url>
+  <loc>https://getbusted.online/christmas-and-new-year/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/christmas-and-new-year/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/jul-och-nyar/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/jul-og-nytaar/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/jul-og-nyttar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/christmas-and-new-year/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/se/jul-och-nyar/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/christmas-and-new-year/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/jul-och-nyar/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/jul-og-nytaar/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/jul-og-nyttar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/christmas-and-new-year/"/>
+</url>
+<url>
+  <loc>https://getbusted.online/dk/jul-og-nytaar/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/christmas-and-new-year/"/>
+  <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/jul-och-nyar/"/>
+  <xhtml:link rel="alternate" hreflang="da" href="https://getbusted.online/dk/jul-og-nytaar/"/>
+  <xhtml:link rel="alternate" hreflang="no" href="https://getbusted.no/jul-og-nyttar/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://getbusted.online/christmas-and-new-year/"/>
+</url>
+<url>
   <loc>https://getbusted.online/privacy/</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://getbusted.online/privacy/"/>
   <xhtml:link rel="alternate" hreflang="sv" href="https://getbusted.online/se/integritet/"/>
