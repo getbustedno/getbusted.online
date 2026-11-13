@@ -1242,9 +1242,9 @@ LPT = {
 }
 LANDINGS = {
  'en': {
-  'xmas': dict(pack='Christmas', live=True, menu='Christmas party', title='Party game for the office Christmas party - Get Busted',
+  'xmas': dict(pack='Christmas, Boxing Day & New Year', live=True, menu='Christmas party', title='Party game for the office Christmas party - Get Busted',
     desc='A party game for the Christmas party and the festive season: cards about Secret Santa, the family and the HR email. Get Busted, for adults 18+, one phone, 2-30 players.',
-    h1=('Party game for the ', 'Christmas party'), lead='Office party, friends’ Christmas or a night in with the family you chose. The Christmas pack turns it into the night everyone talks about in January.',
+    h1=('Party game for the ', 'Christmas party'), lead='The work do, Christmas Day, Boxing Day at the local and the countdown on New Year’s Eve. Over 300 cards in British English, and they follow the calendar: more office party in November, more New Year as midnight gets closer.',
     why=[('Cards you recognise', 'Secret Santa disasters, the HR email and the Hinge date you brought home. Written in English for English-speaking crews, not translated.'), ('Works for big tables', '2 to 30 players. Big groups get cards for everyone at once, and team play turns departments into Red vs Blue.'), ('Everyone can join', 'Alcohol-free mode turns everything into points, and any card can be skipped.')],
     cards=[(PK['en'], 'will buy every single present on Christmas Eve'), (PK['en'], 'will still be in pyjamas eating leftovers for dinner on the 29th'), (PK['en'], 'would cancel their New Year’s plans at 9pm'), (PK['en'], 'will set their Hinge location to their hometown the second they get off the train'), (PK['en'], 'will end up as the reason for HR’s email after this year’s Christmas party'), (PK['en'], 'would bring a Hinge date home for Christmas to stop the questions'), (TR['en'], 'Niamh: what’s the worst Secret Santa present you’ve ever given?'), (TR['en'], 'Hamish: what does your family think you do for a living, and how wrong are they?')],
     tips=['Pick Christmas and Original, on Mild or Cheeky if the boss is at the table.', 'Turn on teams and let the departments play Red vs Blue.', 'Swap the reader every few rounds so nobody reads all night.'],
@@ -1265,9 +1265,9 @@ LANDINGS = {
     faq=[('When is the Stag & Hen pack out?', 'Later this autumn. Until then you can play Original, Christmas, Afterparty, The Cabin and Halloween.'), ('Does it work for both stag and hen dos?', 'Yes. The cards are about the wedding and the one getting married.'), ('What does it cost?', 'The pack is a one-time purchase, or get Busted+ for everything.')]),
  },
  'sv': {
-  'xmas': dict(pack='Jul', live=True, menu='Julbord', title='Partyspel till julbordet - Get Busted',
+  'xmas': dict(pack='Jul, mellandagar och nyår', live=True, menu='Julbord', title='Partyspel till julbordet - Get Busted',
     desc='Partyspel till julbordet och julfesten: kort om släkten, julklapparna och Kalle Anka. Get Busted, för vuxna 18+, en telefon, 2-30 spelare.',
-    h1=('Partyspel till ', 'julbordet'), lead='Julfest med jobbet, julbord med gänget eller mellandagarna i hemstan. Jul-paketet gör kvällen till den alla pratar om i januari.',
+    h1=('Partyspel till ', 'julbordet'), lead='Julbordet med jobbet, julafton med Kalle Anka, hemvändarfesten i mellandagarna och tolvslaget. Över 300 kort på svenska som följer kalendern: mer julbord i november, mer nyår mot tolvslaget.',
     why=[('Kort ni känner igen', 'Gävlebocken, Mall of Scandinavia på annandagen och julklappen du låtsas älska. Skrivet i Sverige, inte översatt.'), ('Funkar för stora bord', '2 till 30 spelare. Stora gäng får kort som gäller alla samtidigt, och med lagspel kan avdelningarna köra Röd mot Blå.'), ('Alla kan vara med', 'Alkoholfritt läge gör allt till poäng, och man får alltid stå över ett kort.')],
     cards=[(PK['sv'], 'har redan en julfestflört utsedd innan förrätten'), (PK['sv'], 'fortfarande tror att Gävlebocken klarar sig i år'), (PK['sv'], 'börjar prata dialekt igen så fort hen kliver av tåget i hemstan'), (PK['sv'], 'står först i kön utanför Mall of Scandinavia på annandagen'), (PK['sv'], 'skickar ”gott nytt år” till ett ex en minut efter tolvslaget'), (PK['sv'], 'säger ”vi borde ses i mellandagarna” och aldrig hör av sig'), (TR['sv'], 'Valdemar: vad är det pinsammaste du gjort på en julfest med jobbet?'), (TR['sv'], 'Edla: vilken julklapp från släkten har du ljugit och sagt att du älskar?')],
     tips=['Välj Jul och Original, och Mild eller Fräck om chefen sitter vid bordet.', 'Slå på lag och låt avdelningarna köra Röd mot Blå.', 'Byt läsare då och då, så slipper en person läsa hela kvällen.'],
@@ -1288,9 +1288,9 @@ LANDINGS = {
     faq=[('När kommer paketet?', 'I höst. Tills dess kan ni spela Original, Jul, Efterfest, Stugan och Halloween.'), ('Funkar det för både svensexa och möhippa?', 'Ja. Korten handlar om bröllopet och den som ska gifta sig.'), ('Vad kostar det?', 'Paketet är ett engångsköp, eller ta Busted+ för allt.')]),
  },
  'da': {
-  'xmas': dict(pack='Jul', live=True, menu='Julefrokost', title='Festspil til julefrokosten - Get Busted',
+  'xmas': dict(pack='Jul, julefrokost og nytår', live=True, menu='Julefrokost', title='Festspil til julefrokosten - Get Busted',
     desc='Festspil til julefrokosten: kort om kransekagen, pakkelegen og kollegaen dagen efter. Get Busted, for voksne 18+, én telefon, 2-30 spillere.',
-    h1=('Festspil til ', 'julefrokosten'), lead='Firmajulefrokost, vennejulefrokost eller mellem jul og nytår i hjembyen. Jul-pakken gør aftenen til den, alle snakker om i januar.',
+    h1=('Festspil til ', 'julefrokosten'), lead='Julefrokosten med jobbet, juleaften, bodegaen i juledagene og tolvslaget. Over 300 kort på dansk, der følger kalenderen: mere julefrokost i november, mere nytår op mod tolvslaget.',
     why=[('Kort I kender', 'Kransekagen kl. 3, Whamageddon og julefrokostcrushet, der stadig ikke ved det. Skrevet på dansk, ikke oversat.'), ('Virker til store borde', '2 til 30 spillere. Store grupper får kort, der gælder alle på én gang, og med holdspil kan afdelingerne spille Rød mod Blå.'), ('Alle kan være med', 'Alkoholfri tilstand gør alt til point, og man må altid springe et kort over.')],
     cards=[(PK['da'], 'står alene tilbage med kransekagen kl. 3'), (PK['da'], 'ender med at holde tale til familiejulefrokosten'), (PK['da'], 'har et julefrokostcrush, der stadig ikke ved det'), (PK['da'], 'taber Whamageddon først i år'), (PK['da'], 'lyver bedst om, hvor de var natten efter julefrokosten'), (PK['da'], 'skriver «glædelig jul» til en eks'), (TR['da'], 'Thyge: hvad er den værste gave, du har fået, og hvem gav den?'), (TR['da'], 'Aksel: hvad er det mest akavede, du har sagt til en kollega dagen efter julefrokosten?')],
     tips=['Vælg Jul og Original, og Mild eller Fræk, hvis chefen sidder med ved bordet.', 'Slå hold til, og lad afdelingerne spille Rød mod Blå.', 'Skift oplæser undervejs, så ingen skal læse hele aftenen.'],
