@@ -1,5 +1,7 @@
 """Tysk startside (getbusted.online/de/). Ikke lansert: noindex, ikke i sitemap, ikke i språkvelgeren.
-Kortantall fra de-utvikling-grenen. Kjør: python3 _kilde/de_start.py"""
+Kortantall fra de-utvikling-grenen. Kjør: python3 _kilde/de_start.py
+Pakkeinfo (trykk på pakke): pakkeinfo.json har en «de»-del laget fra de-utvikling (pakkeinfo.py ... de).
+Kjøres pakkeinfo.py på nytt for sv da en, må de-delen legges inn igjen."""
 import pathlib, html
 E_ = html.escape
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -10,6 +12,18 @@ tiles = ''.join(f"<div class='pack' data-pack='{k}' style='--c:{c}'><picture><im
 steps = [('Crew eintragen', '2 bis 30 Leute. Die Namen landen direkt auf den Karten, also kann sich niemand verstecken.'),
          ('Level wählen', 'Mild, Frech oder Get Fu**ed. Die Level bauen aufeinander auf.'),
          ('Laut vorlesen und spielen', 'Eine Person liest vor. Würfel, Twists und Rapid-Runden kommen von selbst.')]
+feats = [('Für jetzt geschrieben', 'Karten über Dating-Apps, Gruppenchats, Billigflieger und alles, worüber gerade geredet wird. Jeden Monat neue Karten, ohne Update.'),
+         ('Twists', 'Manche Karten drehen sich um, nachdem sie vorgelesen wurden. Was sicher aussah, ist es nicht.'),
+         ('Rapid', 'Fünf Finger hoch. Aussagen am laufenden Band. Wer zuerst raus ist, verliert.'),
+         ('Geheime Missionen', 'Das Handy geht an eine Person, die eine Mission bekommt, von der nur sie weiß.'),
+         ('Teamspiel', 'Feste Duos oder Rot gegen Blau. Die App zählt mit.'),
+         ('Der Abend in Zahlen', 'Am Ende: wer am meisten busted wurde, wie viele Karten und Rapid-Runden. Zum Teilen.')]
+ft = ''.join(f"<div class='feature'><h3>{E_(h)}</h3><p>{E_(p)}</p></div>" for h, p in feats)
+faq = [('Wann kommt Get Busted nach Deutschland?', 'Die deutschen Karten werden gerade geschrieben und von Leuten aus Deutschland geprüft. Sobald die ersten Pakete fertig sind, kommt die App in den App Store und zu Google Play.'),
+       ('Müssen wir trinken?', 'Nein. Im alkoholfreien Modus gibt es Punkte statt Schlucke, und jede Karte darf übersprungen werden.'),
+       ('Wie viele können mitspielen?', '2 bis 30. Große Gruppen bekommen mehr Karten, die für alle gleichzeitig gelten.'),
+       ('Gibt es ein Abo?', 'Nein. Alle Käufe sind Einmalkäufe. Jeden Abend gibt es 50 Karten kostenlos.')]
+fq = ''.join(f'<details><summary>{E_(q)}</summary><p>{E_(a)}</p></details>' for q, a in faq)
 st = ''.join(f"<div class='step'><div class='n'>{i}</div><h3>{E_(h)}</h3><p>{E_(p)}</p></div>" for i, (h, p) in enumerate(steps, 1))
 page = f"""<!doctype html>
 <html lang="de">
@@ -55,7 +69,15 @@ page = f"""<!doctype html>
   </div>
 </section>
 
-<section id="packs" class="alt">
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">Mehr als nur Karten</p>
+    <h2>Was nur eine App kann</h2>
+    <div class="features">{ft}</div>
+  </div>
+</section>
+
+<section id="packs">
   <div class="wrap">
     <p class="kicker">Pakete</p>
     <h2>Eins für jeden Anlass, <em>das ganze Jahr</em></h2>
@@ -63,6 +85,14 @@ page = f"""<!doctype html>
     <div class="group"><h3>In Arbeit</h3><div class="packs">
       {tiles}
     </div></div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap" style="max-width:820px">
+    <p class="kicker">Fragen</p>
+    <h2>Häufige Fragen</h2>
+    {fq}
   </div>
 </section>
 </main>
@@ -73,6 +103,7 @@ page = f"""<!doctype html>
     <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org.-Nr. 927 118 300 · Voldgata 27, 2000 Lillestrøm, Norwegen · Ab 18</div>
   </div>
 </footer>
+<script src="/pakkeinfo.js" defer></script>
 </body>
 </html>
 """

@@ -22,6 +22,10 @@
       orig: 'Gratis: 50 kort hver aften. Lås alt op med Busted+.', start: 'Med fra start', hint: 'Tryk for at se indholdet',
       head: { pekeleken: 'På tre - peg på den, der', drikk_om: 'Har du ...', sannhet: 'Sandhed', navnekort: 'Udfordring' },
       typ: { drikk_om: 'Har du', pekeleken: 'Pegelegen', navnekort: 'Udfordring', sannhet: 'Sandhed', duell: 'Duel', regel: 'Ny regel', hemmelig: 'Hemmelig mission', runde: 'Runde', sang: 'Sangkort', quiz: 'Quiz' } },
+    de: { kort: 'Karten', niv: ['Mild', 'Frech', 'Get Fu**ed'], nivT: 'Level', mix: 'Kartenmix', smak: 'Kostproben', lukk: 'Schließen',
+      orig: 'Kostenlos: 50 Karten jeden Abend. Alles freischalten mit Busted+.', start: 'Von Anfang an dabei', hint: 'Antippen, um den Inhalt zu sehen',
+      head: { pekeleken: 'Auf drei zeigen alle auf: Wer', drikk_om: 'Busted, wenn du schon mal', sannhet: 'Wahrheit', navnekort: 'Challenge' },
+      typ: { drikk_om: 'Busted, wenn', pekeleken: 'Zeigespiel', navnekort: 'Challenge', sannhet: 'Wahrheit', duell: 'Duell', regel: 'Neue Regel', hemmelig: 'Geheime Mission', runde: 'Runde', sang: 'Songkarte', quiz: 'Quiz' } },
     en: { kort: 'cards', niv: ['Mild', 'Cheeky', 'Get Fu**ed'], nivT: 'Levels', mix: 'Card mix', smak: 'Sneak peek', lukk: 'Close',
       orig: 'Free: 50 cards every night. Unlock everything with Busted+.', start: 'In from day one', hint: 'Tap to see what is inside',
       head: { pekeleken: 'On three, point at the one who', drikk_om: 'Have you ever ...', sannhet: 'Truth', navnekort: 'Challenge' },
@@ -80,7 +84,7 @@
     var maks = Math.max.apply(null, p.niv) || 1;
     var bars = p.niv.map(function (n, i) { return '<div class="pi-bar"><b>' + TX.niv[i] + '</b><i><em style="width:' + (100 * n / maks).toFixed(0) + '%"></em></i><span>' + n + '</span></div>'; }).join('');
     var chips = p.typer.slice(0, 6).map(function (t) { return '<span>' + esc(TX.typ[t[0]] || t[0]) + '<b>' + t[1] + '</b></span>'; }).join('');
-    var smak = p.smak.map(function (k) { return '<div class="pi-k"><p class="h">' + esc(TX.head[k.t] || '') + '</p><p class="t">' + esc(k.x) + (k.t === 'drikk_om' ? '?' : '') + '</p></div>'; }).join('');
+    var smak = p.smak.map(function (k) { return '<div class="pi-k"><p class="h">' + esc(TX.head[k.t] || '') + '</p><p class="t">' + esc(k.x) + (k.t === 'drikk_om' && LANG !== 'de' ? '?' : '') + '</p></div>'; }).join('');
     if (!dlg) {
       dlg = document.createElement('dialog'); dlg.className = 'pi';
       dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
