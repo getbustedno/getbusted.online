@@ -6,7 +6,7 @@ import pathlib, html
 E_ = html.escape
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PACKS = [('original', 'cover_original.jpg', '#B7D147', 'Original', 'Der Klassiker für jeden Abend', 219),
-         ('jul', 'cover_jul_de.jpg', '#E0473E', 'Weihnachten & Silvester', 'Weihnachtsfeier, Heiligabend und Mitternacht', 152),
+         ('jul', 'cover_jul_de.jpg', '#E0473E', 'Weihnachten & Silvester', 'Weihnachtsfeier, Heiligabend und Mitternacht', 191),
          ('utdrikning', 'cover_utdrikning_de.jpg', '#E94B8A', 'JGA', 'Für die Person, die heiratet', 114)]
 tiles = ''.join(f"<div class='pack' data-pack='{k}' style='--c:{c}'><picture><source srcset='/img/{img[:-4]}.webp' type='image/webp'><img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E_(n)}</b><span>{E_(s)}</span><small>{cnt} Karten</small><i class='soon'>Kommt bald</i></div>" for k, img, c, n, s, cnt in PACKS)
 steps = [('Crew eintragen', '2 bis 30 Leute. Die Namen landen direkt auf den Karten, also kann sich niemand verstecken.'),
