@@ -108,7 +108,7 @@ page = f"""<!doctype html>
     <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org.-Nr. 927 118 300 · Voldgata 27, 2000 Lillestrøm, Norwegen · Ab 18</div>
   </div>
 </footer>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Get Busted","url":"https://getbusted.online/de/","inLanguage":"de","description":"Das Partyspiel für jede Jahreszeit. Kommt bald nach Deutschland.","applicationCategory":"GameApplication","operatingSystem":"iOS, Android","contentRating":"18+"}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"MobileApplication","name":"Get Busted","url":"https://getbusted.online/de/","inLanguage":"de","description":"Das Partyspiel für jede Jahreszeit. Kommt bald nach Deutschland.","applicationCategory":"GameApplication","operatingSystem":"iOS, Android","contentRating":"18+"}}</script>
 <script src="/pakkeinfo.js" defer></script>
 </body>
 </html>
