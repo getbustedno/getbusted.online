@@ -161,6 +161,8 @@
   // Pakkeflisene: slipp «Kommer»-merket når datoen er passert, og løft fram sesongens pakke
   var tiles = {};
   document.querySelectorAll('.pack[data-pack]').forEach(function (el) {
+    var r = el.getAttribute('data-release');
+    if (r && now.getTime() >= at(r)) { var s0 = el.querySelector('.soon'); if (s0) s0.remove(); }
     tiles[el.getAttribute('data-pack')] = el;
   });
   // Utenlandske sider har ingen slippdatoer: en flis med «Kommer snart»-merke regnes som ikke sluppet.
@@ -188,6 +190,34 @@
       pill.hidden = false;
     }
   }
+
+  // Hele året-stripa og toppbildene: sesongens pakke først, Halloween bakerst utenfor sesong
+  var gal = document.querySelector('.gal.year');
+  if (gal) {
+    var gp = {}; gal.querySelectorAll('.gp[data-pack]').forEach(function (a) { gp[a.getAttribute('data-pack')] = a; });
+    if (gp.halloween && season !== 'halloween') gal.appendChild(gp.halloween);
+    T.packs.slice().reverse().forEach(function (k) { if (gp[k] && k !== 'original') gal.insertBefore(gp[k], gal.firstChild); });
+    gal.scrollLeft = 0; requestAnimationFrame(function () { gal.scrollLeft = 0; });
+    var lead = T.packs.filter(function (k) { return gp[k] && k !== 'original'; });
+    var covers = document.querySelectorAll('.hero .stage .cover');
+    var pick = lead.concat(['jul', 'hytta', 'reise', 'nach']).filter(function (k, i, a) { return a.indexOf(k) === i && gp[k] && (k !== 'halloween' || season === 'halloween'); });
+    covers.forEach(function (img, i) {
+      var k = pick[i]; if (!k) return;
+      img.src = '/img/cover_' + k + '.jpg';
+      img.style.setProperty('--c', gp[k].style.getPropertyValue('--c'));
+    });
+  }
+  // Pakkelista: sluppede pakker flyttes opp til «Ute nå», tomme grupper skjules
+  var firstPacks = tiles.original && tiles.original.parentNode;
+  if (firstPacks) {
+    Object.keys(tiles).forEach(function (k) {
+      var el = tiles[k];
+      if (el.parentNode !== firstPacks && el.getAttribute('data-release') && released(el)) firstPacks.appendChild(el);
+    });
+    document.querySelectorAll('#pakker .group').forEach(function (g) { if (!g.querySelector('.pack')) g.hidden = true; });
+  }
+  // Pakkelista: Halloween bakerst i sin gruppe utenfor sesong
+  if (tiles.halloween && season !== 'halloween') tiles.halloween.parentNode.appendChild(tiles.halloween);
 
   // Pynt i toppen: fallende løv/snø/konfetti, stigende lys eller flaggermus
   var hero = document.querySelector('.hero');

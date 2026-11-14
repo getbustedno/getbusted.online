@@ -29,11 +29,11 @@ LANGS = ['en', 'sv', 'da']
 T = {
  'en': dict(
   path='/', lang='en', hero='en', title='Get Busted - the party game that runs the night',
-  desc='Get Busted is the party card game for game nights, house parties and cabin weekends. 1,000+ cards in English at launch, about the internet, the news and your group chat. Adults 18+.',
-  og='One reader, 1,000+ cards at launch and zero boring breaks. For iPhone and Android.',
+  desc='Get Busted is the party card game for the whole year: the Christmas do, Friendsgiving, St. Paddy\'s, cabin weekends, stag and hen dos and game nights. 2,500+ cards in English across 12 packs. Adults 18+.',
+  og='One reader, 2,500+ cards and a pack for every season. For iPhone and Android.',
   nav=[('#how', 'How it works'), ('#packs', 'Packs'), ('#faq', 'FAQ')], download='Download',
   h1='The party game that runs the night',
-  lead='One reader holds the phone. Everyone else looks at each other, not at a screen. 1,000+ cards in English at launch, about the internet, the news and your group chat, plus Rapid rounds, secret missions and song cards.',
+  lead='One reader holds the phone. Everyone else looks at each other, not at a screen. One game for the whole year: 12 packs for the Christmas do, Friendsgiving, St. Paddy\'s, the cabin weekend, stag and hen dos and every Friday in between. The pack that fits right now is always first.',
   soonTo='Coming soon to', note='For adults 18+. Can always be played without alcohol.',
   heroAlt='Get Busted in use: a card on the screen of a phone',
   howK='How it works', howH='Ready in 20 seconds',
@@ -50,13 +50,13 @@ T = {
          ('Odds', '"What are the odds you ...?" You both count down and say a number at the same time.'),
          ('Big text', 'Larger letters that are easy to read out loud, even in a dark room. Switch with Aa mid-game.'),
          ('The night in numbers', 'After the game: the most busted player, cards played and Rapid rounds. Ready to share.')],
-  packsK='Packs', packsH='One for every occasion',
-  packsLead='Every pack has its own English cards, written for English-speaking crews, not translated. Try 5 cards from any pack for free before you buy.',
+  packsK='Packs', packsH='One for every occasion, all year round',
+  packsLead='From the Christmas do to St. Paddy\'s and the summer holidays. Every pack has its own English cards, written for English-speaking crews, not translated, and the pack that fits the season is always first. Try 5 cards from any pack for free before you buy.',
   packs=[('original', 'cover_original.jpg', 'Original', '50 free cards every night', None),
-         ('halloween', 'cover_halloween.jpg', 'Halloween', 'Costumes and A24 horror', None),
          ('jul', 'cover_jul_en.jpg', 'Christmas', 'Office parties and NYE', None),
          ('nach', 'cover_nach_en.jpg', 'Afterparty', "When it's 3 a.m.", None),
          ('hytta', 'cover_hytta_en.jpg', 'The Cabin', 'Hot tubs and zero signal', None),
+         ('halloween', 'cover_halloween.jpg', 'Halloween', 'Costumes and A24 horror', None),
          ('reise', 'cover_reise_en.jpg', 'Travel', 'Budget airlines and flings', True),
          ('student', 'cover_student.jpg', 'Student', "Freshers' and house parties", True),
          ('utdrikning', 'cover_utdrikning_en.jpg', 'Stag & Hen', 'For the one getting married', True),
@@ -97,11 +97,11 @@ T = {
  ),
  'sv': dict(
   path='/se/', lang='sv', hero='sv', title='Get Busted - partyspelet som tar över kvällen',
-  desc='Get Busted är kortspelet för spelkvällen, efterfesten och stugan. 1 000+ kort från start, skrivna för Sverige, inte översatta. För vuxna 18+.',
-  og='En läsare, 1 000+ kort från start och noll tråkiga pauser. För iPhone och Android.',
+  desc='Get Busted är partyspelet för hela året: julbordet, Mello, midsommar, kräftskivan, stugan och spelkvällen. 2 900+ kort på svenska i 13 paket, skrivna för Sverige. För vuxna 18+.',
+  og='En läsare, 2 900+ kort och ett paket för varje säsong. För iPhone och Android.',
   nav=[('#how', 'Så funkar det'), ('#packs', 'Paket'), ('#faq', 'Frågor')], download='Ladda ner',
   h1='Festspelet som styr kvällen',
-  lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 1 000+ kort från start, skrivna för Sverige: Kalle Anka klockan tre, 08:or och norrlänningar.',
+  lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. Ett spel för hela året: 13 paket till julbordet, Mello, midsommar, kräftskivan, stugan, svensexan och alla fredagar däremellan. Paketet som passar just nu ligger alltid först.',
   soonTo='Snart i', note='För vuxna 18+. Går alltid att spela utan alkohol.',
   heroAlt='Get Busted i användning: ett kort på en mobilskärm',
   howK='Så funkar det', howH='Klart på 20 sekunder',
@@ -118,13 +118,13 @@ T = {
          ('Odds', '«Vad är oddsen att du ...?» Båda räknar ner och säger ett tal samtidigt.'),
          ('Stor text', 'Större bokstäver som är lätta att läsa högt, även i ett mörkt rum. Byt med Aa mitt i spelet.'),
          ('Kvällen i siffror', 'Efter spelet: kvällens mest avslöjade, antal kort och Rapid-rundor. Klart att dela.')],
-  packsK='Paket', packsH='Ett för varje tillfälle',
-  packsLead='Varje paket har egna svenska kort, skrivna i Sverige för svenskar. Testa 5 kort från valfritt paket gratis innan du köper.',
+  packsK='Paket', packsH='Ett för varje tillfälle, hela året',
+  packsLead='Från julbordet till Mello, midsommar och kräftskivan. Varje paket har egna svenska kort, skrivna i Sverige för svenskar, och paketet som passar säsongen ligger alltid först. Testa 5 kort från valfritt paket gratis innan du köper.',
   packs=[('original', 'cover_original.jpg', 'Original', '50 gratis kort varje kväll', None),
-         ('halloween', 'cover_halloween.jpg', 'Halloween', 'Maskerad och skräckfilm', None),
          ('jul', 'cover_jul_sv.jpg', 'Jul', 'Julbord och Kalle Anka', None),
          ('nach', 'cover_nach_sv.jpg', 'Efterfest', 'När klockan är tre', None),
          ('hytta', 'cover_hytta_sv.jpg', 'Stugan', 'Bastu och noll täckning', None),
+         ('halloween', 'cover_halloween.jpg', 'Halloween', 'Maskerad och skräckfilm', None),
          ('reise', 'cover_reise_sv.jpg', 'Resa', 'Charter och Finlandsbåten', True),
          ('student', 'cover_student.jpg', 'Student', 'Nollning och sittningar', True),
          ('utdrikning', 'cover_utdrikning_sv.jpg', 'Svensexa & möhippa', 'För den som ska gifta sig', True),
@@ -166,11 +166,11 @@ T = {
  ),
  'da': dict(
   path='/dk/', lang='da', hero='sv', title='Get Busted - festspillet, der tager over aftenen',
-  desc='Get Busted er festspillet til spilleaftenen, efterfesten og sommerhuset. 1.000+ kort fra start, med eller uden alkohol. For voksne 18+.',
-  og='Én oplæser, 1.000+ kort fra start og ingen kedelige pauser. Til iPhone og Android.',
+  desc='Get Busted er festspillet til hele året: julefrokosten, nytår, sommerhuset, polterabenden og spilleaftenen. 3.000+ kort på dansk. For voksne 18+.',
+  og='Én oplæser, 3.000+ kort og en pakke til hver sæson. Til iPhone og Android.',
   nav=[('#how', 'Sådan virker det'), ('#packs', 'Pakker'), ('#faq', 'Spørgsmål')], download='Hent',
   h1='Festspillet der styrer aftenen',
-  lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. 1.000+ kort fra start, Rapid-runder, hemmelige missioner og sangkort.',
+  lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. Ét spil til hele året: pakker til julefrokosten, sommerhuset, polterabenden, kampaftenen og alle fredage ind imellem. Pakken, der passer lige nu, ligger altid først.',
   soonTo='Snart i', note='For voksne 18+. Kan altid spilles uden alkohol.',
   heroAlt='Get Busted i brug: et kort på en mobilskærm',
   howK='Sådan virker det', howH='Klar på 20 sekunder',
@@ -187,13 +187,13 @@ T = {
          ('Odds', '«Hvad er oddsene for, at du ...?» I tæller begge ned og siger et tal på samme tid.'),
          ('Stor tekst', 'Større bogstaver, der er nemme at læse højt, også i et mørkt rum. Skift med Aa midt i spillet.'),
          ('Aftenen i tal', 'Efter spillet: aftenens mest busted, antal kort og Rapid-runder. Klar til at dele.')],
-  packsK='Pakker', packsH='En til enhver anledning',
-  packsLead='Fem pakker er klar fra start, og flere kommer hen over efteråret. Prøv 5 kort fra en hvilken som helst pakke gratis, før du køber.',
+  packsK='Pakker', packsH='En til enhver anledning, hele året',
+  packsLead='Fra julefrokosten til sommerferien og polterabenden. Pakken, der passer til sæsonen, ligger altid først. Prøv 5 kort fra en hvilken som helst pakke gratis, før du køber.',
   packs=[('original', 'cover_original.jpg', 'Original', '50 gratis kort hver aften', None),
-         ('halloween', 'cover_halloween.jpg', 'Halloween', 'Udklædning og gyserfilm', None),
          ('jul', 'cover_jul_da.jpg', 'Jul', 'Julefrokost og nytår', None),
          ('nach', 'cover_nach_da.jpg', 'Efterfest', 'Når klokken er tre', None),
          ('hytta', 'cover_hytta_da.jpg', 'Sommerhuset', 'Vildmarksbad og ingen dækning', None),
+         ('halloween', 'cover_halloween.jpg', 'Halloween', 'Udklædning og gyserfilm', None),
          ('reise', 'cover_reise_da.jpg', 'Rejse', 'Charter og billigfly', True),
          ('student', 'cover_student.jpg', 'Student', 'Rusture og fredagsbar', True),
          ('utdrikning', 'cover_utdrikning_da.jpg', 'Polterabend', 'For den, der skal giftes', True),
@@ -331,11 +331,11 @@ UPDATE = {
   steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
          ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. The levels stack, so Get Fu**ed has the lot. Play solo, in fixed duos or Red vs Blue.'),
          ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
-  stats=[('1,000+', 'cards in English at launch'), ('5', 'packs at launch, more this autumn'), ('2-30', 'players'), ('Free', 'to get started')],
+  stats=[('2,500+', 'cards in English'), ('12', 'packs for every season'), ('2-30', 'players'), ('Free', 'to get started')],
   shots=['Team play', 'Twists', 'Rapid', 'Odds', 'Big text', 'Halloween'],
   calK='1-24 December · free', calH=('Advent calendar ', 'in the app'), calLead='A new door every day until Christmas. What you open gets mixed into every game until the end of December.',
   calList=['17 new cards: office parties, Christmas stress, home for Christmas and family', 'December rules that last all night', 'New dice sides and a Christmas quiz'],
-  groups=['At launch', 'Autumn and winter', 'Only in English'], cards='cards', freeCards='50 free cards every night',
+  groups=['Out now', 'Coming soon', 'Only in English'], cards='cards', freeCards='50 free cards every night',
   priceK='Buying', priceH=('Pay once. ', 'No subscription.'), plusTag='',
   resp=[('Alcohol-free', 'The same game with points. Everyone can join.'), ('Breaks', 'Water breaks and breathers turn up along the way.'),
         ('Skip', 'You can always skip a card. Always.'), ('18+', 'Made for adults. Your crew picks the level.')],
@@ -353,11 +353,11 @@ UPDATE = {
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
          ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Nivåerna bygger på varandra, så Get Fu**ed har allt. Spela var för sig, i fasta duos eller Röd mot Blå.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
-  stats=[('1 000+', 'kort på svenska från start'), ('5', 'paket från start, fler i höst'), ('2-30', 'spelare'), ('Gratis', 'att komma igång')],
+  stats=[('2 900+', 'kort på svenska'), ('13', 'paket för hela året'), ('2-30', 'spelare'), ('Gratis', 'att komma igång')],
   shots=['Lagspel', 'Twist', 'Rapid', 'Odds', 'Stor text', 'Halloween'],
   calK='1-24 december · gratis', calH=('Julkalender ', 'i appen'), calLead='Ny lucka varje dag fram till jul. Det ni öppnar blandas in i alla spel december ut.',
   calList=['17 nya kort: julbord, julstress, hem till jul och familjen', 'Decemberregler som gäller hela kvällen', 'Nya sidor på tärningen och ett julquiz'],
-  groups=['Från start', 'Hösten och vintern', 'Bara i Sverige'], cards='kort', freeCards='50 gratis kort varje kväll',
+  groups=['Ute nu', 'Kommer snart', 'Bara i Sverige'], cards='kort', freeCards='50 gratis kort varje kväll',
   priceK='Köp', priceH=('Betala en gång. ', 'Ingen prenumeration.'), plusTag='',
   resp=[('Alkoholfritt', 'Samma spel med poäng. Alla kan vara med.'), ('Pauser', 'Vattenpauser och andningspauser dyker upp längs vägen.'),
         ('Stå över', 'Du får alltid stå över ett kort. Alltid.'), ('18+', 'Gjort för vuxna. Gänget väljer nivån.')],
@@ -375,11 +375,11 @@ UPDATE = {
   steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
          ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Niveauerne bygger oven på hinanden, så Get Fu**ed har det hele. Spil hver for sig, i faste par eller Rød mod Blå.'),
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
-  stats=[('1.000+', 'kort på dansk fra start'), ('5', 'pakker fra start, flere i efteråret'), ('2-30', 'spillere'), ('Gratis', 'at komme i gang')],
+  stats=[('3.000+', 'kort på dansk'), ('10+', 'pakker til hele året'), ('2-30', 'spillere'), ('Gratis', 'at komme i gang')],
   shots=['Holdspil', 'Twist', 'Rapid', 'Odds', 'Stor tekst', 'Halloween'],
   calK='1.-24. december · gratis', calH=('Julekalender ', 'i appen'), calLead='Ny låge hver dag til jul. Det, I åbner, blandes ind i alle spil december ud.',
   calList=['17 nye kort: julefrokost, julestress, hjem til jul og familien', 'Decemberregler, der gælder hele aftenen', 'Nye sider på terningen og en julequiz'],
-  groups=['Fra start', 'Efteråret og vinteren', ''], cards='kort', freeCards='50 gratis kort hver aften',
+  groups=['Ude nu', 'Kommer snart', ''], cards='kort', freeCards='50 gratis kort hver aften',
   packsLead='Fem pakker er klar fra start, og flere kommer hen over efteråret. Prøv 5 kort fra en hvilken som helst pakke gratis, før du køber.',
   priceK='Køb', priceH=('Betal én gang. ', 'Intet abonnement.'), plusTag='',
   resp=[('Alkoholfri', 'Samme spil med point. Alle kan være med.'), ('Pauser', 'Vandpauser og pustepauser dukker op undervejs.'),
@@ -983,6 +983,13 @@ LEGAL['da']['cookies'] = ('Cookies og lokal lagring', 'Hvad getbusted.online gem
 
 LEGAL_KEYS = (('terms', TERMS), ('privacy', PRIV), ('cookies', COOK), ('purchases', BUY))
 
+RELEASE = {'reise': '2026-11-05', 'student': '2026-11-12', 'utdrikning': '2026-11-19', 'fotball': '2026-11-21', 'sport': '2026-12-03',
+           'friendsgiving': '2026-11-12', 'mello': '2027-01-29', 'paddys': '2027-03-03', 'midsommar': '2027-06-04', 'kraftskiva': '2027-07-30'}
+import datetime as _dt
+def is_out(slug):
+    r = RELEASE.get(slug)
+    return not r or _dt.date.today().isoformat() >= r
+
 def label(rel, t):
     # Utenlandske sider viser ingen datoer: bare «Kommer snart» / «Coming soon»
     return t['soon']
@@ -990,8 +997,8 @@ def label(rel, t):
 def packs(lst, t):
     out = []
     for slug, img, name, sub, rel in lst:
-        soon = f"<i class='soon'>{E(label(rel, t))}</i>" if rel else ''
-        dr = ''
+        soon = f"<i class='soon'>{E(label(rel, t))}</i>" if rel and not is_out(slug) else ''
+        dr = f" data-release='{RELEASE[slug]}'" if slug in RELEASE else ''
         n = COUNTS[t['lang']].get(slug, 0)
         cnt = t['u']['freeCards'] if slug == 'original' else f"{n} {t['u']['cards']}"
         sub = '' if slug == 'original' and sub == t['u']['freeCards'] else sub
@@ -1085,6 +1092,31 @@ document.querySelectorAll('[data-until]').forEach(function (el) {{ if (now >= ne
 </html>
 """
 
+YEAR = {
+ 'en': [('original', 'Every night'), ('jul', 'Nov-Jan'), ('friendsgiving', 'November'), ('paddys', 'March'), ('reise', 'The holidays'), ('hytta', 'All year'),
+        ('utdrikning', 'All year'), ('fotball', 'Match day'), ('student', 'Term time'), ('sport', 'All year'), ('nach', 'Every weekend'), ('halloween', 'October')],
+ 'sv': [('original', 'Varje kväll'), ('jul', 'Nov-jan'), ('mello', 'Feb-mars'), ('midsommar', 'Juni'), ('kraftskiva', 'Augusti'), ('hytta', 'Hela året'),
+        ('reise', 'Semestern'), ('utdrikning', 'Hela året'), ('fotball', 'Matchdag'), ('student', 'Terminen'), ('nach', 'Varje helg'), ('halloween', 'Oktober')],
+ 'da': [('original', 'Hver aften'), ('jul', 'Nov-jan'), ('hytta', 'Hele året'), ('reise', 'Ferien'), ('utdrikning', 'Hele året'), ('fotball', 'Kampdag'),
+        ('student', 'Semestret'), ('sport', 'Hele året'), ('nach', 'Hver weekend'), ('halloween', 'Oktober')],
+}
+YEAR_T = {'en': ('All year round', 'See all packs'), 'sv': ('Hela året', 'Se alla paket'), 'da': ('Hele året', 'Se alle pakker')}
+YEAR_LP = {'en': ('Not just for one night', 'A pack for every season', 'Get Busted has packs for the whole year, so the app works long after this occasion is over.'),
+           'sv': ('Inte bara för en kväll', 'Ett paket för varje säsong', 'Get Busted har paket för hela året, så appen funkar långt efter det här tillfället.'),
+           'da': ('Ikke kun til én aften', 'En pakke til hver sæson', 'Get Busted har pakker til hele året, så appen virker længe efter denne anledning.')}
+
+def year_strip(t, href):
+    L = t['lang']
+    info = {x[0]: x for x in t['packs'] + t['specials']}
+    tiles = []
+    for slug, when in YEAR[L]:
+        if slug not in info: continue
+        _, img, name, _, _ = info[slug]
+        web = img.rsplit('.', 1)[0] + '.webp'
+        tiles.append(f"<a class='gp' data-pack='{slug}' href='{href}' style='--c:{COLORS.get(slug, '#B7D147')}'><picture><source srcset='/img/{web}' type='image/webp'>"
+                     f"<img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E(name)}</b><small>{E(when)}</small></a>")
+    return f"<div class='gal year'>{''.join(tiles)}</div><p class='gal-more'><a href='{href}'>{E(YEAR_T[L][1])}</a></p>"
+
 def home(t):
     u = t['u']; L = t['lang']
     steps = ''.join(f"<div class='step'><div class='n'>{i}</div><h3>{E(h)}</h3><p>{E(p)}</p></div>" for i, (h, p) in enumerate(t['steps'], 1))
@@ -1110,8 +1142,9 @@ def home(t):
     ph, pp = t['prices'][3]
     tag = f"<span class='tag'>{E(u['plusTag'])}</span>" if u['plusTag'] else ''
     plus = f"<div class='price plus'><div><h3>{E(ph)}</h3></div><div><p>{E(pp)}</p>{tag}</div></div>"
-    start = [x for x in t['packs'] if not x[4]]
-    later = [x for x in t['packs'] if x[4]]
+    start = [x for x in t['packs'] if not x[4] or is_out(x[0])]
+    later = [x for x in t['packs'] if x[4] and not is_out(x[0])]
+    start = [x for x in start if x[0] != 'halloween'] + [x for x in start if x[0] == 'halloween']
     groups = [(u['groups'][0], start), (u['groups'][1], later)] + ([(u['groups'][2], t['specials'])] if t['specials'] else [])
     packs_html = ''.join(f"<div class='group'><h3{GROUP_ATTR if i == 0 else ''}>{E(g)}</h3><div class='packs'>\n      {packs(lst, t)}\n    </div></div>" for i, (g, lst) in enumerate(groups))
     jul = {'en': 'cover_jul_en.jpg', 'sv': 'cover_jul_sv.jpg', 'da': 'cover_jul_da.jpg'}.get(L, 'cover_jul.jpg')
@@ -1132,10 +1165,17 @@ def home(t):
       <p class="note">{E(t['note'])}</p>
     </div>
     <div class="stage" aria-hidden="true">
-      <img class="cover l" src="/img/cover_halloween.jpg" alt="" style="--c:#FF8A1F" width="360" height="503">
-      <img class="cover r" src="/img/{jul}" alt="" style="--c:#E0473E" width="360" height="503">
+      <img class="cover l" src="/img/{jul}" alt="" style="--c:#E0473E" width="360" height="503">
+      <img class="cover r" src="/img/cover_hytta_{L}.jpg" alt="" style="--c:#C7864A" width="360" height="503">
       {hero_card_html(L)}
     </div>
+  </div>
+</section>
+
+<section class="gallery" aria-label="{E(YEAR_T[L][0])}">
+  <div class="wrap">
+    <p class="kicker">{E(YEAR_T[L][0])}</p>
+    {year_strip(t, '#packs')}
   </div>
 </section>
 
@@ -1376,6 +1416,15 @@ def landing(t, key):
   </div>
 </section>
 
+<section class="gallery">
+  <div class="wrap">
+    <p class="kicker">{E(YEAR_LP[L][0])}</p>
+    <h2>{E(YEAR_LP[L][1])}</h2>
+    <p class="lead">{E(YEAR_LP[L][2])}</p>
+    {year_strip(t, HOME[L] + '#packs')}
+  </div>
+</section>
+
 <section class="alt">
   <div class="wrap" style="max-width:820px">
     <p class="kicker">{E(x['faqK'])}</p>
@@ -1400,7 +1449,8 @@ for lang in LANGS:
     for key, alt in LEGAL_KEYS:
         write(alt[lang], legal_page(t, key, alt))
 
-(ROOT / 'online.css').write_text(""".langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
+(ROOT / 'online.css').write_text(""".gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
+.langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
 .langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}
 .langs a[aria-current]{border-color:#B7D147;color:#B7D147;opacity:1}
 footer .langs{margin-left:0}

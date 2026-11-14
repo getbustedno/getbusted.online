@@ -1,3 +1,4 @@
+.gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
 .langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
 .langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}
 .langs a[aria-current]{border-color:#B7D147;color:#B7D147;opacity:1}
