@@ -323,10 +323,10 @@ ICONS = ['✨', '🔄', '⚡', '🤫', '🎵', '⚔️', '🎯', '🔠', '📊']
 SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst', '8_halloween']
 UPDATE = {
  'en': dict(
-  desc='Get Busted is the party card game for game nights, house parties, stag and hen dos and cabin weekends. 1,000+ cards in English at launch, team play, Rapid rounds and secret missions. Adults 18+.',
-  og='One reader, 1,000+ cards at launch and zero boring breaks. For iPhone and Android.',
+  desc='Get Busted is the party card game for the whole year: the Christmas do, Friendsgiving, St. Paddy\'s, cabin weekends, stag and hen dos and game nights. 2,500+ cards in English across 12 packs. Adults 18+.',
+  og='One reader, 2,500+ cards and a pack for every season. For iPhone and Android.',
   h1=('The party game that ', 'runs the night', ''),
-  lead='One reader holds the phone. Everyone else looks at each other, not at a screen. 1,000+ cards at launch about the internet, the news and your group chat, plus team play, Rapid rounds and secret missions.',
+  lead='One reader holds the phone. Everyone else looks at each other, not at a screen. One game for the whole year: 12 packs for the Christmas do, Friendsgiving, St. Paddy\'s, the cabin weekend, stag and hen dos and every Friday in between. The pack that fits right now is always first.',
   soonTo='Coming soon to', note='For adults 18+. Alcohol-free mode is always included.', download='Coming soon',
   steps=[('Add your crew', '2 to 30 players. Names go straight onto the cards, so nobody gets to hide.'),
          ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. The levels stack, so Get Fu**ed has the lot. Play solo, in fixed duos or Red vs Blue.'),
@@ -345,10 +345,10 @@ UPDATE = {
   faqCal=('What is the advent calendar?', 'A new door every day from 1 to 24 December, free for everyone. The cards, rules and dice sides you open get mixed into every game until the end of December.'),
   foot='Adults 18+'),
  'sv': dict(
-  desc='Get Busted är partyspelet för förfesten, efterfesten och stughelgen. 1 000+ kort från start, skrivna för Sverige och inte översatta. Lagspel, Rapid och hemliga uppdrag. För vuxna 18+.',
-  og='En läsare, 1 000+ kort från start och noll tråkiga pauser. För iPhone och Android.',
+  desc='Get Busted är partyspelet för hela året: julbordet, Mello, midsommar, kräftskivan, stugan och spelkvällen. 2 900+ kort på svenska i 13 paket, skrivna för Sverige. För vuxna 18+.',
+  og='En läsare, 2 900+ kort och ett paket för varje säsong. För iPhone och Android.',
   h1=('Partyspelet som ', 'tar över', ' kvällen'),
-  lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. 1 000+ kort från start, skrivna för Sverige, inte översatta, plus lagspel, Rapid och hemliga uppdrag.',
+  lead='En person håller i telefonen och läser högt. Resten tittar på varandra, inte på en skärm. Ett spel för hela året: 13 paket till julbordet, Mello, midsommar, kräftskivan, stugan, svensexan och alla fredagar däremellan. Paketet som passar just nu ligger alltid först.',
   soonTo='29 oktober i', note='För vuxna 18+. Alkoholfritt läge finns alltid med.', download='29 oktober',
   steps=[('Skriv in gänget', '2 till 30 spelare. Namnen hamnar direkt på korten, så ingen kan gömma sig.'),
          ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Nivåerna bygger på varandra, så Get Fu**ed har allt. Spela var för sig, i fasta duos eller Röd mot Blå.'),
@@ -367,10 +367,10 @@ UPDATE = {
   faqCal=('Vad är julkalendern?', 'En ny lucka varje dag 1-24 december, gratis för alla. Korten, reglerna och tärningssidorna ni öppnar blandas in i alla spel december ut.'),
   foot='För vuxna 18+'),
  'da': dict(
-  desc='Get Busted er festspillet til forfesten, efterfesten og sommerhusturen. 1.000+ kort skrevet på dansk fra start, holdspil, Rapid og hemmelige missioner. For voksne 18+.',
-  og='Én oplæser, 1.000+ kort fra start og ingen kedelige pauser. Til iPhone og Android.',
+  desc='Get Busted er festspillet til hele året: julefrokosten, nytår, sommerhuset, polterabenden og spilleaftenen. 3.000+ kort på dansk. For voksne 18+.',
+  og='Én oplæser, 3.000+ kort og en pakke til hver sæson. Til iPhone og Android.',
   h1=('Festspillet, der ', 'tager over', ' aftenen'),
-  lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. 1.000+ kort skrevet på dansk fra start, holdspil, Rapid-runder og hemmelige missioner.',
+  lead='Én person holder telefonen og læser højt. Resten kigger på hinanden, ikke på en skærm. Ét spil til hele året: pakker til julefrokosten, sommerhuset, polterabenden, kampaftenen og alle fredage ind imellem. Pakken, der passer lige nu, ligger altid først.',
   soonTo='Snart i', note='For voksne 18+. Alkoholfri tilstand er altid med.', download='Kommer snart',
   steps=[('Skriv spillerne ind', '2 til 30 spillere. Navnene kommer direkte på kortene, så ingen kan gemme sig.'),
          ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Niveauerne bygger oven på hinanden, så Get Fu**ed har det hele. Spil hver for sig, i faste par eller Rød mod Blå.'),
