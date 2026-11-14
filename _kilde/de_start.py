@@ -6,9 +6,9 @@ import pathlib, html
 E_ = html.escape
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PACKS = [('original', 'cover_original.jpg', '#B7D147', 'Original', 'Der Klassiker für jeden Abend', 219),
-         ('jul', 'cover_jul_en.jpg', '#E0473E', 'Weihnachten & Silvester', 'Weihnachtsfeier, Heiligabend und Mitternacht', 152),
-         ('utdrikning', 'cover_utdrikning_en.jpg', '#E94B8A', 'JGA', 'Für die Person, die heiratet', 114)]
-tiles = ''.join(f"<div class='pack' data-pack='{k}' style='--c:{c}'><picture><img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E_(n)}</b><span>{E_(s)}</span><small>{cnt} Karten</small><i class='soon'>Kommt bald</i></div>" for k, img, c, n, s, cnt in PACKS)
+         ('jul', 'cover_jul_de.jpg', '#E0473E', 'Weihnachten & Silvester', 'Weihnachtsfeier, Heiligabend und Mitternacht', 152),
+         ('utdrikning', 'cover_utdrikning_de.jpg', '#E94B8A', 'JGA', 'Für die Person, die heiratet', 114)]
+tiles = ''.join(f"<div class='pack' data-pack='{k}' style='--c:{c}'><picture><source srcset='/img/{img[:-4]}.webp' type='image/webp'><img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E_(n)}</b><span>{E_(s)}</span><small>{cnt} Karten</small><i class='soon'>Kommt bald</i></div>" for k, img, c, n, s, cnt in PACKS)
 steps = [('Crew eintragen', '2 bis 30 Leute. Die Namen landen direkt auf den Karten, also kann sich niemand verstecken.'),
          ('Level wählen', 'Mild, Frech oder Get Fu**ed. Die Level bauen aufeinander auf.'),
          ('Laut vorlesen und spielen', 'Eine Person liest vor. Würfel, Twists und Rapid-Runden kommen von selbst.')]
@@ -43,6 +43,7 @@ page = f"""<!doctype html>
 <link rel="preload" href="/fonts/bsc-900Black_Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/online.css">
+<style>.flag-de{{display:inline-block;width:22px;height:13px;border-radius:3px;margin-right:9px;vertical-align:-1px;background:linear-gradient(#111 0 33.3%,#DD0000 33.3% 66.6%,#FFCE00 66.6%);box-shadow:0 0 0 1px rgba(255,255,255,.18),0 0 14px rgba(255,206,0,.35)}}</style>
 </head>
 <body>
 <main id="innhold">
@@ -50,7 +51,7 @@ page = f"""<!doctype html>
   <div class="wrap">
     <div>
       <img class="logo" src="/img/logo.png" alt="Get Busted" width="150" height="150">
-      <p class="kicker">Kommt bald nach Deutschland</p>
+      <p class="kicker"><span class="flag-de" aria-hidden="true"></span>Kommt bald nach Deutschland · Für Deutschland geschrieben</p>
       <h1>Das Partyspiel für <em>jede Jahreszeit</em></h1>
       <p class="lead">Eine Person hält das Handy und liest vor. Alle anderen schauen sich an, nicht auf einen Bildschirm. Ein Spiel für das ganze Jahr: von der Weihnachtsfeier bis zum JGA, mit Karten, die in Deutschland geschrieben werden, nicht übersetzt.</p>
       <div class="badges">
@@ -60,7 +61,7 @@ page = f"""<!doctype html>
       <p class="note">Für Erwachsene ab 18. Ohne Alkohol spielbar: Dann gibt es Punkte statt Schlucke.</p>
     </div>
     <div class="stage" aria-hidden="true">
-      <img class="cover l" src="/img/cover_jul_en.jpg" alt="" style="--c:#E0473E" width="360" height="503">
+      <img class="cover l" src="/img/cover_jul_de.jpg" alt="" style="--c:#E0473E" width="360" height="503">
       <img class="cover r" src="/img/cover_original.jpg" alt="" style="--c:#B7D147" width="360" height="503">
     </div>
   </div>
