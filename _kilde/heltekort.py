@@ -27,13 +27,11 @@ KORT = {
     ('GB066-SV', 'pek', 'kallar sig skidåkare efter en helg i Sälen'),
     ('SV1522', 'pek', 'somnar först, mitt i ett parti Monopol'),
     ('SV0418', 'pek', 'bråkar om senapen på julskinkan som om det vore politik'),
-    ('SV0218', 'pek', 'tycker halloween är amerikanskt trams men är mest utklädd ändå'),
   ],
   'da': [
     ('DA0127', 'pek', 'kalder alt vest for Valby for «Jylland»'),
     ('DA0133', 'pek', 'har flest ubetalte MobilePay-anmodninger liggende'),
     ('DA0592', 'pek', 'siger «vi giver ikke gaver i år» og så alligevel køber noget'),
-    ('DA0417', 'pek', 'siger «halloween er amerikansk pjat» men har planlagt sit kostume siden august'),
     ('DA0988', 'pek', 'forsvinder, når der skal gøres rent til aflevering'),
     ('DA0593', 'pek', 'falder i søvn, før kongens nytårstale er slut'),
     ('DA0139', 'pek', 'regner fællesspisningen ud på MobilePay ned til 50 øre'),
@@ -47,7 +45,6 @@ KORT = {
     ('EN1523', 'pek', 'turns into a completely different person during Monopoly'),
     ('EN1521', 'pek', 'has never once done the dishes at a cabin'),
     ('EN0420', 'pek', 'will buy every single present on Christmas Eve'),
-    ('EN0245', 'pek', 'would buy half of Spirit Halloween and use none of it'),
   ],
 }
 

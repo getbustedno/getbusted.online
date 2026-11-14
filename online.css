@@ -1,3 +1,17 @@
+/* pakkegalleri rett under hero: 5 kolonner på desktop, sidelengs scroll på mobil */
+.gallery { padding: 8px 0 28px; }
+.gal { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.gp { display: block; text-decoration: none; min-width: 0; }
+.gp picture { display: block; border-radius: 14px; box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--c) 55%, transparent), 0 16px 34px -14px color-mix(in srgb, var(--c) 70%, transparent); transition: transform .25s; }
+.gp img { width: 100%; height: auto; aspect-ratio: 360 / 503; object-fit: cover; border-radius: 14px; }
+.gp:hover picture { transform: translateY(-5px) rotate(-1deg); }
+.gp b { display: block; margin-top: 10px; font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 19px; line-height: 1.05; color: var(--c); text-align: center; }
+@media (max-width: 720px) {
+  .gallery .wrap { padding-right: 0; }
+  .gal { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 20px 14px 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .gal::-webkit-scrollbar { display: none; }
+  .gp { flex: 0 0 132px; scroll-snap-align: start; }
+}
 .gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
 .langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
 .langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}

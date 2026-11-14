@@ -260,7 +260,6 @@ SAMPLES = {
   cards=[('original', 'Original', 'On three, point at the one who', 'would get scammed by a deepfake of their own mum'),
          ('jul', 'Christmas', 'On three, point at the one who', 'will lose Whamageddon first this year'),
          ('hytta', 'The Cabin', 'On three, point at the one who', 'sends the Splitwise request before the car is even unpacked'),
-         ('halloween', 'Halloween', 'On three, point at the one who', 'would say “I’m not scared, I’m just cold” to get an arm round them'),
          ('nach', 'Afterparty', 'On three, point at the one who', 'texts “home safe x” first and gets home last'),
          ('original', 'Original', 'On three, point at the one who', 'nods along to crypto talk without understanding a single word'),
          ('original', 'Original', 'Truth', 'Rory: what’s the longest situationship you’ve been in, and how did it end?'),
@@ -269,7 +268,6 @@ SAMPLES = {
   cards=[('jul', 'Jul', 'På tre - peka på den som', 'somnar först i soffan under Kalle Anka'),
          ('original', 'Original', 'På tre - peka på den som', 'beställer för två på Max klockan tre och äter upp allt själv'),
          ('hytta', 'Stugan', 'På tre - peka på den som', 'frågar efter wifi-lösenordet i en stuga utan rinnande vatten'),
-         ('halloween', 'Halloween', 'På tre - peka på den som', 'tycker att halloween är amerikanskt trams men är mest utklädd ändå'),
          ('nach', 'Efterfest', 'På tre - peka på den som', 'har de mest kaotiska DM:en efter klockan tre'),
          ('jul', 'Jul', 'På tre - peka på den som', 'säger ”vi borde ses i mellandagarna” och aldrig hör av sig'),
          ('original', 'Original', 'Sanning', 'Signe: vilken Mellolåt kan du hela texten till?'),
@@ -278,7 +276,6 @@ SAMPLES = {
   cards=[('original', 'Original', 'På tre - peg på den, der', 'regner fællesspisningen ud på MobilePay ned til 50 øre'),
          ('jul', 'Jul', 'På tre - peg på den, der', 'græder til Fra alle os til alle jer'),
          ('hytta', 'Sommerhuset', 'På tre - peg på den, der', 'ikke kan tænde op i brændeovnen, men nægter at få hjælp'),
-         ('halloween', 'Halloween', 'På tre - peg på den, der', 'ville græde i et gyserhus på Bakken'),
          ('nach', 'Efterfest', 'På tre - peg på den, der', 'ville tænde loftslyset for at smide os alle ud'),
          ('original', 'Original', 'På tre - peg på den, der', 'råber mest ad folk på cykelstien'),
          ('original', 'Original', 'Sandhed', 'Asger: hvem i rummet ville du ringe til, hvis du stod på Roskilde uden telt, penge og telefon?'),
@@ -320,7 +317,7 @@ def jsonld(t):
 FAQ_ATTR = ' data-launch="faq"'
 GROUP_ATTR = ' data-launch="group"'
 ICONS = ['✨', '🔄', '⚡', '🤫', '🎵', '⚔️', '🎯', '🔠', '📊']
-SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst', '8_halloween']
+SHOTS = ['3_lag', '4_vri', '5_rapid', '6_odds', '7_stortekst']
 UPDATE = {
  'en': dict(
   desc='Get Busted is the party card game for the whole year: the Christmas do, Friendsgiving, St. Paddy\'s, cabin weekends, stag and hen dos and game nights. 2,500+ cards in English across 12 packs. Adults 18+.',
@@ -332,7 +329,7 @@ UPDATE = {
          ('Pick packs and level', 'Mild, Cheeky or Get Fu**ed. The levels stack, so Get Fu**ed has the lot. Play solo, in fixed duos or Red vs Blue.'),
          ('Read out loud and play', 'The reader reads the cards. The dice, the twists and the Rapid rounds show up on their own.')],
   stats=[('2,500+', 'cards in English'), ('12', 'packs for every season'), ('2-30', 'players'), ('Free', 'to get started')],
-  shots=['Team play', 'Twists', 'Rapid', 'Odds', 'Big text', 'Halloween'],
+  shots=['Team play', 'Twists', 'Rapid', 'Odds', 'Big text'],
   calK='1-24 December · free', calH=('Advent calendar ', 'in the app'), calLead='A new door every day until Christmas. What you open gets mixed into every game until the end of December.',
   calList=['17 new cards: office parties, Christmas stress, home for Christmas and family', 'December rules that last all night', 'New dice sides and a Christmas quiz'],
   groups=['Out now', 'Coming soon', 'Only in English'], cards='cards', freeCards='50 free cards every night',
@@ -354,7 +351,7 @@ UPDATE = {
          ('Välj paket och nivå', 'Mild, Fräck eller Get Fu**ed. Nivåerna bygger på varandra, så Get Fu**ed har allt. Spela var för sig, i fasta duos eller Röd mot Blå.'),
          ('Läs högt och kör', 'Läsaren läser korten. Tärningen, twistarna och Rapid-rundorna dyker upp av sig själva.')],
   stats=[('2 900+', 'kort på svenska'), ('13', 'paket för hela året'), ('2-30', 'spelare'), ('Gratis', 'att komma igång')],
-  shots=['Lagspel', 'Twist', 'Rapid', 'Odds', 'Stor text', 'Halloween'],
+  shots=['Lagspel', 'Twist', 'Rapid', 'Odds', 'Stor text'],
   calK='1-24 december · gratis', calH=('Julkalender ', 'i appen'), calLead='Ny lucka varje dag fram till jul. Det ni öppnar blandas in i alla spel december ut.',
   calList=['17 nya kort: julbord, julstress, hem till jul och familjen', 'Decemberregler som gäller hela kvällen', 'Nya sidor på tärningen och ett julquiz'],
   groups=['Ute nu', 'Kommer snart', 'Bara i Sverige'], cards='kort', freeCards='50 gratis kort varje kväll',
@@ -376,7 +373,7 @@ UPDATE = {
          ('Vælg pakker og niveau', 'Mild, Fræk eller Get Fu**ed. Niveauerne bygger oven på hinanden, så Get Fu**ed har det hele. Spil hver for sig, i faste par eller Rød mod Blå.'),
          ('Læs højt og spil', 'Oplæseren læser kortene. Terningen, twistene og Rapid-runderne dukker op af sig selv.')],
   stats=[('3.000+', 'kort på dansk'), ('10+', 'pakker til hele året'), ('2-30', 'spillere'), ('Gratis', 'at komme i gang')],
-  shots=['Holdspil', 'Twist', 'Rapid', 'Odds', 'Stor tekst', 'Halloween'],
+  shots=['Holdspil', 'Twist', 'Rapid', 'Odds', 'Stor tekst'],
   calK='1.-24. december · gratis', calH=('Julekalender ', 'i appen'), calLead='Ny låge hver dag til jul. Det, I åbner, blandes ind i alle spil december ud.',
   calList=['17 nye kort: julefrokost, julestress, hjem til jul og familien', 'Decemberregler, der gælder hele aftenen', 'Nye sider på terningen og en julequiz'],
   groups=['Ude nu', 'Kommer snart', ''], cards='kort', freeCards='50 gratis kort hver aften',
@@ -1449,7 +1446,21 @@ for lang in LANGS:
     for key, alt in LEGAL_KEYS:
         write(alt[lang], legal_page(t, key, alt))
 
-(ROOT / 'online.css').write_text(""".gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
+(ROOT / 'online.css').write_text("""/* pakkegalleri rett under hero: 5 kolonner på desktop, sidelengs scroll på mobil */
+.gallery { padding: 8px 0 28px; }
+.gal { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+.gp { display: block; text-decoration: none; min-width: 0; }
+.gp picture { display: block; border-radius: 14px; box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--c) 55%, transparent), 0 16px 34px -14px color-mix(in srgb, var(--c) 70%, transparent); transition: transform .25s; }
+.gp img { width: 100%; height: auto; aspect-ratio: 360 / 503; object-fit: cover; border-radius: 14px; }
+.gp:hover picture { transform: translateY(-5px) rotate(-1deg); }
+.gp b { display: block; margin-top: 10px; font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 19px; line-height: 1.05; color: var(--c); text-align: center; }
+@media (max-width: 720px) {
+  .gallery .wrap { padding-right: 0; }
+  .gal { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 20px 14px 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .gal::-webkit-scrollbar { display: none; }
+  .gp { flex: 0 0 132px; scroll-snap-align: start; }
+}
+.gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
 .langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
 .langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}
 .langs a[aria-current]{border-color:#B7D147;color:#B7D147;opacity:1}
