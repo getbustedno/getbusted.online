@@ -6,7 +6,8 @@
  */
 (function () {
   var tiles = document.querySelectorAll('.pack[data-pack]');
-  if (!tiles.length || !window.fetch) return;
+  var gps = document.querySelectorAll('.gp[data-pack]'); // «Hele året»-stripa: trykk åpner pakken direkte
+  if ((!tiles.length && !gps.length) || !window.fetch) return;
   var LANG = (document.documentElement.lang || 'no').slice(0, 2);
   var TX = {
     no: { kort: 'kort', niv: ['Mild', 'Frekk', 'Get Fu**ed'], nivT: 'Nivåer', mix: 'Kortmiks', smak: 'Smakebiter', lukk: 'Lukk',
@@ -68,13 +69,14 @@
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var dlg = null, last = null;
   function apne(el) {
-    if (!DATA) return;
+    if (!DATA) return false;
     var slug = el.getAttribute('data-pack'), p = DATA[slug];
-    if (!p) return;
+    if (!p) return false;
     last = el;
     var c = getComputedStyle(el).getPropertyValue('--c').trim() || '#B7D147';
     var img = el.querySelector('img'), navn = (el.querySelector('b') || {}).textContent || '', tag = (el.querySelector('span') || {}).textContent || '';
-    var soon = el.querySelector('.soon:not(.hot)'), st = slug === 'original' ? TX.orig : soon ? soon.textContent : '';
+    var soon = el.querySelector('.soon:not(.hot)'), rel = el.getAttribute('data-release');
+    var st = slug === 'original' ? TX.orig : soon ? soon.textContent : (rel && Date.now() < new Date(rel + 'T00:00:00+01:00').getTime() ? el.getAttribute('data-soon') || '' : '');
     var maks = Math.max.apply(null, p.niv) || 1;
     var bars = p.niv.map(function (n, i) { return '<div class="pi-bar"><b>' + TX.niv[i] + '</b><i><em style="width:' + (100 * n / maks).toFixed(0) + '%"></em></i><span>' + n + '</span></div>'; }).join('');
     var chips = p.typer.slice(0, 6).map(function (t) { return '<span>' + esc(TX.typ[t[0]] || t[0]) + '<b>' + t[1] + '</b></span>'; }).join('');
@@ -95,10 +97,20 @@
       (smak ? '<h4>' + TX.smak + '</h4><div class="pi-smak">' + smak + '</div>' : '') + '</div></div>';
     dlg.querySelector('.pi-x').addEventListener('click', function () { dlg.close(); });
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    return true;
   }
   tiles.forEach(function (el) {
     el.setAttribute('role', 'button'); el.setAttribute('tabindex', '0'); el.setAttribute('title', TX.hint);
     el.addEventListener('click', function (e) { if (!e.target.closest('a')) apne(el); });
     el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); apne(el); } });
+  });
+  // Stripa: åpne samme pakkeinfo (fra pakkelista hvis den finnes på siden, ellers fra omslaget i stripa)
+  gps.forEach(function (a) {
+    a.setAttribute('title', TX.hint);
+    a.addEventListener('click', function (e) {
+      var slug = a.getAttribute('data-pack');
+      var tile = document.querySelector('.pack[data-pack="' + slug + '"]');
+      if (apne(tile || a)) e.preventDefault();
+    });
   });
 })();

@@ -1110,7 +1110,8 @@ def year_strip(t, href):
         if slug not in info: continue
         _, img, name, _, _ = info[slug]
         web = img.rsplit('.', 1)[0] + '.webp'
-        tiles.append(f"<a class='gp' data-pack='{slug}' href='{href}' style='--c:{COLORS.get(slug, '#B7D147')}'><picture><source srcset='/img/{web}' type='image/webp'>"
+        dr = f" data-release='{RELEASE[slug]}' data-soon='{E(t['soon'])}'" if slug in RELEASE and not is_out(slug) else ''
+        tiles.append(f"<a class='gp' data-pack='{slug}'{dr} href='{href}' style='--c:{COLORS.get(slug, '#B7D147')}'><picture><source srcset='/img/{web}' type='image/webp'>"
                      f"<img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E(name)}</b><small>{E(when)}</small></a>")
     return f"<div class='gal year'>{''.join(tiles)}</div><p class='gal-more'><a href='{href}'>{E(YEAR_T[L][1])}</a></p>"
 
