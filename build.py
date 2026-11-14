@@ -1115,6 +1115,12 @@ def year_strip(t, href):
                      f"<img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E(name)}</b><small>{E(when)}</small></a>")
     return f"<div class='gal year'>{''.join(tiles)}</div><p class='gal-more'><a href='{href}'>{E(YEAR_T[L][1])}</a></p>"
 
+MADE = {
+ 'en': ('Written for British crews, not translated', "<svg viewBox='0 0 60 36' width='22' height='13' aria-hidden='true'><rect width='60' height='36' fill='#012169'/><path d='M0,0 60,36 M60,0 0,36' stroke='#fff' stroke-width='7'/><path d='M0,0 60,36 M60,0 0,36' stroke='#C8102E' stroke-width='3'/><path d='M30,0 V36 M0,18 H60' stroke='#fff' stroke-width='11'/><path d='M30,0 V36 M0,18 H60' stroke='#C8102E' stroke-width='6'/></svg>"),
+ 'sv': ('Skrivet för Sverige, inte översatt', "<svg viewBox='0 0 16 10' width='22' height='13' aria-hidden='true'><rect width='16' height='10' fill='#006AA7'/><path d='M5,0 V10 M0,5 H16' stroke='#FECC00' stroke-width='2'/></svg>"),
+ 'da': ('Skrevet til Danmark, ikke oversat', "<svg viewBox='0 0 37 28' width='22' height='13' aria-hidden='true'><rect width='37' height='28' fill='#C8102E'/><path d='M14,0 V28 M0,14 H37' stroke='#fff' stroke-width='4'/></svg>"),
+}
+
 def home(t):
     u = t['u']; L = t['lang']
     steps = ''.join(f"<div class='step'><div class='n'>{i}</div><h3>{E(h)}</h3><p>{E(p)}</p></div>" for i, (h, p) in enumerate(t['steps'], 1))
@@ -1153,6 +1159,7 @@ def home(t):
   <div class="wrap">
     <div>
       <img class="logo" src="/img/logo.png" alt="Get Busted" width="150" height="150">
+      <p class="made">{MADE[L][1]}<span>{E(MADE[L][0])}</span></p>
       <a class="season-pill" href="#packs" hidden></a>
       <h1>{E(h1a)}<em>{E(h1b)}</em>{E(h1c)}</h1>
       <p class="lead">{E(t['lead'])}</p>
@@ -1461,6 +1468,7 @@ for lang in LANGS:
   .gal::-webkit-scrollbar { display: none; }
   .gp { flex: 0 0 132px; scroll-snap-align: start; }
 }
+.made{display:flex;align-items:center;gap:9px;margin:4px 0 10px;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#B7D147}.made svg{border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18);flex:none}
 .gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
 .langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
 .langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}

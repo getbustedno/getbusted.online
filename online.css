@@ -12,6 +12,7 @@
   .gal::-webkit-scrollbar { display: none; }
   .gp { flex: 0 0 132px; scroll-snap-align: start; }
 }
+.made{display:flex;align-items:center;gap:9px;margin:4px 0 10px;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#B7D147}.made svg{border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18);flex:none}
 .gal.year{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 14px}.gal.year .gp b{font-size:16px}.gp small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:2px}.gal-more{margin-top:14px;font-size:15px}.gal-more a{color:#B7D147}.gallery h2{margin-bottom:6px}
 .langs{display:inline-flex;gap:6px;margin:0 6px 0 16px}
 .langs a{padding:4px 8px;border:1px solid #555;border-radius:8px;font-weight:800;font-size:13px;letter-spacing:1px;opacity:.75;margin-left:0!important}
