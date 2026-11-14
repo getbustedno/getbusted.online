@@ -1540,6 +1540,7 @@ entries = []
 for alt, langs in ((HOME, LANGS + ['no']), (HELP, LANGS), (LP_ALT['xmas'], LANGS + ['no']), (LP_ALT['cabin'], LANGS + ['no']), (LP_ALT['wed'], LANGS + ['no']), (LP_ALT['season'], LANGS + ['no']), (PRIV, LANGS + ['no']), (TERMS, LANGS + ['no']), (COOK, LANGS + ['no']), (BUY, LANGS + ['no'])):
     for l in LANGS:
         entries.append(sm_entry(alt[l], alt, langs))
+entries.append('<url>\n  <loc>' + full('/de/') + '</loc>\n</url>')  # tysk promoside (kommer snart)
 (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + '\n'.join(entries) + '\n</urlset>\n', encoding='utf-8')
 (ROOT / '404.html').write_text("<!doctype html><meta charset='utf-8'><title>Get Busted</title><meta http-equiv='refresh' content='0;url=/'><a href='/'>Get Busted</a>\n")
 print('ok')

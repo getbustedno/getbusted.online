@@ -1,4 +1,4 @@
-"""Tysk startside (getbusted.online/de/). Ikke lansert: noindex, ikke i sitemap, ikke i språkvelgeren.
+"""Tysk promoside (getbusted.online/de/): «kommt bald», søkbar og i sitemap (lagt inn i build.py), ikke i språkvelgeren før lansering.
 Kortantall fra de-utvikling-grenen. Kjør: python3 _kilde/de_start.py
 Pakkeinfo (trykk på pakke): pakkeinfo.json har en «de»-del laget fra de-utvikling (pakkeinfo.py ... de).
 Kjøres pakkeinfo.py på nytt for sv da en, må de-delen legges inn igjen."""
@@ -8,7 +8,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PACKS = [('original', 'cover_original.jpg', '#B7D147', 'Original', 'Der Klassiker für jeden Abend', 219),
          ('jul', 'cover_jul_en.jpg', '#E0473E', 'Weihnachten & Silvester', 'Weihnachtsfeier, Heiligabend und Mitternacht', 152),
          ('utdrikning', 'cover_utdrikning_en.jpg', '#E94B8A', 'JGA', 'Für die Person, die heiratet', 114)]
-tiles = ''.join(f"<div class='pack' data-pack='{k}' style='--c:{c}'><picture><img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E_(n)}</b><span>{E_(s)}</span><small>{cnt} Karten</small><i class='soon'>In Arbeit</i></div>" for k, img, c, n, s, cnt in PACKS)
+tiles = ''.join(f"<div class='pack' data-pack='{k}' style='--c:{c}'><picture><img src='/img/{img}' alt='' width='360' height='503' loading='lazy'></picture><b>{E_(n)}</b><span>{E_(s)}</span><small>{cnt} Karten</small><i class='soon'>Kommt bald</i></div>" for k, img, c, n, s, cnt in PACKS)
 steps = [('Crew eintragen', '2 bis 30 Leute. Die Namen landen direkt auf den Karten, also kann sich niemand verstecken.'),
          ('Level wählen', 'Mild, Frech oder Get Fu**ed. Die Level bauen aufeinander auf.'),
          ('Laut vorlesen und spielen', 'Eine Person liest vor. Würfel, Twists und Rapid-Runden kommen von selbst.')]
@@ -30,9 +30,14 @@ page = f"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get Busted - das Partyspiel für jede Jahreszeit</title>
-<meta name="robots" content="noindex">
-<meta name="description" content="Get Busted ist das Partyspiel für das ganze Jahr. Bald auf Deutsch, mit Karten, die in Deutschland geschrieben wurden. Für Erwachsene ab 18.">
+<title>Get Busted - das Partyspiel für jede Jahreszeit | Bald in Deutschland</title>
+<link rel="canonical" href="https://getbusted.online/de/">
+<meta property="og:title" content="Get Busted - das Partyspiel kommt bald nach Deutschland">
+<meta property="og:description" content="Ein Handy, eine Person liest vor, alle spielen. Bald im App Store und bei Google Play. Ab 18.">
+<meta property="og:image" content="https://getbusted.online/img/og_en.jpg">
+<meta property="og:url" content="https://getbusted.online/de/">
+<meta property="og:locale" content="de_DE">
+<meta name="description" content="Get Busted, das Partyspiel für Spieleabend, Weihnachtsfeier und JGA, kommt bald nach Deutschland. Deutsche Karten, geschrieben in Deutschland. Bald im App Store und bei Google Play. Ab 18.">
 <meta name="theme-color" content="#191919">
 <link rel="icon" href="/img/favicon.png">
 <link rel="preload" href="/fonts/bsc-900Black_Italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -45,7 +50,7 @@ page = f"""<!doctype html>
   <div class="wrap">
     <div>
       <img class="logo" src="/img/logo.png" alt="Get Busted" width="150" height="150">
-      <p class="kicker">Bald auf Deutsch</p>
+      <p class="kicker">Kommt bald nach Deutschland</p>
       <h1>Das Partyspiel für <em>jede Jahreszeit</em></h1>
       <p class="lead">Eine Person hält das Handy und liest vor. Alle anderen schauen sich an, nicht auf einen Bildschirm. Ein Spiel für das ganze Jahr: von der Weihnachtsfeier bis zum JGA, mit Karten, die in Deutschland geschrieben werden, nicht übersetzt.</p>
       <div class="badges">
@@ -81,8 +86,8 @@ page = f"""<!doctype html>
   <div class="wrap">
     <p class="kicker">Pakete</p>
     <h2>Eins für jeden Anlass, <em>das ganze Jahr</em></h2>
-    <p class="lead">Die ersten deutschen Pakete sind in Arbeit. Danach kommen Pakete für jede Jahreszeit dazu.</p>
-    <div class="group"><h3>In Arbeit</h3><div class="packs">
+    <p class="lead">Die ersten deutschen Pakete kommen bald. Danach folgen Pakete für jede Jahreszeit.</p>
+    <div class="group"><h3>Kommt bald</h3><div class="packs">
       {tiles}
     </div></div>
   </div>
@@ -103,6 +108,7 @@ page = f"""<!doctype html>
     <div class="footer-firma">© 2026 Snikkerbua Holding AS · Org.-Nr. 927 118 300 · Voldgata 27, 2000 Lillestrøm, Norwegen · Ab 18</div>
   </div>
 </footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Get Busted","url":"https://getbusted.online/de/","inLanguage":"de","description":"Das Partyspiel für jede Jahreszeit. Kommt bald nach Deutschland.","applicationCategory":"GameApplication","operatingSystem":"iOS, Android","contentRating":"18+"}</script>
 <script src="/pakkeinfo.js" defer></script>
 </body>
 </html>
