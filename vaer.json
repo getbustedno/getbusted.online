@@ -1,1 +1,1 @@
-{"no":{"t":"ingen","styrke":1,"frost":false},"se":{"t":"ingen","styrke":1,"frost":false},"dk":{"t":"sol","styrke":1,"frost":false},"gb":{"t":"regn","styrke":1,"frost":false}}
+{"no":{"t":"ingen","styrke":1,"frost":true},"se":{"t":"sno","styrke":1,"frost":true},"dk":{"t":"klart","styrke":1,"frost":true},"gb":{"t":"regn","styrke":1,"frost":false}}
